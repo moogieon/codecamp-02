@@ -1,3 +1,6 @@
+import{useMutation, gql} from '@apollo/client'
+
+import { useState } from 'react';
 import {
     Address,
     ButtonWrapper,
@@ -24,7 +27,7 @@ import {
     Warring,
 } from '../../../styles/boards/new/BoardsNew.styles';
 
-import { useState } from 'react';
+
 
 export default function BoardNewPage() {
 
@@ -37,6 +40,19 @@ export default function BoardNewPage() {
     const [ttlerror, setTtlerror] = useState('')
     const [contentserror, setContetserror] = useState('')
     const [ytv, setYtv] = useState('')
+
+    const [board] = useMutation( // mutation(고정) post (이름) //
+                                // $BoradInput (이름) : CreateBoardInput(API 고정)
+                                // createBoard(API 고정)  
+            gql`
+                mutation post( $BoardInput:CreateBoardInput! ){
+                    createBoard(createBoardInput:$BoardInput)
+                    {_id}
+                }
+                
+            `
+    )
+     
 
     function loginId(event) {
         setId(event.target.value)
@@ -53,11 +69,12 @@ export default function BoardNewPage() {
     function usserYoutybe(event) {
         setYtv(event.target.value)
     }
-    function regist() {
+    async function regist() {
+
+
         if (id === '') {
             setIderror('내용을 입력해주세요.')
             //  alert('아이디를 입력해 주세요.')
-
         }
         if (pw === '') {
             setPwerror('내용을 입력해주세요.')
@@ -66,16 +83,13 @@ export default function BoardNewPage() {
         if (ttl === '') {
             setTtlerror('내용을 입력해주세요.')
             //  alert('제목을 입력해 주세요.')
-
         }
         if (contents === '') {
             setContetserror('내용을 입력해주세요.')
             // alert('내용을 입력해 주세요.')
-
         }
         if (id !== '') {
             setIderror('')
-
 
         }
         if (pw !== '') {
@@ -89,6 +103,25 @@ export default function BoardNewPage() {
             // alert('내용을 입력해 주세요.')
 
         }
+                            // (이름) useMutation 함수 이름
+        const result = await  board(
+            {
+                variables:{
+                    // 변수이름은 마음 대로 ex) aaa:seller
+                    BoardInput:{
+                        writer:id,
+                        password :pw,
+                        title:ttl,
+                        contents:contents,
+                        youtubeUrl:ytv 
+                        //왼쪽 객체들은 API 양식 그대로  오른쪽은 usestate('') 변수                        
+                }
+
+                    
+            }
+        }) 
+            
+
     }
 
     return (

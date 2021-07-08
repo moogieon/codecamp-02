@@ -11,8 +11,8 @@ export const HeadLine = styled.div`
 
 export const Wrapper = styled.div`
     border: 1px solid black;
-    background-color: black;
-    background-image: url('/Users/Mook/Desktop/code_camp/codecamp_2기_이창묵/class/styles/homework/img/img-bg.png');
+    
+    background-image: url('/homework-image/img-bg.png');
     width: 640px;
     height: 1138px;
     padding-left: 51px;
@@ -27,27 +27,50 @@ export const Wrapper = styled.div`
     
 `
 export const Head = styled.div`
-    background-color: green;
+    
     width: 218px;
     height: 100% ;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 168px;
+    padding-bottom: 162px;
     
 `
+export const ImgeBox =styled.div`
+margin-top: 27px;
+width: 100px;
+height: 100px;
+
+
+
+
+
+
+`
+ 
 export const ImageBitmap = styled.div`
     width: 100px;
     height: 100px;
-    background-color: white;
+    background-image: url('/homework-image/img-100-logo-white@3x.png');
+    background-size: 100%;
+    position: relative;
+    
 `
 export const ImageBar =styled.div`
+    margin-top: 80px;
+    margin-left: 18px;
     width: 63px;
     height: 17px;
-    background-color: white;
+    border-radius: 8.6px;
+    background-color: rgba(255, 255, 255, 0.4);
+    background-image: url('/homework-image/rectangle@3x.png');
+    background-size: 100%;
+    position: absolute;
+    
     
 
+   
 `
 
 export const Title = styled.div`
@@ -55,16 +78,17 @@ export const Title = styled.div`
     color: white;
     text-align: center;
     
+    
+    
 `
 
 export const Body = styled.div`
   
-     width: 540px;
+    width: 540px;
     height: 100%;
-    border:1px solid red;
     display: flex;
     flex-direction: column;
-    justify-content: space-between
+    /* justify-content: space-between */
     
     
 `
@@ -87,6 +111,7 @@ export const Line = styled.div`
   background-color: #ffffff;
   opacity: 0.4;
   margin-top: 20px;
+  
 
 `
 export const Pw = styled.input`
@@ -96,21 +121,24 @@ export const Pw = styled.input`
     color: white;
     border: none;
     background-color: transparent;
-    margin-top: 57px;
+    margin-top: 34px;
 
 
 
 `
 export const LoginButton = styled.button`
     font-size: 26px;
-    color:black;
+    color: white;
     width: 540px;
     height: 76px;
     border-radius: 38px;
     background-color: #ffffff;
-    opacity: 0.5;
-    margin-top:50px;
+    background-color: rgba( 255, 255, 255, 0.2);
+    margin-top:20px;
     cursor: pointer;
+    border: transparent;
+    
+    
 
 
 `
@@ -130,8 +158,10 @@ export const SignUp = styled.button`
     cursor: pointer;
     
     
+    
 
 `
+
 export const PwSearch = styled.button`
     width: 173px;
     height: 24px;
@@ -157,12 +187,32 @@ export const EmailSearch = styled.button`
 export const KakaoLogin = styled.button`
     width: 540px;
     height: 76px;
-    opacity: 0.6;
     border-radius: 38px;
     border: solid 2px #fae100;
     margin-top: 61px;
     font-size: 26px;
-    text-align: center;
     color: #fae100;
     cursor: pointer;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  
+`
+export const Error = styled.span`
+    height: 20px;
+    font-size: 18px;
+    color: #ff1b6d;
+    margin-top: 10px;
+    
+
+`
+export const Img =styled.img`
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+    background-size: 100%;
+   
+        
 `
