@@ -12,30 +12,30 @@ const Contents = styled.textarea`
     height: 500px;
     font-size: 21px;
 `
-
-
 import { gql, useMutation } from "@apollo/client"
 
 import { useState } from "react"
+import { useRouter } from "next/router"
+const CREATE_BOARD =
+gql` 
+            mutation createBoard($createBoardInput:CreateBoardInput! ){
+                createBoard(createBoardInput:$createBoardInput){
+                    _id 
+                }  
+            }
+        `
+
+
 
 export default function ApolloPage() {
+    const router = useRouter()
+
     const [writer, setWriter] = useState('')
     const [passwrod, setPasword] = useState('')
     const [title, setTitle] = useState('')
     const [contents, setContents] = useState('')
 
-    const [boards] = useMutation(
-        gql` 
-            mutation child($aaa:String, $bbb:String, $ccc:String, $ddd:String ){
-                createBoard(writer:$aaa, password:$bbb, title:$ccc, contents:$ddd){
-                    message 
-                }  
-            }
-        `
-        
-    )
-
-
+    const [createBoard] = useMutation(CREATE_BOARD )
 
     function onChangeWriter(event) {
         setWriter(event.target.value)
@@ -56,21 +56,25 @@ export default function ApolloPage() {
         // console.log(name)
         // console.log(age)
         // console.log(school)
+   
         try {
-            const result = await  boards({
+            const result = await  createBoard({
                 variables: {
-                    aaa:writer,
-                    bbb:passwrod,
-                    ccc:title,
-                    ddd:contents ,
+                createBoardInput:{
+                    writer:writer,
+                    password:passwrod,
+                    title:title,
+                    contents:contents ,
+                    }
 
                 }
 
                 })
-            alert(result.data.createBoard.message)
+            alert(result.data.createBoard._id)
+            router.push(`detail/${result.data.createBoard._id}`)
 
             }catch(error){
-                alert(erro)
+                alert(error.message)
                 
             }
         }

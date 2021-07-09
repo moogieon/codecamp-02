@@ -1,6 +1,6 @@
-import{useMutation, gql} from '@apollo/client'
-
+import{useMutation, gql,} from '@apollo/client'
 import { useState } from 'react';
+import {useRouter} from "next/router"
 import {
     Address,
     ButtonWrapper,
@@ -27,9 +27,18 @@ import {
     Warring,
 } from '../../../styles/boards/new/BoardsNew.styles';
 
+const CREATE_BOARD = gql`
+    mutation createBoard( $createBoardInput:CreateBoardInput! ){
+    createBoard(createBoardInput:$createBoardInput){
+        _id
+    }
+}
 
+`
 
 export default function BoardNewPage() {
+
+    const router = useRouter()
 
     const [id, setId] = useState('')
     const [pw, setPw] = useState('')
@@ -41,17 +50,10 @@ export default function BoardNewPage() {
     const [contentserror, setContetserror] = useState('')
     const [ytv, setYtv] = useState('')
 
-    const [board] = useMutation( // mutation(고정) post (이름) //
+    const [ createBoard] = useMutation(CREATE_BOARD) // mutation(고정) post (이름) //
                                 // $BoradInput (이름) : CreateBoardInput(API 고정)
                                 // createBoard(API 고정)  
-            gql`
-                mutation post( $BoardInput:CreateBoardInput! ){
-                    createBoard(createBoardInput:$BoardInput)
-                    {_id}
-                }
-                
-            `
-    )
+  
      
 
     function loginId(event) {
@@ -69,9 +71,9 @@ export default function BoardNewPage() {
     function usserYoutybe(event) {
         setYtv(event.target.value)
     }
+
+
     async function regist() {
-
-
         if (id === '') {
             setIderror('내용을 입력해주세요.')
             //  alert('아이디를 입력해 주세요.')
@@ -103,25 +105,33 @@ export default function BoardNewPage() {
             // alert('내용을 입력해 주세요.')
 
         }
-                            // (이름) useMutation 함수 이름
-        const result = await  board(
-            {
-                variables:{
-                    // 변수이름은 마음 대로 ex) aaa:seller
-                    BoardInput:{
-                        writer:id,
-                        password :pw,
-                        title:ttl,
-                        contents:contents,
-                        youtubeUrl:ytv 
-                        //왼쪽 객체들은 API 양식 그대로  오른쪽은 usestate('') 변수                        
+        console.log("ASDASD")
+        try{
+            const result = await createBoard(
+                {
+                    variables:{
+                        // 변수이름은 마음 대로 ex) aaa:seller
+                createBoardInput:{
+                            writer:id,
+                            password :pw,
+                            title:ttl,
+                            contents:contents,
+                            youtubeUrl:ytv 
+                            //왼쪽 객체들은 API 양식 그대로  오른쪽은 usestate('') 변수                        
+                    }
+    
+                        
                 }
-
-                    
-            }
-        }) 
-            
-
+            }) 
+            console.log("ASDASD")
+            console.log(result.data.createBoard._id)
+            // alert("등록 완료")
+            router.push(`detail/${result.data.createBoard._id}`)
+        }catch(error){
+            console.log(error)
+        }
+                            // (이름) useMutation 함수 이름
+        
     }
 
     return (
