@@ -1,13 +1,16 @@
 
 
+// react 쓰기전 카운터 
 
 
 export default function StagePage () {
 
-    let count = 7
+    let count = 0
 
     function aaa() {
-        count += 1
+        
+       
+        document.getElementById('rrr').innerText =count += 1
         console.log(count)
     }
 
