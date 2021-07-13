@@ -8,8 +8,15 @@ query fetchBoard($boardID:ID!) {
         contents
         youtubeUrl
         createdAt
-        likeCount
     }
     
 }
+`
+
+export const DELETE_BOARD= gql`
+mutation       deleteBoard(        $delete:ID!){
+                deleteBoard(boardid:$delete)
+
+    }
+
 `

@@ -22,6 +22,10 @@ import{
     Dislkie,
     Like_count,
     DisLike_count,
+    Foot,
+    List_Button,
+    Fix_Button,
+    Delete_Button,
 
 
 
@@ -32,12 +36,19 @@ export default function BoardDetailUI(props){
 
         return(
             <>
+            
             <Wrapper>
                 <Wrapper_Head >
                     <Img src="/boards-image/Profile.png" />
                     <Head_Wrapper>
-                        <Writer>{props.ondata?.fetchBoard.writer}</Writer>
-                        <Day>Date:{props.ondata?.fetchBoard.createdAt}</Day>
+                        <Writer>{props.onData?.fetchBoard.writer}</Writer>
+                        <Day>Date:
+                                {new Date (props.onData?.fetchBoard.createdAt).getFullYear()}/
+                                {String(new Date (props.onData?.fetchBoard.createdAt).getMonth()+1).padStart(2, '0')}/
+                                {new Date (props.onData?.fetchBoard.createdAt).getDate()}
+
+                        
+                        </Day>
                     </Head_Wrapper>
                     <Img_2 src="/boards-image/File.png" />
                     <Img_3> <Img_4 src="/boards-image/Loc2.png" />
@@ -45,28 +56,38 @@ export default function BoardDetailUI(props){
                 </Wrapper_Head>
                 <Line></Line>
                 <Wrapper_Body>
-                    <Body_Title>{props.ondata?.fetchBoard.title}</Body_Title>
+                    <Body_Title>{props.onData?.fetchBoard.title}</Body_Title>
                     <Body_Img>img</Body_Img>
-                    <Body_Contents>{dprops.ondata?.fetchBoard.contents}</Body_Contents>
+                    <Body_Contents>{props.onData?.fetchBoard.contents}</Body_Contents>
 
                 </Wrapper_Body>
                 <Wrapper_Foot>
                     <Foot_Ytv>
-                        <Youtube src={props.ondata?.fetchBoard.youtubeUrl} ></Youtube>
+                        <Youtube src={props.onata?.fetchBoard.youtubeUrl} ></Youtube>
                     </Foot_Ytv>
 
                     <Foot_Btn>
 
-                        <Like onClick={likeCount} />
-                        <Dislkie onClick={likeCount_2} />
+                        <Like  />
+                        {/* //onClick={likeCount} */}
+                        <Dislkie  />
+                        {/* // onClick={likeCount_2} */}
                     </Foot_Btn>
                     <Foot_Count>
-                        <Like_count>{count}</Like_count>
-                        <DisLike_count>{count_2}</DisLike_count>
+                        <Like_count></Like_count>
+                        {/* {count} */}
+                        <DisLike_count></DisLike_count>
+                        
                     </Foot_Count>
                 </Wrapper_Foot>
 
             </Wrapper>
+            <Foot >
+                <List_Button>목록으로</List_Button>
+                <Fix_Button>수정하기</Fix_Button>
+                <Delete_Button  onClick={props.deleteBoard}>삭제하기</Delete_Button>
+
+            </Foot>
         </>
 
         )

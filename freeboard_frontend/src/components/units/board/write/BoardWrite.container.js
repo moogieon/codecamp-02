@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import {CREATE_BOARD}from './BoardWrite.queries'
-import BoardNewUI from "./BoardWrite.presenter"
+import BoardWriteUI from "./BoardWrite.presenter"
 
 export default function BoardWrite() {
 
@@ -28,22 +28,27 @@ export default function BoardWrite() {
     function loginId(event) {
         setId(event.target.value)
         setActive(event.target.value && pw && ttl  && contents  ? true : false)
+        setIderror('')
     }
 
     function loginPw(event) {
         setPw(event.target.value)
         setActive(id !== "" && event.target.value !== "" && ttl !== "" && contents !== "" ? true : false)
+        setPwerror('')
     }
     function userTitle(event) {
         setTtl(event.target.value)
+        setActive(id !== "" && pw !== "" && event.target.value !== "" && contents !== "" ? true : false)
+        setTtlerror('')
     }
     function userContents(event) {
         setContets(event.target.value)
-        setActive(id !== "" && pw !== "" && event.target.value !== "" && contents !== "" ? true : false)
+        setActive(event.target.value !== "" && pw !== "" && ttl !== "" && id !== "" ? true : false)
+        setContetserror('')
     }
     function usserYoutybe(event) {
         setYtv(event.target.value)
-        setActive(event.target.value !== "" && pw !== "" && ttl !== "" && id !== "" ? true : false)
+       
     }
 
 
@@ -56,6 +61,7 @@ export default function BoardWrite() {
         if (pw === '') {
             setPwerror('내용을 입력해주세요.')
             //alert('비밀번호를 입력해 주세요.')
+            
         }
         if (ttl === '') {
             setTtlerror('내용을 입력해주세요.')
@@ -65,53 +71,41 @@ export default function BoardWrite() {
             setContetserror('내용을 입력해주세요.')
             // alert('내용을 입력해 주세요.')
         }
-        if (id !== '') {
-            setIderror('')
-
-        }
-        if (pw !== '') {
-            setPwerror('')
-        }
-        if (ttl !== '') {
-            setTtlerror('')
-        }
-        if (contents !== '') {
-            setContetserror('')
-            // alert('내용을 입력해 주세요.')
-
-        }
-        console.log("ASDASD")
-        try {
-            const result = await createBoard(
-                {
-                    variables: {
-                        // 변수이름은 마음 대로 ex) aaa:seller
-                        createBoardInput: {
-                            writer: id,
-                            password: pw,
-                            title: ttl,
-                            contents: contents,
-                            youtubeUrl: ytv
-                            //왼쪽 객체들은 API 양식 그대로  오른쪽은 usestate('') 변수                        
+    if(id !== "" && pw !== "" && ttl !== "" && contents !== ""){
+            try {
+                const result = await createBoard(
+                    {
+                        variables: {
+                            // 변수이름은 마음 대로 ex) aaa:seller
+                            createBoardInput: {
+                                writer: id,
+                                password: pw,
+                                title: ttl,
+                                contents: contents,
+                                youtubeUrl: ytv
+                                //왼쪽 객체들은 API 양식 그대로  오른쪽은 usestate('') 변수                        
+                            }
+    
+    
                         }
-
-
-                    }
-                })
-            console.log("ASDASD")
-            console.log(result.data.createBoard._id)
-            // alert("등록 완료")
-            router.push(`detail/${result.data.createBoard._id}`)
-        } catch (error) {
-            console.log(error)
+                    })
+                console.log("ASDASD")
+                console.log(result.data.createBoard._id)
+                alert("등록 완료")
+                router.push(`detail/${result.data.createBoard._id}`)
+            } catch (error) {
+                alert(error.message)
+            }
         }
+
+        
         // (이름) useMutation 함수 이름
 
     }
 
 
     return (
-            <BoardNewUI 
+            <BoardWriteUI 
             ChangeWriter={loginId}
             ChangePassword={loginPw}
             ChangeTitle={userTitle}

@@ -38,7 +38,7 @@ export default function BoardWriteUI(props){
                     type="text"
                     placeholder="이름을 적어주세요."
                 />
-                <Warring onChange={props.error1}/>
+                <Warring> {props.error1}</Warring>
             </InputWrapper>
             <InputWrapper>
                 <Label>비밀번호</Label>
@@ -48,7 +48,7 @@ export default function BoardWriteUI(props){
                     type="password"
                     placeholder="비밀번호를 입력해주세요."
                 />
-                <Warring onChange={props.error2}/>
+                <Warring>{props.error2}</Warring>
             </InputWrapper>
         </WriterWrapper>
         <InputWrapper>
@@ -59,7 +59,7 @@ export default function BoardWriteUI(props){
                 type="text"
                 placeholder="제목을 작성해주세요."
             />
-            <Warring onChange={props.error3}/>
+            <Warring >{props.error3}</Warring>
         </InputWrapper>
         <InputWrapper>
             <Label>내용</Label>
@@ -68,7 +68,7 @@ export default function BoardWriteUI(props){
                 name="contents"
                 placeholder="내용을 작성해주세요."
             />
-            <Warring onChange={props.error4}/>
+            <Warring>{props.error4}</Warring>
         </InputWrapper>
         <InputWrapper>
             <Label>주소</Label>

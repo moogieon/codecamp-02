@@ -189,4 +189,46 @@ export const DisLike_count = styled.div`
 `
 
 
+export const Foot = styled.div`
+    height: 45px;
+   width: 1200px;   
+   margin: 80px;
+   display: flex;
+   justify-content: center;
+`
+export const List_Button=styled.button`
+    width: 179px;
+    height: 45px;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 45px;
+    cursor: pointer;
+    border: 1px solid #BDBDBD;
+    
+`
 
+export const Fix_Button=styled.button`
+    width: 179px;
+    height: 45px;
+    margin-left: 24px;
+    margin-right: 24px;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 45px;
+    cursor: pointer;
+    border: 1px solid #BDBDBD;
+    
+`
+
+export const Delete_Button=styled.button`
+    width: 179px;
+    height: 45px;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 45px;
+    cursor: pointer;
+    border: 1px solid #BDBDBD;
+`
