@@ -1,92 +1,60 @@
-import { useState } from "react";
 import { useMutation } from "@apollo/client";
+import { useState } from "react";
 import { useRouter } from "next/router";
-import {CREATE_BOARD}from './BoardWrite.queries'
+import {CREATE_BOARD,UPDATE_BOARD}from './BoardWrite.queries'
 import BoardWriteUI from "./BoardWrite.presenter"
+
+
+const inputInit ={
+    writer: '',
+    password: '',
+    title: '',
+    contents: ''
+     
+}
 
 export default function BoardWrite() {
 
 
     const router = useRouter()
+    const[inputs, setInputs]=useState(inputInit)
+    const [active, setActive] = useState(false)
 
-    const [id, setId] = useState('')
-    const [pw, setPw] = useState('')
-    const [iderror, setIderror] = useState('')
-    const [pwerror, setPwerror] = useState('')
-    const [ttl, setTtl] = useState('')
-    const [contents, setContets] = useState('')
-    const [ttlerror, setTtlerror] = useState('')
-    const [contentserror, setContetserror] = useState('')
-    const [ytv, setYtv] = useState('')
-
+    
+    // const [iderror, setIderror] = useState('')
+    // const [pwerror, setPwerror] = useState('')
+    // const [ttlerror, setTtlerror] = useState('')
+    // const [contentserror, setContetserror] = useState('')
+   
+    const [updateBoard] = useMutation(UPDATE_BOARD)
     const [createBoard] = useMutation(CREATE_BOARD) // mutation(고정) post (이름) //
     // $BoradInput (이름) : CreateBoardInput(API 고정)
     // createBoard(API 고정)  
-    const [active, setActive] = useState(false)
 
-
-    function loginId(event) {
-        setId(event.target.value)
-        setActive(event.target.value && pw && ttl  && contents  ? true : false)
-        setIderror('')
-    }
-
-    function loginPw(event) {
-        setPw(event.target.value)
-        setActive(id !== "" && event.target.value !== "" && ttl !== "" && contents !== "" ? true : false)
-        setPwerror('')
-    }
-    function userTitle(event) {
-        setTtl(event.target.value)
-        setActive(id !== "" && pw !== "" && event.target.value !== "" && contents !== "" ? true : false)
-        setTtlerror('')
-    }
-    function userContents(event) {
-        setContets(event.target.value)
-        setActive(event.target.value !== "" && pw !== "" && ttl !== "" && id !== "" ? true : false)
-        setContetserror('')
-    }
-    function usserYoutybe(event) {
-        setYtv(event.target.value)
-       
-    }
-
-
-
-    async function regist() {
-        if (id === '') {
-            setIderror('내용을 입력해주세요.')
-            //  alert('아이디를 입력해 주세요.')
+    function onChangeInputs(event){
+        const newInput ={                                      //! newInput에 담아서 사용 안해도 되는지
+            ...inputs,[event.target.name]:event.target.value  //! 이게 왜 이렇게 나오는건지 질문!
         }
-        if (pw === '') {
-            setPwerror('내용을 입력해주세요.')
-            //alert('비밀번호를 입력해 주세요.')
-            
-        }
-        if (ttl === '') {
-            setTtlerror('내용을 입력해주세요.')
-            //  alert('제목을 입력해 주세요.')
-        }
-        if (contents === '') {
-            setContetserror('내용을 입력해주세요.')
-            // alert('내용을 입력해 주세요.')
-        }
-    if(id !== "" && pw !== "" && ttl !== "" && contents !== ""){
+        setInputs(newInput)
+        if(Object.values(newInput).every(data=>data)){  //! values 나 key 말고 다 가저오면 ? //! 이거 설명 다시 한번 
+            setActive(true)
+        }                                                     
+    }
+
+
+        
+
+
+
+    async function ChangeRegist() {            
+      
             try {
-                const result = await createBoard(
-                    {
+                const result = await createBoard({
                         variables: {
                             // 변수이름은 마음 대로 ex) aaa:seller
-                            createBoardInput: {
-                                writer: id,
-                                password: pw,
-                                title: ttl,
-                                contents: contents,
-                                youtubeUrl: ytv
-                                //왼쪽 객체들은 API 양식 그대로  오른쪽은 usestate('') 변수                        
-                            }
-    
-    
+                            createBoardInput: {         ...inputs         }
+                                
+                                 
                         }
                     })
                 console.log("ASDASD")
@@ -96,27 +64,44 @@ export default function BoardWrite() {
             } catch (error) {
                 alert(error.message)
             }
-        }
-
+        
+        
         
         // (이름) useMutation 함수 이름
 
     }
+ 
+    async function onClickEdit(){                 //! 왜 함수에 담는가 
+     try{ 
+       const result = await updateBoard({
+            variables: {
+                boardId:router.query.boardId,
+                password:inputs.password,
+                updateBoardInput:{
+                    title:inputs.title,
+                    contents:inputs.contents
+                }
+            }
+        })
+        alert('등록 완료!')
+        router.push(`/detail/${result.data.createBoard._id}`)
+    }catch (error){
+        alert(error.message)
+    }
 
+    }
+    
 
     return (
             <BoardWriteUI 
-            ChangeWriter={loginId}
-            ChangePassword={loginPw}
-            ChangeTitle={userTitle}
-            ChangeContntsr={userContents}
-            ChangeYoutube={usserYoutybe}
-            ChangeRegist = {regist}
-            error1={iderror}
-            error2={pwerror}
-            error3={ttlerror}
-            error4={contentserror}
-            clickButton={active}
+            onChangeInputs={ onChangeInputs}
+            ChangeRegist = {ChangeRegist}
+            // error1={iderror}
+            // error2={pwerror}
+            // error3={ttlerror}
+            // error4={contentserror}
+            active={active}
+            onClickEdit={onClickEdit}
             
             />
 

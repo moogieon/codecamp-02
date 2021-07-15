@@ -12,9 +12,9 @@ import{
     Column_Date,
     
 
-}from'./Boaradmin.style'
+}from'./BoardList.style'
 
-export default function BoardAdminUI(props){
+export default function BoardListUi(props){
 
 
     return(

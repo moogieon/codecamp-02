@@ -33,42 +33,42 @@ export default function BoardWriteUI(props){
         <WriterWrapper>
             <InputWrapper>
                 <Label>작성자</Label>
-                <Writer onChange={props.ChangeWriter}
+                <Writer onChange={props. onChangeInputs}
                     name="writer"
                     type="text"
                     placeholder="이름을 적어주세요."
                 />
-                <Warring> {props.error1}</Warring>
+                {/* <Warring> {props.error1}</Warring> */}
             </InputWrapper>
             <InputWrapper>
                 <Label>비밀번호</Label>
                 <Password
-                    onChange={props.ChangePassword}
+                    onChange={props. onChangeInputs}
                     name="password"
                     type="password"
                     placeholder="비밀번호를 입력해주세요."
                 />
-                <Warring>{props.error2}</Warring>
+                {/* <Warring>{props.error2}</Warring> */}
             </InputWrapper>
         </WriterWrapper>
         <InputWrapper>
             <Label>제목</Label>
             <Subject
-                onChange={props.ChangeTitle}
+                onChange={props. onChangeInputs}
                 name="title"
                 type="text"
                 placeholder="제목을 작성해주세요."
             />
-            <Warring >{props.error3}</Warring>
+            {/* <Warring >{props.error3}</Warring> */}
         </InputWrapper>
         <InputWrapper>
             <Label>내용</Label>
             <Contents
-                onChange={props.ChangeContntsr}
+                onChange={props. onChangeInputs}
                 name="contents"
                 placeholder="내용을 작성해주세요."
             />
-            <Warring>{props.error4}</Warring>
+            {/* <Warring>{props.error4}</Warring> */}
         </InputWrapper>
         <InputWrapper>
             <Label>주소</Label>
@@ -85,7 +85,7 @@ export default function BoardWriteUI(props){
         <InputWrapper>
             <Label>유튜브</Label>
             <Youtube
-                onChange={props.ChangeYoutube}
+             
                 name="youtube"
                 placeholder="링크를 복사해주세요."
             />
@@ -121,9 +121,9 @@ export default function BoardWriteUI(props){
         //! label 태그를 이용해서 radio 버튼과 묶는다. */}
         <ButtonWrapper>
             <CancelButton>취소하기</CancelButton>
-            <SubmitButton onClick={props.ChangeRegist} active={props.clickButton}>
-                등록하기
-            </SubmitButton>
+            {!props.isEdit && <SubmitButton onClick={props.ChangeRegist} active={props.active}  >게시물 등록하기</SubmitButton>}
+            {props.isEdit && <SubmitButton onClick={props.onClickEdit} active={props.active}  >게시물 수정하기</SubmitButton>}
+           
         </ButtonWrapper>
     </Wrapper>
 

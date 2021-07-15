@@ -46,8 +46,6 @@ export default function BoardDetailUI(props){
                                 {new Date (props.onData?.fetchBoard.createdAt).getFullYear()}/
                                 {String(new Date (props.onData?.fetchBoard.createdAt).getMonth()+1).padStart(2, '0')}/
                                 {new Date (props.onData?.fetchBoard.createdAt).getDate()}
-
-                        
                         </Day>
                     </Head_Wrapper>
                     <Img_2 src="/boards-image/File.png" />
@@ -83,9 +81,9 @@ export default function BoardDetailUI(props){
 
             </Wrapper>
             <Foot >
-                <List_Button>목록으로</List_Button>
-                <Fix_Button>수정하기</Fix_Button>
-                <Delete_Button  onClick={props.deleteBoard}>삭제하기</Delete_Button>
+                <List_Button onClick={props.onClickMove}>목록으로</List_Button>
+                <Fix_Button onClick={props.onClickEdit}>수정하기</Fix_Button>
+                <Delete_Button  onClick={props.onClickDelete}>삭제하기</Delete_Button>
 
             </Foot>
         </>

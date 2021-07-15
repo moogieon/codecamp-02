@@ -1,14 +1,14 @@
 import { useQuery } from '@apollo/client'
-import BoardAdminUI from './Boaradmin.presenter'
-import { FETCH_BOARDS } from './Boaradmin.queries'
+import BoardListUi from './BoardList.presenter'
+import { FETCH_BOARDS } from './BoardList.queries'
 
 
-export default function BoardAdmin() {
+export default function BoardList() {
 
     const { data } = useQuery(FETCH_BOARDS)
 
     return (
-        <BoardAdminUI 
+        <BoardListUi
             onData={data}
         
         

@@ -1,21 +1,18 @@
 import { useRouter } from "next/router"
 import { useState } from "react"
-import {useMutation, useQuery } from "@apollo/client"
-import {FETCH_BOARD} from './BoardDetail.queries'
-import{DELETE_BOARD}from'./BoardDetail.queries'
+import { useMutation, useQuery } from "@apollo/client"
+import { FETCH_BOARD, DELETE_BOARD } from './BoardDetail.queries'
 import BoardDetailUI from './BoardDetail.presenter'
-import { FETCH_BOARDS } from "../admin/Boaradmin.queries"
-export default function BoardDetail(){
+import { FETCH_BOARDS } from "../list/BoardList.queries"
+export default function BoardDetail() {
 
     const router = useRouter()
+    console.log(router);
     // console.log(router.query.aaa ) //질문 ,
-    const { data } = useQuery(
-        FETCH_BOARD,
-        {
-            variables: { boardID: router.query._id }
-
-        }
-    )
+    const [deleteBoard] = useMutation(DELETE_BOARD)
+    const { data } = useQuery( FETCH_BOARD,{
+        variables: { boardID: router.query._id }
+    } )
     console.log(data)
     // const [count, setCount] = useState(0)
     // function likeCount() {
@@ -25,29 +22,28 @@ export default function BoardDetail(){
     // function likeCount_2() {
     //     setCount_2(count_2 + 1)
     // }
-    const[deleteBoard]=useMutation(DELETE_BOARD)
-        async function onClickDelete(event){
-            try{
-                await deleteBoard({
-
-                    variables:{
-                        delete:event.traget.id
-        
-                    },
-                    refetchQueries:[{query:FETCH_BOARDS}]
-            })
+    function onClickMove() {
+        router.push('/boards')
+    }
+    async function onClickDelete() {
+        try {
+            await deleteBoard({ variables: { boardId: router.query._id } })
             alert('삭제 완료')
+            router.push('/boards')
+        } catch (error) {
+            alert(error.message)
+        } console.log(data)
+    }
+    function onClickEdit(){
+        router.push(`/boards/detail/${router.query._id}/edit`)
+    }
+    return (
+        <BoardDetailUI
+            onData={data}
+            onClickDelete={onClickDelete}
+            onClickMove={onClickMove}
+            onClickEdit={onClickEdit}
 
-            }catch(error){
-                alert(error.message)
-            }
-
-          
-}
-    return(
-        <BoardDetailUI onData={data}
-                        deleteBoard ={onClickDelete} 
-        
         />
     )
 }
