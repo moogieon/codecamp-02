@@ -30,7 +30,12 @@ const Row = styled.div`
     line-height: 40px;
     border-bottom: 1px solid gray;
     display: flex;
+
+    :hover:not(:nth-of-mask-type(1)){
+        background-color: lightgray;
+    }
 `
+
 
 const Column = styled.div`
     width: 20%;

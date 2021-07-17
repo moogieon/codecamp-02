@@ -15,7 +15,7 @@ export const Btn = styled.button`
    
     background-color: ${(props: IProps) => props.active ? 'whitesmoke ' : 'grey'};
 `
-export const Contents = styled.textarea`
+export const Contents = styled.input`
     width: 500px;
     height: 500px;
     font-size: 21px;

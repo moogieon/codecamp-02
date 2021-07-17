@@ -205,7 +205,10 @@ export const List_Button=styled.button`
     line-height: 45px;
     cursor: pointer;
     border: 1px solid #BDBDBD;
-    
+    :hover {
+        background-color: orange;
+    }
+    border-radius: 15px;
 `
 
 export const Fix_Button=styled.button`
@@ -219,7 +222,10 @@ export const Fix_Button=styled.button`
     line-height: 45px;
     cursor: pointer;
     border: 1px solid #BDBDBD;
-    
+    :hover {
+        background-color: orange;
+    }
+    border-radius: 15px;
 `
 
 export const Delete_Button=styled.button`
@@ -231,4 +237,43 @@ export const Delete_Button=styled.button`
     line-height: 45px;
     cursor: pointer;
     border: 1px solid #BDBDBD;
+    :hover {
+        background-color: orange;
+    }
+    border-radius: 15px;
+    
+`
+export const Comments = styled.div`
+    margin: 80px;
+    width: 1200px;
+    border: 1px solid black;
+`
+export const Comments_in = styled.div`
+    
+    width: 1200px;
+    height: 272px;
+    border: 1px solid black;
+`
+export const Comments_init = styled.input`
+     width: 1200px;
+    height: 108px;
+`
+export const Comments_Line =styled.div`
+    width: 1198px;
+    border-top: 1px solid #F2F2F2;
+
+`
+
+export const Comments_Button_Box=styled.div`
+     width: 1200px;
+     height: 52px;
+     border: 1px solid black;
+     display: flex;
+     justify-content: space-between;
+     padding-left: 20px;
+`
+export const Comments_Button= styled.button`
+   width: 91px;
+    height: 52px;
+    
 `

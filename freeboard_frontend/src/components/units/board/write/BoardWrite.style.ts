@@ -1,6 +1,11 @@
 import styled from "@emotion/styled";
 //! 높이를 미리 안주고 Wrapper들 패딩을 조절하면 알아서 늘어난다. 
 //! 각 Wrapper에 패딩을 주면서 밑으로 순차적으로 간격을 맞춘다.
+
+interface IProps{
+    active:boolean
+}
+
 export const Wrapper = styled.div`
 	width: 1200px;
 	/* height: 1847px; */
@@ -159,13 +164,13 @@ export const CancelButton = styled.button`
 export const SubmitButton = styled.button`
 	width: 179px;
 	height: 52px;
-	background-color: ${(props)=>props.active? '#ffd600' : 'gery'};
+	background-color: ${(props:IProps)=>props.active? 'orange' : 'gery'};
 	border: none;
 	font-size: 16px;
 	font-weight: 500;
 	margin-left: 12px;
 	margin-right: 12px;
-	cursor: ${(props)=>props.active? 'pointer' : 'unset'};
+	cursor: ${(props:IProps)=>props.active? 'pointer' : 'unset'};
 	
 `;
 

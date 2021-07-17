@@ -1,3 +1,4 @@
+
 import BoardDetail from "../../../src/components/units/board/detail/BoardDetail.contaoner";
 
 
@@ -6,6 +7,9 @@ export default function DetailPage(){
     return(
 
         <BoardDetail/>
+        // <Board_Comment/>
+        // <Board_CommenList/>
+        
     )
 
 }
