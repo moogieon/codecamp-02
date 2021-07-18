@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import { INPUT_INIT } from "./BoardWrite.container";
 import {
   Address,
   ButtonWrapper,
@@ -33,6 +34,8 @@ interface IProps {
   ChangeRegist: () => void;
   onClickEdit: () => void;
   isEdit?: boolean;
+  inputs_error: typeof INPUT_INIT;
+
   // inputsErrors: typeof INPUT_INIT
 }
 export default function BoardWriteUI(props: IProps) {
@@ -48,7 +51,7 @@ export default function BoardWriteUI(props: IProps) {
             type="text"
             placeholder="이름을 적어주세요."
           />
-          {/* <Warring> {props.inputsErrors.iderror}</Warring> */}
+          <Warring> {props.inputs_error.writer}</Warring>
         </InputWrapper>
         <InputWrapper>
           <Label>비밀번호</Label>
@@ -58,7 +61,7 @@ export default function BoardWriteUI(props: IProps) {
             type="password"
             placeholder="비밀번호를 입력해주세요."
           />
-          {/* <Warring>{props.inputsErrors}</Warring> */}
+          <Warring>{props.inputs_error.password}</Warring>
         </InputWrapper>
       </WriterWrapper>
       <InputWrapper>
@@ -69,7 +72,7 @@ export default function BoardWriteUI(props: IProps) {
           type="text"
           placeholder="제목을 작성해주세요."
         />
-        {/* <Warring >{props.inputsErrors}</Warring> */}
+        <Warring>{props.inputs_error.title}</Warring>
       </InputWrapper>
       <InputWrapper>
         <Label>내용</Label>
@@ -78,7 +81,7 @@ export default function BoardWriteUI(props: IProps) {
           name="contents"
           placeholder="내용을 작성해주세요."
         />
-        {/* <Warring>{props.inputsErrors}</Warring> */}
+        <Warring>{props.inputs_error.contents}</Warring>
       </InputWrapper>
       <InputWrapper>
         <Label>주소</Label>

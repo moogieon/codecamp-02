@@ -26,6 +26,8 @@ export default function BoardWrite(props: IProps) {
 
   const [active, setActive] = useState(false);
 
+  const [inputs_error, setInput_Error] = useState(INPUT_INIT);
+
   // const [iderror, setIderror] = useState('')
   // const [pwerror, setPwerror] = useState('')
   // const [ttlerror, setTtlerror] = useState('')
@@ -47,20 +49,18 @@ export default function BoardWrite(props: IProps) {
     if (Object.values(newInput).every((data) => data !== "")) {
       //! values 나 key 말고 다 가저오면 ? //! 이거 설명 다시 한번
       setActive(true);
-
-      // if(inputsErrors[event.target.name as keyof typeof INPUT_INIT ]) {  //!!
-      //     setInputsErrors({...inputsErrors, [event.target.name]: ""})
-      //     }
     }
+    setInput_Error({ ...inputs_error, [event.target.name]: "" });
     //   setActive(Object.values(newInput).every(data=>data))  <- 이미 트루라서 트루 값 안에 넣어 줌
   }
 
   async function ChangeRegist() {
-    // setInputsErrors({writer: inputs.writer?"":"작성자를 입력해주세요",
-    //                 password: inputs.password ? "" : "비밀번호를 입력해주세요.",
-    //                 title: inputs.title ? "" : "제목을 입력해주세요.",
-    //                 contents: inputs.contents ? "" : "내용을 입력해주세요."
-    //     })
+    setInput_Error({
+      writer: inputs.writer ? "" : "작성자를 입력해주세요",
+      password: inputs.password ? "" : "비밀번호를 입력해주세요.",
+      title: inputs.title ? "" : "제목을 입력해주세요.",
+      contents: inputs.contents ? "" : "내용을 입력해주세요.",
+    });
     if (Object.values(inputs).every((data) => data)) {
       try {
         const result = await createBoard({
@@ -107,7 +107,7 @@ export default function BoardWrite(props: IProps) {
     <BoardWriteUI
       onChangeInputs={onChangeInputs}
       ChangeRegist={ChangeRegist}
-      // inputsErrors={inputsErrors}
+      inputs_error={inputs_error}
       isEdit={props.isEdit}
       // error1={iderror}
       // error2={pwerror}

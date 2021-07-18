@@ -28,7 +28,7 @@ export default function BoardListUi(props) {
             <Board_Date>날짜</Board_Date>
           </Wrapper_Head>
           {props.onData?.fetchBoards.map((data, index) => (
-            <Wrapper_Body>
+            <Wrapper_Body key={data._id}>
               <Column_Num>{10 - index}</Column_Num>
               <Column_Title
                 id={data._id}

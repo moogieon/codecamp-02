@@ -7,9 +7,11 @@ import {
   BOARD_COMMENT,
 } from "./BoardDetail.queries";
 import BoardDetailUI from "./BoardDetail.presenter";
-
+import { FETCH_BOARD_COMMENTS } from "./comments/list/BoardCommentList.queries";
+import BoardCommentListUI from "../detail/comments/list/BoardCommentList.container";
 export const INPUT_COMMENT = {
   writer: "",
+  password: "",
   contents: "",
   rating: 0,
 };
@@ -59,15 +61,26 @@ export default function BoardDetail() {
   function onClickEdit() {
     router.push(`/boards/detail/${router.query._id}/edit`);
   }
-  function onClickSubmit() {
-    const result = createBoardComment({
-      variables: {
-        boardId: router.query._id,
-        createBoardCommentInput: { ...inputs_comment },
-      },
-    });
-    console.log(data);
-    console.log(result);
+  async function onClickSubmit() {
+    try {
+      await createBoardComment({
+        variables: {
+          boardId: router.query._id,
+          createBoardCommentInput: { ...inputs_comment },
+        },
+        refetchQueries: [
+          {
+            query: FETCH_BOARD_COMMENTS,
+            variables: { boardId: router.query._id },
+          },
+        ],
+      });
+      alert("등록 완료");
+    } catch (error) {}
+
+    // console.log(data);
+
+    // function onClickChange() {}
     // router.push(`/board/detail/${result.data?.createBoard._id}`);
   }
   return (
@@ -78,6 +91,7 @@ export default function BoardDetail() {
       onClickEdit={onClickEdit}
       onClickSubmit={onClickSubmit}
       onChangeInputs={onChangeInputs}
+      // onClickChange={onClickChange}
     />
   );
 }
