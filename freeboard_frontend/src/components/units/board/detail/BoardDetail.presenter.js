@@ -1,3 +1,4 @@
+import ReactPlayer from "react-player";
 import {
   Wrapper,
   Wrapper_Head,
@@ -67,14 +68,20 @@ export default function BoardDetailUI(props) {
         </Wrapper_Body>
         <Wrapper_Foot>
           <Foot_Ytv>
-            <Youtube src={props.onata?.fetchBoard.youtubeUrl}></Youtube>
+            <ReactPlayer
+              url={props.onData?.fetchBoard.youtubeUrl}
+              width="489px"
+              height="240px"
+              controls={true}
+              muted={true}
+              playing={true}
+            />
           </Foot_Ytv>
 
           <Foot_Btn>
-            <Like />
-            {/* //onClick={likeCount} */}
-            <Dislkie />
-            {/* // onClick={likeCount_2} */}
+            <Like onClick={props.likeCount} />
+
+            <Dislkie onClick={props.likeCount_2} />
           </Foot_Btn>
           <Foot_Count>
             <Like_count></Like_count>

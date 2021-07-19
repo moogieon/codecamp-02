@@ -105,10 +105,11 @@ export const Foot_Ytv = styled.div`
   height: 240px;
   margin-top: 120px;
 `;
-export const Youtube = styled.iframe`
+export const Youtube = styled.div`
   width: 486px;
   height: 240px;
-  border: none;
+  font-size: 50px;
+  border: 1px solid black;
 `;
 export const Foot_Count = styled.div`
   width: 160px;

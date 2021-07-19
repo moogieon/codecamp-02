@@ -15,6 +15,7 @@ export const Wrapper_Head = styled.div`
   display: flex;
   margin-bottom: 20px;
   background-color: orange;
+
   border-radius: 15px;
 `;
 export const CommentList = styled.div`

@@ -7,7 +7,10 @@ import {
   BOARD_COMMENT,
 } from "./BoardDetail.queries";
 import BoardDetailUI from "./BoardDetail.presenter";
-import { FETCH_BOARD_COMMENTS } from "./comments/list/BoardCommentList.queries";
+import {
+  FETCH_BOARD_COMMENTS,
+  LIKE_BOARD,
+} from "./comments/list/BoardCommentList.queries";
 import BoardCommentListUI from "../detail/comments/list/BoardCommentList.container";
 export const INPUT_COMMENT = {
   writer: "",
@@ -23,18 +26,19 @@ export default function BoardDetail() {
   const [inputs_comment, setInputs_Comment] = useState(INPUT_COMMENT);
   const [deleteBoard] = useMutation(DELETE_BOARD);
   const [createBoardComment] = useMutation(BOARD_COMMENT);
+
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: router.query._id },
   });
   console.log(data);
-  // const [count, setCount] = useState(0)
-  // function likeCount() {
-  //     setCount(count + 1)
-  // }
-  // const [count_2, setCount_2] = useState(0)
-  // function likeCount_2() {
-  //     setCount_2(count_2 + 1)
-  // }
+  const [count, setCount] = useState(LIKE_BOARD);
+  function likeCount() {
+    setCount(LIKE_BOARD);
+  }
+  const [count_2, setCount_2] = useState(LIKE_BOARD);
+  function likeCount_2() {
+    setCount_2(LIKE_BOARD);
+  }
   function onChangeInputs(event) {
     const newInput = {
       ...inputs_comment,
@@ -91,6 +95,8 @@ export default function BoardDetail() {
       onClickEdit={onClickEdit}
       onClickSubmit={onClickSubmit}
       onChangeInputs={onChangeInputs}
+      likeCount={likeCount}
+      likeCount_2={likeCount_2}
       // onClickChange={onClickChange}
     />
   );

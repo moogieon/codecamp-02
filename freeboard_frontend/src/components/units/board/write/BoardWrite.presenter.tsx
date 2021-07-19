@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import ReactPlayer from "react-player";
 import { INPUT_INIT } from "./BoardWrite.container";
 import {
   Address,
@@ -35,7 +36,7 @@ interface IProps {
   onClickEdit: () => void;
   isEdit?: boolean;
   inputs_error: typeof INPUT_INIT;
-
+  onChangeyoutube: () => void;
   // inputsErrors: typeof INPUT_INIT
 }
 export default function BoardWriteUI(props: IProps) {
@@ -94,7 +95,11 @@ export default function BoardWriteUI(props: IProps) {
       </InputWrapper>
       <InputWrapper>
         <Label>유튜브</Label>
-        <Youtube name="youtube" placeholder="링크를 복사해주세요." />
+        <Youtube
+          name="youtubeUrl"
+          placeholder="링크를 복사해주세요."
+          onChange={props.onChangeyoutube}
+        ></Youtube>
       </InputWrapper>
       <ImageWrapper>
         <Label>사진첨부</Label>

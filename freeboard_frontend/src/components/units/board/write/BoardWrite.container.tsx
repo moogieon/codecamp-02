@@ -23,7 +23,7 @@ export default function BoardWrite(props: IProps) {
   //     ttlerror:'',
   //     contentserror:''
   //   })
-
+  const [youtubeUrl, setYoutubeUrl] = useState(" ");
   const [active, setActive] = useState(false);
 
   const [inputs_error, setInput_Error] = useState(INPUT_INIT);
@@ -53,7 +53,10 @@ export default function BoardWrite(props: IProps) {
     setInput_Error({ ...inputs_error, [event.target.name]: "" });
     //   setActive(Object.values(newInput).every(data=>data))  <- 이미 트루라서 트루 값 안에 넣어 줌
   }
-
+  function onChangeyoutube(event) {
+    setYoutubeUrl(event.target.value);
+    console.log(event.target);
+  }
   async function ChangeRegist() {
     setInput_Error({
       writer: inputs.writer ? "" : "작성자를 입력해주세요",
@@ -66,7 +69,7 @@ export default function BoardWrite(props: IProps) {
         const result = await createBoard({
           variables: {
             // 변수이름은 마음 대로 ex) aaa:seller
-            createBoardInput: { ...inputs },
+            createBoardInput: { ...inputs, youtubeUrl: youtubeUrl },
           },
         });
         console.log(result.data.createBoard._id);
@@ -115,6 +118,7 @@ export default function BoardWrite(props: IProps) {
       // error4={contentserror}
       active={active}
       onClickEdit={onClickEdit}
+      onChangeyoutube={onChangeyoutube}
     />
   );
 }
