@@ -1,5 +1,6 @@
 import { ChangeEvent } from "react";
-import ReactPlayer from "react-player";
+import DaumPostcode from "react-daum-postcode";
+import { Modal } from "antd";
 import { INPUT_INIT } from "./BoardWrite.container";
 import {
   Address,
@@ -37,6 +38,9 @@ interface IProps {
   isEdit?: boolean;
   inputs_error: typeof INPUT_INIT;
   onChangeyoutube: () => void;
+  onClickCancel: () => void;
+  onComplete: () => void;
+
   // inputsErrors: typeof INPUT_INIT
 }
 export default function BoardWriteUI(props: IProps) {
@@ -85,14 +89,29 @@ export default function BoardWriteUI(props: IProps) {
         <Warring>{props.inputs_error.contents}</Warring>
       </InputWrapper>
       <InputWrapper>
-        <Label>주소</Label>
+        <Label></Label>
         <ZipcodeWrapper>
-          <Zipcode name="zipcode" placeholder="07250" />
-          <SearchButton>우편번호 검색</SearchButton>
+          <Zipcode
+            name="zipcode"
+            placeholder="07250"
+            value={props.zonecode}
+            onChange={props.zonecode}
+          />
+          {props.openpost && (
+            <Modal
+              title="주소 검색"
+              visible={true}
+              onCancel={props.onClickPostClose}
+            >
+              <DaumPostcode onComplete={props.onComplete} animation autoClose />
+            </Modal>
+          )}
+          <SearchButton onClick={props.onClickPost}>우편번호 검색</SearchButton>
         </ZipcodeWrapper>
-        <Address />
-        <Address />
+        <Address value={props.address} onChange={props.address} />
+        <Address onChange={props.onChangePost.addressDetail} />
       </InputWrapper>
+
       <InputWrapper>
         <Label>유튜브</Label>
         <Youtube
@@ -104,11 +123,6 @@ export default function BoardWriteUI(props: IProps) {
       <ImageWrapper>
         <Label>사진첨부</Label>
         <UploadButton>
-          {/* <input
-          type="file"
-          style={{ display: "none" }}
-          ref={fileRef}
-        /> */}
           <div>+</div>
           <div>Upload</div>
         </UploadButton>
@@ -132,7 +146,7 @@ export default function BoardWriteUI(props: IProps) {
         //! label 태그를 이용해서 radio 버튼과 묶는다. */}
       <ButtonWrapper>
         {/* ///리스트로 가기 만들기 */}
-        <CancelButton>취소하기</CancelButton>
+        <CancelButton onClick={props.onClickCancel}>취소하기</CancelButton>
         <SubmitButton
           onClick={props.isEdit ? props.onClickEdit : props.ChangeRegist}
           active={props.active}
@@ -140,6 +154,16 @@ export default function BoardWriteUI(props: IProps) {
           {props.isEdit ? "수정하기" : "등록하기"}
         </SubmitButton>
       </ButtonWrapper>
+      <Modal
+        title="게시물 등록"
+        onOK={props.onOK}
+        onCancel={props.onCancel}
+        visible={props.isOpen}
+        okText="예"
+        cancelText="안돼요!"
+      >
+        <div>게시물 등록 합니다?</div>
+      </Modal>
     </Wrapper>
   );
 }

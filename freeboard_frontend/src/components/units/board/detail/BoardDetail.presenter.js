@@ -79,14 +79,16 @@ export default function BoardDetailUI(props) {
           </Foot_Ytv>
 
           <Foot_Btn>
-            <Like onClick={props.likeCount} />
+            <Like onClick={props.onClickLike} />
 
-            <Dislkie onClick={props.likeCount_2} />
+            <Dislkie onClick={props.onClickDislike} />
           </Foot_Btn>
           <Foot_Count>
-            <Like_count></Like_count>
-            {/* {count} */}
-            <DisLike_count></DisLike_count>
+            <Like_count>{props.onData?.fetchBoard.likeCount}</Like_count>
+
+            <DisLike_count>
+              {props.onData?.fetchBoard.dislikeCount}
+            </DisLike_count>
           </Foot_Count>
         </Wrapper_Foot>
       </Wrapper>
@@ -96,7 +98,7 @@ export default function BoardDetailUI(props) {
         <Delete_Button onClick={props.onClickDelete}>삭제하기</Delete_Button>
       </Foot>
       <Comments_Line></Comments_Line>
-
+      {/* ----------------------------------댓글 창--------------------------------------------- */}
       <Comments>
         <Comments_in>
           댓글

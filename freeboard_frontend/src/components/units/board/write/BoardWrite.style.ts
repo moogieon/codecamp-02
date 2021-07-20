@@ -159,6 +159,9 @@ export const CancelButton = styled.button`
   margin-left: 12px;
   margin-right: 12px;
   cursor: pointer;
+  :hover {
+    background-color: orange;
+  }
 `;
 
 export const SubmitButton = styled.button`

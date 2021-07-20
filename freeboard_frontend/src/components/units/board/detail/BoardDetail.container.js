@@ -5,13 +5,11 @@ import {
   FETCH_BOARD,
   DELETE_BOARD,
   BOARD_COMMENT,
+  LIKE_BOARD,
+  DISLIKE_BOARD,
 } from "./BoardDetail.queries";
 import BoardDetailUI from "./BoardDetail.presenter";
-import {
-  FETCH_BOARD_COMMENTS,
-  LIKE_BOARD,
-} from "./comments/list/BoardCommentList.queries";
-import BoardCommentListUI from "../detail/comments/list/BoardCommentList.container";
+import { FETCH_BOARD_COMMENTS } from "./comments/list/BoardCommentList.queries";
 export const INPUT_COMMENT = {
   writer: "",
   password: "",
@@ -31,14 +29,26 @@ export default function BoardDetail() {
     variables: { boardId: router.query._id },
   });
   console.log(data);
-  const [count, setCount] = useState(LIKE_BOARD);
-  function likeCount() {
-    setCount(LIKE_BOARD);
+  const [likeBoard] = useMutation(LIKE_BOARD);
+  const [dislikeBoard] = useMutation(DISLIKE_BOARD);
+  function onClickLike() {
+    likeBoard({
+      variables: { boardId: router.query._id },
+      refetchQueries: [
+        { query: FETCH_BOARD, variables: { boardId: router.query._id } },
+      ],
+    });
   }
-  const [count_2, setCount_2] = useState(LIKE_BOARD);
-  function likeCount_2() {
-    setCount_2(LIKE_BOARD);
+
+  function onClickDislike() {
+    dislikeBoard({
+      variables: { boardId: router.query._id },
+      refetchQueries: [
+        { query: FETCH_BOARD, variables: { boardId: router.query._id } },
+      ],
+    });
   }
+
   function onChangeInputs(event) {
     const newInput = {
       ...inputs_comment,
@@ -95,8 +105,8 @@ export default function BoardDetail() {
       onClickEdit={onClickEdit}
       onClickSubmit={onClickSubmit}
       onChangeInputs={onChangeInputs}
-      likeCount={likeCount}
-      likeCount_2={likeCount_2}
+      onClickLike={onClickLike}
+      onClickDislike={onClickDislike}
       // onClickChange={onClickChange}
     />
   );

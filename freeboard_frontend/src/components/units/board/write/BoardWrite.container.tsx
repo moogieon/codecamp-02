@@ -10,6 +10,11 @@ export const INPUT_INIT = {
   title: "",
   contents: "",
 };
+export const INPUT_ADDRESS = {
+  zipcode: "",
+  address: "",
+  addressDetail: "",
+};
 interface IProps {
   isEdit?: boolean;
 }
@@ -23,6 +28,7 @@ export default function BoardWrite(props: IProps) {
   //     ttlerror:'',
   //     contentserror:''
   //   })
+  const [inputaddress, setInPutAddress] = useState(INPUT_ADDRESS);
   const [youtubeUrl, setYoutubeUrl] = useState(" ");
   const [active, setActive] = useState(false);
 
@@ -37,12 +43,20 @@ export default function BoardWrite(props: IProps) {
   const [createBoard] = useMutation(CREATE_BOARD); // mutation(고정) post (이름) //
   // $BoradInput (이름) : CreateBoardInput(API 고정)
   // createBoard(API 고정)
+  const [isOpen, setIsOpen] = useState(false);
+  function onOK() {
+    setIsOpen(false);
+  }
+  function onCancel() {
+    setIsOpen(false);
+  }
 
   function onChangeInputs(event) {
     const newInput = {
       //! newInput에 담아서 사용 안해도 되는지
       ...inputs,
-      [event.target.name]: event.target.value, //! 이게 왜 이렇게 나오는건지 질문!
+
+      [event.target.name]: event.target.value,
     };
     setInputs(newInput);
     console.log(event.target);
@@ -53,10 +67,32 @@ export default function BoardWrite(props: IProps) {
     setInput_Error({ ...inputs_error, [event.target.name]: "" });
     //   setActive(Object.values(newInput).every(data=>data))  <- 이미 트루라서 트루 값 안에 넣어 줌
   }
+
   function onChangeyoutube(event) {
     setYoutubeUrl(event.target.value);
     console.log(event.target);
   }
+  // 주소 보내기------------------------------------------------------------------------
+
+  const [address, setAddress] = useState("");
+  const [zonecode, setZoneCode] = useState("");
+  function onComplete(data: any) {
+    setAddress(data.address);
+    setZoneCode(data.zonecode);
+    setOpenPost(false);
+  }
+  function onChangePost(INPUT_ADDRESS) {
+    setInPutAddress(INPUT_ADDRESS.addressDetail);
+  }
+  const [openpost, setOpenPost] = useState(false);
+  function onClickPost() {
+    setOpenPost(true);
+  }
+  function onClickPostClose() {
+    setOpenPost(false);
+  }
+
+  // ------------------------------------------------------------------------
   async function ChangeRegist() {
     setInput_Error({
       writer: inputs.writer ? "" : "작성자를 입력해주세요",
@@ -64,28 +100,31 @@ export default function BoardWrite(props: IProps) {
       title: inputs.title ? "" : "제목을 입력해주세요.",
       contents: inputs.contents ? "" : "내용을 입력해주세요.",
     });
+
     if (Object.values(inputs).every((data) => data)) {
       try {
         const result = await createBoard({
           variables: {
             // 변수이름은 마음 대로 ex) aaa:seller
-            createBoardInput: { ...inputs, youtubeUrl: youtubeUrl },
+            createBoardInput: {
+              boardAddress: { ...inputaddress },
+              ...inputs,
+
+              youtubeUrl: youtubeUrl,
+            },
           },
         });
-        console.log(result.data.createBoard._id);
-        alert("등록 완료");
-        router.push(`detail/${result.data.createBoard._id}`);
+
+        console.log(result.data);
+
+        // router.push(`detail/${result.data.createBoard._id}`);
       } catch (error) {
         alert(error.message);
       }
     }
   }
 
-  // (이름) useMutation 함수 이름
-
   async function onClickEdit() {
-    //! 왜 함수에 담는가
-
     if (Object.values(inputs).every((data) => data)) {
       try {
         const result = await updateBoard({
@@ -105,6 +144,9 @@ export default function BoardWrite(props: IProps) {
       }
     }
   }
+  function onClickCancel() {
+    router.push("/boards/");
+  }
 
   return (
     <BoardWriteUI
@@ -112,13 +154,20 @@ export default function BoardWrite(props: IProps) {
       ChangeRegist={ChangeRegist}
       inputs_error={inputs_error}
       isEdit={props.isEdit}
-      // error1={iderror}
-      // error2={pwerror}
-      // error3={ttlerror}
-      // error4={contentserror}
       active={active}
       onClickEdit={onClickEdit}
+      onChangePost={onChangePost}
+      openpost={openpost}
+      onClickPostClose={onClickPostClose}
+      address={address}
+      zonecode={zonecode}
+      onComplete={onComplete}
       onChangeyoutube={onChangeyoutube}
+      onClickCancel={onClickCancel}
+      isOpen={isOpen}
+      onCancel={onCancel}
+      onOK={onOK}
+      onClickPost={onClickPost}
     />
   );
 }

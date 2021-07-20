@@ -8,6 +8,13 @@ export const FETCH_BOARD = gql`
       contents
       youtubeUrl
       createdAt
+      likeCount
+      dislikeCount
+      boardAddress {
+        zipcode
+        address
+        addressDetail
+      }
     }
   }
 `;
@@ -34,5 +41,10 @@ export const BOARD_COMMENT = gql`
 export const LIKE_BOARD = gql`
   mutation likeBoard($boardId: ID!) {
     likeBoard(boardId: $boardId)
+  }
+`;
+export const DISLIKE_BOARD = gql`
+  mutation dislikeBoard($boardId: ID!) {
+    dislikeBoard(boardId: $boardId)
   }
 `;

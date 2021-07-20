@@ -1,9 +1,9 @@
+import BoardWrite from '../../../src/components/units/board/write/BoardWrite.container'
+
 export default function BoardsPage (){
 
 
-    return(
+    return<BoardWrite/>
 
-        <div>게시판 등록 화면입니다.</div>
-
-    )
+    
 }
