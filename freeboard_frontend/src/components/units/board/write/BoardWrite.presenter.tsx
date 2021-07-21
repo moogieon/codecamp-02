@@ -91,12 +91,7 @@ export default function BoardWriteUI(props: IProps) {
       <InputWrapper>
         <Label></Label>
         <ZipcodeWrapper>
-          <Zipcode
-            name="zipcode"
-            placeholder="07250"
-            value={props.zonecode}
-            onChange={props.zonecode}
-          />
+          <Zipcode name="zipcode" placeholder="07250" value={props.zipcode} />
           {props.openpost && (
             <Modal
               title="주소 검색"
@@ -108,8 +103,8 @@ export default function BoardWriteUI(props: IProps) {
           )}
           <SearchButton onClick={props.onClickPost}>우편번호 검색</SearchButton>
         </ZipcodeWrapper>
-        <Address value={props.address} onChange={props.address} />
-        <Address onChange={props.onChangePost.addressDetail} />
+        <Address value={props.address} />
+        <Address onChange={props.onChangeAddressDetail} />
       </InputWrapper>
 
       <InputWrapper>
@@ -117,7 +112,7 @@ export default function BoardWriteUI(props: IProps) {
         <Youtube
           name="youtubeUrl"
           placeholder="링크를 복사해주세요."
-          onChange={props.onChangeyoutube}
+          onChange={props.onChangeInputs}
         ></Youtube>
       </InputWrapper>
       <ImageWrapper>
@@ -154,16 +149,6 @@ export default function BoardWriteUI(props: IProps) {
           {props.isEdit ? "수정하기" : "등록하기"}
         </SubmitButton>
       </ButtonWrapper>
-      <Modal
-        title="게시물 등록"
-        onOK={props.onOK}
-        onCancel={props.onCancel}
-        visible={props.isOpen}
-        okText="예"
-        cancelText="안돼요!"
-      >
-        <div>게시물 등록 합니다?</div>
-      </Modal>
     </Wrapper>
   );
 }

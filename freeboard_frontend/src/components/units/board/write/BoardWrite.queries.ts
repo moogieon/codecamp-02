@@ -9,8 +9,8 @@ export const CREATE_BOARD = gql`
       youtubeUrl
       boardAddress {
         zipcode
-        addressDetail
         address
+        addressDetail
       }
     }
   }

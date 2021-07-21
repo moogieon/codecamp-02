@@ -3,18 +3,16 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
 import BoardWriteUI from "./BoardWrite.presenter";
+import { Modal } from "antd";
 
 export const INPUT_INIT = {
   writer: "",
   password: "",
   title: "",
   contents: "",
+  youtubeUrl: "",
 };
-export const INPUT_ADDRESS = {
-  zipcode: "",
-  address: "",
-  addressDetail: "",
-};
+
 interface IProps {
   isEdit?: boolean;
 }
@@ -28,8 +26,8 @@ export default function BoardWrite(props: IProps) {
   //     ttlerror:'',
   //     contentserror:''
   //   })
-  const [inputaddress, setInPutAddress] = useState(INPUT_ADDRESS);
-  const [youtubeUrl, setYoutubeUrl] = useState(" ");
+  // const [youtubeUrl, setYoutubeUrl] = useState(" ");
+
   const [active, setActive] = useState(false);
 
   const [inputs_error, setInput_Error] = useState(INPUT_INIT);
@@ -52,12 +50,7 @@ export default function BoardWrite(props: IProps) {
   }
 
   function onChangeInputs(event) {
-    const newInput = {
-      //! newInput에 담아서 사용 안해도 되는지
-      ...inputs,
-
-      [event.target.name]: event.target.value,
-    };
+    const newInput = { ...inputs, [event.target.name]: event.target.value };
     setInputs(newInput);
     console.log(event.target);
     if (Object.values(newInput).every((data) => data !== "")) {
@@ -68,23 +61,24 @@ export default function BoardWrite(props: IProps) {
     //   setActive(Object.values(newInput).every(data=>data))  <- 이미 트루라서 트루 값 안에 넣어 줌
   }
 
-  function onChangeyoutube(event) {
-    setYoutubeUrl(event.target.value);
-    console.log(event.target);
-  }
+  // function onChangeyoutube(event) {
+  //   setYoutubeUrl(event.target.value);
+  //   console.log(event.target);
+  // }
   // 주소 보내기------------------------------------------------------------------------
-
+  const [addressDetail, setAddressDetail] = useState("");
   const [address, setAddress] = useState("");
-  const [zonecode, setZoneCode] = useState("");
+  const [zipcode, setZipcode] = useState("");
+  const [openpost, setOpenPost] = useState(false);
   function onComplete(data: any) {
     setAddress(data.address);
-    setZoneCode(data.zonecode);
+    setZipcode(data.zonecode);
     setOpenPost(false);
   }
-  function onChangePost(INPUT_ADDRESS) {
-    setInPutAddress(INPUT_ADDRESS.addressDetail);
+  function onChangeAddressDetail(event: any) {
+    setAddressDetail(event.target.value);
   }
-  const [openpost, setOpenPost] = useState(false);
+
   function onClickPost() {
     setOpenPost(true);
   }
@@ -99,25 +93,31 @@ export default function BoardWrite(props: IProps) {
       password: inputs.password ? "" : "비밀번호를 입력해주세요.",
       title: inputs.title ? "" : "제목을 입력해주세요.",
       contents: inputs.contents ? "" : "내용을 입력해주세요.",
+      youtubeUrl: "",
     });
 
-    if (Object.values(inputs).every((data) => data)) {
+    const isEvery = Object.values(inputs)
+      .filter((data) => data !== "youtubeUrl")
+      .every((data) => data);
+    if (isEvery) {
       try {
         const result = await createBoard({
           variables: {
             // 변수이름은 마음 대로 ex) aaa:seller
             createBoardInput: {
-              boardAddress: { ...inputaddress },
               ...inputs,
-
-              youtubeUrl: youtubeUrl,
+              boardAddress: { zipcode, address, addressDetail },
             },
           },
         });
 
         console.log(result.data);
-
-        // router.push(`detail/${result.data.createBoard._id}`);
+        Modal.confirm({
+          okText: "예",
+          cancelText: "안돼요!",
+          content: "게시물이 성공적으로 등록되었습니다.",
+          onOk: () => router.push(`detail/${result.data.createBoard._id}`),
+        });
       } catch (error) {
         alert(error.message);
       }
@@ -125,6 +125,13 @@ export default function BoardWrite(props: IProps) {
   }
 
   async function onClickEdit() {
+    setInput_Error({
+      writer: inputs.writer ? "" : "작성자를 입력해주세요.",
+      password: inputs.password ? "" : "비밀번호를 입력해주세요.",
+      title: inputs.title ? "" : "제목을 입력해주세요.",
+      contents: inputs.contents ? "" : "내용을 입력해주세요.",
+      youtubeUrl: "",
+    });
     if (Object.values(inputs).every((data) => data)) {
       try {
         const result = await updateBoard({
@@ -134,11 +141,16 @@ export default function BoardWrite(props: IProps) {
             updateBoardInput: {
               title: inputs.title,
               contents: inputs.contents,
+              youtubeUrl: inputs.youtubeUrl,
             },
           },
         });
-        alert("등록 완료!");
-        router.push(`/boards/detail/${result.data.updateBoard._id}`);
+        Modal.confirm({
+          okText: "예",
+          cancelText: "안돼요!",
+          content: "게시물이 수정되었습니다.",
+          onOk: () => router.push(`detail/${result.data.createBoard._id}`),
+        });
       } catch (error) {
         alert(error.message);
       }
@@ -156,13 +168,12 @@ export default function BoardWrite(props: IProps) {
       isEdit={props.isEdit}
       active={active}
       onClickEdit={onClickEdit}
-      onChangePost={onChangePost}
       openpost={openpost}
       onClickPostClose={onClickPostClose}
       address={address}
-      zonecode={zonecode}
+      zipcode={zipcode}
+      onChangeAddressDetail={onChangeAddressDetail}
       onComplete={onComplete}
-      onChangeyoutube={onChangeyoutube}
       onClickCancel={onClickCancel}
       isOpen={isOpen}
       onCancel={onCancel}
