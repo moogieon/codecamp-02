@@ -7,20 +7,20 @@ import {
   FETCH_BOARD_COMMENTS,
 } from "./BoardCommentList.queries";
 
-export default function BoardCommentList() {
+export default function BoardCommentList(props) {
   const router = useRouter();
   const { data } = useQuery(FETCH_BOARD_COMMENTS, {
     variables: { boardId: router.query._id },
   });
   const [deleteBoardComment] = useMutation(DELETE_COMMENTS);
-  async function onClickDelete(event) {
+  async function onClickDelete() {
     try {
       const password = prompt("비밀번호를 입력해 주세요.");
       console.log(data);
       // console.log(router.query);
 
       await deleteBoardComment({
-        variables: { boardCommentId: event.target.id, password },
+        variables: { boardCommentId: props.data?._id, password: password },
         refetchQueries: [{ query: FETCH_BOARD_COMMENTS }],
       });
 

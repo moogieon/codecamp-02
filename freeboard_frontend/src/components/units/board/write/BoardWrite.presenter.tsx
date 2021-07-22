@@ -30,23 +30,31 @@ import {
 
 interface IProps {
   active: boolean;
+  event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
+  isEdit?: boolean;
+  isOpen: boolean;
+  inputs_error: typeof INPUT_INIT;
+  zipcode: string;
+  address: string;
+  openpost: boolean;
+  onClickPost: () => void;
+  onChangeAddressDetail: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeInputs: (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
   ChangeRegist: () => void;
   onClickEdit: () => void;
-  isEdit?: boolean;
-  inputs_error: typeof INPUT_INIT;
   onChangeyoutube: () => void;
   onClickCancel: () => void;
-  onComplete: () => void;
-
+  onComplete: (data: any) => void;
+  onCancel: () => void;
+  onOK: () => void;
   // inputsErrors: typeof INPUT_INIT
 }
 export default function BoardWriteUI(props: IProps) {
   return (
     <Wrapper>
-      <Title>게시판 등록</Title>
+      <Title>{props.isEdit ? "수정하기" : "등록하기"}</Title>
       <WriterWrapper>
         <InputWrapper>
           <Label>작성자</Label>
@@ -93,11 +101,7 @@ export default function BoardWriteUI(props: IProps) {
         <ZipcodeWrapper>
           <Zipcode name="zipcode" placeholder="07250" value={props.zipcode} />
           {props.openpost && (
-            <Modal
-              title="주소 검색"
-              visible={true}
-              onCancel={props.onClickPostClose}
-            >
+            <Modal title="주소 검색" visible={true}>
               <DaumPostcode onComplete={props.onComplete} animation autoClose />
             </Modal>
           )}

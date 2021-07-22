@@ -1,4 +1,4 @@
-import {Banner_1} from "./LayoutBanner.styes"
+import {} from "./LayoutBanner.styes"
 import Slider from "@ant-design/react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -18,7 +18,7 @@ export default function  LayoutBannerUI(){
         <div style={{backgroundColor: 'white', height:'340px'}}>
     <Slider {...settings}>
       <div>
-        <Banner_1></Banner_1>
+        
       </div>
       <div>
       <img src="/test_images/under th sea.jpg" style={{height:'300px',width:'100%'}} />

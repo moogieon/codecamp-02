@@ -12,7 +12,7 @@ export const FETCH_BOARD_COMMENTS = gql`
 `;
 
 export const DELETE_COMMENTS = gql`
-  mutation deleteBoardComment($boardCommentId: ID!) {
-    deleteBoardComment(boardCommentId: $boardCommentId)
+  mutation deleteBoardComment($boardCommentId: ID!, $password: String) {
+    deleteBoardComment(boardCommentId: $boardCommentId, password: $password)
   }
 `;

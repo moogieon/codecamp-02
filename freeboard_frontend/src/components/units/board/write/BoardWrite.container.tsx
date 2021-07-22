@@ -20,22 +20,8 @@ interface IProps {
 export default function BoardWrite(props: IProps) {
   const router = useRouter();
   const [inputs, setInputs] = useState(INPUT_INIT); //! inputInit가 뭐였지 ?
-  //   const[inputsErrors, setInputsErrors] = useState({
-  //     iderror:'',
-  //     pwerror:'',
-  //     ttlerror:'',
-  //     contentserror:''
-  //   })
-  // const [youtubeUrl, setYoutubeUrl] = useState(" ");
-
   const [active, setActive] = useState(false);
-
   const [inputs_error, setInput_Error] = useState(INPUT_INIT);
-
-  // const [iderror, setIderror] = useState('')
-  // const [pwerror, setPwerror] = useState('')
-  // const [ttlerror, setTtlerror] = useState('')
-  // const [contentserror, setContetserror] = useState('')
 
   const [updateBoard] = useMutation(UPDATE_BOARD);
   const [createBoard] = useMutation(CREATE_BOARD); // mutation(고정) post (이름) //
@@ -49,9 +35,15 @@ export default function BoardWrite(props: IProps) {
     setIsOpen(false);
   }
 
-  function onChangeInputs(event) {
-    const newInput = { ...inputs, [event.target.name]: event.target.value };
-    setInputs(newInput);
+  function onChangeInputs(event: any) {
+    const newInput = {
+      writer: inputs.writer,
+      password: inputs.password,
+      title: inputs.title,
+      contents: inputs.contents,
+      [event.target.name]: event.target.value,
+    };
+    setInputs(newInput, { youtubeUrl: inputs.youtubeUrl });
     console.log(event.target);
     if (Object.values(newInput).every((data) => data !== "")) {
       //! values 나 key 말고 다 가저오면 ? //! 이거 설명 다시 한번
@@ -61,10 +53,6 @@ export default function BoardWrite(props: IProps) {
     //   setActive(Object.values(newInput).every(data=>data))  <- 이미 트루라서 트루 값 안에 넣어 줌
   }
 
-  // function onChangeyoutube(event) {
-  //   setYoutubeUrl(event.target.value);
-  //   console.log(event.target);
-  // }
   // 주소 보내기------------------------------------------------------------------------
   const [addressDetail, setAddressDetail] = useState("");
   const [address, setAddress] = useState("");
@@ -82,9 +70,6 @@ export default function BoardWrite(props: IProps) {
   function onClickPost() {
     setOpenPost(true);
   }
-  function onClickPostClose() {
-    setOpenPost(false);
-  }
 
   // ------------------------------------------------------------------------
   async function ChangeRegist() {
@@ -97,7 +82,7 @@ export default function BoardWrite(props: IProps) {
     });
 
     const isEvery = Object.values(inputs)
-      .filter((data) => data !== "youtubeUrl")
+      .filter((data) => data === "youtubeUrl")
       .every((data) => data);
     if (isEvery) {
       try {
@@ -169,7 +154,6 @@ export default function BoardWrite(props: IProps) {
       active={active}
       onClickEdit={onClickEdit}
       openpost={openpost}
-      onClickPostClose={onClickPostClose}
       address={address}
       zipcode={zipcode}
       onChangeAddressDetail={onChangeAddressDetail}
