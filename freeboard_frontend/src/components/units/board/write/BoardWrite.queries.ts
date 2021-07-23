@@ -27,6 +27,14 @@ export const UPDATE_BOARD = gql`
       updateBoardInput: $updateBoardInput
     ) {
       _id
+      likeCount
+      dislikeCount
+      youtubeUrl
+      boardAddress {
+        zipcode
+        address
+        addressDetail
+      }
     }
   }
 `;

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled/";
+import { Rate } from "antd";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -31,6 +32,7 @@ export const Comment_Writer = styled.div`
   font-size: 16px;
   width: 70%;
 `;
+export const Star = styled(Rate)``;
 export const Comment_Date = styled.div`
   font-size: 12px;
   color: #bdbdbd;

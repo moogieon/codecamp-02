@@ -1,4 +1,4 @@
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
@@ -127,6 +127,7 @@ export default function BoardWrite(props: IProps) {
               title: inputs.title,
               contents: inputs.contents,
               youtubeUrl: inputs.youtubeUrl,
+              boardAddress: { zipcode, address, addressDetail },
             },
           },
         });
@@ -134,7 +135,8 @@ export default function BoardWrite(props: IProps) {
           okText: "예",
           cancelText: "안돼요!",
           content: "게시물이 수정되었습니다.",
-          onOk: () => router.push(`detail/${result.data.createBoard._id}`),
+          onOk: () =>
+            router.push(`/boards/detail/${result.data.updateBoard._id}`),
         });
       } catch (error) {
         alert(error.message);
