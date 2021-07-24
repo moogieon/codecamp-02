@@ -49,3 +49,7 @@ export const Delete = styled.button`
   width: 91px;
   height: 51px;
 `;
+export const PasswordInput = styled.input`
+  width: 100%;
+  margin-top: 10px;
+`;

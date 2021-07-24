@@ -9,9 +9,5 @@ export default function BoardCommentList() {
     variables: { boardId: router.query._id },
   });
 
-  return (
-    <>
-      <BoardCommentListUI data={data} />
-    </>
-  );
+  return <BoardCommentListUI data={data} />;
 }

@@ -7,6 +7,11 @@ export const Comments = styled.div`
   display: flex;
   flex-direction: column;
 `;
+export const EditComments = styled.div`
+  width: 100px;
+  height: 100px;
+`;
+
 export const Comments_in = styled.div`
   width: 1200px;
   height: 272px;
