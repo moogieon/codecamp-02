@@ -1,11 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 19200px;
-
+  width: 19200px
   padding-bottom: 405px;
-
-  border: 1px solid black;
 `;
 export const Body = styled.div`
   width: 1200px;
