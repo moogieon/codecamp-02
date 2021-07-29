@@ -26,7 +26,7 @@ const InputIN = {
 
 export default function imageUploadPage() {
   const [uploadFile] = useMutation(UPLOAD_FILE);
-  const [imgUrl, setImgUrl] = useState([]);
+  const [imgUrl, setImgUrl] = useState<string[]>([]);
   const [input, setInput] = useState(InputIN);
   const [createBoard] = useMutation(CREAT_BOARD);
 
@@ -55,6 +55,18 @@ export default function imageUploadPage() {
       });
       console.log(result.data.uploadFile.url);
       setImgUrl(result.data.uploadFile.url);
+      // const tempArr = [...imgUrl];
+      // tempArr.push(result.data.uploadFile.url);
+      // setImgUrl(tempArr);
+
+      // setImgUrl((prev) => [...prev].concat([result.data.uploadFile.url]));
+
+      // setImgUrl((prev) => {
+      //   prev = result.data.uploadFile.url;
+      // });
+
+      // setImgUrl((prev) => result.data.uploadFile.url);
+      // setImgUrl(prev.(result.data.uploadFile.url));
     } catch (error) {
       alert(error.message);
     }
@@ -89,12 +101,13 @@ export default function imageUploadPage() {
   return (
     <>
       <div>
-        {fileurl.map(
+        {imgUrl?.map((aaa) => (
           <img
+            key={aaa}
             style={{ width: "200px", height: "200px", backgroundSize: "100%" }}
-            src={`https://storage.googleapis.com/${imgUrl}`}
+            src={`https://storage.googleapis.com/${aaa}`}
           />
-        )}
+        ))}
       </div>
       <button onClick={onclickSubmit}>등록</button>
       작성자: <input name="writer" type="text" onChange={onChangeInput}></input>

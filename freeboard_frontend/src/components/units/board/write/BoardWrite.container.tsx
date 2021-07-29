@@ -27,6 +27,7 @@ export default function BoardWrite(props: IProps) {
   const [createBoard] = useMutation(CREATE_BOARD); // mutation(고정) post (이름) //
   // $BoradInput (이름) : CreateBoardInput(API 고정)
   // createBoard(API 고정)
+  const [fileUrls, setFileUrls] = useState(["", "", ""]);
   const [isOpen, setIsOpen] = useState(false);
   function onOK() {
     setIsOpen(false);
@@ -34,7 +35,7 @@ export default function BoardWrite(props: IProps) {
   function onCancel() {
     setIsOpen(false);
   }
-
+  // -----------게시물 작성----------------------------
   function onChangeInputs(event: any) {
     const newInput = {
       writer: inputs.writer,
@@ -71,7 +72,7 @@ export default function BoardWrite(props: IProps) {
     setOpenPost(true);
   }
 
-  // ------------------------------------------------------------------------
+  // --------------------------등록하기 버튼----------------------------------------------
   async function ChangeRegist() {
     setInput_Error({
       writer: inputs.writer ? "" : "작성자를 입력해주세요",
@@ -93,6 +94,7 @@ export default function BoardWrite(props: IProps) {
               ...inputs,
               boardAddress: { zipcode, address, addressDetail },
             },
+            images: [...fileUrls],
           },
         });
 
@@ -108,7 +110,7 @@ export default function BoardWrite(props: IProps) {
       }
     }
   }
-
+  // ----------------수정하기-------------------------
   async function onClickEdit() {
     setInput_Error({
       writer: inputs.writer ? "" : "작성자를 입력해주세요.",
@@ -146,6 +148,11 @@ export default function BoardWrite(props: IProps) {
   function onClickCancel() {
     router.push("/boards/");
   }
+  function onChangeFileUrls(fileUrl: string, index: number) {
+    const newFileUrls = [...fileUrls];
+    newFileUrls[index] = fileUrl;
+    setFileUrls(newFileUrls);
+  }
 
   return (
     <BoardWriteUI
@@ -165,6 +172,8 @@ export default function BoardWrite(props: IProps) {
       onCancel={onCancel}
       onOK={onOK}
       onClickPost={onClickPost}
+      fileUrls={fileUrls}
+      onChangeFileUrls={onChangeFileUrls}
     />
   );
 }

@@ -7,7 +7,7 @@ export default function BoardList() {
   const router = useRouter();
   const { data } = useQuery(FETCH_BOARDS);
 
-  function onClickMoveToBoardDetail(event) {
+  function onClickMoveToBoardDetail(event: any) {
     router.push(`/boards/detail/${event.target.id}`);
   }
   function onClickMoveToBoardNew() {

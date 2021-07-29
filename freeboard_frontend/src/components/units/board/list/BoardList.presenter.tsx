@@ -16,7 +16,9 @@ import {
   Penimg,
 } from "./BoardList.style";
 
-export default function BoardListUi(props) {
+interface IProps {}
+
+export default function BoardListUi(props: IProps) {
   return (
     <>
       <Wrapper>

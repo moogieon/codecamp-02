@@ -18,7 +18,6 @@ import {
   Subject,
   SubmitButton,
   Title,
-  UploadButton,
   Wrapper,
   Writer,
   WriterWrapper,
@@ -27,7 +26,7 @@ import {
   ZipcodeWrapper,
   Warring,
 } from "./BoardWrite.style";
-
+import Uploads01 from "../../../commons/uploads/Uploads01.container";
 interface IProps {
   active: boolean;
   event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
@@ -121,18 +120,14 @@ export default function BoardWriteUI(props: IProps) {
       </InputWrapper>
       <ImageWrapper>
         <Label>사진첨부</Label>
-        <UploadButton>
-          <div>+</div>
-          <div>Upload</div>
-        </UploadButton>
-        <UploadButton>
-          <div>+</div>
-          <div>Upload</div>
-        </UploadButton>
-        <UploadButton>
-          <div>+</div>
-          <div>Upload</div>
-        </UploadButton>
+        {props.fileUrls.map((data, index) => (
+          <Uploads01
+            key={data}
+            index={index}
+            fileUrl={data}
+            onChangeFileUrls={props.onChangeFileUrls}
+          />
+        ))}
       </ImageWrapper>
       <OptionWrapper>
         <Label>메인설정</Label>
