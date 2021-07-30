@@ -32,6 +32,7 @@ import {
 
 interface IProps {
   onChangeStar: (value: number) => void;
+  data: any;
 }
 export default function BoardDetailUI(props: IProps) {
   return (
@@ -64,7 +65,13 @@ export default function BoardDetailUI(props: IProps) {
         <Line></Line>
         <Wrapper_Body>
           <Body_Title>{props.data?.fetchBoard.title}</Body_Title>
-          <Body_Img>img</Body_Img>
+          {props.data?.fetchBoard.images?.map((data: string) => (
+            <Body_Img
+              key={data}
+              src={`https://storage.googleapis.com/${data}`}
+            />
+          ))}
+
           <Body_Contents>{props.data?.fetchBoard.contents}</Body_Contents>
         </Wrapper_Body>
         <Wrapper_Foot>

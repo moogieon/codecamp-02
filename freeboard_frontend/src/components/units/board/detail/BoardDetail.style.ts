@@ -76,10 +76,9 @@ export const Body_Title = styled.span`
   text-align: unset;
 `;
 
-export const Body_Img = styled.div`
+export const Body_Img = styled.img`
   width: 996px;
   height: 480px;
-  background-color: gray;
   margin-top: 40px;
 `;
 export const Body_Contents = styled.div`

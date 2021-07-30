@@ -120,12 +120,12 @@ export default function BoardWriteUI(props: IProps) {
       </InputWrapper>
       <ImageWrapper>
         <Label>사진첨부</Label>
-        {props.fileUrls.map((data, index) => (
+        {new Array(3).fill(1).map((data, index) => (
           <Uploads01
-            key={data}
+            key={`${data}_${index}`}
             index={index}
             fileUrl={data}
-            onChangeFileUrls={props.onChangeFileUrls}
+            onChangeFiles={props.onChangeFiles}
           />
         ))}
       </ImageWrapper>

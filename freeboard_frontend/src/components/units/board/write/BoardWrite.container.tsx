@@ -1,7 +1,7 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
+import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
 import BoardWriteUI from "./BoardWrite.presenter";
 import { Modal } from "antd";
 
@@ -15,19 +15,21 @@ export const INPUT_INIT = {
 
 interface IProps {
   isEdit?: boolean;
+  onChangeFiles: (file: File, index: number) => void;
 }
 
 export default function BoardWrite(props: IProps) {
   const router = useRouter();
-  const [inputs, setInputs] = useState(INPUT_INIT); //! inputInit가 뭐였지 ?
+  const [inputs, setInputs] = useState(INPUT_INIT);
   const [active, setActive] = useState(false);
   const [inputs_error, setInput_Error] = useState(INPUT_INIT);
 
+  const [uploadFile] = useMutation(UPLOAD_FILE);
   const [updateBoard] = useMutation(UPDATE_BOARD);
   const [createBoard] = useMutation(CREATE_BOARD); // mutation(고정) post (이름) //
   // $BoradInput (이름) : CreateBoardInput(API 고정)
   // createBoard(API 고정)
-  const [fileUrls, setFileUrls] = useState(["", "", ""]);
+  const [files, setFiles] = useState<(File | null)[]>([null, null, null]);
   const [isOpen, setIsOpen] = useState(false);
   function onOK() {
     setIsOpen(false);
@@ -41,14 +43,13 @@ export default function BoardWrite(props: IProps) {
       writer: inputs.writer,
       password: inputs.password,
       title: inputs.title,
-      contents: inputs.contents,
+      contents: inputs.contents, //! ...inputs 하면 유투브 등록 안하면 등록이 안됨
       [event.target.name]: event.target.value,
     };
     setInputs(newInput, { youtubeUrl: inputs.youtubeUrl });
     console.log(event.target);
     if (Object.values(newInput).every((data) => data !== "")) {
-      //! values 나 key 말고 다 가저오면 ? //! 이거 설명 다시 한번
-      setActive(true);
+      setActive(true); //! 다시 이해하기
     }
     setInput_Error({ ...inputs_error, [event.target.name]: "" });
     //   setActive(Object.values(newInput).every(data=>data))  <- 이미 트루라서 트루 값 안에 넣어 줌
@@ -82,34 +83,40 @@ export default function BoardWrite(props: IProps) {
       youtubeUrl: "",
     });
 
-    const isEvery = Object.values(inputs)
+    const isEvery = Object.values(inputs) //! 이게 뭐였지...?
       .filter((data) => data === "youtubeUrl")
       .every((data) => data);
-    if (isEvery) {
-      try {
-        const result = await createBoard({
-          variables: {
-            // 변수이름은 마음 대로 ex) aaa:seller
-            createBoardInput: {
-              ...inputs,
-              boardAddress: { zipcode, address, addressDetail },
-            },
-            images: [...fileUrls],
-          },
-        });
+    if (!isEvery) return;
+    try {
+      // 이미지 업로드
+      const uploadFiles = files
+        .filter((data) => data)
+        .map((data) => uploadFile({ variables: { file: data } }));
+      const results = await Promise.all(uploadFiles);
+      const images = results.map((data) => data.data.uploadFile.url); //! ???
 
-        console.log(result.data);
-        Modal.confirm({
-          okText: "예",
-          cancelText: "안돼요!",
-          content: "게시물이 성공적으로 등록되었습니다.",
-          onOk: () => router.push(`detail/${result.data.createBoard._id}`),
-        });
-      } catch (error) {
-        alert(error.message);
-      }
+      // 게시물 업로드
+      const result = await createBoard({
+        variables: {
+          createBoardInput: {
+            ...inputs,
+            boardAddress: { zipcode, address, addressDetail },
+          },
+          images: images,
+        },
+      });
+      console.log(result.data);
+      Modal.confirm({
+        okText: "예",
+        cancelText: "안돼요!",
+        content: "게시물이 성공적으로 등록되었습니다.",
+        onOk: () => router.push(`detail/${result.data.createBoard._id}`),
+      });
+    } catch (error) {
+      alert(error.message);
     }
   }
+
   // ----------------수정하기-------------------------
   async function onClickEdit() {
     setInput_Error({
@@ -148,11 +155,17 @@ export default function BoardWrite(props: IProps) {
   function onClickCancel() {
     router.push("/boards/");
   }
-  function onChangeFileUrls(fileUrl: string, index: number) {
-    const newFileUrls = [...fileUrls];
-    newFileUrls[index] = fileUrl;
-    setFileUrls(newFileUrls);
+  function onChangeFiles(file: File, index: number) {
+    const newFileUrls = [...files];
+    newFileUrls[index] = file;
+    setFiles(newFileUrls);
   }
+  // function onChangeFiles(fileUrl: string, index: number) {
+  //   const newFileUrls = [...files];
+  //   newFileUrls[index] = fileUrl;
+  //   setFiles(newFileUrls);
+  // }
+  //! 스트링에서 file 로 타입이 왜 바뀌었지 ?
 
   return (
     <BoardWriteUI
@@ -172,8 +185,7 @@ export default function BoardWrite(props: IProps) {
       onCancel={onCancel}
       onOK={onOK}
       onClickPost={onClickPost}
-      fileUrls={fileUrls}
-      onChangeFileUrls={onChangeFileUrls}
+      onChangeFiles={onChangeFiles}
     />
   );
 }

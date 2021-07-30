@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import {
   FETCH_BOARD,
@@ -8,12 +7,6 @@ import {
   DISLIKE_BOARD,
 } from "./BoardDetail.queries";
 import BoardDetailUI from "./BoardDetail.presenter";
-export const INPUT_COMMENT = {
-  writer: "",
-  password: "",
-  contents: "",
-  rating: 0,
-};
 
 export default function BoardDetail() {
   const router = useRouter();

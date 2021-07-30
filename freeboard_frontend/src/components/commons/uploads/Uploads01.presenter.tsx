@@ -5,10 +5,7 @@ export default function Uploads01UI(props: IUploads01UIProps) {
   return (
     <>
       {props.fileUrl ? (
-        <UploadImage
-          src={`https://storage.googleapis.com/${props.fileUrl}`}
-          onClick={props.onClickUpload}
-        />
+        <UploadImage src={props.fileUrl} onClick={props.onClickUpload} />
       ) : (
         <UploadButton onClick={props.onClickUpload} />
       )}
