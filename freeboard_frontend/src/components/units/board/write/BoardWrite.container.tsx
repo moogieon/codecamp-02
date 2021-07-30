@@ -148,7 +148,7 @@ export default function BoardWrite(props: IProps) {
             router.push(`/boards/detail/${result.data.updateBoard._id}`),
         });
       } catch (error) {
-        alert(error.message);
+        alert(error.message); // ssssssss
       }
     }
   }

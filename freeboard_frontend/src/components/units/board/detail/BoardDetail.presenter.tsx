@@ -104,7 +104,7 @@ export default function BoardDetailUI(props: IProps) {
         <Delete_Button onClick={props.onClickDelete}>삭제하기</Delete_Button>
       </Foot>
       <Comments_Line></Comments_Line>
-      {/* ----------------------------------댓글 창--------------------------------------------- */}
+      {/* ----------------------------------댓글 창-------------------------------------------- */}
     </>
   );
 }
