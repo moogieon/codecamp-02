@@ -1,8 +1,8 @@
+import BoardWriteUI from "./BoardWrite.presenter";
 import { useMutation } from "@apollo/client";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
-import BoardWriteUI from "./BoardWrite.presenter";
 import { Modal } from "antd";
 
 export const INPUT_INIT = {
@@ -26,9 +26,8 @@ export default function BoardWrite(props: IProps) {
 
   const [uploadFile] = useMutation(UPLOAD_FILE);
   const [updateBoard] = useMutation(UPDATE_BOARD);
-  const [createBoard] = useMutation(CREATE_BOARD); // mutation(고정) post (이름) //
-  // $BoradInput (이름) : CreateBoardInput(API 고정)
-  // createBoard(API 고정)
+  const [createBoard] = useMutation(CREATE_BOARD);
+
   const [files, setFiles] = useState<(File | null)[]>([null, null, null]);
   const [isOpen, setIsOpen] = useState(false);
   function onOK() {
@@ -87,6 +86,7 @@ export default function BoardWrite(props: IProps) {
       .filter((data) => data === "youtubeUrl")
       .every((data) => data);
     if (!isEvery) return;
+
     try {
       // 이미지 업로드
       const uploadFiles = files
@@ -94,6 +94,7 @@ export default function BoardWrite(props: IProps) {
         .map((data) => uploadFile({ variables: { file: data } }));
       const results = await Promise.all(uploadFiles);
       const images = results.map((data) => data.data.uploadFile.url); //! ???
+      console.log(uploadFile.url);
 
       // 게시물 업로드
       const result = await createBoard({
@@ -101,8 +102,8 @@ export default function BoardWrite(props: IProps) {
           createBoardInput: {
             ...inputs,
             boardAddress: { zipcode, address, addressDetail },
+            images: images,
           },
-          images: images,
         },
       });
       console.log(result.data);
@@ -156,9 +157,9 @@ export default function BoardWrite(props: IProps) {
     router.push("/boards/");
   }
   function onChangeFiles(file: File, index: number) {
-    const newFileUrls = [...files];
-    newFileUrls[index] = file;
-    setFiles(newFileUrls);
+    const newFiles = [...files];
+    newFiles[index] = file;
+    setFiles(newFiles);
   }
   // function onChangeFiles(fileUrl: string, index: number) {
   //   const newFileUrls = [...files];

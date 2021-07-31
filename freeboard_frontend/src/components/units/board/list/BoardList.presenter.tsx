@@ -15,7 +15,7 @@ import {
   Button,
   Penimg,
 } from "./BoardList.style";
-
+import Paginations01 from "../../../commons/paginations/Paginations.container";
 interface IProps {}
 
 export default function BoardListUi(props: IProps) {
@@ -51,6 +51,11 @@ export default function BoardListUi(props: IProps) {
           ))}
         </Body>
         <Footer>
+          <Paginations01
+            count={props.dataBoardsCount?.fetchBoardsCount}
+            startPage={props.startPage}
+            setStartPage={props.setStartPage}
+          />
           <Button onClick={props.onClickMoveToBoardNew}>
             <Penimg src="/boards-image/pen.png" /> 게시물 등록하기
           </Button>

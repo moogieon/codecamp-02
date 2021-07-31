@@ -11,13 +11,12 @@ import BoardDetailUI from "./BoardDetail.presenter";
 export default function BoardDetail() {
   const router = useRouter();
   console.log(router);
-  // console.log(router.query.aaa ) //질문 ,
   const [deleteBoard] = useMutation(DELETE_BOARD);
 
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: router.query._id },
   });
-  // console.log(data._id);
+  console.log(data);
   const [likeBoard] = useMutation(LIKE_BOARD);
   const [dislikeBoard] = useMutation(DISLIKE_BOARD);
   function onClickLike() {

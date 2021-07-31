@@ -43,6 +43,7 @@ interface IProps {
   ) => void;
   ChangeRegist: () => void;
   onClickEdit: () => void;
+  onChangeFiles: (file: File, index: number) => void;
   onChangeyoutube: () => void;
   onClickCancel: () => void;
   onComplete: (data: any) => void;
@@ -124,7 +125,6 @@ export default function BoardWriteUI(props: IProps) {
           <Uploads01
             key={`${data}_${index}`}
             index={index}
-            fileUrl={data}
             onChangeFiles={props.onChangeFiles}
           />
         ))}

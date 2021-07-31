@@ -21,6 +21,7 @@ export default function BoardCommentsWrite(props) {
   // console.log(router.query.aaa ) //질문 ,
   const [inputs_comment, setInputs_Comment] = useState(INPUT_COMMENT);
 
+  const [comments_error, setComments_Error] = useState(INPUT_COMMENT);
   const [createBoardComment] = useMutation(BOARD_COMMENT);
 
   function onChangeInputs(
@@ -30,6 +31,7 @@ export default function BoardCommentsWrite(props) {
       ...inputs_comment,
       [event.target.name]: event.target.value,
     });
+    setComments_Error({ ...comments_error, [event.target.name]: "" });
     console.log(event.target.name);
   }
   // console.log(data);
@@ -37,6 +39,17 @@ export default function BoardCommentsWrite(props) {
     setInputs_Comment({ ...inputs_comment, rating: value });
   }
   async function onClickSubmit() {
+    setComments_Error({
+      writer: inputs_comment.writer ? "" : "작성자를 입력해주세요",
+      password: inputs_comment.password ? "" : "비밀번호를 입력해주세요.",
+      contents: inputs_comment.password ? "" : "내용을 입력해주세요.",
+      rating: 0,
+    });
+
+    const isEvery = Object.values(inputs_comment) //! 이게 뭐였지...?
+      .every((data) => data);
+
+    if (!isEvery) return;
     try {
       await createBoardComment({
         variables: {
@@ -99,6 +112,7 @@ export default function BoardCommentsWrite(props) {
       onClickSubmit={onClickSubmit}
       onChangeInputs={onChangeInputs}
       onCKilckUpDate={onCKilckUpDate}
+      comments_error={comments_error}
 
       // onClickChange={onClickChange}
     />

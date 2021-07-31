@@ -47,3 +47,8 @@ export const Comments_Button = styled.button`
   width: 91px;
   height: 52px;
 `;
+
+export const Warring = styled.div`
+  color: red;
+  font-size: 10px;
+`;

@@ -9,7 +9,7 @@ import {
   Comments_Button,
   Comments_Line,
   Comments_Button_Box,
-  EditComments,
+  Warring,
 } from "./BoardCommentsWrite.style";
 
 interface IProps {
@@ -34,6 +34,8 @@ export default function BoardCommentsWriteUI(props: IProps) {
           )}
           <Rate onChange={props.onChangeStar} />
           <div>이름</div>
+          <Warring>{props.comments_error.writer}</Warring>
+
           <Comments_init_writer
             name="writer"
             type="text"
@@ -42,12 +44,15 @@ export default function BoardCommentsWriteUI(props: IProps) {
             onChange={props.onChangeInputs}
           ></Comments_init_writer>
           <div>비밀번호</div>
+          <Warring>{props.comments_error.password}</Warring>
           <Comments_init_password
             name="password"
             type="password"
             placeholder="비밀번호"
             onChange={props.onChangeInputs}
           ></Comments_init_password>
+          <div>내용</div>
+          <Warring>{props.comments_error.contents}</Warring>
           <Comments_init
             name="contents"
             type="text"
