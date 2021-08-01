@@ -87,7 +87,8 @@ export const Footer = styled.div`
   width: 1200px;
   padding-top: 40px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  flex-direction: row;
 `;
 export const Button = styled.button`
   width: 171px;

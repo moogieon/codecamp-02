@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import BoardListUi from "./BoardList.presenter";
-import { FETCH_BOARDS } from "./BoardList.queries";
+import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./BoardList.queries";
 
 export default function BoardList() {
   const router = useRouter();
@@ -10,6 +10,7 @@ export default function BoardList() {
   const { data, refetch } = useQuery(FETCH_BOARDS, {
     variables: { page: startPage },
   });
+  const { data: dataBoardsCount } = useQuery(FETCH_BOARDS_COUNT);
 
   function onClickMoveToBoardDetail(event: any) {
     router.push(`/boards/detail/${event.target.id}`);
@@ -26,6 +27,7 @@ export default function BoardList() {
       setStartPage={setStartPage}
       refetch={refetch}
       startPage={startPage}
+      dataBoardsCount={dataBoardsCount}
     />
   );
 }
