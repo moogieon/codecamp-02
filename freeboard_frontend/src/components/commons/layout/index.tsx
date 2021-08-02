@@ -4,7 +4,7 @@ import LayoutHeader from "./header/LayoutHeader.container";
 import LayoutNavigation from "./navigation/LayoutNavigation.container";
 import styled from "@emotion/styled";
 const Body = styled.div`
-  background-color: white;
+  height: 1080px;
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -15,7 +15,6 @@ const Wrapper = styled.div`
 const SideMenu = styled.div`
   width: 993px;
   height: 82px;
-
   padding: 21px;
   margin: 0 auto 10px;
 `;
@@ -45,8 +44,8 @@ export default function Layout(props: any) {
           <SideMenu>
             <Time>21.7.25 12:00PM</Time>
           </SideMenu>
-          <Body>{props.children}</Body>
         </Wrapper>
+        <Body>{props.children}</Body>
 
         <Footer>
           <LayoutFooter />
