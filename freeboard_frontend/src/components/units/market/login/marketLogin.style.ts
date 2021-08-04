@@ -40,7 +40,6 @@ export const Head = styled.div`
 
 export const Body = styled.div`
   margin-top: 10px;
-
   width: 384px;
   height: 400px;
   /* border: 1px solid white; */
@@ -155,6 +154,7 @@ export const Line = styled.div`
 `;
 export const Error = styled.div`
   color: red;
+  font-size: 12px;
 `;
 export const Footer = styled.div`
   width: 390px;

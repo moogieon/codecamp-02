@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const StickHeader = styled.div`
   padding-top: 8px;
+
   height: 8px;
   background: -webkit-gradient(
     linear,
@@ -27,6 +28,7 @@ export const Stick_2 = styled.div`
   text-align: center;
   line-height: 65px;
   color: #808080;
+  font-family: Ruda;
 `;
 export const Stick_1 = styled.div`
   background-color: #05f;
@@ -36,9 +38,10 @@ export const Stick_1 = styled.div`
   text-align: center;
   line-height: 65px;
   color: #808080;
+  font-family: Ruda;
 `;
 export const Header = styled.div`
-  background-color: white;
+  background-color: black;
   height: 65.625px;
   display: flex;
   justify-content: center;
@@ -50,9 +53,12 @@ export const FreeBoard = styled.div`
   color: #808080;
   cursor: pointer;
   opacity: 0.5;
+  font-family: Ruda;
 `;
 
 export const UsedGoods = styled.div`
+  font-family: Ruda;
+
   padding: 21.328px;
   text-align: center;
   color: #808080;
@@ -60,6 +66,8 @@ export const UsedGoods = styled.div`
   opacity: 0.5;
 `;
 export const MyPage = styled.div`
+  font-family: Ruda;
+
   padding: 21.328px;
   text-align: center;
   color: #808080;

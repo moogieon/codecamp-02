@@ -42,7 +42,8 @@ export default function LoginPage() {
         },
       });
       setAccessToken(result.data?.loginUser.accessToken || "");
-      router.push("/22-login-success");
+      // router.push("/22-login-success");
+      router.push("/23-hoc");
       console.log(result.data?.loginUser.accessToken);
     } catch (error) {
       alert(error.massege);

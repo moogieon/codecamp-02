@@ -1,8 +1,11 @@
+import { useRouter } from "next/router";
 import LayoutHeaderUI from "./LayoutHeader.presenter";
 
-export default function  LayoutHeader(){
+export default function LayoutHeader() {
+  const router = useRouter();
 
-    return(
-        <LayoutHeaderUI/>
-    )
+  function onClickLogin() {
+    router.push("/market/login");
+  }
+  return <LayoutHeaderUI onClickLogin={onClickLogin} />;
 }

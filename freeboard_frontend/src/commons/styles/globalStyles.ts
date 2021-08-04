@@ -19,4 +19,8 @@ export const globalStyles = css`
     font-family: "ccc";
     src: url("/font/login/DungGeunMo.ttf");
   }
+  @font-face {
+    font-family: "Ruda";
+    src: url("/font/login/Ruda.ttf");
+  }
 `;

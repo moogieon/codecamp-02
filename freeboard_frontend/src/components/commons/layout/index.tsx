@@ -11,12 +11,14 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: black;
 `;
 const SideMenu = styled.div`
   width: 993px;
   height: 82px;
   padding: 21px;
   margin: 0 auto 10px;
+  background-color: black;
 `;
 
 const Time = styled.div`
@@ -26,6 +28,8 @@ const Time = styled.div`
   word-spacing: 4px;
   line-height: 1; //! ?? 이게 뭐지
   font-size: 40px;
+  color: white;
+  font-family: bbb;
 `;
 const Footer = styled.div``;
 

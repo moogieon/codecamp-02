@@ -11,7 +11,6 @@ import { AppProps } from "next/dist/next-server/lib/router/router";
 import { Dispatch, SetStateAction, createContext, useState } from "react";
 import { globalStyles } from "../src/commons/styles/globalStyles";
 import Layout from "../src/components/commons/layout";
-import "../styles/globals.css";
 
 interface IContext {
   accessToken: string;
