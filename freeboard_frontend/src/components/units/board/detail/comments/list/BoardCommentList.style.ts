@@ -1,10 +1,19 @@
 import styled from "@emotion/styled/";
 import { Rate } from "antd";
 
-export const Wrapper = styled.div`
+export const Body = styled.div`
   width: 1200px;
-  margin-left: 80px;
-  border: 1px solid black;
+  height: 100%;
+  border: 1px solid red;
+`;
+
+export const Wrapper = styled.div`
+  border: 1px solid white;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 export const Profile_Img = styled.img`
   width: 40px;

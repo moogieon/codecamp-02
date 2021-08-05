@@ -1,5 +1,4 @@
 import { ChangeEvent, MouseEvent } from "react";
-import { INPUT_LOGIN } from "./marketLogin.container";
 import {
   Wrapper,
   Body_Wraaper,
@@ -22,7 +21,8 @@ interface IProps {
   onChangeInput: (event: ChangeEvent<HTMLInputElement>) => void;
   onClickLogin: () => void;
   onClickSingup: (event: MouseEvent<HTMLButtonElement>) => void;
-  inputError: typeof INPUT_LOGIN;
+  errors: any;
+  register: any;
 }
 export default function MarketLoginUI(props: IProps) {
   return (
@@ -32,31 +32,30 @@ export default function MarketLoginUI(props: IProps) {
           <Body_Wraaper>
             <Head>LOGIN</Head>
             <Body>
-              <InputBox>
-                <Id
-                  name="email"
-                  onChange={props.onChangeInput}
-                  placeholder=" e-maiL"
-                />
-                <Label> e-maiL</Label>
-                <Error>{props.inputError.email}</Error>
-              </InputBox>
+              <form onSubmit={props.handleSubmit(props.onClickSingup)}>
+                <InputBox>
+                  <Id
+                    type="email"
+                    placeholder=" e-maiL"
+                    {...props.register("email")}
+                  />
+                  <Label> e-maiL</Label>
+                  <Error>{props.errors.email?.message}</Error>
+                </InputBox>
 
-              <InputBox>
-                <Password
-                  name="password"
-                  onChange={props.onChangeInput}
-                  placeholder="pasword"
-                  type="password"
-                />
-                <Label>pasword</Label>
-                <Error>{props.inputError.password}</Error>
-              </InputBox>
+                <InputBox>
+                  <Password
+                    type="password"
+                    {...props.register("password")}
+                    placeholder="pasword"
+                  />
+                  <Label>pasword</Label>
+                  <Error>{props.errors.password?.message}</Error>
+                </InputBox>
 
-              <CheckBox> 로그인 상태 유지</CheckBox>
-              <LoginButton onClick={props.onClickLogin} type="dashed">
-                Login
-              </LoginButton>
+                <CheckBox> 로그인 상태 유지</CheckBox>
+                <LoginButton type="submit">Login</LoginButton>
+              </form>
               <Line />
               <Footer>
                 <Singin_Button>이메일 찾기</Singin_Button>

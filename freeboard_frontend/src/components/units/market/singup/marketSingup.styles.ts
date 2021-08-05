@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Checkbox, Button } from "antd";
 
 export const Wraaoer_Body = styled.div`
   height: 100%;
@@ -119,13 +118,14 @@ export const RePassword = styled.input`
   /* opacity: 70%; */
 `;
 
-export const LoginButton = styled(Button)`
+export const LoginButton = styled.button`
   margin-top: 20px;
   width: 100%;
   height: 60px;
   font-family: ccc;
   font-size: 27px;
   background-color: wheat;
+  cursor: pointer;
   :hover {
     color: blue;
   }

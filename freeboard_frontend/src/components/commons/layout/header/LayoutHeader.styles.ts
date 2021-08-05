@@ -1,18 +1,19 @@
 import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   background-color: black;
-  height: 30px;
-
+  height: 40px;
+  /* border: 1px solid red; */
   display: flex;
+  align-items: center;
 `;
 export const HeadFlex = styled.div`
-  height: 30px;
+  height: 40px;
   width: 100%;
   display: flex;
   align-items: center;
   padding-left: 40px;
   padding-right: 40px;
-  padding-top: 20px;
+  padding-top: 10px;
 `;
 export const Left = styled.div`
   letter-spacing: 1px;

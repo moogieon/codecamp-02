@@ -23,4 +23,8 @@ export const globalStyles = css`
     font-family: "Ruda";
     src: url("/font/login/Ruda.ttf");
   }
+  @font-face {
+    font-family: "Time";
+    src: url("/font/login/Time.ttf");
+  }
 `;

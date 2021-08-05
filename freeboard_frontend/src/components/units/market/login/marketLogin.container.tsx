@@ -3,7 +3,8 @@
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { useContext, ChangeEvent, useState } from "react";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
 
 import { GlobalContext } from "../../../../../pages/_app";
 import {
@@ -13,11 +14,8 @@ import {
 
 import MarketLoginUI from "./marketLogin.presenter";
 import { LOGIN_USER } from "./marketLogin.queries";
-
-export const INPUT_LOGIN = {
-  email: "",
-  password: "",
-};
+import { yupResolver } from "@hookform/resolvers/yup";
+import { schema } from "./maketLogin.validation";
 export default function MarketLogin() {
   //   const { loading, setLoading } = useState([]);
   const router = useRouter();
@@ -25,26 +23,18 @@ export default function MarketLogin() {
     Pick<IMutation, "loginUser">,
     IMutationCreateUserArgs
   >(LOGIN_USER);
-  const [input, seInput] = useState(INPUT_LOGIN);
-  const [inputError, setInputError] = useState(INPUT_LOGIN);
+  const { register, handleSubmit, formState } = useForm({
+    mode: "onChange",
+    resolver: yupResolver(schema),
+  });
+  // formaState
   const { setAccessToken } = useContext(GlobalContext);
-  // const [isOpen, setIsOpen] = useState(false);
 
-  function onChangeInput(event: ChangeEvent<HTMLInputElement>) {
-    seInput({ ...input, [event.target.name]: event.target.value });
-  }
-  async function onClickLogin() {
-    setInputError({
-      email: input.email ? "" : "e-mail을 입력해 주세요",
-      password: input.password ? "" : "password를 입력해 주세요",
-    });
-    const isEvery = Object.values(input) //! 이게 뭐였지...?
-      .every((data) => data);
-    if (!isEvery) return;
+  async function onClickLogin(data) {
     try {
       const result = await loginUser({
         variables: {
-          ...input,
+          ...data,
         },
       });
       setAccessToken(result.data?.loginUser.accessToken || "");
@@ -56,7 +46,6 @@ export default function MarketLogin() {
       Modal.error({
         content: "로그인 실패죠?",
         okText: "다시 시도",
-        onOk: () => router.push("/market/login"),
       });
     }
   }
@@ -66,10 +55,11 @@ export default function MarketLogin() {
 
   return (
     <MarketLoginUI
-      onChangeInput={onChangeInput}
       onClickLogin={onClickLogin}
-      inputError={inputError}
       onClickSingup={onClickSingup}
+      errors={formState.errors}
+      register={register}
+      handleSubmit={handleSubmit}
     />
   );
 }

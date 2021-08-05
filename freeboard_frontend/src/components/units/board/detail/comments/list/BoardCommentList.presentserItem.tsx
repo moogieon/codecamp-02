@@ -10,6 +10,7 @@ import {
 } from "./BoardCommentList.queries";
 import {
   Wrapper,
+  Body,
   Wrapper_Head,
   Profile_Img,
   CommentList,
@@ -77,19 +78,22 @@ export default function BoardCommentListUIItem(
       )}
       {!isEdit && (
         <Wrapper>
-          <Wrapper_Head key={props.data._id}>
-            <Profile_Img src="/boards-image/Profile.png" />
-            <CommentList>
-              <Comment_Writer>작성자:{props.data.writer}</Comment_Writer>
-              <Star value={props.data.rating} disabled></Star>
-              <Comment_Contents>{props.data.contents}</Comment_Contents>
-              <Comment_Date>{getDate(props.data.createdAt)}</Comment_Date>
-            </CommentList>
-            <Remove onClick={onCKilckUpDate}>수정하기</Remove>
-            <Delete id={props.data._id} onClick={onClickOpenDeleteModal}>
-              지우기
-            </Delete>
-          </Wrapper_Head>
+          <Body>
+            <Wrapper_Head key={props.data._id}>
+              {" "}
+              <Profile_Img src="/boards-image/Profile.png" />
+              <CommentList>
+                <Comment_Writer>작성자:{props.data.writer}</Comment_Writer>
+                <Star value={props.data.rating} disabled></Star>
+                <Comment_Contents>{props.data.contents}</Comment_Contents>
+                <Comment_Date>{getDate(props.data.createdAt)}</Comment_Date>
+              </CommentList>
+              <Remove onClick={onCKilckUpDate}>수정하기</Remove>
+              <Delete id={props.data._id} onClick={onClickOpenDeleteModal}>
+                지우기
+              </Delete>
+            </Wrapper_Head>
+          </Body>
         </Wrapper>
       )}
       {isEdit && (

@@ -7,14 +7,17 @@ export default function LayoutFooterUI() {
       <div
         style={{
           backgroundColor: " #171717;",
-          height: "100px",
-          fontSize: "17px",
+          height: "150px",
+          fontSize: "11px",
           color: "#ffffffd0",
           whiteSpace: "pre-wrap",
           fontFamily: "ruda",
+          paddingLeft: "40px",
+          paddingTop: "20px",
         }}
       >
-        Footer
+        <div>DMCAFRANK'S TUMBLRBLONDED.COBLONDED.WORLDR/FRANKOCEANDONATE</div>
+        <div>중고나라</div>
       </div>
     </>
   );

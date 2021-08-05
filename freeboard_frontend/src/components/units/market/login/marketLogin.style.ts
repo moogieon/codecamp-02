@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
-import { Checkbox, Button } from "antd";
+import { Checkbox } from "antd";
 
 export const Wraaoer_Body = styled.div`
-  height: 100%;
+  height: 1080px;
+  width: 100%;
   background-image: url("/market/login/blond_4.jpg");
   background-size: cover;
 `;
@@ -12,7 +13,6 @@ export const Wrapper = styled.div`
   justify-content: center;
   padding-top: 240px;
   opacity: 0.6;
-
   background-color: #000;
 `;
 
@@ -52,18 +52,18 @@ export const InputBox = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
   input {
     border-bottom: 2px solid white;
     background: transparent;
-    /* padding: 20px 0px 5px 0px; */
-    /* font-size: 14px; */
+
     width: 100%;
   }
 `;
 export const Label = styled.label`
   position: absolute;
   font-family: ccc;
+  color: transparent;
 `;
 export const Id = styled.input`
   ::placeholder {
@@ -73,27 +73,28 @@ export const Id = styled.input`
     color: #aaa;
     font-size: 20px;
     top: 15px;
-    left: 10px;
+    left: 20px;
   }
-  :focus + Label,
-  Label {
+  :focus + label,
+  label {
     color: wheat;
     font-size: 19px;
     pointer-events: none;
-    left: 0px;
+    left: 15px;
     top: -30px;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
   }
   height: 50px;
-  width: 90%;
+  width: 100%;
   padding-left: 15px;
   /* border-radius: 16px; */
   /* opacity: 70%; */
   margin-bottom: 10px;
   color: #aaa;
   font-size: 26px;
+  margin-left: 10px;
 `;
 
 export const Password = styled.input`
@@ -104,14 +105,14 @@ export const Password = styled.input`
     color: #aaa;
     font-size: 20px;
     top: 35px;
-    left: 10px;
+    left: 20px;
   }
   :focus + Label,
   Label {
     color: wheat;
     font-size: 20px;
     pointer-events: none;
-    left: 0px;
+    left: 15px;
     top: -10px;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
@@ -127,20 +128,23 @@ export const Password = styled.input`
   color: #aaa;
   font-size: 26px;
   background: transparent;
+  margin-left: 10px;
 `;
 export const CheckBox = styled(Checkbox)`
   color: white;
   font-size: 16px;
   font-family: ccc;
   margin-bottom: 20px;
+  margin-left: 10px;
 `;
-export const LoginButton = styled(Button)`
+export const LoginButton = styled.button`
   margin-left: 10px;
   width: 390px;
   height: 60px;
   font-family: ccc;
   font-size: 27px;
   background-color: wheat;
+  cursor: pointer;
   :hover {
     color: blue;
   }

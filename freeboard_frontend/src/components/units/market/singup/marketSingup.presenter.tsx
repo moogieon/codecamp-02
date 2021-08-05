@@ -17,11 +17,7 @@ import {
 } from "./marketSingup.styles";
 
 interface IProps {
-  onChangeInput: (event: ChangeEvent<HTMLInputElement>) => void;
-  onClickLogin: () => void;
   onClickSingup: () => void;
-
-  inputError: typeof INPUT_USER;
 }
 export default function MarketSingupUI(props: IProps) {
   return (
@@ -31,36 +27,35 @@ export default function MarketSingupUI(props: IProps) {
           <Body_Wraaper>
             <Head>SING UP</Head>
             <Body>
-              <Name
-                name="name"
-                placeholder=" name"
-                onChange={props.onChangeInput}
-              />
-              <Error>{props.inputError.name}</Error>
-              <Id
-                name="email"
-                placeholder=" e-maiL"
-                onChange={props.onChangeInput}
-              />
-              <Error>{props.inputError.email}</Error>
-              <Password
-                name="password"
-                placeholder="pasword"
-                type="password"
-                onChange={props.onChangeInput}
-              />
-              <Error>{props.inputError.password}</Error>
-              <RePassword
-                name="confirmpassword"
-                placeholder="confirm password"
-                type="password"
-                onChange={props.onChangeConfirmpassword}
-              />
-              <Error>{props.passwrodError}</Error>
+              <form onSubmit={props.handleSubmit(props.onClickSingup)}>
+                <Name
+                  type="name"
+                  placeholder=" name"
+                  {...props.register("name")}
+                />
+                <Error>{props.errors.name?.message}</Error>
+                <Id
+                  type="email"
+                  placeholder=" e-maiL"
+                  {...props.register("email")}
+                />
+                <Error>{props.errors.email?.message}</Error>
+                <Password
+                  placeholder="pasword"
+                  type="password"
+                  {...props.register("password")}
+                />
+                <Error>{props.errors.password?.message}</Error>
+                <RePassword
+                  name="confirmpassword"
+                  placeholder="confirm password"
+                  type="password"
+                  onChange={props.onChangeConfirmpassword}
+                />
+                <Error>{props.passwrodError}</Error>
 
-              <LoginButton type="dashed" onClick={props.onClickSingup}>
-                join now
-              </LoginButton>
+                <LoginButton type="submit">join now</LoginButton>
+              </form>
 
               <Footer></Footer>
             </Body>

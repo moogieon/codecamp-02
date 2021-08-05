@@ -1,6 +1,11 @@
 import styled from "@emotion/styled/";
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+export const Body = styled.div`
   width: 1200px;
   /* height: 1847px; */
   border: 1px solid black;
@@ -13,7 +18,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   border: none;
-  box-shadow: 0px 0px 10px gray;
+  box-shadow: 0px 0px 20px darkgrey;
 `;
 
 export const Wrapper_Head = styled.div`
@@ -176,7 +181,7 @@ export const List_Button = styled.button`
   cursor: pointer;
   border: 1px solid #bdbdbd;
   :hover {
-    background-color: orange;
+    color: #ffc414;
   }
   border-radius: 15px;
 `;
@@ -193,7 +198,7 @@ export const Fix_Button = styled.button`
   cursor: pointer;
   border: 1px solid #bdbdbd;
   :hover {
-    background-color: orange;
+    color: #ffc414;
   }
   border-radius: 15px;
 `;
@@ -208,7 +213,7 @@ export const Delete_Button = styled.button`
   cursor: pointer;
   border: 1px solid #bdbdbd;
   :hover {
-    background-color: orange;
+    color: #ffc414;
   }
   border-radius: 15px;
 `;
@@ -238,6 +243,7 @@ export const Comments_init = styled.input`
   height: 108px;
 `;
 export const Comments_Line = styled.div`
+  margin-top: 100px;
   width: 1198px;
   border-top: 1px solid #f2f2f2;
 `;
