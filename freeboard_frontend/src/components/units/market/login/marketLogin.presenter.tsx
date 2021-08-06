@@ -23,6 +23,7 @@ interface IProps {
   onClickSingup: (event: MouseEvent<HTMLButtonElement>) => void;
   errors: any;
   register: any;
+  handleSubmit: any;
 }
 export default function MarketLoginUI(props: IProps) {
   return (
@@ -32,7 +33,7 @@ export default function MarketLoginUI(props: IProps) {
           <Body_Wraaper>
             <Head>LOGIN</Head>
             <Body>
-              <form onSubmit={props.handleSubmit(props.onClickSingup)}>
+              <form onSubmit={props.handleSubmit(props.onClickLogin)}>
                 <InputBox>
                   <Id
                     type="email"

@@ -6,10 +6,16 @@ export default function LayoutNavigation() {
   function onclickFreeBoard() {
     router.push("/boards");
   }
+  function onclickUsedGoods() {
+    router.push("/market/usedgoods");
+  }
 
   return (
     <>
-      <LayoutNavigationUI onclickFreeBoard={onclickFreeBoard} />
+      <LayoutNavigationUI
+        onclickFreeBoard={onclickFreeBoard}
+        onclickUsedGoods={onclickUsedGoods}
+      />
     </>
   );
 }

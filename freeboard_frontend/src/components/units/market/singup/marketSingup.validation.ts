@@ -9,8 +9,8 @@ export const schema = yup.object().shape({
     .min(4, "비밀번호는 4자 이상입니다. ")
     .max(12, "비밀번호는 12자 이하입니다. ")
     .required("비밀번호를 입력 하세요"),
-  // name: yup
-  //   .string()
-  //   .min(2, "이름을 입력해주세요")
-  //   .required("이름을 입력 하세요"),
+  name: yup
+    .string()
+    .min(2, "이름을 입력해주세요")
+    .required("이름을 입력 하세요"),
 });

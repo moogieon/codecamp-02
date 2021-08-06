@@ -59,3 +59,15 @@ export const Mypage = styled.div`
     color: #ffc414;
   }
 `;
+export const Singup = styled.div`
+  margin-left: 20px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  height: 27.523px;
+  font-size: 11px;
+  color: dimgrey;
+  cursor: pointer;
+  :hover {
+    color: #ffc414;
+  }
+`;

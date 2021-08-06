@@ -1,6 +1,5 @@
 // import { ChangeEvent, MouseEvent } from "react";
-import { ChangeEvent, MouseEvent } from "react";
-import { INPUT_USER } from "./marketSingup.container";
+
 import {
   Wrapper,
   Body_Wraaper,
@@ -19,7 +18,12 @@ import {
 interface IProps {
   onClickSingup: () => void;
 }
+
 export default function MarketSingupUI(props: IProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
   return (
     <>
       <Wraaoer_Body>
@@ -29,6 +33,7 @@ export default function MarketSingupUI(props: IProps) {
             <Body>
               <form onSubmit={props.handleSubmit(props.onClickSingup)}>
                 <Name
+                  ref={inputRef}
                   type="name"
                   placeholder=" name"
                   {...props.register("name")}

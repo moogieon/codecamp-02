@@ -7,5 +7,10 @@ export default function LayoutHeader() {
   function onClickLogin() {
     router.push("/market/login");
   }
-  return <LayoutHeaderUI onClickLogin={onClickLogin} />;
+  function onClickSingUp() {
+    router.push("/market/singup");
+  }
+  return (
+    <LayoutHeaderUI onClickLogin={onClickLogin} onClickSingUp={onClickSingUp} />
+  );
 }

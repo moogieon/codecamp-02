@@ -21,7 +21,7 @@ export default function LayoutNavigationUI(props) {
           <FreeBoard onClick={props.onclickFreeBoard}>FREEBOARD</FreeBoard>
         </h3>
         <h3>
-          <UsedGoods>USED GOODS</UsedGoods>
+          <UsedGoods onClick={props.onclickUsedGoods}>USED GOODS</UsedGoods>
         </h3>
         <h3>
           <MyPage>MYPAGE</MyPage>

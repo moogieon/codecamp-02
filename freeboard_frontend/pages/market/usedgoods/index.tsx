@@ -1,5 +1,7 @@
-import UsedGoods from "../../../src/components/units/market/usedgoods/usedgoods.container";
+import withAuth from "../../../src/components/commons/hocs/withAuth";
+import UsedgoodsWrite from "../../../src/components/units/market/write/usedgoodsWrite.container";
 
-export default function UsedGoodsPage() {
-  return <UsedGoods />;
+function UsedgoodsWritePage() {
+  return <UsedgoodsWrite />;
 }
+export default withAuth(UsedgoodsWritePage);

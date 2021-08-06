@@ -2,10 +2,10 @@ import { useMutation } from "@apollo/client";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import MarketSingupUI from "./marketSingup.presenter";
 import { useForm } from "react-hook-form";
-import { schema } from "../login/maketLogin.validation";
+import { schema } from "./marketSingup.validation";
 import { CREAT_USER } from "./marketSingup.queries";
 
 export default function MarketSingup() {

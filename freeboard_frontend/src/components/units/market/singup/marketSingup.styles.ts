@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wraaoer_Body = styled.div`
-  height: 100%;
+  height: 1080px;
   background-image: url("/market/login/blond_4.jpg");
   background-size: cover;
 `;
@@ -24,6 +24,7 @@ export const Body_Wraaper = styled.div`
   display: flex;
   padding-left: 20px;
   padding-top: 20px;
+  padding-bottom: 40px;
   padding-right: 20px;
   flex-direction: column;
   justify-content: space-around;

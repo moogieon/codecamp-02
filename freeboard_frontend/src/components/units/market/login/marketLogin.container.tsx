@@ -18,19 +18,19 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./maketLogin.validation";
 export default function MarketLogin() {
   //   const { loading, setLoading } = useState([]);
+  const { register, handleSubmit, formState } = useForm({
+    mode: "onChange",
+    resolver: yupResolver(schema),
+  });
   const router = useRouter();
   const [loginUser] = useMutation<
     Pick<IMutation, "loginUser">,
     IMutationCreateUserArgs
   >(LOGIN_USER);
-  const { register, handleSubmit, formState } = useForm({
-    mode: "onChange",
-    resolver: yupResolver(schema),
-  });
-  // formaState
+
   const { setAccessToken } = useContext(GlobalContext);
 
-  async function onClickLogin(data) {
+  async function onClickLogin(data: any) {
     try {
       const result = await loginUser({
         variables: {
@@ -38,14 +38,14 @@ export default function MarketLogin() {
         },
       });
       setAccessToken(result.data?.loginUser.accessToken || "");
-      Modal.success({
+      console.log(result.data?.loginUser.accessToken);
+      Modal.info({
         content: "로그인 완료",
-        okText: "확인",
+        // onOk: () => router.push("/markets"),
       });
     } catch (error) {
       Modal.error({
-        content: "로그인 실패죠?",
-        okText: "다시 시도",
+        content: error.message,
       });
     }
   }
