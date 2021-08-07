@@ -1,3 +1,4 @@
+import Uploads01 from "../../../commons/uploads/Uploads01.container";
 import {
   Wrapper,
   Body,
@@ -28,6 +29,7 @@ import {
   Pic2,
   RadioBoxLabel,
   Regist,
+  Errors,
 } from "./usedgoodsWrite.styles";
 import { IUsedgoodsWriteUIProps } from "./usedgoodsWrite.types";
 
@@ -44,15 +46,16 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
                 placeholder={"상품명을 작성해주세요."}
                 {...props.register("name")}
               />
-              <div>{props.errors.name?.messagse}</div>
+              <Errors>{props.errors.name?.message}</Errors>
             </ProductName>
+
             <ProductSummary>
               <NameTitle>한줄요약</NameTitle>
               <Summary
                 placeholder={"상품명을 작성해주세요."}
                 {...props.register("remarks")}
               />
-              <div>{props.errors.remarks?.messagse}</div>
+              <Errors>{props.errors.remarks?.message}</Errors>
             </ProductSummary>
 
             <ProductContents>
@@ -61,16 +64,18 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
                 placeholder={"상품을 설명해주세요."}
                 {...props.register("contents")}
               />
+              <Errors>{props.errors.contents?.message}</Errors>
             </ProductContents>
-            <div>{props.errors.contents?.messagse}</div>
+
             <ProductPrice>
               <NameTitle>판매가격</NameTitle>
               <Price
                 placeholder={"판매가격을 작성해주세요."}
                 {...props.register("price")}
               />
+              <Errors>{props.errors.price?.message}</Errors>
             </ProductPrice>
-            <div>{props.errors.price?.messagse}</div>
+
             <ProductTag>
               <NameTitle>태그입력</NameTitle>
               <Tag placeholder={"#태그 #태그 #태그"} />
@@ -94,6 +99,9 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
             </LocBox>
             <UploadBox>
               <NameTitle>사진 첨부</NameTitle>
+              {new Array(3).fill(1).map((data, index) => (
+                <Uploads01 />
+              ))}
             </UploadBox>
 
             <RadioBox>

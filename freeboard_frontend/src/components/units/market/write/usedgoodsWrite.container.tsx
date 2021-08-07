@@ -11,7 +11,11 @@ import {
 } from "../../../../commons/types/generated/types";
 import { Modal } from "antd";
 
+import { useContext } from "react";
+import { GlobalContext } from "../../../../../pages/_app";
+
 export default function UsedgoodsWrite() {
+  const { userInfo } = useContext(GlobalContext);
   const { register, handleSubmit, formState } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
@@ -31,11 +35,15 @@ export default function UsedgoodsWrite() {
           },
         },
       });
-      console.log(result.data?.createUseditem._id);
+
+      // setAccessToken(result.data?.loginUser.accessToken)
+
+      console.log(result.data?.createUseditem);
+
       Modal.confirm({
         content: "게시물이 등록 완료!",
-        // onOk: () =>
-        // router.push(`/market/detail${result.data?.createUseditem._id}`),
+        onOk: () =>
+          router.push(`/market/detail/${result.data?.createUseditem._id}`),
       });
     } catch (error) {
       Modal.error({
@@ -50,6 +58,7 @@ export default function UsedgoodsWrite() {
       handleSubmit={handleSubmit}
       register={register}
       errors={formState.errors}
+      userInfo={userInfo}
     />
   );
 }

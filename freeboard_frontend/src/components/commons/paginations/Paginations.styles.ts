@@ -1,6 +1,7 @@
 import styled from "@emotion/styled/";
 
 export const Page = styled.span`
-  margin: 0px, 10px;
-  background-color: black;
+  margin-left: 50px;
+  /* color: white; */
+  cursor: pointer;
 `;

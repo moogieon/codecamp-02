@@ -55,6 +55,7 @@ export default function BoardListUi(props: IProps) {
             count={props.dataBoardsCount?.fetchBoardsCount}
             startPage={props.startPage}
             setStartPage={props.setStartPage}
+            refetch={props.refetch}
           />
           <Button onClick={props.onClickMoveToBoardNew}>
             <Penimg src="/boards-image/pen.png" /> 게시물 등록하기

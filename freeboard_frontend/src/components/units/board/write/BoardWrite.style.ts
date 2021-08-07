@@ -45,6 +45,7 @@ export const Writer = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  background: black;
 `;
 
 export const Password = styled.input`
@@ -52,6 +53,7 @@ export const Password = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  background: black;
 `;
 
 export const Label = styled.div`
@@ -69,6 +71,7 @@ export const Subject = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  background: black;
 `;
 
 export const Contents = styled.textarea`
@@ -77,6 +80,7 @@ export const Contents = styled.textarea`
   padding-left: 16px;
   padding: 14px;
   border: 1px solid #bdbdbd;
+  background: black;
 `;
 
 export const ZipcodeWrapper = styled.div`
@@ -89,6 +93,7 @@ export const Zipcode = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  background: black;
 `;
 
 export const SearchButton = styled.button`
@@ -106,6 +111,7 @@ export const Address = styled.input`
   margin-top: 16px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  background: black;
 `;
 
 export const Youtube = styled.input`
@@ -118,6 +124,7 @@ export const Youtube = styled.input`
 export const ImageWrapper = styled.div`
   width: 996px;
   padding-top: 40px;
+  background: black;
 `;
 
 export const OptionWrapper = styled.div`
@@ -147,22 +154,26 @@ export const CancelButton = styled.button`
   width: 179px;
   height: 52px;
   background-color: #bdbdbd;
-  border: none;
+  border: 1px solid white;
   font-size: 16px;
   font-weight: 500;
   margin-left: 12px;
   margin-right: 12px;
+  background: black;
+
   cursor: pointer;
   :hover {
-    background-color: orange;
+    color: yellow;
   }
 `;
 
 export const SubmitButton = styled.button`
+  border: 1px solid white;
   width: 179px;
   height: 52px;
-  background-color: ${(props: IProps) => (props.active ? "orange" : "gery")};
-  border: none;
+  color: ${(props: IProps) => (props.active ? "white" : "grey")};
+
+  background: black;
   font-size: 16px;
   font-weight: 500;
   margin-left: 12px;

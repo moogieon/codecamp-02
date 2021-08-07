@@ -20,9 +20,12 @@ interface IContext {
 export const GlobalContext = createContext<IContext>({});
 function MyApp({ Component, pageProps }: AppProps) {
   const [accessToken, setAccessToken] = useState();
+  const [userInfo, setUserInfo] = useState({});
   const value = {
     accessToken: accessToken,
     setAccessToken: setAccessToken,
+    userInfo: userInfo,
+    setUserInfo: setUserInfo,
   };
   const uploadLink = createUploadLink({
     uri: "http://backend02.codebootcamp.co.kr/graphql",

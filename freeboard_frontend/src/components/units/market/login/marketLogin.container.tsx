@@ -1,11 +1,9 @@
 // import { useState } from "react";
-
-import { useMutation } from "@apollo/client";
+import { useApolloClient, useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-
 import { GlobalContext } from "../../../../../pages/_app";
 import {
   IMutation,
@@ -13,7 +11,7 @@ import {
 } from "../../../../commons/types/generated/types";
 
 import MarketLoginUI from "./marketLogin.presenter";
-import { LOGIN_USER } from "./marketLogin.queries";
+import { FETCH_USER_LOGGED_IN, LOGIN_USER } from "./marketLogin.queries";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./maketLogin.validation";
 export default function MarketLogin() {
@@ -27,8 +25,8 @@ export default function MarketLogin() {
     Pick<IMutation, "loginUser">,
     IMutationCreateUserArgs
   >(LOGIN_USER);
-
-  const { setAccessToken } = useContext(GlobalContext);
+  const client = useApolloClient();
+  const { setAccessToken, setUserInfo, userInfo } = useContext(GlobalContext);
 
   async function onClickLogin(data: any) {
     try {
@@ -37,11 +35,22 @@ export default function MarketLogin() {
           ...data,
         },
       });
+      const resultUser = await client.query({
+        query: FETCH_USER_LOGGED_IN,
+        context: {
+          headers: {
+            authorization: `Bearer ${result.data?.loginUser.accessToken}`, // 공백이 없으면 안되는 이유 ??
+          },
+        },
+      });
+      console.log(resultUser.data.fetchUserLoggedIn);
+      setUserInfo(resultUser.data.fetchUserLoggedIn || "");
       setAccessToken(result.data?.loginUser.accessToken || "");
       console.log(result.data?.loginUser.accessToken);
+
       Modal.info({
         content: "로그인 완료",
-        // onOk: () => router.push("/markets"),
+        onOk: () => router.push("/market/"),
       });
     } catch (error) {
       Modal.error({
@@ -60,6 +69,7 @@ export default function MarketLogin() {
       errors={formState.errors}
       register={register}
       handleSubmit={handleSubmit}
+      userInfo={userInfo}
     />
   );
 }

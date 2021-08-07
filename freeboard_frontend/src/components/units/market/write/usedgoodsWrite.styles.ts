@@ -20,6 +20,10 @@ export const Title = styled.div`
   font-size: 36px;
   font-family: ccc;
 `;
+export const Errors = styled.div`
+  color: red;
+  font-size: 13px;
+`;
 export const ProductName = styled.div`
   margin-top: 80px;
   width: 996px;

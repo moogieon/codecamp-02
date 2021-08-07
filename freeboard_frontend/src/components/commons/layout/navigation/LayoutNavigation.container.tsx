@@ -7,7 +7,7 @@ export default function LayoutNavigation() {
     router.push("/boards");
   }
   function onclickUsedGoods() {
-    router.push("/market/usedgoods");
+    router.push("/market");
   }
 
   return (
