@@ -19,6 +19,15 @@ export default function UsedgoodsDetail() {
   >(FETCH_USER_ITEM, {
     variables: { useditemId: router.query.market_id },
   });
+  const onClickList = () => {
+    router.push("/market");
+  };
 
-  return <UsedgoodsDetailUI data={data} userInfo={userInfo} />;
+  return (
+    <UsedgoodsDetailUI
+      data={data}
+      userInfo={userInfo}
+      onClickList={onClickList}
+    />
+  );
 }

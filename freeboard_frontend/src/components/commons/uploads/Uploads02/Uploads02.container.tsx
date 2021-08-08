@@ -1,7 +1,7 @@
 import { ChangeEvent, useRef, useState } from "react";
-import { checkValidationFile } from "../../../commons/libraries/validations";
-import Uploads01UI from "./Uploads01.presenter";
-import { IUploads01Props } from "./Uploads01.types";
+import { checkValidationFile } from "../../../../commons/libraries/validations";
+import Uploads01UI from "./Uploads02.presenter";
+import { IUploads01Props } from "./Uploads02.types";
 
 export default function Uploads01(props: IUploads01Props) {
   const [fileUrl, setFileUrl] = useState("");
@@ -19,7 +19,7 @@ export default function Uploads01(props: IUploads01Props) {
     fileReader.readAsDataURL(file);
     fileReader.onload = (data) => {
       setFileUrl(data.target?.result as string); //! 이 주소는 어디서 >??
-      props.onChangeFiles(file, props.index);
+      props.onChangeFiled(file, props.index);
     };
   }
 

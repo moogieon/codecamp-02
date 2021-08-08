@@ -59,14 +59,20 @@ export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
             </Info_Right>
           </GoodsInfoBox>
           <Price>{props.data?.fetchUseditem.price}</Price>
-          <GoddsImg></GoddsImg>
+          {props.data?.fetchUseditem.images?.map((data) => (
+            <GoddsImg
+              key={data}
+              src={`https://storage.googleapis.com/${data}`}
+            />
+          ))}
+
           <GoodsContents>{props.data?.fetchUseditem.contents}</GoodsContents>
           <Tag>{props.data?.fetchUseditem.tag}</Tag>
           <Line />
           <Map></Map>
           <Line />
           <ButtonBox>
-            <ListButton>목록으로</ListButton>
+            <ListButton onClick={props.onClickList}>목록으로</ListButton>
             <PaymentButton>구매하기</PaymentButton>
           </ButtonBox>
         </Body>

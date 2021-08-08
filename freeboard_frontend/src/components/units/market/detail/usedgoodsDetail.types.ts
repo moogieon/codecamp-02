@@ -3,4 +3,5 @@ export interface IUsedgoodsDetailProps {
 }
 export interface IUsedgoodsDetailUIProps {
   data: any;
+  onClickList: () => void;
 }

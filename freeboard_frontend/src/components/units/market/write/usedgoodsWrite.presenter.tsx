@@ -1,4 +1,4 @@
-import Uploads01 from "../../../commons/uploads/Uploads01.container";
+import Uploads02 from "../../../commons/uploads/Uploads02/Uploads02.container";
 import {
   Wrapper,
   Body,
@@ -100,7 +100,10 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
             <UploadBox>
               <NameTitle>사진 첨부</NameTitle>
               {new Array(3).fill(1).map((data, index) => (
-                <Uploads01 />
+                <Uploads02
+                  key={`${data}_${index}`}
+                  onChange={props.onChangeFiled}
+                />
               ))}
             </UploadBox>
 

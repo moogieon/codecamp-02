@@ -4,18 +4,15 @@ import { schema } from "./usedgoodsWrite.validation";
 import UsedgoodsWriteUI from "./usedgoodsWrite.presenter";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
-import { CREATE_USEFITEM } from "./usedgoodsWrite.queries";
+import { CREATE_USEFITEM, UPLOAD_FILE } from "./usedgoodsWrite.queries";
 import {
   IMutation,
   IMutationCreateUseditemArgs,
 } from "../../../../commons/types/generated/types";
 import { Modal } from "antd";
-
-import { useContext } from "react";
-import { GlobalContext } from "../../../../../pages/_app";
+import { useState } from "react";
 
 export default function UsedgoodsWrite() {
-  const { userInfo } = useContext(GlobalContext);
   const { register, handleSubmit, formState } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
@@ -25,19 +22,23 @@ export default function UsedgoodsWrite() {
     Pick<IMutation, "createUseditem">,
     IMutationCreateUseditemArgs
   >(CREATE_USEFITEM);
-
+  const [uploadFile] = useMutation(UPLOAD_FILE);
+  const [files, setFiles] = useState<(File | null)[]>([null, null, null]);
   const onClickRegist = async (data: any) => {
     try {
+      const uploadFiles = files
+        .filter((data) => data)
+        .map((data) => uploadFile({ variables: { file: data } }));
+      const results = await Promise.all(uploadFiles);
+      const images = results.map((data) => data.data.uploadFile.url);
       const result = await createUseditem({
         variables: {
           createUseditemInput: {
             ...data,
+            images: images,
           },
         },
       });
-
-      // setAccessToken(result.data?.loginUser.accessToken)
-
       console.log(result.data?.createUseditem);
 
       Modal.confirm({
@@ -51,14 +52,18 @@ export default function UsedgoodsWrite() {
       });
     }
   };
-
+  function onChangeFiled(file: File, index: number) {
+    const newFiles = [...files];
+    newFiles[index] = file;
+    setFiles(newFiles);
+  }
   return (
     <UsedgoodsWriteUI
       onClickRegist={onClickRegist}
       handleSubmit={handleSubmit}
       register={register}
       errors={formState.errors}
-      userInfo={userInfo}
+      onChangeFiles={onChangeFiled}
     />
   );
 }

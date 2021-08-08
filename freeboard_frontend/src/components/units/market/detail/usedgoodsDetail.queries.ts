@@ -10,6 +10,7 @@ export const FETCH_USER_ITEM = gql`
       price
       tags
       createdAt
+      images
     }
   }
 `;

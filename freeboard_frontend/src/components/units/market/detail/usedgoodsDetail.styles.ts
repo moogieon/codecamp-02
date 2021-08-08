@@ -98,10 +98,10 @@ export const Price = styled.div`
   font-size: 36px;
   margin-top: 8px; ;
 `;
-export const GoddsImg = styled.div`
+export const GoddsImg = styled.img`
   width: 504px;
   height: 482px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 export const GoodsContents = styled.div`
   width: 792px;

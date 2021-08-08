@@ -27,7 +27,7 @@ import {
   ZipcodeWrapper,
   Warring,
 } from "./BoardWrite.style";
-import Uploads01 from "../../../commons/uploads/Uploads01.container";
+import Uploads01 from "../../../commons/uploads/Uploads01/Uploads01.container";
 interface IProps {
   active: boolean;
   event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
