@@ -38,7 +38,7 @@ export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
             <UserInfoBox>
               <User_Img src="/market/detail/profile.png" />
               <UserInfo>
-                <User>{props.userInfo?.name}</User>
+                <User>{props.data?.fetchUseditem.seller.name}</User>
                 <Date>{getDate(props.data?.fetchUseditem.createdAt)}</Date>
               </UserInfo>
             </UserInfoBox>
@@ -58,8 +58,13 @@ export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
               <Heart />
             </Info_Right>
           </GoodsInfoBox>
-          <Price>{props.data?.fetchUseditem.price}</Price>
-          {props.data?.fetchUseditem.images?.map((data) => (
+          <Price>
+            {props.data?.fetchUseditem.price
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+            원
+          </Price>
+          {props.data?.fetchUseditem.images?.map((data: string) => (
             <GoddsImg
               key={data}
               src={`https://storage.googleapis.com/${data}`}
@@ -67,7 +72,7 @@ export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
           ))}
 
           <GoodsContents>{props.data?.fetchUseditem.contents}</GoodsContents>
-          <Tag>{props.data?.fetchUseditem.tag}</Tag>
+          <Tag>{props.data?.fetchUseditem.tags}</Tag>
           <Line />
           <Map></Map>
           <Line />

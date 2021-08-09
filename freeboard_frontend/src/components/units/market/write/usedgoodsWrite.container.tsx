@@ -52,7 +52,8 @@ export default function UsedgoodsWrite() {
       });
     }
   };
-  function onChangeFiled(file: File, index: number) {
+  function onChangeFiles(file: File, index: number) {
+    // 이미지 겹치기? 로 사진 삭제 하는법
     const newFiles = [...files];
     newFiles[index] = file;
     setFiles(newFiles);
@@ -63,7 +64,7 @@ export default function UsedgoodsWrite() {
       handleSubmit={handleSubmit}
       register={register}
       errors={formState.errors}
-      onChangeFiles={onChangeFiled}
+      onChangeFiles={onChangeFiles}
     />
   );
 }

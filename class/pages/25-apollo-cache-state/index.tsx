@@ -27,12 +27,13 @@ export default function ApolloCacheStatePage() {
           boardId,
         },
         update(cache, { data }) {
+          const deletedId = data.deleteBoard;
           cache.modify({
             fields: {
-              fetchBoards: (prev) => {
+              fetchBoards: (prev, { readField }) => {
                 // const deletedData = data;
                 const newPrev = prev.filter((prevData) => {
-                  return prevData.__ref !== `Board:${data.delereBoard}`; // 삭제된게 아닌것만 걸러서 newPrev 에 담아라
+                  return readField("_id", prevData) !== deletedId; // 삭제된게 아닌것만 걸러서 newPrev 에 담아라
                 });
                 //
                 console.log(newPrev);

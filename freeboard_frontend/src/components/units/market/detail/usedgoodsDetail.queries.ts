@@ -11,6 +11,10 @@ export const FETCH_USER_ITEM = gql`
       tags
       createdAt
       images
+      seller {
+        _id
+        name
+      }
     }
   }
 `;

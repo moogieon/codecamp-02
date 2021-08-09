@@ -26,7 +26,9 @@ export default function MarketLogin() {
     IMutationCreateUserArgs
   >(LOGIN_USER);
   const client = useApolloClient();
-  const { setAccessToken, setUserInfo, userInfo } = useContext(GlobalContext);
+
+  const { setAccessToken, setUserInfo, userInfo, accessToken } =
+    useContext(GlobalContext);
 
   async function onClickLogin(data: any) {
     try {
@@ -46,7 +48,13 @@ export default function MarketLogin() {
       console.log(resultUser.data.fetchUserLoggedIn);
       setUserInfo(resultUser.data.fetchUserLoggedIn || "");
       setAccessToken(result.data?.loginUser.accessToken || "");
+      localStorage.setItem(
+        "accessToken",
+        result.data?.loginUser.accessToken || ""
+      );
+      localStorage.setItem("userInfo", resultUser.data.fetchUserLoggedIn || "");
       console.log(result.data?.loginUser.accessToken);
+      console.log("accessToken", accessToken);
 
       Modal.info({
         content: "로그인 완료",

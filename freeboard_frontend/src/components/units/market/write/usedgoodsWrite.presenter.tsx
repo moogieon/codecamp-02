@@ -1,4 +1,4 @@
-import Uploads02 from "../../../commons/uploads/Uploads02/Uploads02.container";
+import Uploads01 from "../../../commons/uploads/Uploads01/Uploads01.container";
 import {
   Wrapper,
   Body,
@@ -78,7 +78,10 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
 
             <ProductTag>
               <NameTitle>태그입력</NameTitle>
-              <Tag placeholder={"#태그 #태그 #태그"} />
+              <Tag
+                placeholder={"#태그 #태그 #태그"}
+                {...props.register("tags")}
+              />
             </ProductTag>
             <LocBox>
               <Map>
@@ -100,9 +103,10 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
             <UploadBox>
               <NameTitle>사진 첨부</NameTitle>
               {new Array(3).fill(1).map((data, index) => (
-                <Uploads02
+                <Uploads01
                   key={`${data}_${index}`}
-                  onChange={props.onChangeFiled}
+                  index={index}
+                  onChangeFiles={props.onChangeFiles}
                 />
               ))}
             </UploadBox>

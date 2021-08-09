@@ -4,5 +4,5 @@ export const schema = yup.object().shape({
   remarks: yup.string().required("내용을 입력해주세요"),
   contents: yup.string().required("내용을 입력해주세요"),
   price: yup.number().required("가격을 입력해주세요"),
-  tag: yup.string(),
+  tags: yup.string().matches(/#[^\s#]+/g),
 });
