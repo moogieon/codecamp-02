@@ -1,5 +1,6 @@
 // import { ChangeEvent, MouseEvent } from "react";
 
+import { useEffect, useRef } from "react";
 import {
   Wrapper,
   Body_Wraaper,
@@ -40,6 +41,7 @@ export default function MarketSingupUI(props: IProps) {
                 />
                 <Error>{props.errors.name?.message}</Error>
                 <Id
+                  ref={inputRef}
                   type="email"
                   placeholder=" e-maiL"
                   {...props.register("email")}

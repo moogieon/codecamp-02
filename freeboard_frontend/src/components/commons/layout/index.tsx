@@ -30,7 +30,8 @@ const Wrapper = styled.div`
   color: white;
 `;
 const SideMenu = styled.div`
-  width: 993px;
+  /* width: 993px; */
+  width: 100%;
   height: 82px;
   padding: 21px;
   margin: 0 auto 10px;
@@ -81,9 +82,8 @@ export default function Layout(props: any) {
         <BodyWrapper>
           <Body>{props.children}</Body>
         </BodyWrapper>
-        <Footer>
-          <LayoutFooter />
-        </Footer>
+
+        <LayoutFooter />
       </div>
     </>
   );

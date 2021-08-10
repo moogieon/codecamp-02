@@ -1,34 +1,45 @@
 import styled from "@emotion/styled";
 export const RealWrapper = styled.div`
+  max-width: 1920px;
   width: 100%;
   border: 1px solid blue;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-left: 200px;
+  margin: 0px auto;
+  /* align-items: center; */
 `;
 
 export const Wrapper = styled.div`
-  width: 1220px;
+  max-width: 1920px;
+  width: 1200px;
+  /* text-align: center; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-bottom: 377px;
+  /* padding-left: 360px; */
 `;
 export const Title = styled.div`
   font-size: 36px;
   font-family: ccc;
+  text-align: center;
 `;
 export const Head = styled.div`
   border: 1px solid red;
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   height: 473px;
   padding-top: 40px;
+  display: flex;
+  justify-content: center;
 `;
 export const Body = styled.div`
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   height: 1008px;
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -53,7 +64,7 @@ export const Body = styled.div`
 `;
 export const Wrapper_Body = styled.div`
   border-bottom: 1px solid #bdbdbd;
-  width: 1180px;
+  width: 1100px;
 
   color: white;
   display: flex;
@@ -128,7 +139,7 @@ export const GoodsPrice = styled.div`
 export const GoWrite = styled.button`
   background-color: black;
   margin-top: 54px;
-  margin-left: 1000px;
+
   width: 124px;
   height: 52px;
   color: white;
@@ -146,6 +157,7 @@ export const ItemLog = styled.div`
   overflow-y: auto;
   position: sticky;
   top: 100px;
+  /* left: 2000px; */
   margin-top: 55px;
   display: flex;
   flex-direction: column;

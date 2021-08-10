@@ -8,9 +8,7 @@ const withAuth = (Component: any) => (props: any) => {
   const { accessToken } = useContext(GlobalContext);
 
   useEffect(() => {
-    if (
-      !(typeof window !== "undefined" && localStorage.getItem("accessToken"))
-    ) {
+    if (!localStorage.getItem("accessToken")) {
       // localStorage.setItem("accessToken", JSON.stringify(accessToken));
       Modal.error({
         content: "로그인이 필요한 페이지입니다.",
@@ -19,7 +17,7 @@ const withAuth = (Component: any) => (props: any) => {
     }
   }, []);
 
-  // if (!(typeof window !== "undefined" && localStorage.getItem("accessToken"))) {
+  // if (!localStorage.getItem("accessToken")) {
   //   return <></>;
   // }
 

@@ -1,6 +1,9 @@
 import styled from "@emotion/styled";
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 export const Body = styled.div`
   width: 1200px;
   border: 1px solid black;

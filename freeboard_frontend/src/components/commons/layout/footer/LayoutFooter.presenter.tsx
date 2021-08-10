@@ -9,6 +9,7 @@ export default function LayoutFooterUI() {
           backgroundColor: " #171717;",
           height: "150px",
           fontSize: "11px",
+
           color: "#ffffffd0",
           whiteSpace: "pre-wrap",
           fontFamily: "ruda",

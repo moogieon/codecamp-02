@@ -1,4 +1,3 @@
-import { Data } from "@react-google-maps/api";
 import {
   RealWrapper,
   ItemLog,
@@ -32,7 +31,6 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
         <Wrapper>
           <Title>베스트 상품</Title>
           <Head></Head>
-
           <Body>
             {props.data?.fetchUseditems.map((data) => (
               <Wrapper_Body key={data._id}>

@@ -19,10 +19,15 @@ export default function UsedGoodsList() {
     IQueryFetchUseditemsArgs
   >(FETCH_USED_ITEMS);
 
-  const onClickPost = (Today) => () => {
-    // router.push(`/market/detail/${Today._id}`);
+  useEffect(() => {
     const newDay = getDate(new Date());
-    const Todays = JSON.parse(localStorage.getItem("newDay") || "[]");
+    const items = JSON.parse(localStorage.getItem(newDay) || "[]");
+    setBasket(items);
+  }, []);
+  const onClickPost = (Today) => () => {
+    router.push(`/market/detail/${Today._id}`);
+    const newDay = getDate(new Date());
+    const Todays = JSON.parse(localStorage.getItem(newDay) || "[]");
     let isExists = false;
     Todays.forEach((data) => {
       if (data._id === Today._id) isExists = true;
@@ -30,12 +35,20 @@ export default function UsedGoodsList() {
     if (isExists) return;
     Todays.push(Today);
     localStorage.setItem(getDate(newDay), JSON.stringify(Todays));
-    setBasket(basket);
-  };
-  useEffect(() => {
-    const Todays = JSON.parse(localStorage.getItem("newDay") || "[]");
     setBasket(Todays);
-  });
+  };
+
+  // const onClickPost = (Today) => () => {
+  //   const Todays = JSON.parse(
+  //     localStorage.getItem(getDate(new Date())) || "[]"
+  //   );
+  //   if (JSON.stringify(Todays).includes(Today._id)) return;
+
+  //   Todays.push(Today);
+  //   localStorage.setItem(getDate(new Date()), JSON.stringify(Todays));
+  //   setBasket(Todays);
+  // };
+
   const onClickToday = (data) => () => {
     router.push(`/market/detail/${data._id}`);
   };

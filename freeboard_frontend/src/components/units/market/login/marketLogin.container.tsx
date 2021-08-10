@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { useApolloClient, useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
@@ -45,7 +44,7 @@ export default function MarketLogin() {
           },
         },
       });
-      console.log(resultUser.data.fetchUserLoggedIn);
+      // console.log(resultUser.data.fetchUserLoggedIn);
       setUserInfo(resultUser.data.fetchUserLoggedIn || "");
       setAccessToken(result.data?.loginUser.accessToken || "");
       localStorage.setItem(
@@ -53,8 +52,8 @@ export default function MarketLogin() {
         result.data?.loginUser.accessToken || ""
       );
       localStorage.setItem("userInfo", resultUser.data.fetchUserLoggedIn || "");
-      console.log(result.data?.loginUser.accessToken);
-      console.log("accessToken", accessToken);
+      // console.log(result.data?.loginUser.accessToken);
+      // console.log("accessToken", accessToken);
 
       Modal.info({
         content: "로그인 완료",
