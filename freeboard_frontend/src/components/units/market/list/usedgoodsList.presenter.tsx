@@ -35,7 +35,7 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
             {props.data?.fetchUseditems.map((data) => (
               <Wrapper_Body key={data._id}>
                 <GoodsImg
-                  src={`https://storage.googleapis.com/${data.images[0]}`}
+                  src={`https://storage.googleapis.com/${data.images[0]}` || ""}
                 ></GoodsImg>
                 <GoddsInfo>
                   <GoodsName onClick={props.onClickPost(data)}>

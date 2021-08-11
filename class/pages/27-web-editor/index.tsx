@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import styled from "@emotion/styled";
 // import ReactQuill from "react-quill";
 import dynamic from "next/dynamic";
-import { style } from "@material-ui/system";
+
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 const CREATE_BOARD = gql`
   mutation createBoard($createBoardInput: CreateBoardInput!) {
@@ -21,7 +21,7 @@ export const Quill = styled(ReactQuill)`
 export default function WebEditorPage() {
   const router = useRouter();
   //   const [contnets,SetContents]=useState()
-  const { handleSubmit, register, setValue } = useForm();
+  const { handleSubmit, register, setValue, trigger } = useForm();
   const [createBoard] = useMutation(CREATE_BOARD);
   const onClickButton = async (data) => {
     try {
@@ -40,7 +40,9 @@ export default function WebEditorPage() {
     }
   };
   const onChangeContents = (value) => {
-    setValue("contents", value);
+    const isBlank = "<p><br></p>";
+    setValue("contents", value === isBlank ? "" : value); // 강제로 값만 입력, 이것만 하면 yup에서 검증이 안댐
+    trigger("contents"); // 값도 변경이 되고, onChange이벤트도 활성화 된다.
   };
   return (
     <>

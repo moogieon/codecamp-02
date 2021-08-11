@@ -1,12 +1,15 @@
 import styled from "@emotion/styled";
 
+import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
 export const Body = styled.div`
   width: 1200px;
-  border: 1px solid black;
+
   margin: 100px;
   padding-top: 80px;
   padding-bottom: 80px;
@@ -31,7 +34,7 @@ export const ProductName = styled.div`
   margin-top: 80px;
   width: 996px;
   height: 92px;
-  border: 1px solid red;
+
   margin-bottom: 40px;
 `;
 export const NameTitle = styled.div`
@@ -48,7 +51,7 @@ export const Name = styled.input`
 export const ProductSummary = styled.div`
   width: 996px;
   height: 92px;
-  border: 1px solid red;
+
   margin-bottom: 40px;
 `;
 
@@ -61,7 +64,7 @@ export const Summary = styled.input`
 export const ProductContents = styled.div`
   width: 996px;
   height: 360px;
-  border: 1px solid red;
+
   margin-bottom: 40px;
 `;
 
@@ -74,7 +77,7 @@ export const Contents = styled.input`
 export const ProductPrice = styled.div`
   width: 996px;
   height: 92px;
-  border: 1px solid red;
+
   margin-bottom: 40px;
 `;
 
@@ -87,7 +90,7 @@ export const Price = styled.input`
 export const ProductTag = styled.div`
   width: 996px;
   height: 92px;
-  border: 1px solid red;
+
   margin-bottom: 40px;
 `;
 
@@ -126,7 +129,7 @@ export const UploadBox = styled.div`
   width: 996px;
   height: 220px;
   background-color: black;
-  border: 1px solid red;
+
   margin-bottom: 40px;
 `;
 
@@ -134,7 +137,7 @@ export const RadioBox = styled.div`
   width: 996px;
   height: 64px;
   background-color: black;
-  border: 1px solid red;
+
   margin-bottom: 40px;
 `;
 export const RadioBoxLabel = styled.span`
@@ -154,4 +157,9 @@ export const Regist = styled.button`
   font-family: ccc;
   background-color: black;
   cursor: pointer;
+`;
+export const Quill = styled(ReactQuill)`
+  width: 996px;
+  height: 268px;
+  color: white;
 `;

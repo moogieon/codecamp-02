@@ -10,8 +10,9 @@ import {
 } from "./LayoutHeader.styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useContext } from "react";
+import { useContext,  } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
+
 export default function LayoutHeaderUI(props) {
   const { accessToken } = useContext(GlobalContext);
   return (
@@ -23,7 +24,7 @@ export default function LayoutHeaderUI(props) {
           </Left>
           {accessToken ? (
             <Right>
-              <Mypage>Mypage </Mypage>
+              <Mypage }>Mypage </Mypage>
             </Right>
           ) : (
             <Right>

@@ -13,7 +13,7 @@ import { Modal } from "antd";
 import { useState } from "react";
 
 export default function UsedgoodsWrite() {
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState, setValue, trigger } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
   });
@@ -58,6 +58,11 @@ export default function UsedgoodsWrite() {
     newFiles[index] = file;
     setFiles(newFiles);
   }
+  const onChangeContents = (value) => {
+    const isBlank = "<p><br></p>";
+    setValue("contents", value === isBlank ? "" : value); // 강제로 값만 입력, 이것만 하면 yup에서 검증이 안댐
+    trigger("contents");
+  };
   return (
     <UsedgoodsWriteUI
       onClickRegist={onClickRegist}
@@ -65,6 +70,7 @@ export default function UsedgoodsWrite() {
       register={register}
       errors={formState.errors}
       onChangeFiles={onChangeFiles}
+      onChangeContents={onChangeContents}
     />
   );
 }

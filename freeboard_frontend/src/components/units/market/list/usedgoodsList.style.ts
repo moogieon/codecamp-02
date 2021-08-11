@@ -39,7 +39,7 @@ export const Body = styled.div`
   max-width: 1200px;
   width: 100%;
   height: 1008px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -80,6 +80,7 @@ export const GoodsImg = styled.img`
 export const GoddsInfo = styled.div`
   height: 160px;
   border: 1px solid blue;
+
   padding-top: 8px;
   padding-left: 40px;
 `;

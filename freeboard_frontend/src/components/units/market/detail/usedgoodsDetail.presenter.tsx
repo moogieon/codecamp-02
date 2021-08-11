@@ -1,4 +1,5 @@
 import { getDate } from "../../../../commons/libraries/utils";
+import DOMPurify from "dompurify";
 import {
   Wrapper,
   Body,
@@ -71,7 +72,11 @@ export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
             />
           ))}
 
-          <GoodsContents>{props.data?.fetchUseditem.contents}</GoodsContents>
+          <GoodsContents
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(props.data?.fetchUseditem.contents),
+            }}
+          ></GoodsContents>
           <Tag>{props.data?.fetchUseditem.tags}</Tag>
           <Line />
           <Map></Map>
