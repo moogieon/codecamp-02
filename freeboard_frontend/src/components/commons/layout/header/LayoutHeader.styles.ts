@@ -71,3 +71,24 @@ export const Singup = styled.div`
     color: #ffc414;
   }
 `;
+export const Point = styled.div`
+  margin-left: 20px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  height: 27.523px;
+  font-size: 11px;
+  color: dimgrey;
+  cursor: pointer;
+  :hover {
+    color: #ffc414;
+  }
+`;
+export const PointCoin = styled.div`
+  padding-bottom: 2px;
+  text-align: end;
+  height: 27.523px;
+  font-size: 18px;
+
+  color: #05f;
+  cursor: pointer;
+`;

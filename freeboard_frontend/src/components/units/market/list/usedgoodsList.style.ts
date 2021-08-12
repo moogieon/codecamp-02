@@ -52,6 +52,7 @@ export const Body = styled.div`
   ::-webkit-scrollbar-thumb {
     background-color: #ffd600;
     height: 17%;
+
     border-left: 7px solid black;
     border-right: 7px solid black;
     border-radius: 50px;
