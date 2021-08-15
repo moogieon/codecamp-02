@@ -1,6 +1,6 @@
 import { HeartOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
-
+import { IProps } from "./usedgoodsDetail.types";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -90,6 +90,13 @@ export const Info_Right = styled.div`
 
 export const Heart = styled(HeartOutlined)`
   font-size: 25px;
+  color: ${(props: IProps) => (props.active ? "yellow" : "white")};
+`;
+export const HeartCount = styled.div`
+  font-size: 18px;
+  text-align: center;
+  width: 21px;
+  height: 27px;
 `;
 
 export const Price = styled.div`

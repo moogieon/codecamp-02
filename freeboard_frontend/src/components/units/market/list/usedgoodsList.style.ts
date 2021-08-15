@@ -19,6 +19,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding-bottom: 377px;
+  margin-left: 98px;
   /* padding-left: 360px; */
 `;
 export const Title = styled.div`
@@ -116,15 +117,15 @@ export const GoodsTag = styled.div`
   color: #bdbdbd;
 `;
 export const SellerInfo = styled.div`
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   color: white;
-  width: 125px;
+  /* width: 125px; */
   height: 24px;
 `;
 export const Seller = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   color: white;
-  width: 65px;
+  /* width: 65px; */
   height: 20px;
   font-size: 16px;
 `;

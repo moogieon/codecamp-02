@@ -19,6 +19,7 @@ import {
   Titel,
   Info_Right,
   Heart,
+  HeartCount,
   Price,
   GoddsImg,
   GoodsContents,
@@ -31,6 +32,8 @@ import {
 import { IUsedgoodsDetailUIProps } from "./usedgoodsDetail.types";
 
 export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
+  if (typeof window === "undefined") return <></>;
+
   return (
     <>
       <Wrapper>
@@ -56,7 +59,8 @@ export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
             </Info_Left>
 
             <Info_Right>
-              <Heart />
+              <Heart onClick={props.onClickToggle} />
+              <HeartCount>{props.data?.fetchUseditem.pickedCount}</HeartCount>
             </Info_Right>
           </GoodsInfoBox>
           <Price>
@@ -83,7 +87,7 @@ export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
           <Line />
           <ButtonBox>
             <ListButton onClick={props.onClickList}>목록으로</ListButton>
-            <PaymentButton>구매하기</PaymentButton>
+            <PaymentButton onClick={props.onClickBuy}>구매하기</PaymentButton>
           </ButtonBox>
         </Body>
       </Wrapper>

@@ -24,6 +24,7 @@ export default function Payment(props) {
   }
 
   function onClickPayment() {
+    props.closemodal();
     const IMP = window.IMP;
     IMP.init("imp49910675");
     IMP.request_pay(
@@ -34,8 +35,8 @@ export default function Payment(props) {
         // merchant_uid: uuidv4(), // 우리가 설정하거나, uuid  이용해서 상품 key값 등록"/28-payment-success",
         name: "포인트",
         amount: amount,
-        buyer_email: "dwww@sss.com",
-        buyer_name: "ss",
+        buyer_email: data.fetchUserLoggedIn.email,
+        buyer_name: data.fetchUserLoggedIn.name,
         buyer_tel: "010-4242-4242",
         buyer_addr: "서울특별시 강남구 신사동",
         buyer_postcode: "01181",

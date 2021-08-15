@@ -1,3 +1,4 @@
+import Kakaomap from "../../../commons/map/Map01/map.contanier";
 import Uploads01 from "../../../commons/uploads/Uploads01/Uploads01.container";
 import {
   Wrapper,
@@ -145,12 +146,19 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
             <LocBox>
               <Map>
                 <NameTitle>거래위치</NameTitle>
+                <Kakaomap />
               </Map>
               <LocRigth>
+                <NameTitle>GPS</NameTitle>
                 <Gps>
-                  <NameTitle>GPS</NameTitle>
-                  <Lat />
-                  <Lng />
+                  <Lat
+                    placeholder={"위도(LAT)"}
+                    value={props.lating.lat || ""}
+                  />
+                  <Lng
+                    placeholder={"경도(LNG)"}
+                    value={props.lating.lang || ""}
+                  />
                 </Gps>
                 <Address>
                   <NameTitle>주소</NameTitle>

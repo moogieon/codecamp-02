@@ -104,10 +104,10 @@ export const LocBox = styled.div`
   width: 996px;
   height: 292px;
   background-color: black;
-  border: 1px solid red;
+
   margin-bottom: 40px;
   display: flex;
-  flex-direction: row;
+
   justify-content: space-between;
 `;
 export const Map = styled.div``;
@@ -117,13 +117,42 @@ export const LocRigth = styled.div`
   flex-direction: column;
 `;
 
-export const Gps = styled.div``;
-export const Lat = styled.input``;
-export const Lng = styled.input``;
+export const Gps = styled.div`
+  margin-bottom: 40px;
+  width: 272px;
+  height: 92px;
+  display: flex;
+  justify-content: space-between;
+`;
+export const Lat = styled.input`
+  width: 108px;
+  height: 52px;
+  background-color: black;
+  text-align: center;
+`;
+export const Lng = styled.input`
+  width: 108px;
+  height: 52px;
+  background-color: black;
+  text-align: center;
+`;
 
-export const Address = styled.div``;
-export const AddressIn = styled.input``;
-export const AddressIn2 = styled.input``;
+export const Address = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+export const AddressIn = styled.input`
+  width: 588px;
+  height: 52px;
+  background-color: black;
+`;
+export const AddressIn2 = styled.input`
+  width: 588px;
+  height: 52px;
+  background-color: black;
+  margin-top: 16px;
+`;
 
 export const UploadBox = styled.div`
   width: 996px;

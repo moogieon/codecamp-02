@@ -5,6 +5,13 @@ export const CREATE_USEFITEM = gql`
     createUseditem(createUseditemInput: $createUseditemInput) {
       _id
       images
+      useditemAddress {
+        zipcode
+        address
+        addressDetail
+        lat
+        lng
+      }
     }
   }
 `;

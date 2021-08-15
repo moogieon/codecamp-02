@@ -13,6 +13,7 @@ import { Modal } from "antd";
 import { useState } from "react";
 
 export default function UsedgoodsWrite() {
+  const [lating, setLating] = useState({ lat: 0, lang: 0 });
   const { register, handleSubmit, formState, setValue, trigger } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
@@ -23,6 +24,7 @@ export default function UsedgoodsWrite() {
     IMutationCreateUseditemArgs
   >(CREATE_USEFITEM);
   const [uploadFile] = useMutation(UPLOAD_FILE);
+
   const [files, setFiles] = useState<(File | null)[]>([null, null, null]);
   const onClickRegist = async (data: any) => {
     try {
@@ -63,6 +65,7 @@ export default function UsedgoodsWrite() {
     setValue("contents", value === isBlank ? "" : value); // 강제로 값만 입력, 이것만 하면 yup에서 검증이 안댐
     trigger("contents");
   };
+
   return (
     <UsedgoodsWriteUI
       onClickRegist={onClickRegist}
@@ -71,6 +74,8 @@ export default function UsedgoodsWrite() {
       errors={formState.errors}
       onChangeFiles={onChangeFiles}
       onChangeContents={onChangeContents}
+      lating={lating}
+      setLating={setLating}
     />
   );
 }

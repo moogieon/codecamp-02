@@ -4,4 +4,8 @@ export interface IUsedgoodsDetailProps {
 export interface IUsedgoodsDetailUIProps {
   data: any;
   onClickList: () => void;
+  onClickBuy: () => void;
+}
+export interface IProps {
+  active: boolean;
 }

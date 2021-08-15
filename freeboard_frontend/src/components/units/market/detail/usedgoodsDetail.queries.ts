@@ -11,6 +11,7 @@ export const FETCH_USER_ITEM = gql`
       tags
       createdAt
       images
+      pickedCount
       seller {
         _id
         name
@@ -23,6 +24,31 @@ export const CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING = gql`
     createPointTransactionOfBuyingAndSelling(useritemId: $useritemId) {
       _id
       name
+      price
+      buyer {
+        _id
+        email
+        name
+        userPoint {
+          _id
+          amount
+          user {
+            _id
+          }
+        }
+      }
+      seller {
+        _id
+        email
+        name
+      }
+
+      soldAt
     }
+  }
+`;
+export const TOGGLE_USED_ITEM_PICK = gql`
+  mutation toggleUseditemPick($useditemId: ID!) {
+    toggleUseditemPick(useditemId: $useditemId)
   }
 `;

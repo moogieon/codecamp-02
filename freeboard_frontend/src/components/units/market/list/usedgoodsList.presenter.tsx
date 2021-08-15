@@ -44,7 +44,9 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
                   <GoodsRemarks>{data.remarks}</GoodsRemarks>
                   <GoodsTag>{data.tags}</GoodsTag>
                   <SellerInfo>
-                    <Seller>{data.seller.name}</Seller>
+                    <Seller>
+                      {data.seller.name.replace(/\B(?=(\d{5})+(?!\d))/g, ",")}
+                    </Seller>
                   </SellerInfo>
                 </GoddsInfo>
                 <GoodsPrice>
