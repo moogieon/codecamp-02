@@ -5,11 +5,12 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
 `;
 export const Body = styled.div`
   width: 792px;
   /* border: 1px solid black; */
-  margin: 100px;
+  margin: 0 auto;
 
   padding-bottom: 80px;
   padding-left: 102px;
@@ -25,7 +26,7 @@ export const Body = styled.div`
 export const Body_Head = styled.div`
   width: 792px;
   height: 48px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   justify-content: space-between;
 `;
@@ -55,7 +56,7 @@ export const Date = styled.div`
   font-family: ccc;
 `;
 export const HeadImgBox = styled.div`
-  padding-top: 14 px;
+  padding-top: 14px;
 `;
 export const FileImg = styled.img``;
 export const LocImg = styled.img`
@@ -66,11 +67,12 @@ export const Line = styled.div`
   width: 792px;
   border-bottom: 1px solid #bdbdbd;
   padding-top: 20px;
+  margin-bottom: 10px;
 `;
 export const GoodsInfoBox = styled.div`
   width: 792px;
   height: 63px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   justify-content: space-between;
 `;
@@ -108,17 +110,18 @@ export const Price = styled.div`
 export const GoddsImg = styled.img`
   width: 504px;
   height: 482px;
+  padding-top: 20px;
   /* border: 1px solid red; */
 `;
 export const GoodsContents = styled.div`
   width: 792px;
   height: 108px;
-  border: 1px solid red;
+  margin-top: 20px;
 `;
 export const Tag = styled.div`
   width: 792px;
   height: 24px;
-  border: 1px solid red;
+  color: #3f6ee5;
 `;
 
 export const Map = styled.div`
@@ -139,6 +142,9 @@ export const ListButton = styled.button`
   font-family: ccc;
   color: white;
   cursor: pointer;
+  :hover {
+    color: #ffcc01;
+  }
 `;
 export const PaymentButton = styled.button`
   width: 179px;
@@ -148,4 +154,7 @@ export const PaymentButton = styled.button`
   font-family: ccc;
   color: white;
   cursor: pointer;
+  :hover {
+    color: #ffcc01;
+  }
 `;

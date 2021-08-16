@@ -146,17 +146,19 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
             <LocBox>
               <Map>
                 <NameTitle>거래위치</NameTitle>
-                <Kakaomap />
+                <Kakaomap setLating={props.setLating} />
               </Map>
               <LocRigth>
                 <NameTitle>GPS</NameTitle>
                 <Gps>
                   <Lat
                     placeholder={"위도(LAT)"}
+                    readOnly
                     value={props.lating.lat || ""}
                   />
                   <Lng
                     placeholder={"경도(LNG)"}
+                    readOnly
                     value={props.lating.lang || ""}
                   />
                 </Gps>
