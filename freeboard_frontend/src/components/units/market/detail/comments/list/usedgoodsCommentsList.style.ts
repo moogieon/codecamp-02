@@ -7,8 +7,7 @@ export const ItemWrapper = styled.div`
   padding-top: 20px;
   height: 128px;
   border-bottom: 1px solid lightgray;
-  background-color: blue;
-  border: 1px solid red;
+  margin-bottom: 20px;
 `;
 
 export const FlexWrapper = styled.div`

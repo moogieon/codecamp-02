@@ -23,6 +23,15 @@ export default function UsedGoodsComments(props) {
           },
           useditemId: router.query.market_id,
         },
+        update(cache, _) {
+          cache.modify({
+            fields: {
+              fetchUseditemQuestions: (_, { readField }) => {
+                return readField;
+              },
+            },
+          });
+        },
       });
     } catch (errors) {
       alert(errors.message);

@@ -9,6 +9,8 @@ import {
   Singup,
   Point,
   PointCoin,
+  LogOut,
+  GetCoin,
 } from "./LayoutHeader.styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -52,7 +54,9 @@ export default function LayoutHeaderUI(props) {
               <PointCoin>
                 {props.data?.fetchUserLoggedIn.userPoint.amount}
               </PointCoin>
-              <Mypage onClick={openModal}>Mypage </Mypage>
+              <Mypage>Mypage </Mypage>
+              <GetCoin onClick={openModal}>Get Coins</GetCoin>
+              <LogOut>Log Out</LogOut>
             </Right>
           ) : (
             <Right>

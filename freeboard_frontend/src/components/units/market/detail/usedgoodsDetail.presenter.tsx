@@ -32,8 +32,6 @@ import {
 import { IUsedgoodsDetailUIProps } from "./usedgoodsDetail.types";
 
 export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
-  if (typeof window === "undefined") return <></>;
-
   return (
     <>
       <Wrapper>
@@ -76,11 +74,13 @@ export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
             />
           ))}
 
-          <GoodsContents
-            dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(props.data?.fetchUseditem.contents),
-            }}
-          ></GoodsContents>
+          {typeof window !== "undefined" && (
+            <GoodsContents
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(props.data?.fetchUseditem.contents),
+              }}
+            ></GoodsContents>
+          )}
           <Tag>{props.data?.fetchUseditem.tags}</Tag>
           <Line />
           <Map></Map>

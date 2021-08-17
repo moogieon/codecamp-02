@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { getDate } from "../../../../../../commons/libraries/utils";
 
 import UsedGoodsComments from "../write/usedgoodsCommentsWrite.container";
 
@@ -83,7 +84,7 @@ export default function UsedGoodsCommentsListUIItem(
               />
             </OptionWrapper>
           </FlexWrapper>
-          <DateString></DateString>
+          <DateString>{getDate(props.data.createdAt)}</DateString>
         </ItemWrapper>
       )}
       {isEdit && (

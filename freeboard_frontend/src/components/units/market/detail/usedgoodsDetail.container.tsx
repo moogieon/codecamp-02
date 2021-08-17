@@ -43,6 +43,7 @@ export default function UsedgoodsDetail() {
       });
       Modal.success({
         content: "구매 완료~~",
+        onOk: () => router.push("/market"),
       });
       // console.log(results.data);
     } catch (errors) {

@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 export const RealWrapper = styled.div`
   max-width: 1920px;
   width: 100%;
-  border: 1px solid blue;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding-bottom: 377px;
-  margin-left: 98px;
+  margin-left: 220px;
   /* padding-left: 360px; */
 `;
 export const Title = styled.div`
@@ -28,7 +28,6 @@ export const Title = styled.div`
   text-align: center;
 `;
 export const Head = styled.div`
-  border: 1px solid red;
   max-width: 1200px;
   width: 100%;
   height: 473px;
@@ -66,10 +65,10 @@ export const Body = styled.div`
 `;
 export const Wrapper_Body = styled.div`
   border-bottom: 1px solid #bdbdbd;
-  width: 1100px;
-
+  /* width: 1100px; */
   color: white;
   display: flex;
+
   padding-top: 20px;
   padding-bottom: 20px;
 `;
@@ -81,7 +80,6 @@ export const GoodsImg = styled.img`
 `;
 export const GoddsInfo = styled.div`
   height: 160px;
-  border: 1px solid blue;
 
   padding-top: 8px;
   padding-left: 40px;
@@ -89,7 +87,7 @@ export const GoddsInfo = styled.div`
 
 export const GoodsName = styled.div`
   color: white;
-  width: 251px;
+
   height: 36px;
 
   margin-bottom: 4px;
@@ -103,14 +101,14 @@ export const GoodsName = styled.div`
 `;
 export const GoodsRemarks = styled.div`
   color: white;
-  width: 110px;
+
   height: 24px;
   margin-bottom: 8px;
   font-size: 16px;
 `;
 export const GoodsTag = styled.div`
   color: white;
-  width: 189px;
+
   height: 24px;
   margin-bottom: 15px;
   font-size: 16px;
@@ -129,12 +127,28 @@ export const Seller = styled.div`
   height: 20px;
   font-size: 16px;
 `;
+
+export const InfoBox = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+export const RigthBox = styled.div`
+  height: 100%;
+  padding-right: 10px;
+`;
+export const leftBox = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+`;
 export const GoodsPrice = styled.div`
   height: 36px;
-  margin-left: 500px;
+
   margin-top: 62px;
   font-size: 23px;
-  text-align: center;
+
   /* border: 1px solid red; */
   font-family: ccc;
 `;
@@ -153,14 +167,15 @@ export const GoWrite = styled.button`
     color: #ffc414;
   }
 `;
+// --------- side bar -------
 export const ItemLog = styled.div`
-  border: 1px solid red;
+  border: 1px solid white;
   width: 196px;
   height: 505px;
   overflow-y: auto;
   position: sticky;
   top: 100px;
-  /* left: 2000px; */
+  left: 3000px;
   margin-top: 55px;
   display: flex;
   flex-direction: column;
@@ -171,6 +186,7 @@ export const LogoTitle = styled.div`
   font-size: 18px;
   font-family: ccc;
   color: white;
+  position: sticky;
 `;
 export const LogoInfo = styled.div`
   width: 156px;

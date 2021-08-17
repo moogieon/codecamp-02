@@ -5,7 +5,7 @@ export const BoardCommentWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
   padding-top: 50px;
-  margin-bottom: 300px;
+  margin-bottom: 30px;
   border-top: 1px solid #bdbdbd;
 `;
 export const CommentTitle = styled.div`

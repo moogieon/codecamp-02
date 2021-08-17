@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 
-import UsedGoodsCommentsListUI from "./usedgoodsCommentsList.presenterItem";
+import UsedGoodsCommentsListUI from "./usedgoodsCommentsList.presenter";
 import { FETCH_USEDITEM_QUESTIONS } from "./usedgoodsCommentsList.queries";
 
 export default function UsedGoodsCommentsList() {
