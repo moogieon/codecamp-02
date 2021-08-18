@@ -164,20 +164,38 @@ export const Footer = styled.div`
   width: 390px;
   display: flex;
   flex-direction: row;
+  margin-left: 10px;
   justify-content: space-between;
 `;
 export const Singin_Button = styled.button`
   width: 128px;
   margin-top: 20px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   color: white;
   border-bottom: transparent;
   border-top: transparent;
   background-color: transparent;
+  /* border: 1px solid white; */
   border-right: 1px solid white;
   border-left: 1px solid white;
   :hover {
-    color: blue;
+    color: #05f;
+  }
+  cursor: pointer;
+  font-family: ccc;
+`;
+export const PwEmailButton = styled.button`
+  width: 128px;
+  margin-top: 20px;
+  /* margin-left: 20px; */
+  color: white;
+  border: transparent;
+  border-top: transparent;
+  background-color: transparent;
+  /* border: 1px solid white; */
+
+  :hover {
+    color: #05f;
   }
   cursor: pointer;
   font-family: ccc;

@@ -19,9 +19,6 @@ export const CommentUpload = styled.div`
   width: 100%;
   margin-top: 40px;
 `;
-export const CommentUploadTop = styled.div`
-  width: 100%;
-`;
 
 export const CommentUploadBottom = styled.div`
   width: 100%;
@@ -52,6 +49,13 @@ export const UploadButton = styled.button`
   }
 `;
 //!=========== CommentList 댓글 하단 리스트 ===========//
+export const CommentUploadTop = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
 export const CommentList = styled.div`
   margin-top: 50px;
   width: 100%;
@@ -88,4 +92,21 @@ export const WriterName = styled.div`
 
 export const CommentToEdit = styled.div`
   width: 50px;
+`;
+export const Avatar = styled.img`
+  width: 48px;
+  height: 48px;
+`;
+export const MainWrapper = styled.div`
+  width: 100%;
+  padding-left: 10px;
+`;
+export const WriterWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+export const Writer = styled.div`
+  font-size: 20px;
+  font-weight: bold;
 `;

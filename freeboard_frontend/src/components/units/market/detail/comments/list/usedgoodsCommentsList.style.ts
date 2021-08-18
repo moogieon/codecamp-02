@@ -36,9 +36,14 @@ export const Writer = styled.div`
 export const Contents = styled.div``;
 
 export const OptionWrapper = styled.div`
+  height: 24px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  position: relative;
+  left: 30px;
 `;
+
 export const UpdateIcon = styled.img`
   width: 24px;
   height: 24px;
@@ -56,11 +61,10 @@ export const DateString = styled.div`
   padding-left: 60px;
 `;
 
-export const Star = styled(Rate)`
-  padding-left: 20px;
-`;
-
-export const PasswordInput = styled.input`
-  width: 100%;
-  margin-top: 10px;
+export const ReComments = styled.img`
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  position: relative;
+  top: 50px;
 `;

@@ -1,8 +1,15 @@
+import { useMutation, useQuery } from "@apollo/client";
+import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { getDate } from "../../../../../../commons/libraries/utils";
+import { FETCH_USER_LOGGED_IN } from "../../../login/marketLogin.queries";
 
 import UsedGoodsComments from "../write/usedgoodsCommentsWrite.container";
+import {
+  DELETE_USED_ITEM_QUESTION,
+  FETCH_USEDITEM_QUESTIONS,
+} from "./usedgoodsCommentsList.queries";
 
 import {
   Avatar,
@@ -16,6 +23,7 @@ import {
   OptionWrapper,
   UpdateIcon,
   Writer,
+  ReComments,
 } from "./usedgoodsCommentsList.style";
 import { IUsedGoodsCommentListUIItemProps } from "./usedgoodsCommentsList.types";
 
@@ -24,45 +32,31 @@ export default function UsedGoodsCommentsListUIItem(
 ) {
   const router = useRouter();
   const [isEdit, setIsEdit] = useState(false);
-  //   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
+  const { data } = useQuery(FETCH_USER_LOGGED_IN);
+  const [deleteUseditemQuestion] = useMutation(DELETE_USED_ITEM_QUESTION);
 
-  //   const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
+  function onClickUpdate() {
+    setIsEdit(true);
+  }
 
-  //   function onClickUpdate() {
-  //     setIsEdit(true);
-  //   }
-
-  //   function onClickOpenDeleteModal() {
-  //     setIsOpenDeleteModal(true);
-  //   }
-
-  //   async function onClickDelete() {
-  //     try {
-  //       await deleteBoardComment({
-  //         variables: {
-  //           password: password,
-  //           boardCommentId: props.data?._id,
-  //         },
-  //         refetchQueries: [
-  //           {
-  //             query: FETCH_BOARD_COMMENTS,
-  //             variables: { boardId: router.query.boardId },
-  //           },
-  //         ],
-  //       });
-  //     } catch (error) {
-  //       Modal.error({ content: error.message });
-  //     }
-  //   }
+  async function onClickDelete() {
+    try {
+      await deleteUseditemQuestion({
+        variables: { useditemQuestionId: props.data?._id },
+        refetchQueries: [
+          {
+            query: FETCH_USEDITEM_QUESTIONS,
+            variables: { useditemId: router.query.market_id },
+          },
+        ],
+      });
+    } catch (error) {
+      Modal.error({ content: error.message });
+    }
+  }
 
   return (
     <>
-      {/* {isOpenDeleteModal && (
-        <Modal visible={true} onOk={onClickDelete}>
-          <div>비밀번호 입력: </div>
-          <PasswordInput type="password" onChange={onChangeDeletePassword} />
-        </Modal>
-      )} */}
       {!isEdit && (
         <ItemWrapper>
           <FlexWrapper>
@@ -74,15 +68,24 @@ export default function UsedGoodsCommentsListUIItem(
               <Contents>{props.data.contents}</Contents>
             </MainWrapper>
             <OptionWrapper>
-              <UpdateIcon
-                src="/boardComment/list/option_update_icon.png/"
-                // onClick={onClickUpdate}
-              />
-              <DeleteIcon
-                src="/boardComment/list/option_delete_icon.png/"
-                // onClick={onClickOpenDeleteModal}
-              />
+              {props.data.user.name === data?.fetchUserLoggedIn.name ? (
+                <UpdateIcon
+                  onClick={onClickUpdate}
+                  src="/boardComment/list/option_update_icon.png/"
+                />
+              ) : (
+                ""
+              )}
+              {props.data.user.name === data?.fetchUserLoggedIn.name ? (
+                <DeleteIcon
+                  onClick={onClickDelete}
+                  src="/boardComment/list/option_delete_icon.png/"
+                />
+              ) : (
+                ""
+              )}
             </OptionWrapper>
+            <ReComments src="/boardComment/list/Vector (12).png/" />
           </FlexWrapper>
           <DateString>{getDate(props.data.createdAt)}</DateString>
         </ItemWrapper>

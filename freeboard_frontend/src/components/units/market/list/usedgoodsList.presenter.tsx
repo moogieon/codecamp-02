@@ -80,20 +80,23 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
         </Wrapper>
         <ItemLog>
           <LogoTitle>오늘 본 상품</LogoTitle>
-          {props.basket.map((data, index) => (
-            <LogoInfo key={data._id} onClick={props.onClickToday(data)}>
-              {index + 1}
-              <LogoImg
-                src={`https://storage.googleapis.com/${data.images[0]}`}
-              />
-              <LogoName>{data.seller.name}</LogoName>
-              <LogoRemarks>{data.remarks}</LogoRemarks>
-              <LogoPrice>
-                {data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 원
-              </LogoPrice>
-              <LogoTag>{data.tags}</LogoTag>
-            </LogoInfo>
-          ))}
+          {props.basket
+            .slice(0)
+            .reverse()
+            .map((data, index) => (
+              <LogoInfo key={data._id} onClick={props.onClickToday(data)}>
+                <LogoImg
+                  src={`https://storage.googleapis.com/${data.images[0]}`}
+                />
+                <LogoName>{data.seller.name}</LogoName>
+                <LogoRemarks>{data.remarks.substr(0, 11) + "..."}</LogoRemarks>
+                <LogoPrice>
+                  {data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                  원
+                </LogoPrice>
+                <LogoTag>{data.tags}</LogoTag>
+              </LogoInfo>
+            ))}
         </ItemLog>
       </RealWrapper>
     </>

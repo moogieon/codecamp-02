@@ -15,6 +15,7 @@ import {
   Line,
   Footer,
   Singin_Button,
+  PwEmailButton,
 } from "./marketLogin.style";
 
 interface IProps {
@@ -59,11 +60,11 @@ export default function MarketLoginUI(props: IProps) {
               </form>
               <Line />
               <Footer>
-                <Singin_Button>이메일 찾기</Singin_Button>
-                <Singin_Button>비밀번호 찾기</Singin_Button>
+                <PwEmailButton>이메일 찾기</PwEmailButton>
                 <Singin_Button onClick={props.onClickSingup}>
                   회원가입
                 </Singin_Button>
+                <PwEmailButton>비밀번호 찾기</PwEmailButton>
               </Footer>
             </Body>
           </Body_Wraaper>

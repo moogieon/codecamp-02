@@ -68,15 +68,13 @@ export const Wrapper_Body = styled.div`
   /* width: 1100px; */
   color: white;
   display: flex;
-
   padding-top: 20px;
   padding-bottom: 20px;
 `;
 export const GoodsImg = styled.img`
   width: 160px;
   height: 160px;
-
-  background-size: 100%;
+  background-size: cover;
 `;
 export const GoddsInfo = styled.div`
   height: 160px;
@@ -170,9 +168,27 @@ export const GoWrite = styled.button`
 // --------- side bar -------
 export const ItemLog = styled.div`
   border: 1px solid white;
+
   width: 196px;
   height: 505px;
   overflow-y: auto;
+  ::-webkit-scrollbar {
+    width: 20px;
+    background-color: #f2f2f2;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #ffd600;
+    height: 17%;
+
+    border-left: 9px solid black;
+    border-right: 9px solid black;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-track {
+    border-left: 9px solid black;
+    border-right: 9px solid black;
+    background: #f2f2f2;
+  }
   position: sticky;
   top: 100px;
   left: 3000px;
@@ -185,6 +201,7 @@ export const ItemLog = styled.div`
 export const LogoTitle = styled.div`
   font-size: 18px;
   font-family: ccc;
+  /* border: 1px solid red; */
   color: white;
   position: sticky;
 `;
@@ -196,6 +213,7 @@ export const LogoInfo = styled.div`
   flex-direction: column;
   margin-top: 20px;
   padding-left: 10px;
+  padding-bottom: 10px;
   cursor: pointer;
   :hover {
     background-color: grey;
@@ -212,28 +230,26 @@ export const LogoImg = styled.img`
 export const LogoName = styled.div`
   width: 126px;
   height: 18px;
-  border: 1px solid red;
+
   margin-top: 12px;
+  margin-bottom: 12px;
   color: white;
 `;
 export const LogoRemarks = styled.div`
-  width: 81px;
+  /* width: 81px; */
   height: 18px;
-  border: 1px solid red;
-  color: white;
+  font-size: 14px;
+  color: #4f4f4f;
 `;
 export const LogoPrice = styled.div`
-  width: 77px;
   height: 24px;
-  border: 1px solid red;
+
   margin-top: 4px;
   color: darkgrey;
 `;
 export const LogoTag = styled.div`
-  width: 128px;
-  height: 15px;
-  border: 1px solid red;
+  height: 17px;
   margin-top: 8px;
-  font-size: 10px;
-  color: #bdbdbd;
+  font-size: 12px;
+  color: #3f6ee5;
 `;
