@@ -14,7 +14,7 @@ import { schema } from "./usedgoodsCommentsWrite.validation";
 
 export default function UsedGoodsComments(props: IUsedGoodsCommentsWriteProps) {
   const router = useRouter();
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState, getValues } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
   });
@@ -47,7 +47,7 @@ export default function UsedGoodsComments(props: IUsedGoodsCommentsWriteProps) {
   };
 
   const onClickUpdate = async (data) => {
-    // console.log("props.data._id", props.data._id);
+    console.log("props.data._id", props.data._id);
     // return;
     try {
       await updateUseditemQuestion({
@@ -57,15 +57,13 @@ export default function UsedGoodsComments(props: IUsedGoodsCommentsWriteProps) {
           },
           useditemQuestionId: props.data._id,
         },
-        // update(cache, _) {
-        //   cache.modify({
-        //     fields: {
-        //       fetchUseditemQuestions: (prev, { readField }) => {
-
-        //       },
-        //     },
-        //   });
-        // },
+        update(cache, _) {
+          cache.modify({
+            fields: {
+              fetchUseditemQuestions: (prev, { readField }) => {},
+            },
+          });
+        },
       });
     } catch (error) {}
   };
@@ -74,6 +72,7 @@ export default function UsedGoodsComments(props: IUsedGoodsCommentsWriteProps) {
       isEdit={props.isEdit}
       register={register}
       handleSubmit={handleSubmit}
+      getValues={getValues}
       error={formState.error}
       onClickSubmit={onClickSubmit}
       isEdit={props.isEdit}

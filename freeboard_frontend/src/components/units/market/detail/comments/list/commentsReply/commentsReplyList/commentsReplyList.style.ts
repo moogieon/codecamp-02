@@ -2,14 +2,24 @@ import styled from "@emotion/styled";
 
 export const ItemWrapper = styled.div`
   max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 20px;
-  height: 100%;
-  border-bottom: 1px solid lightgray;
-  margin-bottom: 20px;
+  width: 100%;
+  /* border: 1px solid white; */
+  /* background-color: white; */
+  display: flex;
+  justify-content: end;
+  padding-left: 90px;
+  padding-top: 10px;
+  margin-bottom: 40px;
 `;
 
 export const FlexWrapper = styled.div`
+  margin-left: 25px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 1px solid white; */
   display: flex;
   flex-direction: row;
 `;
@@ -24,9 +34,11 @@ export const MainWrapper = styled.div`
   padding-left: 10px;
 `;
 export const WriterWrapper = styled.div`
+  width: 100%;
+
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 `;
 export const Writer = styled.div`
   font-size: 20px;
@@ -40,7 +52,6 @@ export const OptionWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   position: relative;
-  left: 30px;
 `;
 
 export const UpdateIcon = styled.img`
@@ -52,7 +63,6 @@ export const DeleteIcon = styled.img`
   width: 24px;
   height: 24px;
   cursor: pointer;
-  position: relative;
 `;
 
 export const DateString = styled.div`

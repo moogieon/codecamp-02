@@ -6,6 +6,10 @@ import { getDate } from "../../../../../../commons/libraries/utils";
 import { FETCH_USER_LOGGED_IN } from "../../../login/marketLogin.queries";
 
 import UsedGoodsComments from "../write/usedgoodsCommentsWrite.container";
+
+import CommentsReplay from "./commentsReply/commentsReply.presenter";
+import CommentsReplyList from "./commentsReply/commentsReplyList/commentReplyList.container";
+
 import {
   DELETE_USED_ITEM_QUESTION,
   FETCH_USEDITEM_QUESTIONS,
@@ -32,7 +36,8 @@ export default function UsedGoodsCommentsListUIItem(
 ) {
   const router = useRouter();
   const [isEdit, setIsEdit] = useState(false);
-  const { data } = useQuery(FETCH_USER_LOGGED_IN);
+  const [showReplyInput, setShowReaplyInput] = useState(false);
+  const { data: loggeddata } = useQuery(FETCH_USER_LOGGED_IN);
   const [deleteUseditemQuestion] = useMutation(DELETE_USED_ITEM_QUESTION);
 
   function onClickUpdate() {
@@ -54,7 +59,15 @@ export default function UsedGoodsCommentsListUIItem(
       Modal.error({ content: error.message });
     }
   }
+  const onClickshowReplyInput = () => {
+    if (showReplyInput === true) {
+      setShowReaplyInput(false);
+    } else if (showReplyInput === false) {
+      setShowReaplyInput(true);
+    }
 
+    // setShowReaplyInput(false);
+  };
   return (
     <>
       {!isEdit && (
@@ -68,7 +81,7 @@ export default function UsedGoodsCommentsListUIItem(
               <Contents>{props.data.contents}</Contents>
             </MainWrapper>
             <OptionWrapper>
-              {props.data.user.name === data?.fetchUserLoggedIn.name ? (
+              {props.data.user.name === loggeddata?.fetchUserLoggedIn.name ? (
                 <UpdateIcon
                   onClick={onClickUpdate}
                   src="/boardComment/list/option_update_icon.png/"
@@ -76,7 +89,7 @@ export default function UsedGoodsCommentsListUIItem(
               ) : (
                 ""
               )}
-              {props.data.user.name === data?.fetchUserLoggedIn.name ? (
+              {props.data.user.name === loggeddata?.fetchUserLoggedIn.name ? (
                 <DeleteIcon
                   onClick={onClickDelete}
                   src="/boardComment/list/option_delete_icon.png/"
@@ -85,9 +98,26 @@ export default function UsedGoodsCommentsListUIItem(
                 ""
               )}
             </OptionWrapper>
-            <ReComments src="/boardComment/list/Vector (12).png/" />
+            <ReComments
+              onClick={onClickshowReplyInput}
+              src="/boardComment/list/Vector (12).png/"
+            />
           </FlexWrapper>
+
           <DateString>{getDate(props.data.createdAt)}</DateString>
+          {showReplyInput && (
+            <>
+              <CommentsReplay
+                data={props.data}
+                showReplyInput={showReplyInput}
+              />
+              <CommentsReplyList
+                // showReplyInput={showReplyInput}
+                data={props.data}
+                loggeddata={loggeddata}
+              />
+            </>
+          )}
         </ItemWrapper>
       )}
       {isEdit && (

@@ -9,6 +9,7 @@ export default function UsedGoodsCommentsList() {
   const { data } = useQuery(FETCH_USEDITEM_QUESTIONS, {
     variables: { useditemId: router.query.market_id },
   });
-  //   console.log(data);
+  // console.log(data);
+
   return <UsedGoodsCommentsListUI data={data} />;
 }

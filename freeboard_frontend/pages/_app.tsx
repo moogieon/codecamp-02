@@ -19,13 +19,17 @@ import { globalStyles } from "../src/commons/styles/globalStyles";
 import Layout from "../src/components/commons/layout";
 import { onError } from "@apollo/client/link/error";
 import { getAccessToken } from "../src/commons/libraries/getAccessToken";
-
+import * as Sentry from "@sentry/nextjs";
+Sentry.init({
+  dsn: "https://6a59c03af1674c2e8b8bd092141bce41@o965495.ingest.sentry.io/5916340",
+});
 interface IContext {
   accessToken: string;
   setAccessToken: Dispatch<SetStateAction<string>>;
 }
 
 export const GlobalContext = createContext<IContext>({});
+
 function MyApp({ Component, pageProps }: AppProps) {
   const [accessToken, setAccessToken] = useState();
   const [userInfo, setUserInfo] = useState({});
