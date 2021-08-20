@@ -1,32 +1,37 @@
-import { useMutation } from "@apollo/client";
-import { useState } from "react";
-import CommentsReplyUI from "./commentsReply.container";
-import { CREATE_USED_ITEM_QUESTION_ANSWER } from "./commentsReply.queries";
+import {
+  Wrapper,
+  Icon1,
+  Body,
+  Content,
+  Boddy_Foot,
+  UploadButton,
+} from "./commentsReply.style";
 
-export default function CommentsReplay(props) {
-  const [contents, setContents] = useState();
-  const [createUseditemQuestionAnswer] = useMutation(
-    CREATE_USED_ITEM_QUESTION_ANSWER
-  );
-  const onChangeContents = (event: any) => {
-    setContents(event.target.value);
-  };
-
-  const onClickSubmit = async () => {
-    try {
-      await createUseditemQuestionAnswer({
-        variables: {
-          createUseditemQuestionAnswerInput: { contents },
-          useditemQuestionId: props.data._id,
-        },
-      });
-    } catch (error) {}
-  };
+export default function CommentsReplyUI(props) {
   return (
-    <CommentsReplyUI
-      onChangeContents={onChangeContents}
-      onClickSubmit={onClickSubmit}
-      showReplyInput={props.showReplyInput}
-    />
+    <>
+      <>
+        <Wrapper>
+          <Icon1 src={"/boardComment/list/Vector (13).png"} />
+          <Body>
+            <Content
+              name={"contents"}
+              placeholder={"답글을 등록 주세요"}
+              defaultValue={props.contents || props.ondata?.contents}
+              onChange={props.onChangeContents}
+            />
+            <Boddy_Foot>
+              <UploadButton
+                onClick={
+                  props.isEdit ? props.onClickUpdateReply : props.onClickSubmit
+                }
+              >
+                {props.isEdit ? "수정하기" : "등록하기"}
+              </UploadButton>
+            </Boddy_Foot>
+          </Body>
+        </Wrapper>
+      </>
+    </>
   );
 }

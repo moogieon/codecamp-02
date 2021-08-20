@@ -1,5 +1,6 @@
 import { HeartOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
+import Kakaomap from "../../../commons/map/Map01/map.contanier";
 import { IProps } from "./usedgoodsDetail.types";
 export const Wrapper = styled.div`
   display: flex;
@@ -125,8 +126,8 @@ export const Tag = styled.div`
   color: #3f6ee5;
 `;
 
-export const Map = styled.div`
-  width: 792px;
+export const Maps = styled(Kakaomap)`
+  width: 100px;
   height: 360px;
   border: 1px solid red;
   margin-top: 80px;

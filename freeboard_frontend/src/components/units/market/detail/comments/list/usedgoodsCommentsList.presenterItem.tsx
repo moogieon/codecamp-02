@@ -7,7 +7,7 @@ import { FETCH_USER_LOGGED_IN } from "../../../login/marketLogin.queries";
 
 import UsedGoodsComments from "../write/usedgoodsCommentsWrite.container";
 
-import CommentsReplay from "./commentsReply/commentsReply.presenter";
+import CommentsReplay from "./commentsReply/commentsReply.container";
 import CommentsReplyList from "./commentsReply/commentsReplyList/commentReplyList.container";
 
 import {
@@ -109,7 +109,7 @@ export default function UsedGoodsCommentsListUIItem(
             <>
               <CommentsReplay
                 data={props.data}
-                showReplyInput={showReplyInput}
+                // showReplyInput={showReplyInput}
               />
               <CommentsReplyList
                 // showReplyInput={showReplyInput}

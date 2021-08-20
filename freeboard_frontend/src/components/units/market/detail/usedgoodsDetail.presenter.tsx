@@ -24,12 +24,13 @@ import {
   GoddsImg,
   GoodsContents,
   Tag,
-  Map,
+  Maps,
   ButtonBox,
   ListButton,
   PaymentButton,
 } from "./usedgoodsDetail.styles";
 import { IUsedgoodsDetailUIProps } from "./usedgoodsDetail.types";
+import Kakaomap from "../../../commons/map/Map01/map.contanier";
 
 export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
   return (
@@ -74,16 +75,18 @@ export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
             />
           ))}
 
-          {typeof window !== "undefined" && (
+          {typeof window !== "undefined" ? (
             <GoodsContents
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(props.data?.fetchUseditem.contents),
               }}
             ></GoodsContents>
+          ) : (
+            <div />
           )}
           <Tag>{props.data?.fetchUseditem.tags}</Tag>
           <Line />
-          <Map></Map>
+          <Maps></Maps>
           <Line />
           <ButtonBox>
             <ListButton onClick={props.onClickList}>목록으로</ListButton>

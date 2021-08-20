@@ -30,6 +30,7 @@ import {
 } from "./usedgoodsList.style";
 import { IUsedGoodsList } from "./usedgoodsList.types";
 export default function UsedGoodsListUI(props: IUsedGoodsList) {
+  console.log(...props.basket.reverse());
   return (
     <>
       <RealWrapper>
@@ -81,7 +82,7 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
         <ItemLog>
           <LogoTitle>오늘 본 상품</LogoTitle>
           {props.basket
-            .slice(0)
+            // .slice(0)
             .reverse()
             .map((data, index) => (
               <LogoInfo key={data._id} onClick={props.onClickToday(data)}>

@@ -17,7 +17,7 @@ const withAuth = (Component: any) => (props: any) => {
     }
   }, []);
 
-  // if (!localStorage.getItem("refreshToken")) {
+  // if (!localStorage.getItem("accessToken")) {
   //   return <></>;
   // }
 

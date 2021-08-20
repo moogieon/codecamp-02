@@ -17,51 +17,53 @@ export default function Kakaomap(props: any) {
         const options = {
           // 지도를 생성할 때 필요한 기본 옵션
           center: new window.kakao.maps.LatLng(
-            37.48535119467572,
-            126.90157254106144
+            props.lat || 37.48535119467572,
+            props.lng || 126.90157254106144
           ), // 지도의 중심좌표.
           level: 3, // 지도의 레벨(확대, 축소 정도)
         };
 
         const map = new window.kakao.maps.Map(container, options); // 지도 생성 및 객체 리턴
 
-        // 마커가 표시될 위치입니다
-        const markerPosition = new window.kakao.maps.LatLng(
-          37.48535119467572,
-          126.90157254106144
-        );
+        if (isWrite) {
+          // 마커가 표시될 위치입니다
+          const markerPosition = new window.kakao.maps.LatLng(
+            37.48535119467572,
+            126.90157254106144
+          );
 
-        // 마커를 생성합니다
-        const marker = new window.kakao.maps.Marker({
-          position: markerPosition,
-        });
+          // 마커를 생성합니다
+          const marker = new window.kakao.maps.Marker({
+            position: markerPosition,
+          });
 
-        // 마커가 지도 위에 표시되도록 설정합니다
-        marker.setMap(map);
+          // 마커가 지도 위에 표시되도록 설정합니다
+          marker.setMap(map);
 
-        // 지도에 클릭 이벤트를 등록합니다
-        // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
-        window.kakao.maps.event.addListener(
-          map,
-          "click",
-          function (mouseEvent: { latLng: any }) {
-            // 클릭한 위도, 경도 정보를 가져옵니다
-            const latlng = mouseEvent.latLng;
+          // 지도에 클릭 이벤트를 등록합니다
+          // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+          window.kakao.maps.event.addListener(
+            map,
+            "click",
+            function (mouseEvent: { latLng: any }) {
+              // 클릭한 위도, 경도 정보를 가져옵니다
+              const latlng = mouseEvent.latLng;
 
-            // 마커 위치를 클릭한 위치로 옮깁니다
-            marker.setPosition(latlng);
-            props.setLating({ lat: latlng.La, lang: latlng.Mg });
-            // console.log(latlng);
+              // 마커 위치를 클릭한 위치로 옮깁니다
+              marker.setPosition(latlng);
+              props.setLating({ lat: latlng.La, lang: latlng.Ma });
+              console.log(latlng);
 
-            // const message = latlng.getLat();
+              // const message = latlng.getLat();
 
-            // latlng.getLng();
+              // latlng.getLng();
 
-            // console.log(message);
-            //   var resultDiv = document.getElementById("clickLatlng");
-            //   resultDiv.innerHTML = message;
-          }
-        );
+              // console.log(message);
+              //   var resultDiv = document.getElementById("clickLatlng");
+              //   resultDiv.innerHTML = message;
+            }
+          );
+        }
       });
     };
   }, []);

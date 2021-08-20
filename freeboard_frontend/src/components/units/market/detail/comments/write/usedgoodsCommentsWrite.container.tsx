@@ -57,15 +57,29 @@ export default function UsedGoodsComments(props: IUsedGoodsCommentsWriteProps) {
           },
           useditemQuestionId: props.data._id,
         },
-        update(cache, _) {
-          cache.modify({
-            fields: {
-              fetchUseditemQuestions: (prev, { readField }) => {},
-            },
+        update(cache, { data }) {
+          const prev = cache.readQuery({
+            query: FETCH_USEDITEM_QUESTIONS,
+            variables: { useditemQuestionId: props.data._id },
           });
+          console.log(prev);
+
+          // cache.writeQuery({
+          //   query: FETCH_USEDITEM_QUESTIONS,
+          //   variables: { useditemQuestionId: props.data._id },
+          //   data: {
+          //     fetchUseditemQuestions: {
+          //       _id: props.data.fetchUseditemQuestions._id,
+          //       __typename: "UsedItem",
+          //     },
+          //   },
+          // });
         },
       });
-    } catch (error) {}
+      props.setisEdit?.(false);
+    } catch (error) {
+      alert(error.message);
+    }
   };
   return (
     <UsedGoodsCommentsUI
@@ -75,7 +89,6 @@ export default function UsedGoodsComments(props: IUsedGoodsCommentsWriteProps) {
       getValues={getValues}
       error={formState.error}
       onClickSubmit={onClickSubmit}
-      isEdit={props.isEdit}
       onClickUpdate={onClickUpdate}
       data={props.data}
     />

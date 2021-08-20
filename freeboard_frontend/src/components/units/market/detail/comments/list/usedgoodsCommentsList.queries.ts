@@ -5,9 +5,7 @@ export const FETCH_USEDITEM_QUESTIONS = gql`
       _id
       contents
       createdAt
-      useditem {
-        _id
-      }
+
       user {
         _id
         name
