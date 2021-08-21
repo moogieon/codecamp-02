@@ -32,6 +32,8 @@ import {
   RadioBoxLabel,
   Regist,
   Errors,
+  ButtonBox,
+  QuillColor,
 } from "./usedgoodsWrite.styles";
 import { IUsedgoodsWriteUIProps } from "./usedgoodsWrite.types";
 
@@ -44,50 +46,7 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
         [{ align: [] }],
         ["bold", "italic", "underline", "strike", "blockquote"],
         [{ list: "ordered" }, { list: "bullet" }, "link"],
-        [
-          {
-            color: [
-              "#000000",
-              "#e60000",
-              "#ff9900",
-              "#ffff00",
-              "#008a00",
-              "#0066cc",
-              "#9933ff",
-              "#ffffff",
-              "#facccc",
-              "#ffebcc",
-              "#ffffcc",
-              "#cce8cc",
-              "#cce0f5",
-              "#ebd6ff",
-              "#bbbbbb",
-              "#f06666",
-              "#ffc266",
-              "#ffff66",
-              "#66b966",
-              "#66a3e0",
-              "#c285ff",
-              "#888888",
-              "#a10000",
-              "#b26b00",
-              "#b2b200",
-              "#006100",
-              "#0047b2",
-              "#6b24b2",
-              "#444444",
-              "#5c0000",
-              "#663d00",
-              "#666600",
-              "#003700",
-              "#002966",
-              "#3d1466",
-              "custom-color",
-            ],
-          },
-          { background: [] },
-        ],
-
+        [{ color: QuillColor }, { background: [] }],
         ["clean"],
       ],
     },
@@ -146,7 +105,7 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
             <LocBox>
               <Map>
                 <NameTitle>거래위치</NameTitle>
-                <Kakaomap setLating={props.setLating} />
+                <Kakaomap setLating={props.setLating} lating={props.lating} />
               </Map>
               <LocRigth>
                 <NameTitle>GPS</NameTitle>
@@ -154,12 +113,12 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
                   <Lat
                     placeholder={"위도(LAT)"}
                     readOnly
-                    value={props.lating.lat || ""}
+                    value={props.lating.lat}
                   />
                   <Lng
                     placeholder={"경도(LNG)"}
                     readOnly
-                    value={props.lating.lang || ""}
+                    value={props.lating.lang}
                   />
                 </Gps>
                 <Address>
@@ -187,7 +146,9 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
               <Pic2 type="radio" id="pic2" name="radio-button" />
               <RadioBoxLabel> 사진 2</RadioBoxLabel>
             </RadioBox>
-            <Regist type="submit">등록하기</Regist>
+            <ButtonBox>
+              <Regist type="submit">등록하기</Regist>
+            </ButtonBox>
           </form>
         </Body>
       </Wrapper>

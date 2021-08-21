@@ -57,26 +57,31 @@ export default function UsedGoodsComments(props: IUsedGoodsCommentsWriteProps) {
           },
           useditemQuestionId: props.data._id,
         },
-        update(cache, { data }) {
-          const prev = cache.readQuery({
+        refetchQueries: [
+          {
             query: FETCH_USEDITEM_QUESTIONS,
-            variables: { useditemQuestionId: props.data._id },
-          });
-          console.log(prev);
-
-          // cache.writeQuery({
-          //   query: FETCH_USEDITEM_QUESTIONS,
-          //   variables: { useditemQuestionId: props.data._id },
-          //   data: {
-          //     fetchUseditemQuestions: {
-          //       _id: props.data.fetchUseditemQuestions._id,
-          //       __typename: "UsedItem",
-          //     },
-          //   },
-          // });
-        },
+            variables: { useditemId: router.query.market_id },
+          },
+        ],
+        // update(cache, { data }) {
+        //   const prev = cache.readQuery({
+        //     query: FETCH_USEDITEM_QUESTIONS,
+        //     variables: { useditemQuestionId: props.data._id },
+        //   });
+        //   console.log(prev);
+        //   cache.writeQuery({
+        //     query: FETCH_USEDITEM_QUESTIONS,
+        //     variables: { useditemQuestionId: "611f48752d1aa300298e75a0" },
+        //     data: {
+        //       fetchUseditemQuestions: {
+        //         _id: "611f48752d1aa300298e75a0",
+        //         __typename: "UsedItem",
+        //       },
+        //     },
+        //   });
+        // },
       });
-      props.setisEdit?.(false);
+      props.setIsEdit(false);
     } catch (error) {
       alert(error.message);
     }

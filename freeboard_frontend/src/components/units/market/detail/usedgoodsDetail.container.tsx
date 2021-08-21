@@ -3,6 +3,7 @@ import { Modal } from "antd";
 import { useRouter } from "next/router";
 
 import { useContext, useState } from "react";
+import { ModalBody } from "react-bootstrap";
 import { GlobalContext } from "../../../../../pages/_app";
 import {
   IQuery,
@@ -14,6 +15,7 @@ import {
   FETCH_USER_ITEM,
   CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING,
   TOGGLE_USED_ITEM_PICK,
+  DELETE_USED_ITEM,
 } from "./usedgoodsDetail.queries";
 
 export default function UsedgoodsDetail() {
@@ -30,6 +32,7 @@ export default function UsedgoodsDetail() {
   >(FETCH_USER_ITEM, {
     variables: { useditemId: router.query.market_id },
   });
+  const [deleteUseditem] = useMutation(DELETE_USED_ITEM);
   const onClickList = () => {
     router.push("/market");
   };
@@ -49,6 +52,17 @@ export default function UsedgoodsDetail() {
     } catch (errors) {
       alert(errors.message);
     }
+  };
+  const onClickDelete = async () => {
+    try {
+      await deleteUseditem({
+        variables: { useditemId: router.query.market_id },
+      });
+      Modal.confirm({
+        content: "삭제 완료~!",
+        onOk: () => router.push("/market"),
+      });
+    } catch (error) {}
   };
 
   const onClickToggle = async () => {
@@ -78,6 +92,7 @@ export default function UsedgoodsDetail() {
       onClickBuy={onClickBuy}
       onClickToggle={onClickToggle}
       active={active}
+      onClickDelete={onClickDelete}
     />
   );
 }

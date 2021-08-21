@@ -1,3 +1,4 @@
+import InfiniteScroll from "react-infinite-scroller";
 import BestList from "./best/usedgoodsBest.container";
 
 import {
@@ -40,41 +41,55 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
             <BestList />
           </Head>
           <Body>
-            {props.data?.fetchUseditems.map((data) => (
-              <Wrapper_Body key={data._id}>
-                <GoodsImg
-                  src={`https://storage.googleapis.com/${data.images[0]}` || ""}
-                ></GoodsImg>
-                <InfoBox>
-                  <leftBox>
-                    <GoddsInfo>
-                      <GoodsName onClick={props.onClickPost(data)}>
-                        {data.name}
-                      </GoodsName>
-                      <GoodsRemarks>{data.remarks}</GoodsRemarks>
-                      <GoodsTag>{data.tags}</GoodsTag>
-                      <SellerInfo>
-                        <Seller>
-                          {data.seller.name.replace(
-                            /\B(?=(\d{5})+(?!\d))/g,
-                            ","
-                          )}
-                        </Seller>
-                      </SellerInfo>
-                    </GoddsInfo>
-                  </leftBox>
-                  <RigthBox>
-                    <GoodsPrice>
-                      ₩{" "}
-                      {data.price
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                      원
-                    </GoodsPrice>
-                  </RigthBox>
-                </InfoBox>
-              </Wrapper_Body>
-            ))}
+            <InfiniteScroll
+              pageStart={0}
+              loadMore={props.onLoadMore}
+              hasMore={props.hasMore}
+              useWindow={false}
+              loader={
+                <div className="loader" key={0}>
+                  Winter is Comming ...
+                </div>
+              }
+            >
+              {props.data?.fetchUseditems.map((data) => (
+                <Wrapper_Body key={data._id}>
+                  <GoodsImg
+                    src={
+                      `https://storage.googleapis.com/${data.images[0]}` || ""
+                    }
+                  ></GoodsImg>
+                  <InfoBox>
+                    <leftBox>
+                      <GoddsInfo>
+                        <GoodsName onClick={props.onClickPost(data)}>
+                          {data.name}
+                        </GoodsName>
+                        <GoodsRemarks>{data.remarks}</GoodsRemarks>
+                        <GoodsTag>{data.tags}</GoodsTag>
+                        <SellerInfo>
+                          <Seller>
+                            {data.seller.name.replace(
+                              /\B(?=(\d{5})+(?!\d))/g,
+                              ","
+                            )}
+                          </Seller>
+                        </SellerInfo>
+                      </GoddsInfo>
+                    </leftBox>
+                    <RigthBox>
+                      <GoodsPrice>
+                        ₩{" "}
+                        {data.price
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                        원
+                      </GoodsPrice>
+                    </RigthBox>
+                  </InfoBox>
+                </Wrapper_Body>
+              ))}
+            </InfiniteScroll>
           </Body>
 
           <GoWrite onClick={props.onClikWritePage}>상품 등록</GoWrite>
@@ -82,7 +97,7 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
         <ItemLog>
           <LogoTitle>오늘 본 상품</LogoTitle>
           {props.basket
-            // .slice(0)
+            .slice(0)
             .reverse()
             .map((data, index) => (
               <LogoInfo key={data._id} onClick={props.onClickToday(data)}>

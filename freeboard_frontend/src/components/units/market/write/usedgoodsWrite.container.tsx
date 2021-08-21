@@ -13,7 +13,10 @@ import { Modal } from "antd";
 import { useState } from "react";
 
 export default function UsedgoodsWrite() {
-  const [lating, setLating] = useState({ lat: 0, lang: 0 });
+  const [lating, setLating] = useState({
+    lat: 37.48535119467572,
+    lang: 126.90157254106144,
+  });
   const { register, handleSubmit, formState, setValue, trigger } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
@@ -23,6 +26,7 @@ export default function UsedgoodsWrite() {
     Pick<IMutation, "createUseditem">,
     IMutationCreateUseditemArgs
   >(CREATE_USEFITEM);
+
   const [uploadFile] = useMutation(UPLOAD_FILE);
 
   const [files, setFiles] = useState<(File | null)[]>([null, null, null]);
@@ -38,6 +42,10 @@ export default function UsedgoodsWrite() {
           createUseditemInput: {
             ...data,
             images: images,
+            useditemAddress: {
+              lat: lating.lang,
+              lng: lating.lat,
+            },
           },
         },
       });

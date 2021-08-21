@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 const Body = styled.div`
   background-color: white;
   padding-left: 100px;
-  height: 700px;
+  /* height: 700px; */
 `;
 const Wrapper = styled.div`
   display: flex;

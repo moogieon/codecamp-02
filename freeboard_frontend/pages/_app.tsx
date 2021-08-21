@@ -71,6 +71,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     // uri: "http://backend02.codebootcamp.co.kr/graphql",
     link: ApolloLink.from([errorLink, uploadLink as unknown as ApolloLink]),
     cache: new InMemoryCache(),
+    connectToDevTools: true,
   });
 
   return (
