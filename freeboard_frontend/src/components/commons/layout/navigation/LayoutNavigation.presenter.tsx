@@ -9,7 +9,7 @@ import {
 } from "./LayoutNavigation.styes";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-export default function LayoutNavigationUI(props) {
+export default function LayoutNavigationUI(props: any) {
   return (
     <>
       <StickHeader>
@@ -24,7 +24,7 @@ export default function LayoutNavigationUI(props) {
           <UsedGoods onClick={props.onclickUsedGoods}>USED GOODS</UsedGoods>
         </h3>
         <h3>
-          <MyPage>MYPAGE</MyPage>
+          <MyPage onClick={props.onClickMyPage}>MYPAGE</MyPage>
         </h3>
       </Header>
     </>

@@ -171,3 +171,14 @@ export const DeletButton = styled.button`
     color: #ffcc01;
   }
 `;
+export const UpdateButton = styled.button`
+  width: 179px;
+  height: 52px;
+  margin-left: 24px;
+  font-family: ccc;
+  background-color: black;
+  cursor: pointer;
+  :hover {
+    color: #ffcc01;
+  }
+`;

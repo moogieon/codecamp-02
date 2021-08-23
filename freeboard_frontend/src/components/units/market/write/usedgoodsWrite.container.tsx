@@ -73,6 +73,7 @@ export default function UsedgoodsWrite() {
     setValue("contents", value === isBlank ? "" : value); // 강제로 값만 입력, 이것만 하면 yup에서 검증이 안댐
     trigger("contents");
   };
+  const onCilckEdit = () => {};
 
   return (
     <UsedgoodsWriteUI
@@ -84,6 +85,7 @@ export default function UsedgoodsWrite() {
       onChangeContents={onChangeContents}
       lating={lating}
       setLating={setLating}
+      onCilckEdit={onCilckEdit}
     />
   );
 }

@@ -84,6 +84,9 @@ export default function UsedgoodsDetail() {
       alert(errors.message);
     }
   };
+  const onClickEdit = () => {
+    router.push(`/market/detail/${router.query.market_id}/edit`);
+  };
   return (
     <UsedgoodsDetailUI
       data={data}
@@ -93,6 +96,7 @@ export default function UsedgoodsDetail() {
       onClickToggle={onClickToggle}
       active={active}
       onClickDelete={onClickDelete}
+      onClickEdit={onClickEdit}
     />
   );
 }

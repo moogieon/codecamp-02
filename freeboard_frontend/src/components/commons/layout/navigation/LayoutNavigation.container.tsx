@@ -9,12 +9,16 @@ export default function LayoutNavigation() {
   function onclickUsedGoods() {
     router.push("/market");
   }
+  function onClickMyPage() {
+    router.push("/market/mypage");
+  }
 
   return (
     <>
       <LayoutNavigationUI
         onclickFreeBoard={onclickFreeBoard}
         onclickUsedGoods={onclickUsedGoods}
+        onClickMyPage={onClickMyPage}
       />
     </>
   );

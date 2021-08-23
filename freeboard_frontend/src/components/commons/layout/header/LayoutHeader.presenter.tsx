@@ -19,7 +19,7 @@ import { GlobalContext } from "../../../../../pages/_app";
 
 import Payment from "../../../units/market/payment/marketPayment.container";
 
-export default function LayoutHeaderUI(props) {
+export default function LayoutHeaderUI(props: any) {
   const { accessToken } = useContext(GlobalContext);
   const [showModal, setshowModal] = useState(false);
 
@@ -54,7 +54,7 @@ export default function LayoutHeaderUI(props) {
               <PointCoin>
                 {props.data?.fetchUserLoggedIn.userPoint.amount}
               </PointCoin>
-              <Mypage>Mypage </Mypage>
+
               <GetCoin onClick={openModal}>Get Coins</GetCoin>
               <LogOut>Log Out</LogOut>
             </Right>

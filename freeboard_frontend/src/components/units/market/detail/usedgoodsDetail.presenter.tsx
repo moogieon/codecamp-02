@@ -29,6 +29,7 @@ import {
   ListButton,
   PaymentButton,
   DeletButton,
+  UpdateButton,
 } from "./usedgoodsDetail.styles";
 import { IUsedgoodsDetailUIProps } from "./usedgoodsDetail.types";
 import Kakaomap from "../../../commons/map/Map01/map.contanier";
@@ -98,6 +99,7 @@ export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
             <ListButton onClick={props.onClickList}>목록으로</ListButton>
             <PaymentButton onClick={props.onClickBuy}>구매하기</PaymentButton>
             <DeletButton onClick={props.onClickDelete}>삭제하기</DeletButton>
+            <UpdateButton onClick={props.onClickEdit}>수정하기</UpdateButton>
           </ButtonBox>
         </Body>
       </Wrapper>

@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { MarketUsedItemEditPageContext } from "../../../../../pages/market/detail/[market_id]/edit";
 import Kakaomap from "../../../commons/map/Map01/map.contanier";
 import Uploads01 from "../../../commons/uploads/Uploads01/Uploads01.container";
 import {
@@ -51,16 +53,24 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
       ],
     },
   };
+  const { isEdit, data } = useContext(MarketUsedItemEditPageContext);
+  // console.log("userItem", data?.fetchUseditem.name);
+
   return (
     <>
       <Wrapper>
         <Body>
-          <Title>상품 등록하기</Title>
-          <form onSubmit={props.handleSubmit(props.onClickRegist)}>
+          <Title> {isEdit ? "상품 수정하기" : "상품 등록하기"}</Title>
+          <form
+            onSubmit={props.handleSubmit(
+              isEdit ? props.onCilckEdit : props.onClickRegist
+            )}
+          >
             <ProductName>
               <NameTitle>상품명</NameTitle>
               <Name
                 placeholder={"상품명을 작성해주세요."}
+                defaultValue={data?.fetchUseditem.name}
                 {...props.register("name")}
               />
               <Errors>{props.errors.name?.message}</Errors>
@@ -70,6 +80,7 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
               <NameTitle>한줄요약</NameTitle>
               <Summary
                 placeholder={"상품명을 작성해주세요."}
+                defaultValue={data?.fetchUseditem.remarks}
                 {...props.register("remarks")}
               />
               <Errors>{props.errors.remarks?.message}</Errors>
@@ -78,6 +89,8 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
             <ProductContents>
               <NameTitle>상품설명</NameTitle>
               <Quill
+                name="contents"
+                defaultValue={data?.fetchUseditem.contents}
                 modules={modules}
                 onChange={props.onChangeContents}
 
@@ -90,6 +103,7 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
               <NameTitle>판매가격</NameTitle>
               <Price
                 placeholder={"판매가격을 작성해주세요."}
+                defaultValue={data?.fetchUseditem.price}
                 {...props.register("price")}
               />
               <Errors>{props.errors.price?.message}</Errors>
@@ -98,6 +112,7 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
             <ProductTag>
               <NameTitle>태그입력</NameTitle>
               <Tag
+                defaultValue={data?.fetchUseditem.tags}
                 placeholder={"#태그 #태그 #태그"}
                 {...props.register("tags")}
               />
@@ -112,11 +127,13 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
                 <Gps>
                   <Lat
                     placeholder={"위도(LAT)"}
+                    defaultValue={data?.fetchUseditem.useditemAddress?.lat}
                     readOnly
                     value={props.lating.lat}
                   />
                   <Lng
                     placeholder={"경도(LNG)"}
+                    defaultValue={data?.fetchUseditem.useditemAddress?.lang}
                     readOnly
                     value={props.lating.lang}
                   />
@@ -147,7 +164,7 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
               <RadioBoxLabel> 사진 2</RadioBoxLabel>
             </RadioBox>
             <ButtonBox>
-              <Regist type="submit">등록하기</Regist>
+              <Regist type="submit">{isEdit ? "수정하기" : "등록하기"}</Regist>
             </ButtonBox>
           </form>
         </Body>

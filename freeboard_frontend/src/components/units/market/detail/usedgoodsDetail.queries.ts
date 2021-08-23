@@ -64,23 +64,3 @@ export const DELETE_USED_ITEM = gql`
     deleteUseditem(useditemId: $useditemId)
   }
 `;
-
-export const UPDATE_USED_ITEM = gql`
-  mutation updateUseditem(
-    $updateUseditemInput: UpdateUseditemInput!
-    $useditemId: ID!
-  ) {
-    updateUseditem(
-      updateUseditemInput: $updateUseditemInput
-      useditemId: $useditemId
-    ) {
-      _id
-      name
-      remarks
-      contents
-      price
-      tags
-      images
-    }
-  }
-`;
