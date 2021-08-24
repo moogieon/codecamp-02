@@ -52,7 +52,10 @@ export default function MarketLogin() {
         result.data?.loginUser.accessToken || ""
       );
       localStorage.setItem("refreshToken", "true");
-      localStorage.setItem("userInfo", resultUser.data.fetchUserLoggedIn || "");
+      localStorage.setItem(
+        "userInfo",
+        JSON.stringify(resultUser.data.fetchUserLoggedIn)
+      );
       // console.log(result.data?.loginUser.accessToken);
       // console.log("accessToken", accessToken);
 

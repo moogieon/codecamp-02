@@ -18,9 +18,12 @@ import { useContext, useState } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
 
 import Payment from "../../../units/market/payment/marketPayment.container";
+import { useApolloClient } from "@apollo/client";
 
 export default function LayoutHeaderUI(props: any) {
   const { accessToken } = useContext(GlobalContext);
+  // const client = useApolloClient();
+  // client.clearStore();
   const [showModal, setshowModal] = useState(false);
 
   const openModal = () => {

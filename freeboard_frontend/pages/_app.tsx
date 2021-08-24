@@ -40,7 +40,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     setUserInfo: setUserInfo,
   };
   useEffect(() => {
-    if (localStorage.getItem("refreshToken")) getAccessToken(setAccessToken);
+    if (localStorage.getItem("refreshToken")) {
+      getAccessToken(setAccessToken);
+      setUserInfo(JSON.parse(localStorage.getItem("userInfo" || "{}")));
+    }
   }, []);
   const errorLink = onError(({ graphQLErrors, operation, forward }) => {
     if (graphQLErrors) {

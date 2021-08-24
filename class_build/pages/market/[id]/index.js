@@ -28,7 +28,6 @@ export default function MarketPage(props) {
 }
 
 export const getServerSideProps = async (context) => {
-  console.log(context.query);
   const result = await request(
     "https://backend02.codebootcamp.co.kr/graphql",
     FETCH_USEDITEM,
