@@ -60,10 +60,20 @@ export const ColumnBuy = styled.div`
   text-align: center;
   color: #0020ff;
 `;
-export const ColumnTitle = styled.div`
+export const ColumnTitle1 = styled.div`
   width: 70%;
   text-align: center;
   font-family: ccc;
+  /* color: ${(props: any) =>
+    props.data?.amount === "충전" ? "blue" : "red"}; */
+`;
+export const ColumnTitle2 = styled.div`
+  width: 70%;
+  text-align: center;
+  font-family: ccc;
+  /* color: ${(props: any) =>
+    props.data?.amount === "충전" ? "blue" : "red"}; */
+  color: blue;
 `;
 export const ColumnHeader = styled.div`
   width: 30%;
@@ -81,11 +91,13 @@ export const HereTo = styled.div`
   color: dimgrey;
   font-family: Ruda;
   cursor: pointer;
+
   border-bottom: 1px solid yellow;
   color: lightgray;
 `;
 export const MoveTo = styled.div`
   width: 30%;
+
   text-align: center;
   color: dimgrey;
   font-family: Ruda;

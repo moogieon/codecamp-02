@@ -9,17 +9,18 @@ import {
   Body_Row,
   MoveTo,
   Column,
-  ColumnTitle,
+  ColumnTitle1,
+  // ColumnTitle2,
   ColumnHeader,
   ColumnBuy,
   ColumnHeaderTitle,
   Search_Body,
   TextToken,
   HereTo,
-} from "./mypageBought.style";
+} from "./PointTransactions.style";
 import { v4 as uuidv4 } from "uuid";
 import MyPages from "../../../../commons/mypages/mypages01.container";
-export default function MypageBoughtUI(props: any) {
+export default function PointTransactionsUI(props: any) {
   return (
     <>
       <Wrapper>
@@ -29,8 +30,8 @@ export default function MypageBoughtUI(props: any) {
         <Real_Body>
           <Search_Wrapper>
             <Search_Body>
-              <MoveTo>전체내역</MoveTo>
-              <HereTo>충전내역</HereTo>
+              <HereTo>전체내역</HereTo>
+              <MoveTo>충전내역</MoveTo>
               <MoveTo>구매내역</MoveTo>
               <MoveTo>판매내역</MoveTo>
             </Search_Body>
@@ -43,18 +44,15 @@ export default function MypageBoughtUI(props: any) {
           <Body>
             <Body_Row>
               <ColumnHeader>날짜</ColumnHeader>
-
               <ColumnHeaderTitle>제목</ColumnHeaderTitle>
               <ColumnHeader>거래내역</ColumnHeader>
               <ColumnHeader>거래 후 잔액</ColumnHeader>
-              <ColumnHeader>판매자</ColumnHeader>
             </Body_Row>
-            {props.data?.fetchPointTransactionsOfBuying.map(
+            {props.data?.fetchPointTransactions.map(
               (data: any, index: number) => (
                 <Body_Row key={data._id}>
-                  <Column>{getDate(data.useditem.soldAt)}</Column>
-                  <ColumnTitle id={data._id}>
-                    {data.useditem.name
+                  <Column id={data._id}>
+                    {getDate(data.createdAt)
                       .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
                       .split("@#$%")
                       .map((data: any) => (
@@ -65,7 +63,9 @@ export default function MypageBoughtUI(props: any) {
                           {data}
                         </TextToken>
                       ))}
-                  </ColumnTitle>
+                  </Column>
+
+                  <ColumnTitle1>{data.status}</ColumnTitle1>
                   <ColumnBuy>{data.amount}</ColumnBuy>
                   <Column>
                     {data.balance
@@ -74,7 +74,6 @@ export default function MypageBoughtUI(props: any) {
                       " " +
                       "POINT"}
                   </Column>
-                  <Column>알수없음</Column>
                 </Body_Row>
               )
             )}

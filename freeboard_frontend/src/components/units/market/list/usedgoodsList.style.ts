@@ -136,7 +136,7 @@ export const RigthBox = styled.div`
   height: 100%;
   padding-right: 10px;
 `;
-export const leftBox = styled.div`
+export const LeftBox = styled.div`
   height: 100%;
   width: 100%;
   display: flex;

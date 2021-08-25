@@ -28,10 +28,9 @@ export const Stick_1 = styled.div`
   line-height: 65px;
   font-family: Ruda;
   transition-property: width;
-  transition-duration: 1s, 1s;
-  color: #808080;
+  transition-duration: 0.3s, 0.3s;
   :hover {
-    width: 120px;
+    width: 100px;
   }
   cursor: pointer;
 `;
@@ -47,9 +46,9 @@ export const Stick_2 = styled.div`
   font-family: Ruda;
   cursor: pointer;
   transition-property: width;
-  transition-duration: 1s, 1s;
+  transition-duration: 0.3s, 0.3s;
   :hover {
-    width: 120px;
+    width: 100px;
   }
 `;
 export const Header = styled.div`

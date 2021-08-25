@@ -3,7 +3,6 @@ import MyPages from "../../../../commons/mypages/mypages01.container";
 import {
   Wrapper,
   Mypage,
-  Search_Wrapper,
   Real_Body,
   Body,
   Body_Row,
@@ -21,7 +20,6 @@ export default function ISoldUI(props: any) {
           <MyPages />
         </Mypage>
         <Real_Body>
-          <Search_Wrapper></Search_Wrapper>
           <Body_Row>
             <ColumnHeader>번호</ColumnHeader>
             <ColumnHeaderTitle>제목</ColumnHeaderTitle>

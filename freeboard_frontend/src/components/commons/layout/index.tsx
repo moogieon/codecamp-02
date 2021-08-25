@@ -48,7 +48,6 @@ const Time = styled.div`
   color: white;
   font-family: Time;
 `;
-const Footer = styled.div``;
 
 export default function Layout(props: any) {
   let timer: any = null;
@@ -75,8 +74,6 @@ export default function Layout(props: any) {
           <SideMenu>
             <Time>{time.format("YY.MM.DD HH.mm.ss")}</Time>
           </SideMenu>
-
-          {/* 21.7.25 12:00PM */}
         </Wrapper>
 
         <BodyWrapper>

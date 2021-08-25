@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  border: 1px solid blue;
   max-width: 1200px;
   width: 100%;
   padding-top: 80px;
@@ -9,24 +8,19 @@ export const Wrapper = styled.div`
   display: flex;
 `;
 export const Mypage = styled.div`
-  border: 2px solid #f2f2f2;
+  border-right: 2px solid #f2f2f2;
   width: 538px;
   height: 1189px;
 `;
 export const Real_Body = styled.div`
-  border: 1px solid blue;
   width: 980px;
   height: 582px;
   display: flex;
   flex-direction: column;
+  padding-left: 30px;
 `;
-export const Search_Wrapper = styled.div`
-  border: 1px solid red;
-  width: 980px;
-  height: 72px;
-`;
+
 export const Body = styled.div`
-  border: 1px solid blue;
   width: 100%;
   height: 582px;
   overflow: auto;

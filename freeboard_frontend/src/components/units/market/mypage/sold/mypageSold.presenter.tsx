@@ -15,6 +15,7 @@ import {
   ColumnHeaderTitle,
   Search_Body,
   TextToken,
+  HereTo,
 } from "./mypageSold.style";
 import { v4 as uuidv4 } from "uuid";
 export default function MypageSoldUI(props: any) {
@@ -28,7 +29,7 @@ export default function MypageSoldUI(props: any) {
               <MoveTo>전체내역</MoveTo>
               <MoveTo>충전내역</MoveTo>
               <MoveTo>구매내역</MoveTo>
-              <MoveTo>판매내역</MoveTo>
+              <HereTo>판매내역</HereTo>
             </Search_Body>
 
             <Searchbars01

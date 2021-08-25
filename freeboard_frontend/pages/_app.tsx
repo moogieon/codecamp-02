@@ -26,6 +26,7 @@ Sentry.init({
 interface IContext {
   accessToken: string;
   setAccessToken: Dispatch<SetStateAction<string>>;
+  userinfo: any;
 }
 
 export const GlobalContext = createContext<IContext>({});

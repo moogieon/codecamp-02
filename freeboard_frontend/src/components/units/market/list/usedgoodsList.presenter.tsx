@@ -26,7 +26,7 @@ import {
   LogoPrice,
   LogoTag,
   RigthBox,
-  leftBox,
+  LeftBox,
   InfoBox,
 } from "./usedgoodsList.style";
 import { IUsedGoodsList } from "./usedgoodsList.types";
@@ -56,11 +56,12 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
                 <Wrapper_Body key={data._id}>
                   <GoodsImg
                     src={
-                      `https://storage.googleapis.com/${data.images[0]}` || ""
+                      `https://storage.googleapis.com/${data.images[0]}` ||
+                      "/market/list/imageNotFound.png"
                     }
                   ></GoodsImg>
                   <InfoBox>
-                    <leftBox>
+                    <LeftBox>
                       <GoddsInfo>
                         <GoodsName onClick={props.onClickPost(data)}>
                           {data.name}
@@ -76,7 +77,7 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
                           </Seller>
                         </SellerInfo>
                       </GoddsInfo>
-                    </leftBox>
+                    </LeftBox>
                     <RigthBox>
                       <GoodsPrice>
                         ₩{" "}

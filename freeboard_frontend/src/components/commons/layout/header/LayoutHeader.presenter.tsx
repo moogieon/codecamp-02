@@ -5,7 +5,6 @@ import {
   Home,
   Right,
   Login,
-  Mypage,
   Singup,
   Point,
   PointCoin,
@@ -18,12 +17,10 @@ import { useContext, useState } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
 
 import Payment from "../../../units/market/payment/marketPayment.container";
-import { useApolloClient } from "@apollo/client";
 
 export default function LayoutHeaderUI(props: any) {
   const { accessToken } = useContext(GlobalContext);
-  // const client = useApolloClient();
-  // client.clearStore();
+
   const [showModal, setshowModal] = useState(false);
 
   const openModal = () => {
@@ -55,11 +52,11 @@ export default function LayoutHeaderUI(props: any) {
             <Right>
               <Point>Point:</Point>
               <PointCoin>
-                {props.data?.fetchUserLoggedIn.userPoint.amount}
+                {props.data?.fetchUserLoggedIn.userPoint?.amount}
               </PointCoin>
 
               <GetCoin onClick={openModal}>Get Coins</GetCoin>
-              <LogOut>Log Out</LogOut>
+              <LogOut onClick={props.onClickLogOut}>Log Out</LogOut>
             </Right>
           ) : (
             <Right>
