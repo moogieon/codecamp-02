@@ -30,7 +30,7 @@ export default function MyPagesUI(props: any) {
           <MypageImg src="/market/mypage/Pig.png" />
           <BodyColumn2 onClick={props.onClickPoint}> POINT</BodyColumn2>
           <MypageImg src="/market/mypage/miniprofile.png" />
-          <BodyColumn3> PROFILE</BodyColumn3>
+          <BodyColumn3 onClick={props.onClickProfile}> PROFILE</BodyColumn3>
         </Body>
         <Footer></Footer>
       </Wrapper>

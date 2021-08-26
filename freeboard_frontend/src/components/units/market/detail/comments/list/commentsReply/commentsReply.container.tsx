@@ -46,27 +46,30 @@ export default function CommentsReplay(props) {
         },
       });
     } catch (error) {
-      Modal.error({ content: error.message });
+      Modal.error({ content: "내용을 작성해 주세요" });
     }
   };
-
+  console.log(props.data);
   const onClickUpdateReply = async () => {
     try {
       await updateUseditemQuestionAnswer({
         variables: {
           updateUseditemQuestionAnswerInput: { contents },
           useditemQuestionAnswerId: props.ondata._id,
+          refetchQueries: [
+            {
+              query: FETCH_USED_ITEM_QUESTION_ANSWERS,
+              variables: { useditemQuestionId: props.ondata._id },
+            },
+          ],
         },
-        refetchQueries: [
-          {
-            query: FETCH_USED_ITEM_QUESTION_ANSWERS,
-            variables: { useditemQuestionId: props.data._id },
-          },
-        ],
       });
       setContents(contents);
-      props.setIsEdit?.(false);
-    } catch (error) {}
+
+      props.setIsEdit(false);
+    } catch (error) {
+      alert(error.message);
+    }
   };
   return (
     <CommentsReplyUI

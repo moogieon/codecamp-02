@@ -10,6 +10,17 @@ export default function MyPages() {
 
     setIsActive(true);
   };
+  const onClickProfile = () => {
+    router.push("/market/mypage/profile");
 
-  return <MyPagesUI onClickPoint={onClickPoint} isActive={isActive} />;
+    setIsActive(true);
+  };
+
+  return (
+    <MyPagesUI
+      onClickProfile={onClickProfile}
+      onClickPoint={onClickPoint}
+      isActive={isActive}
+    />
+  );
 }

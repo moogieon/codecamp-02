@@ -91,7 +91,13 @@ export default function CommentsReplyListItem(props) {
           <DateString>{getDate(props.ondata.createdAt)}</DateString>
         </ItemWrapper>
       )}
-      {isEdit && <CommentsReplay ondata={props.ondata} isEdit={isEdit} />}
+      {isEdit && (
+        <CommentsReplay
+          ondata={props.ondata}
+          isEdit={isEdit}
+          setIsEdit={setIsEdit}
+        />
+      )}
     </>
   );
 }
