@@ -10,7 +10,7 @@ import {
   MoveTo,
   Column,
   ColumnTitle1,
-  // ColumnTitle2,
+  ColumnTitle2,
   ColumnHeader,
   ColumnBuy,
   ColumnHeaderTitle,
@@ -65,7 +65,9 @@ export default function PointTransactionsUI(props: any) {
                       ))}
                   </Column>
 
-                  <ColumnTitle1>{data.status}</ColumnTitle1>
+                  <ColumnTitle2 status={data.status}>
+                    {data.status}
+                  </ColumnTitle2>
                   <ColumnBuy>{data.amount}</ColumnBuy>
                   <Column>
                     {data.balance

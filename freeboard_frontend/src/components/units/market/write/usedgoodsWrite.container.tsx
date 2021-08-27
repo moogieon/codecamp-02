@@ -4,7 +4,11 @@ import { schema } from "./usedgoodsWrite.validation";
 import UsedgoodsWriteUI from "./usedgoodsWrite.presenter";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
-import { CREATE_USEFITEM, UPLOAD_FILE } from "./usedgoodsWrite.queries";
+import {
+  CREATE_USEFITEM,
+  UPDATE_USED_ITEM,
+  UPLOAD_FILE,
+} from "./usedgoodsWrite.queries";
 import {
   IMutation,
   IMutationCreateUseditemArgs,
@@ -26,7 +30,7 @@ export default function UsedgoodsWrite() {
     Pick<IMutation, "createUseditem">,
     IMutationCreateUseditemArgs
   >(CREATE_USEFITEM);
-
+  const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
   const [uploadFile] = useMutation(UPLOAD_FILE);
 
   const [files, setFiles] = useState<(File | null)[]>([null, null, null]);
@@ -73,7 +77,30 @@ export default function UsedgoodsWrite() {
     setValue("contents", value === isBlank ? "" : value); // 강제로 값만 입력, 이것만 하면 yup에서 검증이 안댐
     trigger("contents");
   };
-  const onCilckEdit = () => {};
+  const onCilckEdit = async (data: any) => {
+    try {
+      const results = await updateUseditem({
+        variables: {
+          updateUseditemInput: { ...data },
+          images: files,
+          useditemAddress: {
+            lat: lating.lang,
+            lng: lating.lat,
+          },
+          useditemId: router.query.market_id,
+        },
+      });
+      Modal.confirm({
+        content: "게시물이 등록 완료!",
+        onOk: () =>
+          router.push(`/market/detail/${results.data?.updateUseditem._id}`),
+      });
+    } catch (error) {
+      Modal.error({
+        content: error.message,
+      });
+    }
+  };
 
   return (
     <UsedgoodsWriteUI

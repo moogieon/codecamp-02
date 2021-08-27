@@ -56,8 +56,9 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
                 <Wrapper_Body key={data._id}>
                   <GoodsImg
                     src={
-                      `https://storage.googleapis.com/${data.images[0]}` ||
-                      "/market/list/imageNotFound.png"
+                      data.images?.[0]
+                        ? `https://storage.googleapis.com/${data.images[0]}`
+                        : "/market/list/imageNotFound.png"
                     }
                   ></GoodsImg>
                   <InfoBox>

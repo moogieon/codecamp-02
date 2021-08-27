@@ -34,6 +34,7 @@ export const BestProductBox = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
+
   cursor: pointer;
 `;
 export const TopProductImg = styled.img`

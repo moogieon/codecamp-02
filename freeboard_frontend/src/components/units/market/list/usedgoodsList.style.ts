@@ -70,6 +70,7 @@ export const Wrapper_Body = styled.div`
   display: flex;
   padding-top: 20px;
   padding-bottom: 20px;
+  transition-property: width;
 `;
 export const GoodsImg = styled.img`
   width: 160px;

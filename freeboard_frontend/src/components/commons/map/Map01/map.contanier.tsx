@@ -29,46 +29,44 @@ export default function Kakaomap(props: any) {
 
         const map = new window.kakao.maps.Map(container, options); // 지도 생성 및 객체 리턴
 
-        if (!isWrite) {
-          // 마커가 표시될 위치입니다
-          const markerPosition = new window.kakao.maps.LatLng(
-            props.lating?.lat,
-            props.lating?.lang
-          );
+        // 마커가 표시될 위치입니다
+        const markerPosition = new window.kakao.maps.LatLng(
+          props.lating?.lat,
+          props.lating?.lang
+        );
 
-          // 마커를 생성합니다
-          const marker = new window.kakao.maps.Marker({
-            position: markerPosition,
-          });
-          // const infowindow = new kakao.maps.InfoWindow({ zindex: 1 });
+        // 마커를 생성합니다
+        const marker = new window.kakao.maps.Marker({
+          position: markerPosition,
+        });
+        // const infowindow = new kakao.maps.InfoWindow({ zindex: 1 });
 
-          // 마커가 지도 위에 표시되도록 설정합니다
-          marker.setMap(map);
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
 
-          // 지도에 클릭 이벤트를 등록합니다
-          // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
-          window.kakao.maps.event.addListener(
-            map,
-            "click",
-            function (mouseEvent: { latLng: any }) {
-              // 클릭한 위도, 경도 정보를 가져옵니다
-              const latlng = mouseEvent.latLng;
+        // 지도에 클릭 이벤트를 등록합니다
+        // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+        window.kakao.maps.event.addListener(
+          map,
+          "click",
+          function (mouseEvent: { latLng: any }) {
+            // 클릭한 위도, 경도 정보를 가져옵니다
+            const latlng = mouseEvent.latLng;
 
-              // 마커 위치를 클릭한 위치로 옮깁니다
-              marker.setPosition(latlng);
-              props.setLating({ lat: latlng.Ma, lang: latlng.La });
-              console.log(latlng);
+            // 마커 위치를 클릭한 위치로 옮깁니다
+            marker.setPosition(latlng);
+            props.setLating({ lat: latlng.Ma, lang: latlng.La });
+            console.log(latlng);
 
-              // const message = latlng.getLat();
+            // const message = latlng.getLat();
 
-              // latlng.getLng();
+            // latlng.getLng();
 
-              // console.log(message);
-              //   var resultDiv = document.getElementById("clickLatlng");
-              //   resultDiv.innerHTML = message;
-            }
-          );
-        }
+            // console.log(message);
+            //   var resultDiv = document.getElementById("clickLatlng");
+            //   resultDiv.innerHTML = message;
+          }
+        );
       });
     };
   }, [props.lating.lat, props.lating.lang]);

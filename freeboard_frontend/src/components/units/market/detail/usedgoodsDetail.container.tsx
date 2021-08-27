@@ -20,7 +20,7 @@ import {
 
 export default function UsedgoodsDetail() {
   const router = useRouter();
-  const { userInfo } = useContext(GlobalContext);
+
   const [createPointTransactionOfBuyingAndSelling] = useMutation(
     CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING
   );
@@ -90,7 +90,6 @@ export default function UsedgoodsDetail() {
   return (
     <UsedgoodsDetailUI
       data={data}
-      userInfo={userInfo}
       onClickList={onClickList}
       onClickBuy={onClickBuy}
       onClickToggle={onClickToggle}

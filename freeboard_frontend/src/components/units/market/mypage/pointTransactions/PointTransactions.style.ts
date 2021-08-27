@@ -67,13 +67,19 @@ export const ColumnTitle1 = styled.div`
   /* color: ${(props: any) =>
     props.data?.amount === "충전" ? "blue" : "red"}; */
 `;
+
+interface IColumnTitleStatus {
+  status: "충전" | "구매" | "판매";
+}
 export const ColumnTitle2 = styled.div`
   width: 70%;
   text-align: center;
   font-family: ccc;
-  /* color: ${(props: any) =>
-    props.data?.amount === "충전" ? "blue" : "red"}; */
-  color: blue;
+  color: ${(props: IColumnTitleStatus) => {
+    if (props.status === "충전") return "blue";
+    if (props.status === "구매") return "red";
+    if (props.status === "판매") return "yellow";
+  }};
 `;
 export const ColumnHeader = styled.div`
   width: 30%;

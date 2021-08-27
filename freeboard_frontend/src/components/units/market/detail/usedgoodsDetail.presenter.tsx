@@ -1,4 +1,6 @@
 import { getDate } from "../../../../commons/libraries/utils";
+
+import Slider from "react-slick";
 import DOMPurify from "dompurify";
 import {
   Wrapper,
@@ -31,10 +33,27 @@ import {
   DeletButton,
   UpdateButton,
 } from "./usedgoodsDetail.styles";
-import { IUsedgoodsDetailUIProps } from "./usedgoodsDetail.types";
-import Kakaomap from "../../../commons/map/Map01/map.contanier";
+import { useContext } from "react";
+import { GlobalContext } from "../../../../../pages/_app";
 
-export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
+export default function UsedgoodsDetailUI(props: any) {
+  const { userInfo } = useContext(GlobalContext);
+
+  const settings = {
+    customPaging: function (i) {
+      return (
+        <a>
+          <img src={`https://storage.googleapis.com/${props.data[0]}`} />
+        </a>
+      );
+    },
+    dots: true,
+    dotsClass: "slick-dots slick-thumb",
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   return (
     <>
       <Wrapper>
@@ -70,12 +89,14 @@ export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
             원
           </Price>
-          {props.data?.fetchUseditem.images?.map((data: string) => (
-            <GoddsImg
-              key={data}
-              src={`https://storage.googleapis.com/${data}`}
-            />
-          ))}
+          <Slider {...settings}>
+            {props.data?.fetchUseditem.images?.map((data: string) => (
+              <img
+                key={data}
+                src={`https://storage.googleapis.com/${props.data}`}
+              />
+            ))}
+          </Slider>
 
           {typeof window !== "undefined" ? (
             <GoodsContents
@@ -97,9 +118,19 @@ export default function UsedgoodsDetailUI(props: IUsedgoodsDetailUIProps) {
           <Line />
           <ButtonBox>
             <ListButton onClick={props.onClickList}>목록으로</ListButton>
-            <PaymentButton onClick={props.onClickBuy}>구매하기</PaymentButton>
-            <DeletButton onClick={props.onClickDelete}>삭제하기</DeletButton>
-            <UpdateButton onClick={props.onClickEdit}>수정하기</UpdateButton>
+
+            {userInfo.name === props.data?.fetchUseditem.seller.name ? (
+              <>
+                <DeletButton onClick={props.onClickDelete}>
+                  삭제하기
+                </DeletButton>
+                <UpdateButton onClick={props.onClickEdit}>
+                  수정하기
+                </UpdateButton>
+              </>
+            ) : (
+              <PaymentButton onClick={props.onClickBuy}>구매하기</PaymentButton>
+            )}
           </ButtonBox>
         </Body>
       </Wrapper>
