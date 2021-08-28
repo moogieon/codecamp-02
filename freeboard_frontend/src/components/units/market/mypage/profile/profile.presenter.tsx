@@ -22,9 +22,22 @@ export default function ProfielUI(props: any) {
           <InputBox>
             <Colum> 새 비밀번호</Colum>
             <PasswordInput
-              name={"password"}
+              // name={"password"}
               onChange={props.onChangePassword}
             />
+            {/* 
+            <PasswordInput
+              // name={"password"}
+              onChange={props.onChangeInputs("title")}
+            />
+            <PasswordInput
+              // name={"password"}
+              onChange={props.onChangeInputs("contents")}
+            />
+            <PasswordInput
+              // name={"password"}
+              onChange={props.onChangeInputs("writer")}
+            /> */}
           </InputBox>
           <RestPasswordBtn onClick={props.onClickReset}>등록</RestPasswordBtn>
         </Body>

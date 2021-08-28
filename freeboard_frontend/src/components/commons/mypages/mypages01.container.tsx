@@ -6,7 +6,7 @@ export default function MyPages() {
   const router = useRouter();
   const [isActive, setIsActive] = useState(false);
   const onClickPoint = () => {
-    router.push("/market/mypage/pointTransactions");
+    router.push("/market/mypage/mypagePoint");
 
     setIsActive(true);
   };

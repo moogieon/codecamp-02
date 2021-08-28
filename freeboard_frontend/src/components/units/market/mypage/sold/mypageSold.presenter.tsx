@@ -22,21 +22,12 @@ export default function MypageSoldUI(props: any) {
   return (
     <>
       <Wrapper>
-        <Mypage></Mypage>
         <Real_Body>
-          <Search_Wrapper>
-            <Search_Body>
-              <MoveTo>전체내역</MoveTo>
-              <MoveTo>충전내역</MoveTo>
-              <MoveTo>구매내역</MoveTo>
-              <HereTo>판매내역</HereTo>
-            </Search_Body>
+          <Searchbars01
+            refetch={props.refetch}
+            onChangeKeyword={props.onChangeKeyword}
+          />
 
-            <Searchbars01
-              refetch={props.refetch}
-              onChangeKeyword={props.onChangeKeyword}
-            />
-          </Search_Wrapper>
           <Body>
             <Body_Row>
               <ColumnHeader>날짜</ColumnHeader>

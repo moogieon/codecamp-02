@@ -41,9 +41,13 @@ export default function UsedgoodsDetailUI(props: any) {
 
   const settings = {
     customPaging: function (i) {
+      // console.log("i", props.data?.fetchUseditem.images[i]);
       return (
         <a>
-          <img src={`https://storage.googleapis.com/${props.data[0]}`} />
+          <img
+            style={{ width: "20px", height: "20px" }}
+            src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[i]}`}
+          />
         </a>
       );
     },
@@ -89,15 +93,16 @@ export default function UsedgoodsDetailUI(props: any) {
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
             원
           </Price>
-          <Slider {...settings}>
-            {props.data?.fetchUseditem.images?.map((data: string) => (
-              <img
-                key={data}
-                src={`https://storage.googleapis.com/${props.data}`}
-              />
-            ))}
-          </Slider>
 
+          <div style={{ width: "500px", height: "500px" }}>
+            <Slider {...settings}>
+              {props.data?.fetchUseditem.images?.map((data: string) => (
+                <div key={data}>
+                  <GoddsImg src={`https://storage.googleapis.com/${data}`} />
+                </div>
+              ))}
+            </Slider>
+          </div>
           {typeof window !== "undefined" ? (
             <GoodsContents
               dangerouslySetInnerHTML={{
@@ -110,6 +115,7 @@ export default function UsedgoodsDetailUI(props: any) {
           <Tag>{props.data?.fetchUseditem.tags}</Tag>
           <Line />
           <Maps
+            readOnly
             lating={{
               lat: props.data?.fetchUseditem?.useditemAddress?.lat,
               lang: props.data?.fetchUseditem?.useditemAddress?.lng,

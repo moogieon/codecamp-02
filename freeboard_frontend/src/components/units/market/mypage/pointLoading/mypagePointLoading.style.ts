@@ -16,7 +16,7 @@ export const Mypage = styled.div`
   height: 1189px;
 `;
 export const Real_Body = styled.div`
-  width: 980px;
+  width: 100%;
   height: 582px;
   display: flex;
   flex-direction: column;

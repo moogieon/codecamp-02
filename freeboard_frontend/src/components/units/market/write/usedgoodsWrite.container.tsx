@@ -47,8 +47,8 @@ export default function UsedgoodsWrite() {
             ...data,
             images: images,
             useditemAddress: {
-              lat: lating.lang,
-              lng: lating.lat,
+              lng: lating.lang,
+              lat: lating.lat,
             },
           },
         },

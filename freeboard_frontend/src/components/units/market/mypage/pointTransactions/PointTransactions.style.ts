@@ -6,7 +6,7 @@ interface IProps {
 export const Wrapper = styled.div`
   max-width: 1200px;
   width: 100%;
-  padding-top: 80px;
+  padding-top: 40px;
   /* padding-right: 360px; */
   display: flex;
 `;
@@ -16,7 +16,7 @@ export const Mypage = styled.div`
   height: 1189px;
 `;
 export const Real_Body = styled.div`
-  width: 980px;
+  width: 100%;
   height: 582px;
   display: flex;
   flex-direction: column;
@@ -76,9 +76,15 @@ export const ColumnTitle2 = styled.div`
   text-align: center;
   font-family: ccc;
   color: ${(props: IColumnTitleStatus) => {
-    if (props.status === "충전") return "blue";
-    if (props.status === "구매") return "red";
-    if (props.status === "판매") return "yellow";
+    // if (props.status === "충전") return "blue";
+    // if (props.status === "구매") return "red";
+    // if (props.status === "판매") return "yellow";
+    const status = {
+      충전: "blue",
+      구매: "red",
+      판매: "yellow",
+    };
+    return status[props.status];
   }};
 `;
 export const ColumnHeader = styled.div`

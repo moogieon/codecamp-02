@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useEffect } from "react";
 import KakaomapUI from "./map.presenter";
 
@@ -8,7 +7,7 @@ declare const window: typeof globalThis & {
 
 export default function Kakaomap(props: any) {
   console.log(props.lating);
-  const [isWrite, setIsWrite] = useState(false);
+
   useEffect(() => {
     if (!(props.lating.lat && props.lating.lang)) return;
     const script = document.createElement("script");
@@ -21,8 +20,8 @@ export default function Kakaomap(props: any) {
         const options = {
           // 지도를 생성할 때 필요한 기본 옵션
           center: new window.kakao.maps.LatLng(
-            props.lating?.lat,
-            props.lating?.lang
+            props.lating?.lat || "",
+            props.lating?.lang || ""
           ), // 지도의 중심좌표.
           level: 3, // 지도의 레벨(확대, 축소 정도)
         };
@@ -31,8 +30,8 @@ export default function Kakaomap(props: any) {
 
         // 마커가 표시될 위치입니다
         const markerPosition = new window.kakao.maps.LatLng(
-          props.lating?.lat,
-          props.lating?.lang
+          props.lating?.lat || "",
+          props.lating?.lang || ""
         );
 
         // 마커를 생성합니다
@@ -56,7 +55,7 @@ export default function Kakaomap(props: any) {
             // 마커 위치를 클릭한 위치로 옮깁니다
             marker.setPosition(latlng);
             props.setLating({ lat: latlng.Ma, lang: latlng.La });
-            console.log(latlng);
+            console.log("ㅇㅣ거임임", latlng);
 
             // const message = latlng.getLat();
 

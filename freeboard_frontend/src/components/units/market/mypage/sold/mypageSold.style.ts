@@ -6,7 +6,7 @@ interface IProps {
 export const Wrapper = styled.div`
   max-width: 1200px;
   width: 100%;
-  padding-top: 80px;
+  padding-top: 40px;
   /* padding-right: 360px; */
   display: flex;
 `;
@@ -16,7 +16,7 @@ export const Mypage = styled.div`
   height: 1189px;
 `;
 export const Real_Body = styled.div`
-  width: 980px;
+  width: 100%;
   height: 582px;
   display: flex;
   flex-direction: column;

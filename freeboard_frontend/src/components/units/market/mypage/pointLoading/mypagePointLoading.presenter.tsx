@@ -13,24 +13,13 @@ import {
   ColumnHeader,
   ColumnBuy,
   ColumnHeaderTitle,
-  Search_Body,
-  HereTo,
 } from "./mypagePointLoading.style";
 
 export default function MypagePointLoadingUI(props: any) {
   return (
     <>
       <Wrapper>
-        <Mypage></Mypage>
         <Real_Body>
-          <Search_Wrapper>
-            <Search_Body>
-              <MoveTo>전체내역</MoveTo>
-              <HereTo>충전내역</HereTo>
-              <MoveTo>구매내역</MoveTo>
-              <MoveTo>판매내역</MoveTo>
-            </Search_Body>
-          </Search_Wrapper>
           <Body>
             <Body_Row>
               <ColumnHeader>충전일</ColumnHeader>
