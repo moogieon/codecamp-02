@@ -4,11 +4,9 @@ import { Rate } from "antd";
 export const Body = styled.div`
   width: 1200px;
   height: 100%;
-  border: 1px solid red;
 `;
 
 export const Wrapper = styled.div`
-  border: 1px solid white;
   padding-top: 50px;
   display: flex;
   flex-direction: column;
@@ -24,8 +22,7 @@ export const Wrapper_Head = styled.div`
   height: 111px;
   display: flex;
   margin-bottom: 20px;
-  background-color: orange;
-
+  border: 1px solid white;
   border-radius: 15px;
 `;
 export const CommentList = styled.div`
@@ -57,6 +54,7 @@ export const Remove = styled.button`
 export const Delete = styled.button`
   width: 91px;
   height: 51px;
+  background-color: black;
 `;
 export const PasswordInput = styled.input`
   width: 100%;

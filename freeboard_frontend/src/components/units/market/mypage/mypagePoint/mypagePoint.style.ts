@@ -34,14 +34,15 @@ export const Search_Wrapper = styled.div`
 `;
 export const Search_Body = styled.div`
   width: 368px;
+  height: 10px;
   display: flex;
+  padding-left: 30px;
   align-items: center;
 `;
 
 export const Body = styled.div`
   width: 100%;
   height: 582px;
-  overflow: auto;
 `;
 export const Body_Row = styled.div`
   border-bottom: 1px solid #bdbdbd;

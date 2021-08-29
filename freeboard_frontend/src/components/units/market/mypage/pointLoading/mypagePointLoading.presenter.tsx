@@ -27,27 +27,32 @@ export default function MypagePointLoadingUI(props: any) {
               <ColumnHeader>충전내역</ColumnHeader>
               <ColumnHeader>충전후 잔액</ColumnHeader>
             </Body_Row>
-            {props.data?.fetchPointTransactionsOfLoading.map((data: any, _) => (
-              <Body_Row key={data._id}>
-                <Column>{getDate(data.createdAt)}</Column>
-                <ColumnTitle id={data._id}>{data.impUid}</ColumnTitle>
-                <ColumnBuy>
-                  {"+" +
-                    data.amount
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
-                    " " +
-                    "POINT"}
-                </ColumnBuy>
-                <Column>
-                  {data.balance
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
-                    " " +
-                    "POINT"}
-                </Column>
-              </Body_Row>
-            ))}
+            {}
+            {props.data.fetchPointTransactionsOfLoading
+              ? props.data?.fetchPointTransactionsOfLoading.map(
+                  (data: any, _) => (
+                    <Body_Row key={data._id}>
+                      <Column>{getDate(data.createdAt)}</Column>
+                      <ColumnTitle id={data._id}>{data.impUid}</ColumnTitle>
+                      <ColumnBuy>
+                        {"+" +
+                          data.amount
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+                          " " +
+                          "POINT"}
+                      </ColumnBuy>
+                      <Column>
+                        {data.balance
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+                          " " +
+                          "POINT"}
+                      </Column>
+                    </Body_Row>
+                  )
+                )
+              : "정보가 없습니다."}
           </Body>
         </Real_Body>
       </Wrapper>

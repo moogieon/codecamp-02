@@ -5,21 +5,16 @@ import {
   Search_Wrapper,
   Real_Body,
   Body,
-  Body_Row,
   MoveTo,
-  Column,
-  ColumnTitle,
-  ColumnHeader,
-  ColumnBuy,
-  ColumnHeaderTitle,
   Search_Body,
-  TextToken,
   HereTo,
 } from "./mypagePoint.style";
 
 import MyPages from "../../../../commons/mypages/mypages01.container";
-
 import PointTransactions from "../pointTransactions/PointTransactions.contatiner";
+import MypageSold from "../sold/mypageSold.contatiner";
+import MypageBought from "../bought/mypageBought.contatiner";
+import MypagePointLoading from "../pointLoading/mypagePointLoading.contatiner";
 export default function MypagePointUI(props: any) {
   return (
     <>
@@ -30,19 +25,22 @@ export default function MypagePointUI(props: any) {
         <Real_Body>
           <Search_Wrapper>
             <Search_Body>
-              <MoveTo>전체내역</MoveTo>
-              <HereTo>충전내역</HereTo>
-              <MoveTo>구매내역</MoveTo>
-              <MoveTo>판매내역</MoveTo>
+              <MoveTo onClick={props.onClickTransactions}>전체내역</MoveTo>
+              <HereTo onClick={props.onClickLoading}>충전내역</HereTo>
+              <MoveTo onClick={props.onClickBought}>구매내역</MoveTo>
+              <MoveTo onClick={props.onClickSold}>판매내역</MoveTo>
             </Search_Body>
             {/* <Searchbars01
               refetch={props.refetch}
               onChangeKeyword={props.onChangeKeyword}
             /> */}
           </Search_Wrapper>
-          <div>
-            <PointTransactions />
-          </div>
+          <Body>
+            {props.transactions && <PointTransactions />}
+            {props.sold && <MypageSold />}
+            {props.bought && <MypageBought />}
+            {/* {<MypagePointLoading />} */}
+          </Body>
         </Real_Body>
       </Wrapper>
     </>
