@@ -88,7 +88,6 @@ export default function BoardCommentListUIItem(
                 <Comment_Contents>{props.data.contents}</Comment_Contents>
                 <Comment_Date>{getDate(props.data.createdAt)}</Comment_Date>
               </CommentList>
-              <Remove onClick={onCKilckUpDate}>수정하기</Remove>
               <Delete id={props.data._id} onClick={onClickOpenDeleteModal}>
                 지우기
               </Delete>

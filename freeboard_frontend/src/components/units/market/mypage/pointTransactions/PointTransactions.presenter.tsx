@@ -10,7 +10,7 @@ import {
   MoveTo,
   Column,
   ColumnTitle1,
-  // ColumnTitle2,
+  ColumnTitle2,
   ColumnHeader,
   ColumnBuy,
   ColumnHeaderTitle,
@@ -19,23 +19,13 @@ import {
   HereTo,
 } from "./PointTransactions.style";
 import { v4 as uuidv4 } from "uuid";
-import MyPages from "../../../../commons/mypages/mypages01.container";
+
 export default function PointTransactionsUI(props: any) {
   return (
     <>
       <Wrapper>
-        <Mypage>
-          <MyPages />
-        </Mypage>
         <Real_Body>
           <Search_Wrapper>
-            <Search_Body>
-              <HereTo>전체내역</HereTo>
-              <MoveTo>충전내역</MoveTo>
-              <MoveTo>구매내역</MoveTo>
-              <MoveTo>판매내역</MoveTo>
-            </Search_Body>
-
             <Searchbars01
               refetch={props.refetch}
               onChangeKeyword={props.onChangeKeyword}
@@ -65,7 +55,9 @@ export default function PointTransactionsUI(props: any) {
                       ))}
                   </Column>
 
-                  <ColumnTitle1>{data.status}</ColumnTitle1>
+                  <ColumnTitle2 status={data.status}>
+                    {data.status}
+                  </ColumnTitle2>
                   <ColumnBuy>{data.amount}</ColumnBuy>
                   <Column>
                     {data.balance

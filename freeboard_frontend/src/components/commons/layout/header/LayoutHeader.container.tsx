@@ -37,7 +37,6 @@ export default function LayoutHeader() {
   const onClickLogOut = () => {
     try {
       logoutUser();
-
       Modal.confirm({
         content: "로그아웃",
         onOk: () => {
@@ -45,7 +44,7 @@ export default function LayoutHeader() {
           localStorage.removeItem("refreshToken");
           localStorage.removeItem("userInfo");
           client.clearStore();
-          router.push("/market/login");
+          window.location.replace("/market/login");
         },
       });
     } catch (error) {

@@ -19,6 +19,10 @@ export default function Profiel() {
     setPassword(e.target.value);
   };
 
+  // const onChangeInputs = (name) => (e) => {
+  //   setInputs(e.target.value)
+  // }
+
   return (
     <ProfielUI
       onClickReset={onClickReset}

@@ -6,7 +6,7 @@ interface IProps {
 export const Wrapper = styled.div`
   max-width: 1200px;
   width: 100%;
-  padding-top: 80px;
+  padding-top: 40px;
   /* padding-right: 360px; */
   display: flex;
 `;
@@ -16,7 +16,7 @@ export const Mypage = styled.div`
   height: 1189px;
 `;
 export const Real_Body = styled.div`
-  width: 980px;
+  width: 100%;
   height: 582px;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,6 @@ export const TextToken = styled.span`
   color: ${(props: IProps) => (props.isMatched ? "red" : "white")};
 `;
 export const Search_Wrapper = styled.div`
-  /* width: 980px; */
   height: 72px;
   display: flex;
   flex-direction: row;
@@ -67,13 +66,25 @@ export const ColumnTitle1 = styled.div`
   /* color: ${(props: any) =>
     props.data?.amount === "충전" ? "blue" : "red"}; */
 `;
+
+interface IColumnTitleStatus {
+  status: "충전" | "구매" | "판매";
+}
 export const ColumnTitle2 = styled.div`
   width: 70%;
   text-align: center;
   font-family: ccc;
-  /* color: ${(props: any) =>
-    props.data?.amount === "충전" ? "blue" : "red"}; */
-  color: blue;
+  color: ${(props: IColumnTitleStatus) => {
+    // if (props.status === "충전") return "blue";
+    // if (props.status === "구매") return "red";
+    // if (props.status === "판매") return "yellow";
+    const status = {
+      충전: "blue",
+      구매: "red",
+      판매: "yellow",
+    };
+    return status[props.status];
+  }};
 `;
 export const ColumnHeader = styled.div`
   width: 30%;

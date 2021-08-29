@@ -16,7 +16,7 @@ export const Mypage = styled.div`
   height: 1189px;
 `;
 export const Real_Body = styled.div`
-  width: 100%;
+  width: 980px;
   height: 582px;
   display: flex;
   flex-direction: column;
@@ -27,21 +27,22 @@ export const TextToken = styled.span`
 `;
 export const Search_Wrapper = styled.div`
   /* width: 980px; */
-  height: 72px;
+  /* height: 72px; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 `;
 export const Search_Body = styled.div`
   width: 368px;
+  height: 10px;
   display: flex;
+  padding-left: 30px;
   align-items: center;
 `;
 
 export const Body = styled.div`
   width: 100%;
   height: 582px;
-  overflow: auto;
 `;
 export const Body_Row = styled.div`
   border-bottom: 1px solid #bdbdbd;
@@ -82,8 +83,12 @@ export const HereTo = styled.div`
   color: dimgrey;
   font-family: Ruda;
   cursor: pointer;
-  border-bottom: 1px solid yellow;
-  color: lightgray;
+  :hover {
+    color: lightgray;
+    border-bottom: 1px solid yellow;
+  }
+  /* border-bottom: 1px solid yellow; */
+  /* color: lightgray; */
 `;
 export const MoveTo = styled.div`
   width: 30%;

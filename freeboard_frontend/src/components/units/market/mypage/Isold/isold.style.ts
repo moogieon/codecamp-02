@@ -23,7 +23,7 @@ export const Real_Body = styled.div`
 export const Body = styled.div`
   width: 100%;
   height: 582px;
-  overflow: auto;
+  /* overflow: auto; */
 `;
 export const Body_Row = styled.div`
   border-bottom: 1px solid #bdbdbd;

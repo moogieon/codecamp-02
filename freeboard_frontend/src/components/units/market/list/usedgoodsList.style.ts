@@ -39,8 +39,10 @@ export const Body = styled.div`
   max-width: 1200px;
   width: 100%;
   height: 1008px;
-  /* border: 1px solid red; */
+  /* border: 1px solid white; */
   display: flex;
+  padding-left: 50px;
+  padding-right: 50px;
   flex-direction: column;
   overflow: auto;
 
@@ -70,6 +72,19 @@ export const Wrapper_Body = styled.div`
   display: flex;
   padding-top: 20px;
   padding-bottom: 20px;
+  transition-property: width;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+  :hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  :hover .name {
+    color: #fc0;
+  }
 `;
 export const GoodsImg = styled.img`
   width: 160px;
@@ -78,35 +93,27 @@ export const GoodsImg = styled.img`
 `;
 export const GoddsInfo = styled.div`
   height: 160px;
-
   padding-top: 8px;
   padding-left: 40px;
 `;
 
 export const GoodsName = styled.div`
   color: white;
-
   height: 36px;
-
   margin-bottom: 4px;
   cursor: pointer;
-  :hover {
-    color: #ffc414;
-  }
   font-size: 24px;
   font-weight: 500;
   font-family: ccc;
 `;
 export const GoodsRemarks = styled.div`
   color: white;
-
   height: 24px;
   margin-bottom: 8px;
   font-size: 16px;
 `;
 export const GoodsTag = styled.div`
   color: white;
-
   height: 24px;
   margin-bottom: 15px;
   font-size: 16px;
@@ -138,7 +145,7 @@ export const RigthBox = styled.div`
 `;
 export const LeftBox = styled.div`
   height: 100%;
-  width: 100%;
+
   display: flex;
 `;
 export const GoodsPrice = styled.div`

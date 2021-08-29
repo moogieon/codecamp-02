@@ -53,19 +53,18 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
               }
             >
               {props.data?.fetchUseditems.map((data) => (
-                <Wrapper_Body key={data._id}>
+                <Wrapper_Body key={data._id} onClick={props.onClickPost(data)}>
                   <GoodsImg
                     src={
-                      `https://storage.googleapis.com/${data.images[0]}` ||
-                      "/market/list/imageNotFound.png"
+                      data.images?.[0]
+                        ? `https://storage.googleapis.com/${data.images[0]}`
+                        : "/market/list/imageNotFound.png"
                     }
                   ></GoodsImg>
                   <InfoBox>
                     <LeftBox>
                       <GoddsInfo>
-                        <GoodsName onClick={props.onClickPost(data)}>
-                          {data.name}
-                        </GoodsName>
+                        <GoodsName className="name">{data.name}</GoodsName>
                         <GoodsRemarks>{data.remarks}</GoodsRemarks>
                         <GoodsTag>{data.tags}</GoodsTag>
                         <SellerInfo>
@@ -100,7 +99,7 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
           {props.basket
             .slice(0)
             .reverse()
-            .map((data, index) => (
+            .map((data, _) => (
               <LogoInfo key={data._id} onClick={props.onClickToday(data)}>
                 <LogoImg
                   src={`https://storage.googleapis.com/${data.images[0]}`}

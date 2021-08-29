@@ -110,10 +110,10 @@ export const Price = styled.div`
   margin-top: 8px; ;
 `;
 export const GoddsImg = styled.img`
-  width: 504px;
-  height: 482px;
+  width: 500px;
+  height: 500px;
+
   padding-top: 20px;
-  /* border: 1px solid red; */
 `;
 export const GoodsContents = styled.div`
   width: 792px;
