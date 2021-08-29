@@ -8,11 +8,13 @@ export const Wrapper = styled.div`
   width: 100%;
   padding-top: 40px;
   /* padding-right: 360px; */
+  margin: 1px auto;
   display: flex;
 `;
 export const Mypage = styled.div`
   border-right: 2px solid #f2f2f2;
-  width: 538px;
+  /* width: 538px; */
+
   height: 1189px;
 `;
 export const Real_Body = styled.div`
@@ -20,6 +22,7 @@ export const Real_Body = styled.div`
   height: 582px;
   display: flex;
   flex-direction: column;
+
   padding-left: 30px;
 `;
 export const TextToken = styled.span`
@@ -27,7 +30,7 @@ export const TextToken = styled.span`
 `;
 export const Search_Wrapper = styled.div`
   /* width: 980px; */
-  /* height: 72px; */
+  height: 72px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

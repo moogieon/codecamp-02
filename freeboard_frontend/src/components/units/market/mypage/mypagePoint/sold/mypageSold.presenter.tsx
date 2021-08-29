@@ -1,5 +1,5 @@
-import { getDate } from "../../../../../commons/libraries/utils";
-import Searchbars01 from "../../../../commons/searchbars/Searchbars01.container";
+import { getDate } from "../../../../../../commons/libraries/utils";
+import Searchbars01 from "../../../../../commons/searchbars/Searchbars01.container";
 import {
   Wrapper,
   Mypage,
@@ -16,18 +16,19 @@ import {
   Search_Body,
   TextToken,
   HereTo,
-} from "./mypageBought.style";
+} from "./mypageSold.style";
 import { v4 as uuidv4 } from "uuid";
-import MyPages from "../../../../commons/mypages/mypages01.container";
-export default function MypageBoughtUI(props: any) {
+export default function MypageSoldUI(props: any) {
   return (
     <>
       <Wrapper>
         <Real_Body>
-          <Searchbars01
-            refetch={props.refetch}
-            onChangeKeyword={props.onChangeKeyword}
-          />
+          <Search_Wrapper>
+            <Searchbars01
+              refetch={props.refetch}
+              onChangeKeyword={props.onChangeKeyword}
+            />
+          </Search_Wrapper>
 
           <Body>
             <Body_Row>
@@ -38,7 +39,7 @@ export default function MypageBoughtUI(props: any) {
               <ColumnHeader>거래 후 잔액</ColumnHeader>
               <ColumnHeader>판매자</ColumnHeader>
             </Body_Row>
-            {props.data?.fetchPointTransactionsOfBuying.map(
+            {props.data?.fetchPointTransactionsOfSelling.map(
               (data: any, index: number) => (
                 <Body_Row key={data._id}>
                   <Column>{getDate(data.useditem.soldAt)}</Column>

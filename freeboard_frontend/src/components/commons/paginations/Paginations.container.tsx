@@ -1,6 +1,6 @@
 import { MouseEvent, useState } from "react";
 import Paginations01UI from "./Paginations.presenter";
-export default function Paginations01(props) {
+export default function Paginations01(props: any) {
   const [activedPage, setActivedPage] = useState(1);
   const lastPage = Math.ceil(Number(props.count) / 10);
 

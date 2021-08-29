@@ -1,4 +1,4 @@
-import { getDate } from "../../../../../commons/libraries/utils";
+import { getDate } from "../../../../../../commons/libraries/utils";
 import Searchbars01 from "../../../../commons/searchbars/Searchbars01.container";
 import {
   Wrapper,
@@ -28,7 +28,7 @@ export default function MypagePointLoadingUI(props: any) {
               <ColumnHeader>충전후 잔액</ColumnHeader>
             </Body_Row>
             {}
-            {props.data.fetchPointTransactionsOfLoading
+            {props.data?.fetchPointTransactionsOfLoading
               ? props.data?.fetchPointTransactionsOfLoading.map(
                   (data: any, _) => (
                     <Body_Row key={data._id}>

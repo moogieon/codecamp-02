@@ -3,13 +3,14 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   max-width: 1200px;
   width: 100%;
-  padding-top: 80px;
+  padding-top: 40px;
   /* padding-right: 360px; */
+  margin: 1px auto;
   display: flex;
 `;
 export const Mypage = styled.div`
   border-right: 2px solid #f2f2f2;
-  width: 538px;
+  /* width: 538px; */
   height: 1189px;
 `;
 export const Body = styled.div`

@@ -127,13 +127,12 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
                 <Gps>
                   <Lat
                     placeholder={"위도(LAT)"}
-                    defaultValue={data?.fetchUseditem.useditemAddress?.lat}
                     readOnly
                     value={props.lating.lat}
                   />
+
                   <Lng
                     placeholder={"경도(LNG)"}
-                    defaultValue={data?.fetchUseditem.useditemAddress?.lang}
                     readOnly
                     value={props.lating.lang}
                   />

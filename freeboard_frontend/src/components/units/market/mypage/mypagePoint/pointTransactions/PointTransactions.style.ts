@@ -6,6 +6,7 @@ interface IProps {
 export const Wrapper = styled.div`
   max-width: 1200px;
   width: 100%;
+
   padding-top: 40px;
   /* padding-right: 360px; */
   display: flex;

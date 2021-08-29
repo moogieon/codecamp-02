@@ -118,7 +118,8 @@ export const GoddsImg = styled.img`
 export const GoodsContents = styled.div`
   width: 792px;
   height: 108px;
-  margin-top: 20px;
+
+  margin-top: 100px;
 `;
 export const Tag = styled.div`
   width: 792px;
