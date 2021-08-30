@@ -1,5 +1,6 @@
 import withAuth from "../../../src/components/commons/hocs/withAuth";
-import ISold from "../../../src/components/units/market/mypage/Isold/isold.contatiner";
+import ISold from "../../../src/components/units/market/mypage/myCart/Isold/isold.contatiner";
+
 function ISoldPage() {
   return <ISold />;
 }
