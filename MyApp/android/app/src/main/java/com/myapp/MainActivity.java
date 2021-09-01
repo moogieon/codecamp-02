@@ -1,10 +1,6 @@
 package com.myapp;
-import android.os.Bundle;
-import org.devio.rn.splashscreen.SplashScreen;
-import android.os.Bundle;
 
 import com.facebook.react.ReactActivity;
-import org.devio.rn.splashscreen.SplashScreen;
 
 public class MainActivity extends ReactActivity {
 
@@ -13,11 +9,7 @@ public class MainActivity extends ReactActivity {
    * rendering of the component.
    */
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
-SplashScreen.show(this, R.style.SplashScreenTheme);    SplashScreen.show(this);
-    SplashScreen.show(this);
-    super.onCreate(savedInstanceState);
-SplashScreen.show(this, R.style.SplashScreenTheme);  protected String getMainComponentName() {
+  protected String getMainComponentName() {
     return "MyApp";
   }
 }
