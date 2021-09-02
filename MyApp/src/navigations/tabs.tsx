@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Screen4 from '../screen/Screen4';
 
 const Tab = createBottomTabNavigator();
-
+// const HomeStack = creacteStackNavigator();
 export default function Tabs() {
   return (
     <Tab.Navigator
@@ -32,7 +32,8 @@ export default function Tabs() {
           // You can return any component that you like here!
           return <Icon name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#FFA800',
+
+        tabBarActiveTintColor: '#FFBE2B',
         tabBarInactiveTintColor: 'gray',
         headerShown: false,
         tabBarShowLabel: false,

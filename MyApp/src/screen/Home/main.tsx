@@ -4,7 +4,7 @@ export default function Main() {
   return (
     <>
       <View>
-        <Text>Europe</Text>
+        <Text>로그인창</Text>
       </View>
     </>
   );
