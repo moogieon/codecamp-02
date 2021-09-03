@@ -2,10 +2,13 @@
 
 buildscript {
     ext {
-        buildToolsVersion = "29.0.2"
+        buildToolsVersion = "29.0.2"        
         minSdkVersion = 16
         compileSdkVersion = 29
         targetSdkVersion = 29
+       playServicesVersion = "17.0.0" // or find latest version
+        googlePlayServicesVersion = "17.0.0" // or find latest version
+        googlePlayServicesVisionVersion = "17.0.2"
     }
     repositories {
         google()
@@ -30,8 +33,8 @@ allprojects {
             url("$rootDir/../node_modules/jsc-android/dist")
         }
 
-        google()
         jcenter()
         maven { url 'https://www.jitpack.io' }
+        google()
     }
 }
