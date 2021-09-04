@@ -1,4 +1,5 @@
 import { getDate } from "../../../../../../commons/libraries/utils";
+import MyPages from "../../../../../commons/mypages/mypages01.container";
 import Searchbars01 from "../../../../../commons/searchbars/Searchbars01.container";
 
 import {
@@ -18,7 +19,9 @@ export default function ISoldUI(props: any) {
   return (
     <>
       <Wrapper>
-        <Mypage></Mypage>
+        <Mypage>
+          <MyPages />
+        </Mypage>
         <Real_Body>
           <Search_Wrapper>
             <Searchbars01

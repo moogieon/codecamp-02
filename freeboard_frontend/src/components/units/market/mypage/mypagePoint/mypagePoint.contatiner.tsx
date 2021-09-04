@@ -14,14 +14,21 @@ export default function MypagePoint() {
   const [keyword, setKeyword] = useState("");
   const { data, refetch } = useQuery(FETCH_POINT_OF_BUYING);
   const [pointMenu, setPointMenu] = useState(POINT_MENU);
-
+  const [transactions, setTransactions] = useState(true);
   function onChangeKeyword(value: string) {
     setKeyword(value);
   }
-  const onClickMenu = (e) => {
-    const newMenu = { ...pointMenu };
+  const onClickMenu = (type: string) => () => {
+    const newMenu = { ...POINT_MENU };
+    // setPointMenu(newMenu);
+    newMenu[type] = true;
     setPointMenu(newMenu);
-    history.pushState("", "", "/mypage/maket/loading");
+    setTransactions(false);
+
+    // history.pushState("", "", "/mypage/maket/loading");
+  };
+  const onCilckTransactions = () => {
+    setTransactions(true);
   };
 
   return (
@@ -32,6 +39,9 @@ export default function MypagePoint() {
       keyword={keyword}
       pointMenu={pointMenu}
       onClickMenu={onClickMenu}
+      onCilckTransactions={onCilckTransactions}
+      setPointMenu={setPointMenu}
+      transactions={transactions}
     />
   );
 }

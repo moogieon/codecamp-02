@@ -1,5 +1,4 @@
 import { Wrapper, Gallery, Headr, List } from "./LayoutBanner.styes";
-
 import ReactDOM from "react-dom";
 import Coverflow from "react-coverflow";
 
@@ -35,9 +34,11 @@ export default function LayoutBannerUI() {
       </Wrapper>
     </>
   );
+
   // const fn = function () {
   //   /* do your action */
   // };
+  // // if (typeof window === "undefined")
   // return (
   //   <>
   //     <Coverflow

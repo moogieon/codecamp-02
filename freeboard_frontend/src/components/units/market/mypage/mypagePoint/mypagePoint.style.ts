@@ -25,9 +25,7 @@ export const Real_Body = styled.div`
 
   padding-left: 30px;
 `;
-export const TextToken = styled.span`
-  color: ${(props: IProps) => (props.isMatched ? "red" : "white")};
-`;
+
 export const Search_Wrapper = styled.div`
   /* width: 980px; */
   height: 72px;
@@ -96,11 +94,15 @@ export const HereTo = styled.div`
 export const MoveTo = styled.div`
   width: 30%;
   text-align: center;
-  color: dimgrey;
+  color: ${(props: any) => (props.onClickMenu ? "red" : "dimgrey")};
   font-family: Ruda;
   cursor: pointer;
+
   :hover {
     color: lightgray;
     border-bottom: 1px solid yellow;
   }
+`;
+export const TextToken = styled.span`
+  color: ${(props: IProps) => (props.isMatched ? "red" : "white")};
 `;

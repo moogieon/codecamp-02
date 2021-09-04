@@ -3,7 +3,7 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 export const Wrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: 10%;
   background-size: 100%;
   background-color: black;
   padding-top: 20px;
@@ -24,6 +24,5 @@ export const List = styled.div`
 `;
 export const Gallery = styled(ImageGallery)`
   width: 50%;
-  height: 100%;
-  fullscreen
+  height: 50%;
 `;

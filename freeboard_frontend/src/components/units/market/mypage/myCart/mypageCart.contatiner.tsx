@@ -15,12 +15,17 @@ export default function MypageCart() {
   const { data, refetch } = useQuery(FETCH_POINT_OF_BUYING);
   const [pointMenu, setPointMenu] = useState(POINT_MENU);
 
+  // const {sold,setSold}=useState(false)
+  // const {loading,setLoading}=useState(false)
+  // const {solboughtd,setBought}=useState(false)
+
   function onChangeKeyword(value: string) {
     setKeyword(value);
   }
   const onClickMenu = (e) => {
     const newMenu = { ...pointMenu };
     setPointMenu(newMenu);
+
     history.pushState("", "", "/mypage/maket/loading");
   };
 

@@ -14,23 +14,28 @@ import PointTransactions from "./pointTransactions/PointTransactions.contatiner"
 import MypageSold from "./sold/mypageSold.contatiner";
 import MypageBought from "./bought/mypageBought.contatiner";
 import MypagePointLoading from "./pointLoading/mypagePointLoading.contatiner";
+import { useEffect } from "react";
 
 export default function MypagePointUI(props: any) {
   return (
     <>
       <Wrapper>
         <Mypage>
-          <MyPages />
+          <MyPages setPointMenu={props.setPointMenu} />
         </Mypage>
         <Real_Body>
           <Search_Wrapper>
             <Search_Body>
-              <MoveTo onClick={props.onClickMenu}>전체내역</MoveTo>
-              <HereTo name="loading" onClick={props.onClickMenu}>
+              <MoveTo onClick={props.onCilckTransactions}>전체내역</MoveTo>
+              <HereTo name="loading" onClick={props.onClickMenu("loading")}>
                 충전내역
               </HereTo>
-              <MoveTo onClick={props.onClickMenu}>구매내역</MoveTo>
-              <MoveTo onClick={props.onClickMenu}>판매내역</MoveTo>
+              <MoveTo onClick={props.onClickMenu("bought")} name="bought">
+                구매내역
+              </MoveTo>
+              <MoveTo onClick={props.onClickMenu("sold")} name="sold">
+                판매내역
+              </MoveTo>
             </Search_Body>
           </Search_Wrapper>
           <Body>

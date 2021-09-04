@@ -14,7 +14,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const Container = styled.View`
   flex: 1;
-
   padding: 20px;
 `;
 const Head = styled.View`
@@ -169,7 +168,7 @@ export default function Screen1() {
 
         <Animated.FlatList
           data={DATA}
-          keyExtractor={(item) => item.key}
+          keyExtractor={item => item.key}
           onScroll={Animated.event(
             [{nativeEvent: {contentOffset: {y: scrolly}}}],
             {useNativeDriver: true},
