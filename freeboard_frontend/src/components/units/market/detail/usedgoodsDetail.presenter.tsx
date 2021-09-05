@@ -40,7 +40,7 @@ export default function UsedgoodsDetailUI(props: any) {
   const { userInfo } = useContext(GlobalContext);
 
   const settings = {
-    customPaging: function (i) {
+    customPaging: function (i: any) {
       // console.log("i", props.data?.fetchUseditem.images[i]);
       return (
         <a>
@@ -81,7 +81,6 @@ export default function UsedgoodsDetailUI(props: any) {
               <Summary>{props.data?.fetchUseditem.remarks}</Summary>
               <Titel>{props.data?.fetchUseditem.name}</Titel>
             </Info_Left>
-
             <Info_Right>
               <Heart onClick={props.onClickToggle} />
               <HeartCount>{props.data?.fetchUseditem.pickedCount}</HeartCount>

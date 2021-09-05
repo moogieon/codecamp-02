@@ -8,16 +8,27 @@ export default function Paginations01(props: any) {
     const activedPage = Number((event.target as Element).id);
     setActivedPage(activedPage);
     props.refetch({ page: activedPage });
+    history.pushState({ page: activedPage }, "", `?page=${activedPage}`);
   }
-  function onClonClilckPrev() {}
+  function onClickPrevPage() {
+    if (props.startPage <= 1) return;
+    setActivedPage(props.startPage - 10);
+    props.setStartPage((prev: any) => prev - 10);
+  }
 
+  function onClickNextPage() {
+    if (props.startPage + 10 > lastPage) return;
+    setActivedPage(props.startPage + 10);
+    props.setStartPage((prev: any) => prev + 10);
+  }
   return (
     <Paginations01UI
-      onClonClilckPrev={onClonClilckPrev}
+      onClickPrevPage={onClickPrevPage}
       lastPage={lastPage}
       onClickPage={onClickPage}
       startPage={props.startPage}
       activedPage={activedPage}
+      onClickNextPage={onClickNextPage}
     />
   );
 }

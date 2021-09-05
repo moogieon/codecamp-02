@@ -13,10 +13,10 @@ export default function Uploads01(props: IUploads01Props) {
 
   async function onChangeFile(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
-    if (!checkValidationFile(file)) return;
+    if (!checkValidationFile(file!)) return;
 
     const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
+    fileReader.readAsDataURL(file!);
     fileReader.onload = (data) => {
       setFileUrl(data.target?.result as string); //! 이 주소는 어디서 >??
       props.onChangeFiles(file, props.index);

@@ -7,14 +7,17 @@ import {
   Mypage,
   Real_Body,
   Search_Wrapper,
+  Search_Body,
   Body,
   Body_Row,
+  TextToken,
   Column,
   ColumnTitle,
   ColumnHeader,
   ColumnBuy,
   ColumnHeaderTitle,
 } from "./isold.style";
+import { v4 as uuidv4 } from "uuid";
 export default function ISoldUI(props: any) {
   return (
     <>
@@ -24,10 +27,12 @@ export default function ISoldUI(props: any) {
         </Mypage>
         <Real_Body>
           <Search_Wrapper>
-            <Searchbars01
-              refetch={props.refetch}
-              onChangeKeyword={props.onChangeKeyword}
-            />
+            <Search_Body>
+              <Searchbars01
+                refetch={props.refetch}
+                onChangeKeyword={props.onChangeKeyword}
+              />
+            </Search_Body>
           </Search_Wrapper>
           <Body>
             <Body_Row>
@@ -45,8 +50,20 @@ export default function ISoldUI(props: any) {
               // .fill()
               .map((data: any, index: number) => (
                 <Body_Row key={data._id}>
-                  <Column>{31 - index}</Column>
-                  <ColumnTitle>{data.name}</ColumnTitle>
+                  <Column>{1 + index}</Column>
+                  <ColumnTitle>
+                    {data.name
+                      .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
+                      .split("@#$%")
+                      .map((data: any) => (
+                        <TextToken
+                          key={uuidv4()}
+                          isMatched={props.keyword === data}
+                        >
+                          {data}
+                        </TextToken>
+                      ))}
+                  </ColumnTitle>
                   <ColumnBuy>{data.buyer?._id ? "판매완료" : ""}</ColumnBuy>
                   <Column>
                     {"₩" +

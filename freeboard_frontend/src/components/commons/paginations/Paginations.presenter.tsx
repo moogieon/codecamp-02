@@ -1,9 +1,9 @@
 import { Page } from "./Paginations.styles";
 
-export default function Paginations01U1(props) {
+export default function Paginations01U1(props: any) {
   return (
     <>
-      <Page onClick={props.onClonClilckPrev}>이전</Page>
+      <Page onClick={props.onClickPrevPage}>이전</Page>
       {new Array(10).fill(1).map((_, index) => {
         const currentPage = props.startPage + index;
         return (
@@ -19,7 +19,7 @@ export default function Paginations01U1(props) {
           )
         );
       })}
-      <Page>다음</Page>
+      <Page onClick={props.onClickNextPage}>다음</Page>
     </>
   );
 }

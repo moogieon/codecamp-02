@@ -19,16 +19,18 @@ export default function MypagePoint() {
     setKeyword(value);
   }
   const onClickMenu = (type: string) => () => {
-    const newMenu = { ...POINT_MENU };
     // setPointMenu(newMenu);
+    const newMenu = { ...POINT_MENU };
     newMenu[type] = true;
     setPointMenu(newMenu);
     setTransactions(false);
-
     // history.pushState("", "", "/mypage/maket/loading");
   };
-  const onCilckTransactions = () => {
+  const onCilckTransactions = (type: string) => () => {
     setTransactions(true);
+    const newMenu = { ...POINT_MENU };
+    newMenu[type] = false;
+    setPointMenu(newMenu);
   };
 
   return (

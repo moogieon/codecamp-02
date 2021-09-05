@@ -27,7 +27,6 @@ export const TextToken = styled.span`
   color: ${(props: IProps) => (props.isMatched ? "red" : "white")};
 `;
 export const Search_Wrapper = styled.div`
-  height: 72px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

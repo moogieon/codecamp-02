@@ -26,7 +26,7 @@ export default function MyPagesUI(props: any) {
         </Header>
         <Body>
           <MypageImg src="/market/mypage/cart.png" />
-          <BodyColumn1> CART</BodyColumn1>
+          <BodyColumn1 onClick={props.onClickPost}> POST</BodyColumn1>
           <MypageImg src="/market/mypage/Pig.png" />
           <BodyColumn2 onClick={props.onClickPoint}> POINT</BodyColumn2>
           <MypageImg src="/market/mypage/miniprofile.png" />

@@ -27,7 +27,7 @@ export default function MypagePointLoadingUI(props: any) {
               <ColumnHeader>충전내역</ColumnHeader>
               <ColumnHeader>충전후 잔액</ColumnHeader>
             </Body_Row>
-            {}
+
             {props.data?.fetchPointTransactionsOfLoading
               ? props.data?.fetchPointTransactionsOfLoading.map(
                   (data: any, _) => (

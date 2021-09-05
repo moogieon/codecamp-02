@@ -6,6 +6,8 @@ import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./BoardList.queries";
 
 export default function BoardList() {
   const router = useRouter();
+
+  const [keyword, setKeyword] = useState("");
   const [startPage, setStartPage] = useState(1);
   const { data, refetch } = useQuery(FETCH_BOARDS, {
     variables: { page: startPage },
@@ -18,6 +20,9 @@ export default function BoardList() {
   function onClickMoveToBoardNew() {
     router.push("/boards/new");
   }
+  // function onChangeKeyword(value: string) {
+  //   setKeyword(value);
+  // }
 
   return (
     <BoardListUi
@@ -28,6 +33,8 @@ export default function BoardList() {
       refetch={refetch}
       startPage={startPage}
       dataBoardsCount={dataBoardsCount}
+      keyword={keyword}
+      // onChangeKeyword={onChangeKeyword}
     />
   );
 }

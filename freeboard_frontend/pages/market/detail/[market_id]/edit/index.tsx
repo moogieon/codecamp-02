@@ -1,10 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { createContext } from "react";
-import {
-  IQuery,
-  IQueryFetchUseditemArgs,
-} from "../../../../../src/commons/types/generated/types";
+import { IQuery } from "../../../../../src/commons/types/generated/types";
 
 import UsedgoodsWrite from "../../../../../src/components/units/market/write/usedgoodsWrite.container";
 
@@ -35,16 +32,13 @@ export const FETCH_USER_ITEM = gql`
 `;
 interface IContext {
   isEdit?: boolean;
-  data?: Pick<IQuery, "fetchBoard">;
+  data?: Pick<IQuery, "fetchUseditem"> | undefined;
 }
 export const MarketUsedItemEditPageContext = createContext<IContext>({});
 
 export default function EditPage() {
   const router = useRouter();
-  const { data } = useQuery<
-    Pick<IQuery, "fetchUseditem">,
-    IQueryFetchUseditemArgs
-  >(FETCH_USER_ITEM, {
+  const { data } = useQuery<Pick<IQuery, "fetchUseditem">>(FETCH_USER_ITEM, {
     variables: { useditemId: router.query.market_id },
   });
   console.log("context", data);

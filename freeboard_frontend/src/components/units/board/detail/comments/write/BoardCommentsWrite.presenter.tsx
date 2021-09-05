@@ -16,9 +16,12 @@ import {
 interface IProps {
   onChangeStar: (value: number) => void;
   onChangeInputs: () => void;
+  comments_error: any;
+  inputs_comment: any;
   onClickSubmit: () => void;
   isEdit: boolean;
   onCKilckUpDate: () => void;
+  data: any;
 }
 export default function BoardCommentsWriteUI(props: IProps) {
   return (

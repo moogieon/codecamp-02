@@ -24,13 +24,6 @@ export default function MypageBoughtUI(props: any) {
     <>
       <Wrapper>
         <Real_Body>
-          <Search_Wrapper>
-            <Searchbars01
-              refetch={props.refetch}
-              onChangeKeyword={props.onChangeKeyword}
-            />
-          </Search_Wrapper>
-
           <Body>
             <Body_Row>
               <ColumnHeader>날짜</ColumnHeader>

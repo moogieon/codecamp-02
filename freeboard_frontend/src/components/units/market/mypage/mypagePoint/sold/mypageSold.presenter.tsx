@@ -23,17 +23,9 @@ export default function MypageSoldUI(props: any) {
     <>
       <Wrapper>
         <Real_Body>
-          <Search_Wrapper>
-            <Searchbars01
-              refetch={props.refetch}
-              onChangeKeyword={props.onChangeKeyword}
-            />
-          </Search_Wrapper>
-
           <Body>
             <Body_Row>
               <ColumnHeader>날짜</ColumnHeader>
-
               <ColumnHeaderTitle>제목</ColumnHeaderTitle>
               <ColumnHeader>거래내역</ColumnHeader>
               <ColumnHeader>거래 후 잔액</ColumnHeader>

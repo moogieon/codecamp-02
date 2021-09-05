@@ -26,7 +26,9 @@ export default function MypagePointUI(props: any) {
         <Real_Body>
           <Search_Wrapper>
             <Search_Body>
-              <MoveTo onClick={props.onCilckTransactions}>전체내역</MoveTo>
+              <MoveTo onClick={props.onCilckTransactions("transactions")}>
+                전체내역
+              </MoveTo>
               <HereTo name="loading" onClick={props.onClickMenu("loading")}>
                 충전내역
               </HereTo>

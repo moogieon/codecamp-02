@@ -46,7 +46,7 @@ export default function LayoutHeaderUI(props: any) {
       <Wrapper>
         <HeadFlex>
           <Left>
-            <Home>Left</Home>
+            <Home>shop</Home>
           </Left>
           {accessToken ? (
             <Right>

@@ -1,22 +1,9 @@
 import { gql } from "@apollo/client";
 
 export const FETCH_POINT_OF_BUYING = gql`
-  query fetchPointTransactionsOfBuying($search: String) {
-    fetchPointTransactionsOfBuying(search: $search) {
+  query fetchUseditemsIPicked {
+    fetchUseditemsIPicked {
       _id
-      amount
-      balance
-      user {
-        _id
-        userPoint {
-          amount
-        }
-      }
-      useditem {
-        _id
-        name
-        soldAt
-      }
     }
   }
 `;

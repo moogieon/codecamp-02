@@ -7,7 +7,7 @@ const RESTORE_ACCESS_TOKEN = gql`
     }
   }
 `;
-export const getAccessToken = async (setAccessToken) => {
+export const getAccessToken = async (setAccessToken: any) => {
   try {
     const graphQLClient = new GraphQLClient(
       "https://backend02.codebootcamp.co.kr/graphql",

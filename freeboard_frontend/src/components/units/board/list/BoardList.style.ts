@@ -122,3 +122,9 @@ export const Penimg = styled.img`
   width: 15px;
   height: 15px;
 `;
+interface IProps {
+  isMatched: boolean;
+}
+export const Word = styled.span`
+  color: ${(props: IProps) => (props.isMatched ? " #ffc414;" : "white")};
+`;

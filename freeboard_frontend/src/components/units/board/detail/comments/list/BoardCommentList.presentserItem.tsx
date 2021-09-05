@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { getDate } from "../../../../../../commons/libraries/utils";
 import BoardCommentWrite from "../write/BoardCommentsWrite.container";
 import {
@@ -18,7 +18,6 @@ import {
   Star,
   Comment_Contents,
   Comment_Date,
-  Remove,
   Delete,
   PasswordInput,
 } from "./BoardCommentList.style";
@@ -32,9 +31,9 @@ export default function BoardCommentListUIItem(
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
   const [password, setPassword] = useState("");
   const [deleteBoardComment] = useMutation(DELETE_COMMENTS);
-  function onCKilckUpDate() {
-    setIsEdit(true);
-  }
+  // function onCKilckUpDate() {
+  //   setIsEdit(true);
+  // }
   function onClickOpenDeleteModal() {
     setIsOpenDeleteModal(true);
   }

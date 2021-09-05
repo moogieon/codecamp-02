@@ -26,10 +26,10 @@ export default function PointTransactionsUI(props: any) {
       <Wrapper>
         <Real_Body>
           <Search_Wrapper>
-            <Searchbars01
+            {/* <Searchbars01
               refetch={props.refetch}
               onChangeKeyword={props.onChangeKeyword}
-            />
+            /> */}
           </Search_Wrapper>
           <Body>
             <Body_Row>

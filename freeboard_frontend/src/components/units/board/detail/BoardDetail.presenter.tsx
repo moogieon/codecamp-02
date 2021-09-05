@@ -32,8 +32,12 @@ import {
 } from "./BoardDetail.style";
 
 interface IProps {
-  onChangeStar: (value: number) => void;
   data: any;
+  onClickLike: () => void;
+  onClickDislike: () => void;
+  onClickMove: () => void;
+  onClickEdit: () => void;
+  onClickDelete: () => void;
 }
 export default function BoardDetailUI(props: IProps) {
   return (

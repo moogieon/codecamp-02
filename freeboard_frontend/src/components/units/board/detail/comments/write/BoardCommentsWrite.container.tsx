@@ -14,7 +14,7 @@ export const INPUT_COMMENT = {
   rating: 0,
 };
 
-export default function BoardCommentsWrite(props) {
+export default function BoardCommentsWrite(props: any) {
   const router = useRouter();
   console.log(router);
   // console.log(router.query.aaa ) //질문 ,
@@ -25,7 +25,7 @@ export default function BoardCommentsWrite(props) {
 
   function onChangeInputs(
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
+  ): void {
     setInputs_Comment({
       ...inputs_comment,
       [event.target.name]: event.target.value,
@@ -74,7 +74,9 @@ export default function BoardCommentsWrite(props) {
   // ts 에서만 가능한 number js에서는 ?
   const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENTS);
 
-  async function onCKilckUpDate(event) {
+  async function onCKilckUpDate(
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     if (!inputs_comment.contents || !inputs_comment.password) {
       alert("내용을 모두 입력해 주세요.");
       return;

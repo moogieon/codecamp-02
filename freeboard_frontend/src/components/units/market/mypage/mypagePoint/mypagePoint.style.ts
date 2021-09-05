@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 interface IProps {
   isMatched: boolean;
 }
+
 export const Wrapper = styled.div`
   max-width: 1200px;
   width: 100%;
@@ -14,7 +15,6 @@ export const Wrapper = styled.div`
 export const Mypage = styled.div`
   border-right: 2px solid #f2f2f2;
   /* width: 538px; */
-
   height: 1189px;
 `;
 export const Real_Body = styled.div`
@@ -22,7 +22,6 @@ export const Real_Body = styled.div`
   height: 582px;
   display: flex;
   flex-direction: column;
-
   padding-left: 30px;
 `;
 
