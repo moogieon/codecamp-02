@@ -20,8 +20,9 @@ import {
 
 interface IProps {
   onChangeInput: (event: ChangeEvent<HTMLInputElement>) => void;
-  onClickLogin: () => void;
+  onClickLogin: (data: any) => Promise<void>;
   onClickSingup: (event: MouseEvent<HTMLButtonElement>) => void;
+
   errors: any;
   register: any;
   handleSubmit: any;

@@ -6,6 +6,3 @@ export interface IUsedgoodsDetailUIProps {
   onClickList: () => void;
   onClickBuy: () => void;
 }
-export interface IProps {
-  active: boolean;
-}

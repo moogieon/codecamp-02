@@ -1,5 +1,5 @@
 import PaymentUI from "./marketPayment.presenter";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { CREATE_POINT_TRANSACTION_OF_LOADING } from "./marketPayment.queries";
 import { useMutation, useQuery } from "@apollo/client";
@@ -8,7 +8,7 @@ import { FETCH_USER_LOGGED_IN } from "../login/marketLogin.queries";
 declare const window: typeof globalThis & {
   IMP: any;
 };
-export default function Payment(props) {
+export default function Payment(props: any) {
   const [amount, setAmount] = useState(0);
   const [input, setInput] = useState();
   const [createPointTransactionOfLoading] = useMutation(
@@ -16,7 +16,7 @@ export default function Payment(props) {
   );
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
   // console.log(data.fetchUserLoggedIn.name);
-  function onChanteAmount(event) {
+  function onChanteAmount(event: any) {
     const amount = event.target.id;
     setAmount(amount);
     console.log(amount);
@@ -42,7 +42,7 @@ export default function Payment(props) {
         buyer_postcode: "01181",
         m_redirect_url: "/28-payment-success",
       },
-      async (rsp) => {
+      async (rsp: any) => {
         // callback
         try {
           if (rsp.success) {

@@ -30,7 +30,6 @@ import {
 import Uploads01 from "../../../commons/uploads/Uploads01/Uploads01.container";
 interface IProps {
   active: boolean;
-  event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
   isEdit?: boolean;
   isOpen: boolean;
   inputs_error: typeof INPUT_INIT;
@@ -44,8 +43,7 @@ interface IProps {
   ) => void;
   ChangeRegist: () => void;
   onClickEdit: () => void;
-  onChangeFiles: (file: File, index: number) => void;
-  onChangeyoutube: () => void;
+  onChangeFiles: any;
   onClickCancel: () => void;
   onComplete: (data: any) => void;
   onCancel: () => void;

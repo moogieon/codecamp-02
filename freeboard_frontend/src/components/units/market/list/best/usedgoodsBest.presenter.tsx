@@ -1,8 +1,6 @@
 // import { useRouter } from 'next/rou
 import {
   Wrapper,
-  ListContents,
-  Title,
   TopBox,
   BestProductBox,
   TopProductImg,
@@ -17,11 +15,11 @@ import {
   ToggleCount,
 } from "./usedgoodsBest.style";
 
-export default function BestListUI(props) {
+export default function BestListUI(props: any) {
   return (
     <Wrapper>
       <TopBox>
-        {props.data?.fetchUseditemsOfTheBest.map((data) => (
+        {props.data?.fetchUseditemsOfTheBest.map((data: any) => (
           <BestProductBox key={data._id} onClick={props.onClickGoods(data._id)}>
             <TopProductImg
               src={`https://storage.googleapis.com/${data.images[0]}` || ""}

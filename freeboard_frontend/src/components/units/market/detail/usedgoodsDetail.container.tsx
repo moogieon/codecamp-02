@@ -2,9 +2,8 @@ import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 
-import { useContext, useState } from "react";
-import { ModalBody } from "react-bootstrap";
-import { GlobalContext } from "../../../../../pages/_app";
+import { useState } from "react";
+
 import {
   IQuery,
   IQueryFetchUseditemArgs,
@@ -30,7 +29,7 @@ export default function UsedgoodsDetail() {
     Pick<IQuery, "fetchUseditem">,
     IQueryFetchUseditemArgs
   >(FETCH_USER_ITEM, {
-    variables: { useditemId: router.query.market_id },
+    variables: { useditemId: String(router.query.market_id) },
   });
   const [deleteUseditem] = useMutation(DELETE_USED_ITEM);
   const onClickList = () => {
@@ -39,7 +38,7 @@ export default function UsedgoodsDetail() {
 
   const onClickBuy = async () => {
     try {
-      const results = await createPointTransactionOfBuyingAndSelling({
+      await createPointTransactionOfBuyingAndSelling({
         variables: {
           useritemId: router.query.market_id,
         },

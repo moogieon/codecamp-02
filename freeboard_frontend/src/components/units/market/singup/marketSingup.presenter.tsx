@@ -17,7 +17,12 @@ import {
 } from "./marketSingup.styles";
 
 interface IProps {
-  onClickSingup: () => void;
+  onClickSingup: (data: any) => Promise<void>;
+  handleSubmit: any;
+  errors: any;
+  register: any;
+  onChangeConfirmpassword: any;
+  passwrodError: any;
 }
 
 export default function MarketSingupUI(props: IProps) {

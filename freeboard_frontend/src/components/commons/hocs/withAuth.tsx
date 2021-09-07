@@ -1,7 +1,7 @@
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { useEffect, useContext } from "react";
-import { GlobalContext } from "../../../../pages/_app";
+import { useEffect } from "react";
+// import { GlobalContext } from "../../../../pages/_app";
 
 const withAuth = (Component: any) => (props: any) => {
   const router = useRouter();

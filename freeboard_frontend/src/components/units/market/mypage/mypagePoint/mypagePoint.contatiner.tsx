@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import MypagePointUI from "./mypagePoint.presenter";
@@ -26,7 +27,7 @@ export default function MypagePoint() {
     setTransactions(false);
     // history.pushState("", "", "/mypage/maket/loading");
   };
-  const onCilckTransactions = (type: string) => () => {
+  const onCilckTransactions = (type: any) => () => {
     setTransactions(true);
     const newMenu = { ...POINT_MENU };
     newMenu[type] = false;

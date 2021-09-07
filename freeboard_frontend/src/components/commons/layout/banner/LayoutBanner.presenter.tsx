@@ -1,5 +1,5 @@
 import { Wrapper, Gallery, Headr, List } from "./LayoutBanner.styes";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 // import Coverflow from "react-coverflow";
 
 export default function LayoutBannerUI() {

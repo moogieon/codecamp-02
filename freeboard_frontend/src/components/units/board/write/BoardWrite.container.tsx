@@ -1,6 +1,6 @@
 import BoardWriteUI from "./BoardWrite.presenter";
 import { useMutation } from "@apollo/client";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/router";
 import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
 import { Modal } from "antd";
@@ -15,7 +15,6 @@ export const INPUT_INIT = {
 
 interface IProps {
   isEdit?: boolean;
-  onChangeFiles: (file: File, index: number) => void;
 }
 
 export default function BoardWrite(props: IProps) {
@@ -37,15 +36,18 @@ export default function BoardWrite(props: IProps) {
     setIsOpen(false);
   }
   // -----------게시물 작성----------------------------
-  function onChangeInputs(event: any) {
+  function onChangeInputs(
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     const newInput = {
       writer: inputs.writer,
       password: inputs.password,
       title: inputs.title,
       contents: inputs.contents, //! ...inputs 하면 유투브 등록 안하면 등록이 안됨
+      youtubeUrl: inputs.youtubeUrl,
       [event.target.name]: event.target.value,
     };
-    setInputs(newInput, { youtubeUrl: inputs.youtubeUrl });
+    setInputs(newInput);
     console.log(event.target);
     if (Object.values(newInput).every((data) => data !== "")) {
       setActive(true); //! 다시 이해하기
@@ -94,7 +96,6 @@ export default function BoardWrite(props: IProps) {
         .map((data) => uploadFile({ variables: { file: data } }));
       const results = await Promise.all(uploadFiles);
       const images = results.map((data) => data.data.uploadFile.url); //! ???
-      console.log(uploadFile.url);
 
       // 게시물 업로드
       const result = await createBoard({

@@ -72,7 +72,7 @@ export default function UsedgoodsWrite() {
     newFiles[index] = file;
     setFiles(newFiles);
   }
-  const onChangeContents = (value) => {
+  const onChangeContents = (value: any) => {
     const isBlank = "<p><br></p>";
     setValue("contents", value === isBlank ? "" : value); // 강제로 값만 입력, 이것만 하면 yup에서 검증이 안댐
     trigger("contents");

@@ -2,7 +2,7 @@ import { useQuery, gql, useMutation, useApolloClient } from "@apollo/client";
 import { Modal } from "antd";
 
 import { useRouter } from "next/router";
-import { useState } from "react";
+
 import { FETCH_USER_LOGGED_IN } from "../../../units/market/payment/marketPayment.queries";
 import LayoutHeaderUI from "./LayoutHeader.presenter";
 

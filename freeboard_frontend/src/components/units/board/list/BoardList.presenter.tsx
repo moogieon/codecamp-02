@@ -26,8 +26,7 @@ export default function BoardListUi(props: any) {
         <Body>
           <Searchbars01
             refetch={props.refetch}
-            // onChangeKeyword={props.onChangeKeyword}
-            
+            onChangeKeyword={props.onChangeKeyword}
           />
           <Wrapper_Head>
             <Board_Num>번호</Board_Num>

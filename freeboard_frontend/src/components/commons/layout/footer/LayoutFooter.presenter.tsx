@@ -1,4 +1,3 @@
-import {} from "./LayoutFooter.styes";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 export default function LayoutFooterUI() {
@@ -17,7 +16,9 @@ export default function LayoutFooterUI() {
           paddingTop: "20px",
         }}
       >
-        <div>DMCAFRANK'S TUMBLRBLONDED.COBLONDED.WORLDR/FRANKOCEANDONATE</div>
+        <div>
+          {"DMCAFRANK'S TUMBLRBLONDED.COBLONDED.WORLDR/FRANKOCEANDONATE"}
+        </div>
         <div>중고나라</div>
       </div>
     </>

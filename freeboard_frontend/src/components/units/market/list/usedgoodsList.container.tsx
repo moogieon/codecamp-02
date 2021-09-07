@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { MouseEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getDate } from "../../../../commons/libraries/utils";
 
 import {
@@ -25,12 +25,12 @@ export default function UsedGoodsList() {
     const items = JSON.parse(localStorage.getItem(newDay) || "[]");
     setBasket(items);
   }, []);
-  const onClickPost = (Today) => () => {
+  const onClickPost = (Today: any) => () => {
     router.push(`/market/detail/${Today._id}`);
     const newDay = getDate(new Date());
     const Todays = JSON.parse(localStorage.getItem(newDay) || "[]");
     let isExists = false;
-    Todays.forEach((data) => {
+    Todays.forEach((data: any) => {
       if (data._id === Today._id) isExists = true;
     });
     if (isExists) return;
@@ -50,7 +50,7 @@ export default function UsedGoodsList() {
   //   setBasket(Todays);
   // };
 
-  const onClickToday = (data) => () => {
+  const onClickToday = (data: any) => () => {
     router.push(`/market/detail/${data._id}`);
   };
 
@@ -64,15 +64,14 @@ export default function UsedGoodsList() {
       variables: { page: Math.floor(data?.fetchUseditems.length) / 10 + 1 },
       updateQuery: (prev, { fetchMoreResult }) => {
         // cache 수정이랑 비슷함  , prev하면 기존에 있던 cache전체 , fetchMoreResult(매게변수) 2페이지
-        if (!fetchMoreResult.fetchUseditems.length) setHasMore(false);
-        return {
-          fetchUseditems: [
-            ...prev.fetchUseditems,
-            ...fetchMoreResult.fetchUseditems,
-          ],
-        };
+        if (!fetchMoreResult?.fetchUseditems.length) setHasMore(false);
+        const fetchUseditems = fetchMoreResult
+          ? [...prev.fetchUseditems, ...fetchMoreResult.fetchUseditems]
+          : [...prev.fetchUseditems];
+        return { fetchUseditems };
 
         // 기존에 배열 10개가 있었을 것 , 배열이니깐 스프레드 시켜서 객체로, 20개짜리(기존 10,새로운 10) 배열로 만들어줌
+        // ! type error 때문에 삼항연산자 이용해서 아닐때를 적었지만 원래는 자동으로 되기때문에 안해도 됨
       },
     });
     console.log("good", data?.fetchUseditems);

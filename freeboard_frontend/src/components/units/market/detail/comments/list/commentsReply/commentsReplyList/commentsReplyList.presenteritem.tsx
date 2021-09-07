@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CommentsReplyPage from "../commentsReply.presenter";
+// import CommentsReplyPage from "../commentsReply.presenter";
 import { getDate } from "../../../../../../../../commons/libraries/utils";
 
 import {
@@ -14,12 +14,11 @@ import {
   OptionWrapper,
   UpdateIcon,
   Writer,
-  ReComments,
 } from "./commentsReplyList.style";
 import { useMutation } from "@apollo/client";
 import { DELETE_USED_ITEM_QUESTION_ANSWER } from "./commentsReplyList.queries";
 import CommentsReplay from "../commentsReply.container";
-export default function CommentsReplyListItem(props) {
+export default function CommentsReplyListItem(props: any) {
   const [isEdit, setIsEdit] = useState(false);
   const [deleteUseditemQuestionAnswer] = useMutation(
     DELETE_USED_ITEM_QUESTION_ANSWER
@@ -37,7 +36,7 @@ export default function CommentsReplyListItem(props) {
           cache.modify({
             fields: {
               fetchUseditemQuestionAnswers: (prev, { readField }) => {
-                const newPrev = prev.filter((prevData) => {
+                const newPrev = prev.filter((prevData: any) => {
                   return readField("_id", prevData) !== deletedId;
                 });
                 //

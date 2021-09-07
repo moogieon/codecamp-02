@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { FileImageOutlined, UploadOutlined } from "@ant-design/icons";
+import { FileImageOutlined } from "@ant-design/icons";
 
 export const UploadImage = styled.img`
   width: 78px;

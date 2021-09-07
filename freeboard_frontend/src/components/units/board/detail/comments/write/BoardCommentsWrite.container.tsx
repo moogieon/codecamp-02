@@ -3,10 +3,11 @@ import { ChangeEvent, useState } from "react";
 import { useMutation } from "@apollo/client";
 import {
   BOARD_COMMENT,
-  UPDATE_BOARD_COMMENTS,
+  // UPDATE_BOARD_COMMENTS,
 } from "./BoardCommentsWrite.queries";
-import BoardDetailUI from "./BoardCommentsWrite.presenter";
+
 import { FETCH_BOARD_COMMENTS } from "../list/BoardCommentList.queries";
+import BoardCommentsWriteUI from "./BoardCommentsWrite.presenter";
 export const INPUT_COMMENT = {
   writer: "",
   password: "",
@@ -25,7 +26,7 @@ export default function BoardCommentsWrite(props: any) {
 
   function onChangeInputs(
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ): void {
+  ) {
     setInputs_Comment({
       ...inputs_comment,
       [event.target.name]: event.target.value,
@@ -72,47 +73,47 @@ export default function BoardCommentsWrite(props: any) {
   }
 
   // ts 에서만 가능한 number js에서는 ?
-  const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENTS);
+  // const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENTS);
 
-  async function onCKilckUpDate(
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
-    if (!inputs_comment.contents || !inputs_comment.password) {
-      alert("내용을 모두 입력해 주세요.");
-      return;
-    }
+  // async function onCKilckUpDate(event: any) {
+  //   if (!inputs_comment.contents || !inputs_comment.password) {
+  //     alert("내용을 모두 입력해 주세요.");
+  //     return;
+  //   }
 
-    try {
-      await updateBoardComment({
-        variables: {
-          updateBoardCommentInput: {
-            contents: inputs_comment.contents,
-            rating: inputs_comment.rating,
-            password: inputs_comment.password,
-            boardCommentId: (event.target as Element).id, //! 이게 뭐지 ?
-          },
-        },
-        refetchQueries: [
-          {
-            query: FETCH_BOARD_COMMENTS,
-            variables: { boardId: router.query._id },
-          },
-        ],
-      });
-      setInputs_Comment(INPUT_COMMENT);
-      props.setIsEdit?.(false);
-    } catch (error) {
-      alert(error.message);
-    }
-  }
+  //   try {
+  //     await updateBoardComment({
+  //       variables: {
+  //         updateBoardCommentInput: {
+  //           contents: inputs_comment.contents,
+  //           rating: inputs_comment.rating,
+  //           password: inputs_comment.password,
+  //           boardCommentId: (event.target as Element).id, //! 이게 뭐지 ?
+  //         },
+  //       },
+  //       refetchQueries: [
+  //         {
+  //           query: FETCH_BOARD_COMMENTS,
+  //           variables: { boardId: router.query._id },
+  //         },
+  //       ],
+  //     });
+  //     setInputs_Comment(INPUT_COMMENT);
+  //     props.setIsEdit?.(false);
+  //   } catch (error) {
+  //     alert(error.message);
+  //   }
+  // }
 
   return (
-    <BoardDetailUI
+    <BoardCommentsWriteUI
+      isEdit={props.isEdit}
+      data={props.data}
       inputs_comment={inputs_comment}
       onChangeStar={onChangeStar}
       onClickSubmit={onClickSubmit}
       onChangeInputs={onChangeInputs}
-      onCKilckUpDate={onCKilckUpDate}
+      // onCKilckUpDate={onCKilckUpDate}
       comments_error={comments_error}
 
       // onClickChange={onClickChange}

@@ -116,8 +116,8 @@ export default function UsedgoodsDetailUI(props: any) {
           <Maps
             readOnly
             lating={{
-              lat: props.data?.fetchUseditem?.useditemAddress?.lat,
-              lang: props.data?.fetchUseditem?.useditemAddress?.lng,
+              lat: props.data?.fetchUseditem?.useditemAddress?.lat || "",
+              lang: props.data?.fetchUseditem?.useditemAddress?.lng || "",
             }}
           ></Maps>
           <Line />

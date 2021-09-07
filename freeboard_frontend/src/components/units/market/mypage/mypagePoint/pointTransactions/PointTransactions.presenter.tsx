@@ -1,22 +1,17 @@
 import { getDate } from "../../../../../../commons/libraries/utils";
-import Searchbars01 from "../../../../../commons/searchbars/Searchbars01.container";
+
 import {
   Wrapper,
-  Mypage,
   Search_Wrapper,
   Real_Body,
   Body,
   Body_Row,
-  MoveTo,
   Column,
-  ColumnTitle1,
   ColumnTitle2,
   ColumnHeader,
   ColumnBuy,
   ColumnHeaderTitle,
-  Search_Body,
   TextToken,
-  HereTo,
 } from "./PointTransactions.style";
 import { v4 as uuidv4 } from "uuid";
 

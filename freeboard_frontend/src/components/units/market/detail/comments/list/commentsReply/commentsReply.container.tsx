@@ -1,6 +1,6 @@
+// @ts-ignore
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
-import { useRouter } from "next/router";
 import { useState } from "react";
 import CommentsReplyUI from "./commentsReply.presenter";
 import {
@@ -9,8 +9,7 @@ import {
 } from "./commentsReply.queries";
 import { FETCH_USED_ITEM_QUESTION_ANSWERS } from "./commentsReplyList/commentsReplyList.queries";
 
-export default function CommentsReplay(props) {
-  const router = useRouter();
+export default function CommentsReplay(props: any) {
   const [contents, setContents] = useState();
   const [createUseditemQuestionAnswer] = useMutation(
     CREATE_USED_ITEM_QUESTION_ANSWER

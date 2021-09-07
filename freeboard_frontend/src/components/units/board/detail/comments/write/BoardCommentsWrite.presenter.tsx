@@ -1,4 +1,5 @@
 import { Rate } from "antd";
+import { ChangeEvent } from "react";
 
 import {
   Wrapper,
@@ -15,12 +16,21 @@ import {
 
 interface IProps {
   onChangeStar: (value: number) => void;
-  onChangeInputs: () => void;
+  onChangeInputs: (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+
   comments_error: any;
-  inputs_comment: any;
+
+  inputs_comment: {
+    writer: string;
+    password: string;
+    contents: string;
+    rating: number;
+  };
   onClickSubmit: () => void;
+
   isEdit: boolean;
-  onCKilckUpDate: () => void;
   data: any;
 }
 export default function BoardCommentsWriteUI(props: IProps) {
@@ -69,12 +79,10 @@ export default function BoardCommentsWriteUI(props: IProps) {
               0/100
               <Comments_Button
                 id={props.data?._id}
-                onClick={
-                  props.isEdit ? props.onCKilckUpDate : props.onClickSubmit
-                }
+                onClick={props.onClickSubmit}
                 // onChange={props.onClickChange}
               >
-                {props.isEdit ? "수정하기" : "등록하기"}
+                등록하기
               </Comments_Button>
             </Comments_Button_Box>
           </Comments_in>

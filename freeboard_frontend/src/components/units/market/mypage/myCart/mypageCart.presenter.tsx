@@ -25,9 +25,7 @@ export default function MypageCartUI(props: any) {
           <Search_Wrapper>
             <Search_Body>
               <MoveTo onClick={props.onClickMenu}>전체내역</MoveTo>
-              <HereTo name="loading" onClick={props.onClickMenu}>
-                충전내역
-              </HereTo>
+              <HereTo onClick={props.onClickMenu}>충전내역</HereTo>
             </Search_Body>
           </Search_Wrapper>
           <Body>

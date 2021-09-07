@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useApolloClient, useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
@@ -25,9 +26,7 @@ export default function MarketLogin() {
     IMutationCreateUserArgs
   >(LOGIN_USER);
   const client = useApolloClient();
-
-  const { setAccessToken, setUserInfo, userInfo, accessToken } =
-    useContext(GlobalContext);
+  const { setAccessToken, setUserInfo, userInfo } = useContext(GlobalContext);
 
   async function onClickLogin(data: any) {
     try {

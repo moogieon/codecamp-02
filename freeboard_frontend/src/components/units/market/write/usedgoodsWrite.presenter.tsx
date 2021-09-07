@@ -11,7 +11,6 @@ import {
   ProductSummary,
   Summary,
   ProductContents,
-  Contents,
   Quill,
   ProductPrice,
   Price,
@@ -89,7 +88,7 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
             <ProductContents>
               <NameTitle>상품설명</NameTitle>
               <Quill
-                name="contents"
+                // name="contents"
                 defaultValue={data?.fetchUseditem.contents}
                 modules={modules}
                 onChange={props.onChangeContents}

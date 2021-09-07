@@ -99,7 +99,7 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
           {props.basket
             .slice(0)
             .reverse()
-            .map((data, _) => (
+            .map((data: any, _: any) => (
               <LogoInfo key={data._id} onClick={props.onClickToday(data)}>
                 <LogoImg
                   src={`https://storage.googleapis.com/${data.images[0]}`}

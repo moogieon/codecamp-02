@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { CloseOutlined } from "@ant-design/icons";
 import { motion } from "framer-motion";
-export const PigImg = styled.img``;
 import { FaCoins } from "react-icons/fa";
 import { Dropdown } from "react-bootstrap";
+export const PigImg = styled.img``;
 
 export const Wrapper = styled(motion.div)`
   position: fixed;

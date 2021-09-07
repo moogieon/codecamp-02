@@ -20,9 +20,9 @@ export default function BoardList() {
   function onClickMoveToBoardNew() {
     router.push("/boards/new");
   }
-  // function onChangeKeyword(value: string) {
-  //   setKeyword(value);
-  // }
+  function onChangeKeyword(value: string) {
+    setKeyword(value);
+  }
 
   return (
     <BoardListUi
@@ -34,7 +34,7 @@ export default function BoardList() {
       startPage={startPage}
       dataBoardsCount={dataBoardsCount}
       keyword={keyword}
-      // onChangeKeyword={onChangeKeyword}
+      onChangeKeyword={onChangeKeyword}
     />
   );
 }

@@ -1,5 +1,4 @@
 import {
-  PigImg,
   Tilte,
   Coin,
   Coin_Contnets,
@@ -15,7 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import { useRef } from "react";
 import Head from "next/head";
 
-export default function PaymentUI(props) {
+export default function PaymentUI(props: any) {
   // const modalRef = useRef();
   // const animation = useSpring({
   //   config: {

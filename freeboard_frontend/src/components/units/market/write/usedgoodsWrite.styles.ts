@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 import "react-quill/dist/quill.snow.css";
 import dynamic from "next/dynamic";
-import Kakaomap from "../../../commons/map/Map01/map.contanier";
+
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 export const Wrapper = styled.div`
   display: flex;

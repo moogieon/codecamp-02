@@ -22,7 +22,7 @@ export default function MypageCart() {
   function onChangeKeyword(value: string) {
     setKeyword(value);
   }
-  const onClickMenu = (e) => {
+  const onClickMenu = () => {
     const newMenu = { ...pointMenu };
     setPointMenu(newMenu);
 

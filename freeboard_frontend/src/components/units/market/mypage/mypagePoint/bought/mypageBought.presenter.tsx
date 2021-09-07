@@ -1,23 +1,17 @@
 import {
   Wrapper,
-  Mypage,
-  Search_Wrapper,
   Real_Body,
   Body,
   Body_Row,
-  MoveTo,
   Column,
   ColumnTitle,
   ColumnHeader,
   ColumnBuy,
   ColumnHeaderTitle,
-  Search_Body,
   TextToken,
-  HereTo,
 } from "./mypageBought.style";
 import { v4 as uuidv4 } from "uuid";
 
-import Searchbars01 from "../../../../../commons/searchbars/Searchbars01.container";
 import { getDate } from "../../../../../../commons/libraries/utils";
 export default function MypageBoughtUI(props: any) {
   return (

@@ -7,7 +7,7 @@ import {
   UploadButton,
 } from "./commentsReply.style";
 
-export default function CommentsReplyUI(props) {
+export default function CommentsReplyUI(props: any) {
   return (
     <>
       <>

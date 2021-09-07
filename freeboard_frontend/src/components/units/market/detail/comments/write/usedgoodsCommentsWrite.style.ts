@@ -48,7 +48,8 @@ export const UploadButton = styled.button`
     color: #ffcc01;
   }
 `;
-//!=========== CommentList 댓글 하단 리스트 ===========//
+//! =========== CommentList 댓글 하단 리스트 ===========//
+
 export const CommentUploadTop = styled.div`
   width: 100%;
   display: flex;

@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { yupResolver } from "@hookform/resolvers/yup";
 // import { Modal } from "antd";
 import { useRouter } from "next/router";
@@ -22,7 +22,7 @@ export default function UsedGoodsComments(props: IUsedGoodsCommentsWriteProps) {
   const [createUseditemQuestion] = useMutation(CREATE_USEDITEM_QUESTION);
   const [updateUseditemQuestion] = useMutation(UPDATE_USED_ITEM_QUESTION);
 
-  const onClickSubmit = async (data) => {
+  const onClickSubmit = async (data: any) => {
     try {
       await createUseditemQuestion({
         variables: {
@@ -46,7 +46,7 @@ export default function UsedGoodsComments(props: IUsedGoodsCommentsWriteProps) {
     }
   };
 
-  const onClickUpdate = async (data) => {
+  const onClickUpdate = async (data: any) => {
     console.log("props.data._id", props.data._id);
     // return;
     try {
@@ -92,7 +92,7 @@ export default function UsedGoodsComments(props: IUsedGoodsCommentsWriteProps) {
       register={register}
       handleSubmit={handleSubmit}
       getValues={getValues}
-      error={formState.error}
+      error={formState.errors}
       onClickSubmit={onClickSubmit}
       onClickUpdate={onClickUpdate}
       data={props.data}

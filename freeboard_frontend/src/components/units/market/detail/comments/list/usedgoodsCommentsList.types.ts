@@ -9,6 +9,7 @@ export interface IUsedGoodsCommentListUIProps {
 
 export interface IUsedGoodsCommentListUIItemProps {
   data: IUseditemQuestion;
+
   // showReplyInput: Boolean;
   // onClick: () => void;
 }

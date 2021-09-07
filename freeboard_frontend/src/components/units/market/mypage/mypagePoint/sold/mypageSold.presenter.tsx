@@ -1,21 +1,16 @@
 import { getDate } from "../../../../../../commons/libraries/utils";
-import Searchbars01 from "../../../../../commons/searchbars/Searchbars01.container";
+
 import {
   Wrapper,
-  Mypage,
-  Search_Wrapper,
   Real_Body,
   Body,
   Body_Row,
-  MoveTo,
   Column,
   ColumnTitle,
   ColumnHeader,
   ColumnBuy,
   ColumnHeaderTitle,
-  Search_Body,
   TextToken,
-  HereTo,
 } from "./mypageSold.style";
 import { v4 as uuidv4 } from "uuid";
 export default function MypageSoldUI(props: any) {

@@ -1,13 +1,10 @@
 import { getDate } from "../../../../../../commons/libraries/utils";
-import Searchbars01 from "../../../../commons/searchbars/Searchbars01.container";
+
 import {
   Wrapper,
-  Mypage,
-  Search_Wrapper,
   Real_Body,
   Body,
   Body_Row,
-  MoveTo,
   Column,
   ColumnTitle,
   ColumnHeader,
@@ -30,7 +27,7 @@ export default function MypagePointLoadingUI(props: any) {
 
             {props.data?.fetchPointTransactionsOfLoading
               ? props.data?.fetchPointTransactionsOfLoading.map(
-                  (data: any, _) => (
+                  (data: any, _: any) => (
                     <Body_Row key={data._id}>
                       <Column>{getDate(data.createdAt)}</Column>
                       <ColumnTitle id={data._id}>{data.impUid}</ColumnTitle>

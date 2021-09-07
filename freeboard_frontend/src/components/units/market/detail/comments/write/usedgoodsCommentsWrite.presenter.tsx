@@ -12,7 +12,7 @@ import {
   Writer,
 } from "./usedgoodsCommentsWrite.style";
 
-export default function UsedGoodsCommentsUI(props) {
+export default function UsedGoodsCommentsUI(props: any) {
   return (
     <>
       <BoardCommentWrapper>
