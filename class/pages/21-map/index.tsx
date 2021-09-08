@@ -13,7 +13,7 @@ export default function MapPage() {
 
   return (
     <>
-      <div></div>
+      <div>굿굿</div>
     </>
   );
 }
