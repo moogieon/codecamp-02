@@ -1,9 +1,12 @@
-import { Wrapper, Gallery, Headr, List } from "./LayoutBanner.styes";
+// import { Wrapper, Gallery, Headr, List } from "./LayoutBanner.styes";
 // import ReactDOM from "react-dom";
+
 import dynamic from "next/dynamic";
+// @ts-ignore
 const Coverflow = dynamic(() => import("react-coverflow"), {
   ssr: false,
 });
+
 export default function LayoutBannerUI() {
   // const images = [
   //   {
@@ -45,23 +48,19 @@ export default function LayoutBannerUI() {
   return (
     <>
       <Coverflow
+        // @ts-ignore
         width="1200"
         height="500"
         infiniteScroll
-        classes={{ background: "rgb(180, 167, 167)" }}
+        classes={{ background: "rgb(0, 0, 0)" }}
         className=""
         displayQuantityOfSide={2}
-        navigation
+        // navigation
         enableScroll={true}
         clickable={true}
         active={0}
       >
-        <div
-          onClick={() => fn()}
-          onKeyDown={() => fn()}
-          role="menuitem"
-          tabIndex="0"
-        >
+        <div onClick={() => fn()} onKeyDown={() => fn()} role="menuitem">
           <img
             src="/market/login/Blondcover.jpg"
             alt="title or description"

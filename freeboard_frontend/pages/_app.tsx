@@ -20,6 +20,7 @@ import Layout from "../src/components/commons/layout";
 import { onError } from "@apollo/client/link/error";
 import { getAccessToken } from "../src/commons/libraries/getAccessToken";
 import * as Sentry from "@sentry/nextjs";
+import Head from "next/head";
 Sentry.init({
   dsn: "https://6a59c03af1674c2e8b8bd092141bce41@o965495.ingest.sentry.io/5916340",
 });
@@ -68,7 +69,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   });
   const uploadLink = createUploadLink({
-    uri: "https://backend02.codebootcamp.co.kr/graphql",
+    uri: "https://backend02.codebootcamp.co.kr/graphql11",
     headers: {
       authorization: `Bearer ${accessToken}`,
     },
@@ -83,6 +84,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <GlobalContext.Provider value={value}>
+      <Head>
+        <title>내가 찾던 앨범, shop</title>
+      </Head>
       <ApolloProvider client={client}>
         <Layout>
           <Global styles={globalStyles} />

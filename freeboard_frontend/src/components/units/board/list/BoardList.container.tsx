@@ -16,6 +16,7 @@ export default function BoardList() {
 
   function onClickMoveToBoardDetail(event: any) {
     router.push(`/boards/detail/${event.target.id}`);
+    // console.log(event.target.id);
   }
   function onClickMoveToBoardNew() {
     router.push("/boards/new");
