@@ -1,34 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![shop](https://user-images.githubusercontent.com/86825253/135599029-b390a66d-2912-4237-89f2-b101e35b4dea.png)
 
-## Getting Started
+# 내가 찾던 그 앨범, shop
 
-First, run the development server:
+[내가 찾던 그 앨범, shop ](https://moogie.shop/)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+대스트리밍시대에 앨범이 왠말이냐 ?! 하지만 아직도 좋아하는 가수 좋아하는 노래의 앨범을 모으는 사람이 여럿 존재 합니다. 하지만 요즘 앨범 사기가 쉽지도 않고 팝이면 더더욱 어렵습니다. 가수 노래를 덕질을 하기위해 앨범을 모으는 사람들을 위해 사람들과의 소통,거래 중개소가 될 수 잇는 곳입니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+CRUD가 구현된 자유게시판, 상품 판매 게시판, 아임포트 시스템을 연동한 간단한 결제 시스템이 구현되어 있는 마이 페이지가 구현된 중고 거래 플랫폼.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+**내가 찾던 그 앨범, shop**입니다.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## 프로젝트 개요
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+본 프로젝트는 코드캠프 1기 과정 커리큘럼 중 진행된 4주 개인 프로젝트입니다.
 
-## Learn More
+- 프론트엔드 및 서비스 배포 : [이창묵](https://github.com/moogieon)
 
-To learn more about Next.js, take a look at the following resources:
+- 백엔드: 코드캠프 자체 제공
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 서비스 개요: Web Applicaiton
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 기능 소개
 
-## Deploy on Vercel
+### 자유게시판
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 게시물 생성, 읽기, 수정, 삭제
+- 게시물 검색
+- 웹 에디터 (React-Quill)를 이용한 사용자 편의성 개선
+- 게시물 좋아요, 싫어요 카운트
+- 가장 많은 좋아요를 받은 게시물을 보여주는 베스트 게시글 기능
+- 댓글 달기, 대댓글 달기, 댓글 수정 및 삭제
+- 게시물에 평점을 줄 수 있는 댓글
+- 이미지 업로드
+- react-hook-form + yup을 사용한 성능 최적화 및 유효성 검사
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- SSG 기능을 사용한 SEO 최적화
+
+### 중고마켓
+
+- 게시물 생성, 읽기, 수정, 삭제
+- 오늘본 게시물
+- 게시물 검색
+- 웹 에디터 (React-Quill)를 이용한 사용자 편의성 개선
+- 무한 스크롤
+- 댓글 달기, 대댓글 달기, 댓글 수정 및 삭제
+- 게시물에 평점을 줄 수 있는 댓글
+- 이미지 업로드
+- react-hook-form + yup을 사용한 성능 최적화 및 유효성 검사
+
+### 마이페이지
+
+- 내가 쓴 게시물 불러오기
+- 아임포트 결제로 2차 머니 충전하기
+
+## 사용된 기술 스택
+
+### 프론트엔드
+
+- Javascript & Typescript
+- React.js
+- Next.js
+- Apollo-Client, Apollo-Server
+- GraphQL,
+- axios
+- Rest-API
+
+### 백엔드 (코드캠프 자체 제공)
+
+- Node.js
+- typeORM
+- Nest.js
+- Postgres
+- JWT
+
+### 배포 및 개발 버전 관리 시스템
+
+- Git + Github
+- Google Cloud Platform
+- Docker
+
+### 그 외
