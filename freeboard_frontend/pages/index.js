@@ -1,5 +1,18 @@
-import BoardList from "../../src/components/units/board/list/BoardList.container";
+// import Image from 'next/image'
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import BoardListPage from "./boards/index";
 
-export default function BoardListPage() {
-  return <BoardList />;
+export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/boards/");
+  }, []);
+
+  return (
+    <>
+      <BoardListPage />
+    </>
+  );
 }
