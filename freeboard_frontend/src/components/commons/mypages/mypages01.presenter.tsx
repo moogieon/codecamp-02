@@ -21,15 +21,15 @@ export default function MyPagesUI(props: any) {
       <Wrapper>
         <Header>
           <Column>MYPAGE</Column>
-          <ProfileImg src="/market/mypage/profile.png" />
+          <ProfileImg src="/market_img/mypage/profile.png" />
           <ColumnName>{userInfo.name}</ColumnName>
         </Header>
         <Body>
-          <MypageImg src="/market/mypage/cart.png" />
+          <MypageImg src="/market_img/mypage/cart.png" />
           <BodyColumn1 onClick={props.onClickPost}> POST</BodyColumn1>
-          <MypageImg src="/market/mypage/Pig.png" />
+          <MypageImg src="/market_img/mypage/Pig.png" />
           <BodyColumn2 onClick={props.onClickPoint}> POINT</BodyColumn2>
-          <MypageImg src="/market/mypage/miniprofile.png" />
+          <MypageImg src="/market_img/mypage/miniprofile.png" />
           <BodyColumn3 onClick={props.onClickProfile}> PROFILE</BodyColumn3>
         </Body>
         <Footer></Footer>

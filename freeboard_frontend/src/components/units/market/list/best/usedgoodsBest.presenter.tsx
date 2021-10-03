@@ -38,7 +38,7 @@ export default function BestListUI(props: any) {
                   </TopInfoPrice>
                 </TopInfoLeft>
                 <TopInfoRight>
-                  <HeartToggle src="/market/list/heart.png" />
+                  <HeartToggle src="/market_img/list/heart.png" />
                   <ToggleCount>{data.pickedCount}</ToggleCount>
                 </TopInfoRight>
               </TopInfoEtc>

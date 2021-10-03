@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Wraaoer_Body = styled.div`
   height: 1080px;
-  background-image: url("/market/login/blond_4.jpg");
+  background-image: url("/market_img/login/blond_4.jpg");
   background-size: cover;
 `;
 export const Wrapper = styled.div`

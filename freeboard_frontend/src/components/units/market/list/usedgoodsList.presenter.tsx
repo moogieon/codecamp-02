@@ -58,7 +58,7 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
                     src={
                       data.images?.[0]
                         ? `https://storage.googleapis.com/${data.images[0]}`
-                        : "/market/list/imageNotFound.png"
+                        : "/market_img/list/imageNotFound.png"
                     }
                   ></GoodsImg>
                   <InfoBox>

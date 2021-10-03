@@ -64,15 +64,15 @@ export default function UsedgoodsDetailUI(props: any) {
         <Body>
           <Body_Head>
             <UserInfoBox>
-              <User_Img src="/market/detail/profile.png" />
+              <User_Img src="/market_img/detail/profile.png" />
               <UserInfo>
                 <User>{props.data?.fetchUseditem.seller.name}</User>
                 <Date>{getDate(props.data?.fetchUseditem.createdAt)}</Date>
               </UserInfo>
             </UserInfoBox>
             <HeadImgBox>
-              <FileImg src="/market/detail/file.png" />
-              <LocImg src="/market/detail/loc.png" />
+              <FileImg src="/market_img/detail/file.png" />
+              <LocImg src="/market_img/detail/loc.png" />
             </HeadImgBox>
           </Body_Head>
           <Line />

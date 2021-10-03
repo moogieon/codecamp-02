@@ -4,7 +4,7 @@ import { Checkbox } from "antd";
 export const Wraaoer_Body = styled.div`
   height: 1080px;
   width: 100%;
-  background-image: url("/market/login/blond_4.jpg");
+  background-image: url("/market_img/login/blond_4.jpg");
   background-size: cover;
 `;
 export const Wrapper = styled.div`

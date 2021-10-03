@@ -62,7 +62,7 @@ export default function LayoutBannerUI() {
       >
         <div onClick={() => fn()} onKeyDown={() => fn()} role="menuitem">
           <img
-            src="/market/login/Blondcover.jpg"
+            src="/market_img/login/Blondcover.jpg"
             alt="title or description"
             style={{
               display: "block",
@@ -75,17 +75,17 @@ export default function LayoutBannerUI() {
             display: "block",
             width: "100%",
           }}
-          src="/market/login/orange.jpg"
+          src="/market_img/login/orange.jpg"
           // alt="title or description"
           data-action="https://www.youtube.com/playlist?list=OLAK5uy_n6EyWhFOckC60cQK8RG64Wt6tIxJmRh-I"
         />
         <img
-          src="/market/login/Ocean2.jpg"
+          src="/market_img/login/Ocean2.jpg"
           // alt="title or description"
           data-action="http://andyyou.github.io/react-coverflow/"
         />
         <img
-          src="/market/login/Ocean1.jpeg"
+          src="/market_img/login/Ocean1.jpeg"
           // alt="title or description"
           data-action="http://andyyou.github.io/react-coverflow/"
         />
