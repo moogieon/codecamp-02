@@ -84,7 +84,7 @@ export default function UsedGoodsCommentsListUIItem(
               {props.data.user.name === loggeddata?.fetchUserLoggedIn.name ? (
                 <UpdateIcon
                   onClick={onClickUpdate}
-                  src="/boardComment/list/option_update_icon.png/"
+                  src="/boardComment-img/list/option_update_icon.png/"
                 />
               ) : (
                 ""
@@ -92,7 +92,7 @@ export default function UsedGoodsCommentsListUIItem(
               {props.data.user.name === loggeddata?.fetchUserLoggedIn.name ? (
                 <DeleteIcon
                   onClick={onClickDelete}
-                  src="/boardComment/list/option_delete_icon.png/"
+                  src="/boardComment-img-img/list/option_delete_icon.png/"
                 />
               ) : (
                 ""
@@ -100,7 +100,7 @@ export default function UsedGoodsCommentsListUIItem(
             </OptionWrapper>
             <ReComments
               onClick={onClickshowReplyInput}
-              src="/boardComment/list/Vector (12).png/"
+              src="/boardComment-img/list/Vector(12).png"
             />
           </FlexWrapper>
 
