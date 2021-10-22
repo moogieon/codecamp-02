@@ -22,7 +22,7 @@ export default function BasketPage() {
   const router = useRouter();
   const onClickBasket = (basketsData) => () => {
     // console.log(basketsData);
-    const baskets = JSON.parse(localStorage.getItem("baskets") || "[]");
+    const baskets = JSON.parse(localStorage.getItem("basketsss") || "[]");
     let isExists = false;
     baskets.forEach((data) => {
       if (data._id === basketsData._id) isExists = true;
@@ -31,7 +31,7 @@ export default function BasketPage() {
     // baskets = baskets.filter((data) => data._id !== basketsData._id);  //? 장바구니 넣고 있는거 빼는 방법!
 
     baskets.push(basketsData);
-    localStorage.setItem("baskets", JSON.stringify(baskets));
+    localStorage.setItem("basketsss", JSON.stringify(baskets));
   };
 
   const onClickLogin = () => {
