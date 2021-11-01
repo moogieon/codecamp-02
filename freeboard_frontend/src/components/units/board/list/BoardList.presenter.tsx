@@ -35,12 +35,12 @@ export default function BoardListUi(props: any) {
             <Board_Date>날짜</Board_Date>
           </Wrapper_Head>
           {props.onData?.fetchBoards.map((data: any, index: any) => (
-            <Wrapper_Body key={data._id}>
+            <Wrapper_Body
+              key={data._id}
+              onClick={props.onClickMoveToBoardDetail(data._id)}
+            >
               <Column_Num>{10 - index}</Column_Num>
-              <Column_Title
-                id={data._id}
-                onClick={props.onClickMoveToBoardDetail}
-              >
+              <Column_Title id={data._id}>
                 {data.title
                   .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
                   .split("@#$%")

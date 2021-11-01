@@ -119,6 +119,7 @@ export const Youtube = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  background-color: black;
 `;
 
 export const ImageWrapper = styled.div`

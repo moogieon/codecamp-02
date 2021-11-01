@@ -70,7 +70,7 @@ export default function CommentsReplyListItem(props: any) {
               props.loggeddata?.fetchUserLoggedIn.name ? (
                 <UpdateIcon
                   onClick={onClickUpdate}
-                  src="/boardComment/list/option_update_icon.png/"
+                  src="/boardComment-img/list/option_update_icon.png/"
                 />
               ) : (
                 ""
@@ -79,7 +79,7 @@ export default function CommentsReplyListItem(props: any) {
               props.loggeddata?.fetchUserLoggedIn.name ? (
                 <DeleteIcon
                   onClick={onClickDelete}
-                  src="/boardComment/list/option_delete_icon.png/"
+                  src="/boardComment-img/list/option_delete_icon.png/"
                 />
               ) : (
                 ""

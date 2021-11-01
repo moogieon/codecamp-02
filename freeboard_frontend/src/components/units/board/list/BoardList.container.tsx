@@ -14,10 +14,10 @@ export default function BoardList() {
   });
   const { data: dataBoardsCount } = useQuery(FETCH_BOARDS_COUNT);
 
-  function onClickMoveToBoardDetail(event: any) {
-    router.push(`/boards/detail/${event.target.id}`);
+  const onClickMoveToBoardDetail = (deatail: any) => () => {
+    router.push(`/boards/detail/${deatail}`);
     // console.log(event.target.id);
-  }
+  };
   function onClickMoveToBoardNew() {
     router.push("/boards/new");
   }

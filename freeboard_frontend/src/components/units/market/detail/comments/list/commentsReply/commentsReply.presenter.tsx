@@ -12,7 +12,7 @@ export default function CommentsReplyUI(props: any) {
     <>
       <>
         <Wrapper>
-          <Icon1 src={"/boardComment/list/Vector (13).png"} />
+          <Icon1 src={"/boardComment-img/list/Vector(13).png"} />
           <Body>
             <Content
               name={"contents"}
