@@ -3,7 +3,6 @@ interface IPageProps {
   isActive?: boolean;
 }
 export const Page = styled.span`
-  margin-left: 50px;
   /* color: white; */
   cursor: pointer;
   color: ${(props: IPageProps) => (props.isActive ? " #ffc414;" : "white")};

@@ -2,17 +2,17 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   background-color: black;
   height: 40px;
-  /* border: 1px solid red; */
   display: flex;
   align-items: center;
 `;
 export const HeadFlex = styled.div`
   height: 40px;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   align-items: center;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding: 10px 10% 0px 10%;
   padding-top: 10px;
 `;
 export const Left = styled.div`

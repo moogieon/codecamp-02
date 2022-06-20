@@ -6,12 +6,14 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding-bottom: 50px;
+  width: 100%;
 `;
 export const Body = styled.div`
-  width: 1200px;
+  width: 100%;
   height: 662px;
-  padding-left: 50px;
-  padding-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px 10% 0px 10%;
   color: white;
 `;
 export const Wrapper_Head = styled.div`
@@ -26,9 +28,8 @@ export const Board_Num = styled.div`
   width: 10%;
   height: 20px;
   font-size: 18px;
-
   opacity: 0.8;
-  padding-left: 40px;
+  text-align: center;
   color: white;
 `;
 export const Board_Title = styled.div`
@@ -96,8 +97,11 @@ export const Column_Date = styled.div`
   color: white;
 `;
 export const Footer = styled.div`
-  width: 1200px;
+  width: 100%;
   padding-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px 10% 0px 10%;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
