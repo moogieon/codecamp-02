@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   background-color: black;
@@ -34,6 +35,9 @@ export const Board_Num = styled.div`
 `;
 export const Board_Title = styled.div`
   width: 70%;
+  @media ${breakPoints.mobile} {
+    width: 50%;
+  }
   height: 20px;
   font-size: 18px;
   opacity: 0.8;
@@ -46,11 +50,11 @@ export const Board_Writer = styled.div`
   height: 20px;
   font-size: 18px;
   opacity: 0.8;
-
   color: white;
 `;
 export const Board_Date = styled.div`
   width: 10%;
+
   height: 20px;
   font-size: 18px;
   opacity: 0.8;
@@ -70,11 +74,14 @@ export const Column_Num = styled.div`
   width: 10%;
   font-size: 16px;
   color: #4f4f4f;
-  padding-left: 48px;
+  text-align: center;
   color: white;
 `;
 export const Column_Title = styled.div`
   width: 70%;
+  @media ${breakPoints.mobile} {
+    width: 50%;
+  }
   font-size: 16px;
   text-align: center;
   color: white;
@@ -92,6 +99,9 @@ export const Column_Writer = styled.div`
 
 export const Column_Date = styled.div`
   width: 10%;
+  @media ${breakPoints.mobile} {
+    width: 30%;
+  }
   font-size: 16px;
 
   color: white;
