@@ -14,6 +14,7 @@ import {
   Footer,
   Button,
   Penimg,
+  Write,
   Word,
 } from "./BoardList.style";
 import Paginations01 from "../../../commons/paginations/Paginations.container";
@@ -45,7 +46,8 @@ export default function BoardListUi(props: any) {
                 {data.title
                   .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
                   .split("@#$%")
-                  .map((data: any) => (
+
+                  .map((data: string) => (
                     <Word key={uuidv4()} isMatched={props.keyword === data}>
                       {data}
                     </Word>
@@ -53,12 +55,17 @@ export default function BoardListUi(props: any) {
               </Column_Title>
               <Column_Writer>{data.writer}</Column_Writer>
               <Column_Date>
-                {new Date(data.createdAt).getFullYear()}-
+                {new Date(data.createdAt)
+                  .getFullYear()
+                  .toString()
+                  .substring(2, 4)}
+                -
                 {String(new Date(data.createdAt).getMonth() + 1).padStart(
                   2,
                   "0"
                 )}
-                -{new Date(data.createdAt).getDate()}
+                -
+                {new Date(data.createdAt).getDate().toString().padStart(2, "0")}
               </Column_Date>
             </Wrapper_Body>
           ))}
@@ -71,7 +78,8 @@ export default function BoardListUi(props: any) {
             refetch={props.refetch}
           />
           <Button onClick={props.onClickMoveToBoardNew}>
-            <Penimg src="/boards-image/pen.png" /> 게시물 등록하기
+            <Penimg src="/boards-image/pen.png" />
+            <Write>게시물 작성</Write>
           </Button>
         </Footer>
       </Wrapper>

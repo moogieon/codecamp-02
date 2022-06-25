@@ -1,4 +1,5 @@
 import styled from "@emotion/styled/";
+
 interface IPageProps {
   isActive?: boolean;
 }
