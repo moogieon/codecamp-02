@@ -68,14 +68,13 @@ export default function Layout(props: any) {
       <div>
         <LayoutBanner />
       </div>
-      <div>
+      <div style={{ background: "black" }}>
         <LayoutNavigation />
         <Wrapper>
           <SideMenu>
             <Time>{time.format("YY.MM.DD HH.mm.ss")}</Time>
           </SideMenu>
         </Wrapper>
-
         <BodyWrapper>
           <Body>{props.children}</Body>
         </BodyWrapper>
