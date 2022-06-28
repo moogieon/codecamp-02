@@ -1,19 +1,15 @@
 import styled from "@emotion/styled/";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
+  padding: 0px 2.5rem;
 `;
 export const Body = styled.div`
-  width: 1200px;
-  /* height: 1847px; */
+  width: 100%;
+  margin: 0px auto;
   border: 1px solid black;
-  margin: 80px;
-  padding-top: 80px;
-  padding-bottom: 80px;
-  padding-left: 102px;
-  padding-right: 102px;
+  padding: 80px 1.8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,8 +18,9 @@ export const Body = styled.div`
 `;
 
 export const Wrapper_Head = styled.div`
-  width: 996px;
+  width: 100%;
   display: flex;
+  justify-content: space-between;
 `;
 export const Img = styled.img`
   width: 46.67px;
@@ -31,7 +28,10 @@ export const Img = styled.img`
   background-size: 100%;
 `;
 export const Head_Wrapper = styled.div`
-  margin-left: 16.7px;
+  display: flex;
+  align-items: center;
+  grid-gap: 0.8rem;
+  gap: 0.8rem;
 `;
 export const Writer = styled.div`
   font-size: 24px;
@@ -40,10 +40,13 @@ export const Day = styled.div`
   font-size: 16px;
   color: #828282;
 `;
+export const Icon_Wrapper = styled.div`
+  display: flex;
+`;
+
 export const Img_2 = styled.img`
   width: 26.67px;
   height: 13.33px;
-  margin-left: 720.67px;
   margin-top: 19.33px;
   background-size: 100%;
 `;
@@ -63,69 +66,78 @@ export const Img_4 = styled.img`
   margin-left: 6px;
   margin-bottom: 2px;
 `;
-export const Line = styled.div`
-  width: 996px;
+export const Line = styled.hr`
+  width: 100%;
   margin-top: 20px;
   border-top: 1px solid #bdbdbd;
 `;
 
 export const Wrapper_Body = styled.div`
-  width: 996px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   padding-top: 80px;
 `;
 
 export const Body_Title = styled.span`
-  width: 285px;
+  max-width: 285px;
   height: 54px;
   font-size: 36px;
   text-align: unset;
 `;
 
 export const Body_Img = styled.img`
-  width: 996px;
+  max-width: 996px;
   height: 480px;
   margin-top: 40px;
 `;
 export const Body_Contents = styled.div`
-  width: 996px;
+  max-width: 996px;
   height: 300px;
-
   font-size: 16px;
   padding-top: 40px;
 `;
 
 export const Wrapper_Foot = styled.div`
-  width: 996px;
+  max-width: 996px;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 export const Foot_Ytv = styled.div`
-  width: 486px;
+  max-width: 486px;
   height: 240px;
   margin-top: 120px;
 `;
 export const Youtube = styled.div`
-  width: 486px;
+  max-width: 486px;
   height: 240px;
   font-size: 50px;
   border: 1px solid black;
 `;
-export const Foot_Count = styled.div`
-  width: 160px;
+
+export const Count_Wrpper = styled.div`
   display: flex;
+  grid-gap: 1.8rem;
+  gap: 1.8rem;
+`;
+
+export const Foot_Count = styled.div`
+  max-width: 160px;
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   text-align: center;
 `;
 
 export const Foot_Btn = styled.div`
-  width: 160px;
-
-  margin-top: 160px;
+  max-width: 160px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  text-align: center;
 `;
 export const Like = styled.button`
   margin-top: 2px;
@@ -166,13 +178,20 @@ export const DisLike_count = styled.div`
 
 export const Foot = styled.div`
   height: 45px;
-  width: 1200px;
+  width: 100%;
   margin: 80px;
   display: flex;
   justify-content: center;
 `;
+export const Btn_words = styled.span`
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
+`;
+
 export const List_Button = styled.button`
-  width: 179px;
+  padding: 0 10px;
+  max-width: 176px;
   height: 45px;
   background-color: transparent;
   font-size: 16px;
@@ -187,7 +206,8 @@ export const List_Button = styled.button`
 `;
 
 export const Fix_Button = styled.button`
-  width: 179px;
+  padding: 0 10px;
+  max-width: 176px;
   height: 45px;
   margin-left: 24px;
   margin-right: 24px;
@@ -204,7 +224,8 @@ export const Fix_Button = styled.button`
 `;
 
 export const Delete_Button = styled.button`
-  width: 179px;
+  padding: 0 10px;
+  max-width: 176px;
   height: 45px;
   background-color: transparent;
   font-size: 16px;

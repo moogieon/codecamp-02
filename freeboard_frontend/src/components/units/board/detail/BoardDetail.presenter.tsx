@@ -11,6 +11,7 @@ import {
   Img_3,
   Img_4,
   Head_Wrapper,
+  Icon_Wrapper,
   Writer,
   Day,
   Line,
@@ -18,6 +19,7 @@ import {
   Body_Img,
   Body_Contents,
   Foot_Ytv,
+  Count_Wrpper,
   Foot_Count,
   Foot_Btn,
   Like,
@@ -25,6 +27,7 @@ import {
   Like_count,
   DisLike_count,
   Foot,
+  Btn_words,
   List_Button,
   Fix_Button,
   Delete_Button,
@@ -45,8 +48,8 @@ export default function BoardDetailUI(props: IProps) {
       <Wrapper>
         <Body>
           <Wrapper_Head>
-            <Img src="/boards-image/Profile.png" />
             <Head_Wrapper>
+              <Img src="/boards-image/Profile.png" />
               <Writer>{props.data?.fetchBoard.writer}</Writer>
               <Day>
                 Date:
@@ -57,16 +60,18 @@ export default function BoardDetailUI(props: IProps) {
                 /{new Date(props.data?.fetchBoard.createdAt).getDate()}
               </Day>
             </Head_Wrapper>
+            <Icon_Wrapper>
+              <Img_2 src="/boards-image/File.png" />
 
-            <Img_2 src="/boards-image/File.png" />
-            <Img_3>
               <Tooltip
                 placement="topRight"
                 title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
               >
-                <Img_4 src="/boards-image/Loc2.png" />
+                <Img_3>
+                  <Img_4 src="/boards-image/Loc2.png" />
+                </Img_3>
               </Tooltip>
-            </Img_3>
+            </Icon_Wrapper>
           </Wrapper_Head>
           <Line></Line>
           <Wrapper_Body>
@@ -91,26 +96,29 @@ export default function BoardDetailUI(props: IProps) {
                 playing={true}
               />
             </Foot_Ytv>
-
-            <Foot_Btn>
-              <Like onClick={props.onClickLike} />
-
-              <Dislkie onClick={props.onClickDislike} />
-            </Foot_Btn>
-            <Foot_Count>
-              <Like_count>{props.data?.fetchBoard.likeCount}</Like_count>
-
-              <DisLike_count>
-                {props.data?.fetchBoard.dislikeCount}
-              </DisLike_count>
-            </Foot_Count>
+            <Count_Wrpper>
+              <Foot_Btn>
+                <Like onClick={props.onClickLike} />
+                <Like_count>{props.data?.fetchBoard.likeCount}</Like_count>
+              </Foot_Btn>
+              <Foot_Count>
+                <Dislkie onClick={props.onClickDislike} />
+                <DisLike_count>
+                  {props.data?.fetchBoard.dislikeCount}
+                </DisLike_count>
+              </Foot_Count>
+            </Count_Wrpper>
           </Wrapper_Foot>
 
           <Foot>
-            <List_Button onClick={props.onClickMove}>목록으로</List_Button>
-            <Fix_Button onClick={props.onClickEdit}>수정하기</Fix_Button>
+            <List_Button onClick={props.onClickMove}>
+              목록<Btn_words>으로</Btn_words>
+            </List_Button>
+            <Fix_Button onClick={props.onClickEdit}>
+              수정<Btn_words>하기</Btn_words>
+            </Fix_Button>
             <Delete_Button onClick={props.onClickDelete}>
-              삭제하기
+              삭제<Btn_words>하기</Btn_words>
             </Delete_Button>
           </Foot>
         </Body>

@@ -78,7 +78,6 @@ export default function Layout(props: any) {
         <BodyWrapper>
           <Body>{props.children}</Body>
         </BodyWrapper>
-
         <LayoutFooter />
       </div>
     </>
