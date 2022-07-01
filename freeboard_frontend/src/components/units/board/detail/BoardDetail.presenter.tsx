@@ -11,6 +11,7 @@ import {
   Img_3,
   Img_4,
   Head_Wrapper,
+  Header_1,
   Icon_Wrapper,
   Writer,
   Day,
@@ -49,8 +50,11 @@ export default function BoardDetailUI(props: IProps) {
         <Body>
           <Wrapper_Head>
             <Head_Wrapper>
-              <Img src="/boards-image/Profile.png" />
-              <Writer>{props.data?.fetchBoard.writer}</Writer>
+              <Header_1>
+                <Img src="/boards-image/Profile.png" />
+                <Writer>{props.data?.fetchBoard.writer}</Writer>
+              </Header_1>
+
               <Day>
                 Date:
                 {new Date(props.data?.fetchBoard.createdAt).getFullYear()}/
@@ -89,8 +93,8 @@ export default function BoardDetailUI(props: IProps) {
             <Foot_Ytv>
               <ReactPlayer
                 url={props.data?.fetchBoard.youtubeUrl}
-                width="489px"
-                height="240px"
+                height="100%"
+                width="100%"
                 controls={true}
                 muted={true}
                 playing={true}

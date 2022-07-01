@@ -88,7 +88,7 @@ export default function BoardCommentListUIItem(
                 <Comment_Date>{getDate(props.data.createdAt)}</Comment_Date>
               </CommentList>
               <Delete id={props.data._id} onClick={onClickOpenDeleteModal}>
-                지우기
+                삭제
               </Delete>
             </Wrapper_Head>
           </Body>

@@ -32,6 +32,16 @@ export const Head_Wrapper = styled.div`
   align-items: center;
   grid-gap: 0.8rem;
   gap: 0.8rem;
+  @media ${breakPoints.mobile} {
+    flex-direction: column;
+  }
+`;
+export const Header_1 = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  grid-gap: 1.2rem;
+  gap: 1.2rem;
 `;
 export const Writer = styled.div`
   font-size: 24px;
@@ -75,6 +85,7 @@ export const Line = styled.hr`
 export const Wrapper_Body = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 100%;
   padding-top: 80px;
 `;
@@ -87,30 +98,37 @@ export const Body_Title = styled.span`
 `;
 
 export const Body_Img = styled.img`
-  max-width: 996px;
+  width: 100%;
+  max-width: 1200px;
   height: 480px;
-  margin-top: 40px;
+  margin: 40px auto 0px auto;
 `;
 export const Body_Contents = styled.div`
-  max-width: 996px;
-  height: 300px;
+  max-width: 1200px;
+  min-height: 300px;
+  width: 100%;
+  margin: 0 auto;
   font-size: 16px;
   padding-top: 40px;
+  word-break: break-all;
 `;
 
 export const Wrapper_Foot = styled.div`
   max-width: 996px;
   display: flex;
+  margin: 0 auto;
+  width: 100%;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 `;
 export const Foot_Ytv = styled.div`
-  max-width: 486px;
+  max-width: 700px;
   height: 240px;
   margin-top: 120px;
 `;
 export const Youtube = styled.div`
-  max-width: 486px;
+  max-width: 700px;
   height: 240px;
   font-size: 50px;
   border: 1px solid black;
@@ -120,6 +138,7 @@ export const Count_Wrpper = styled.div`
   display: flex;
   grid-gap: 1.8rem;
   gap: 1.8rem;
+  margin-top: 50px;
 `;
 
 export const Foot_Count = styled.div`
@@ -240,13 +259,13 @@ export const Delete_Button = styled.button`
 `;
 export const Comments = styled.div`
   margin: 80px;
-  width: 1200px;
+  width: 100%;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
 `;
 export const Comments_in = styled.div`
-  width: 1200px;
+  width: 100%;
   height: 272px;
   border: 1px solid black;
 `;
@@ -265,7 +284,7 @@ export const Comments_init = styled.input`
 `;
 export const Comments_Line = styled.div`
   margin-top: 100px;
-  width: 1198px;
+  width: 100%;
   border-top: 1px solid #f2f2f2;
 `;
 

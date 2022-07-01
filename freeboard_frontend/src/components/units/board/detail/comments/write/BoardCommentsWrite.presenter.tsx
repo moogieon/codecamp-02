@@ -1,5 +1,5 @@
 import { Rate } from "antd";
-import { ChangeEvent } from "react";
+import { ChangeEvent, FormEventHandler } from "react";
 
 import {
   Wrapper,
@@ -19,9 +19,9 @@ interface IProps {
   onChangeInputs: (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
-
+  inputMax: FormEventHandler<HTMLInputElement> | undefined;
   comments_error: any;
-
+  maxComment: number;
   inputs_comment: {
     writer: string;
     password: string;
@@ -69,14 +69,16 @@ export default function BoardCommentsWriteUI(props: IProps) {
             <Warring>{props.comments_error.contents}</Warring>
             <Comments_init
               name="contents"
+              onInput={props.inputMax}
               type="text"
+              maxLength={100}
               value={props.inputs_comment.contents || props.data?.contents}
               placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
               onChange={props.onChangeInputs}
             ></Comments_init>
             <Comments_Line></Comments_Line>
             <Comments_Button_Box>
-              0/100
+              {props.maxComment}/100
               <Comments_Button
                 id={props.data?._id}
                 onClick={props.onClickSubmit}

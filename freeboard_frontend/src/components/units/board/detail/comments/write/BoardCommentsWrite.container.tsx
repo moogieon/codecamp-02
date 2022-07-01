@@ -24,6 +24,8 @@ export default function BoardCommentsWrite(props: any) {
   const [comments_error, setComments_Error] = useState(INPUT_COMMENT);
   const [createBoardComment] = useMutation(BOARD_COMMENT);
 
+  const [maxComment, setMaxComment] = useState(0);
+
   function onChangeInputs(
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
@@ -104,6 +106,9 @@ export default function BoardCommentsWrite(props: any) {
   //     alert(error.message);
   //   }
   // }
+  const inputMax = (e) => {
+    setMaxComment(e.target.value.length);
+  };
 
   return (
     <BoardCommentsWriteUI
@@ -115,7 +120,8 @@ export default function BoardCommentsWrite(props: any) {
       onChangeInputs={onChangeInputs}
       // onCKilckUpDate={onCKilckUpDate}
       comments_error={comments_error}
-
+      maxComment={maxComment}
+      inputMax={inputMax}
       // onClickChange={onClickChange}
     />
   );
