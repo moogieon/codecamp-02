@@ -2,16 +2,13 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-column: 2;
   padding-bottom: 300px;
 `;
 
 export const ListContents = styled.div`
   width: 100%;
-  max-width: 1200px;
 `;
 export const Title = styled.h1`
   font-size: 700;
@@ -27,23 +24,26 @@ export const TopBox = styled.div`
   justify-content: space-between;
 `;
 export const BestProductBox = styled.div`
-  width: 282px;
+  max-width: 282px;
+  width: 100%;
   height: 391px;
   box-shadow: 5px 5px 5px 5px gray;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-
+  justify-content: space-evenly;
+  padding: 5px;
   cursor: pointer;
 `;
 export const TopProductImg = styled.img`
-  width: 242px;
+  max-width: 242px;
+  width: 100%;
+  padding: 5px 7px;
   height: 242px;
   background-size: 100%;
 `;
 export const TopProductInfo = styled.div`
-  width: 242px;
+  padding: 5px 10px;
+  width: 100%;
   height: 89px;
   /* background-color: #69696933; */
   display: flex;
@@ -56,7 +56,7 @@ export const TopName = styled.div`
   line-height: 26.64px;
 `;
 export const TopInfoEtc = styled.div`
-  width: 100%auto;
+  width: 100% auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -72,6 +72,12 @@ export const TopInfoRemarks = styled.div`
   line-height: 17.76px;
   font-weight: 500;
   color: #4f4f4f;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 3; /* 라인수 */
+  line-height: 1.2em;
+  height: 3.6em;
 `;
 export const TopInfoPrice = styled.div`
   font-size: 18px;
@@ -82,7 +88,7 @@ export const TopInfoPrice = styled.div`
 export const TopInfoRight = styled.div`
   width: 20px;
   height: 50px;
-  width: 100%auto;
+  width: 100% auto;
   margin-left: 30px;
   /* padding-right: 30px; */
 `;

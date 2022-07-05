@@ -1,25 +1,23 @@
 import styled from "@emotion/styled";
 export const RealWrapper = styled.div`
-  max-width: 1920px;
   width: 100%;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 0px auto;
+
   /* align-items: center; */
 `;
 
 export const Wrapper = styled.div`
-  max-width: 1920px;
-  width: 1200px;
+  width: 100%;
+  margin: 0px auto;
+  padding: 50px 10% 0px 10%;
   /* text-align: center; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-bottom: 377px;
-  margin-left: 220px;
   /* padding-left: 360px; */
 `;
 export const Title = styled.div`
@@ -28,10 +26,9 @@ export const Title = styled.div`
   text-align: center;
 `;
 export const Head = styled.div`
-  max-width: 1200px;
   width: 100%;
   height: 473px;
-  padding-top: 40px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
 `;
@@ -161,7 +158,6 @@ export const GoodsPrice = styled.div`
 export const GoWrite = styled.button`
   background-color: black;
   margin-top: 54px;
-
   width: 124px;
   height: 52px;
   color: white;
