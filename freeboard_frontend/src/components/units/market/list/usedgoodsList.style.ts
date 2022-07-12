@@ -4,7 +4,6 @@ export const RealWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-
   /* align-items: center; */
 `;
 
@@ -27,13 +26,12 @@ export const Title = styled.div`
 `;
 export const Head = styled.div`
   width: 100%;
-  height: 473px;
+  height: auto;
   margin-top: 40px;
   display: flex;
   justify-content: center;
 `;
 export const Body = styled.div`
-  max-width: 1200px;
   width: 100%;
   height: 1008px;
   /* border: 1px solid white; */

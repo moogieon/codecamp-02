@@ -29,18 +29,20 @@ export default function BestListUI(props: any) {
               <TopInfoEtc>
                 <TopInfoLeft>
                   <TopInfoRemarks>{data.remarks}</TopInfoRemarks>
-                  <TopInfoPrice>
-                    ₩{" "}
-                    {data.price
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                    원
-                  </TopInfoPrice>
+                  <TopInfoRight>
+                    <TopInfoPrice>
+                      ₩{" "}
+                      {data.price
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                      원
+                    </TopInfoPrice>
+                    <div>
+                      <HeartToggle src="/market_img/list/heart.png" />
+                      <ToggleCount>{data.pickedCount}</ToggleCount>
+                    </div>
+                  </TopInfoRight>
                 </TopInfoLeft>
-                <TopInfoRight>
-                  <HeartToggle src="/market_img/list/heart.png" />
-                  <ToggleCount>{data.pickedCount}</ToggleCount>
-                </TopInfoRight>
               </TopInfoEtc>
             </TopProductInfo>
           </BestProductBox>

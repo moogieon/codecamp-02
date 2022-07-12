@@ -1,10 +1,8 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 100%;
-  display: grid;
-  grid-column: 2;
-  padding-bottom: 300px;
 `;
 
 export const ListContents = styled.div`
@@ -17,17 +15,26 @@ export const Title = styled.h1`
 `;
 //! =============== Top Bestlist =================
 export const TopBox = styled.div`
+  @media ${breakPoints.tablet} {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media ${breakPoints.mobile} {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    height: 50%;
+  }
   width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  -webkit-column-gap: 2rem;
+  -moz-column-gap: 2rem;
+  grid-column-gap: 2rem;
+  column-gap: 1;
   padding-bottom: 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 `;
 export const BestProductBox = styled.div`
-  max-width: 282px;
   width: 100%;
   height: 391px;
-  box-shadow: 5px 5px 5px 5px gray;
+  box-shadow: 5px 5px 5px 5px #ffcc01;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -35,7 +42,6 @@ export const BestProductBox = styled.div`
   cursor: pointer;
 `;
 export const TopProductImg = styled.img`
-  max-width: 242px;
   width: 100%;
   padding: 5px 7px;
   height: 242px;
@@ -54,6 +60,9 @@ export const TopName = styled.div`
   font-size: 18px;
   font-weight: 500;
   line-height: 26.64px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1; /* 라인수 */
 `;
 export const TopInfoEtc = styled.div`
   width: 100% auto;
@@ -75,7 +84,7 @@ export const TopInfoRemarks = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-line-clamp: 3; /* 라인수 */
+  -webkit-line-clamp: 2; /* 라인수 */
   line-height: 1.2em;
   height: 3.6em;
 `;
@@ -86,11 +95,11 @@ export const TopInfoPrice = styled.div`
 `;
 
 export const TopInfoRight = styled.div`
-  width: 20px;
-  height: 50px;
+  height: 100%;
   width: 100% auto;
-  margin-left: 30px;
-  /* padding-right: 30px; */
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
 `;
 export const HeartToggle = styled.img`
   width: 20px;
@@ -100,7 +109,6 @@ export const ToggleCount = styled.h5`
   font-size: 16px;
   font-weight: 400;
   text-align: center;
-
   padding-top: 4px;
   color: white;
   text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
