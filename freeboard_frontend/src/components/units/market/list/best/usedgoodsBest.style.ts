@@ -3,6 +3,7 @@ import { breakPoints } from "../../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 100%;
+  height: 100%;
 `;
 
 export const ListContents = styled.div`
@@ -23,17 +24,17 @@ export const TopBox = styled.div`
     height: 50%;
   }
   width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   -webkit-column-gap: 2rem;
   -moz-column-gap: 2rem;
   grid-column-gap: 2rem;
   column-gap: 1;
-  padding-bottom: 40px;
 `;
 export const BestProductBox = styled.div`
   width: 100%;
-  height: 391px;
+  height: 100%;
   box-shadow: 5px 5px 5px 5px #ffcc01;
   display: flex;
   flex-direction: column;
@@ -50,7 +51,6 @@ export const TopProductImg = styled.img`
 export const TopProductInfo = styled.div`
   padding: 5px 10px;
   width: 100%;
-  height: 89px;
   /* background-color: #69696933; */
   display: flex;
   flex-direction: column;
@@ -59,10 +59,14 @@ export const TopProductInfo = styled.div`
 export const TopName = styled.div`
   font-size: 18px;
   font-weight: 500;
-  line-height: 26.64px;
+  width: 100%;
+  margin-bottom: 10px;
+  height: auto;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-line-clamp: 1; /* 라인수 */
+  -webkit-line-clamp: 4;
+  line-height: 26.64px;
 `;
 export const TopInfoEtc = styled.div`
   width: 100% auto;
@@ -95,11 +99,10 @@ export const TopInfoPrice = styled.div`
 `;
 
 export const TopInfoRight = styled.div`
-  height: 100%;
+  height: auto;
   width: 100% auto;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 50px;
 `;
 export const HeartToggle = styled.img`
   width: 20px;

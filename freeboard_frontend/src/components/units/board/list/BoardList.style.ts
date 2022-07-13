@@ -92,15 +92,15 @@ export const Column_Num = styled.div`
 `;
 export const Column_Title = styled.div`
   width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 3; /* 라인수 */
+  -webkit-box-orient: vertical;
   @media ${breakPoints.mobile} {
     width: 50%;
     padding: 0px 2rem;
     text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    -webkit-line-clamp: 3; /* 라인수 */
-    -webkit-box-orient: vertical;
   }
   @media ${breakPoints.tablet} {
     width: 60%;

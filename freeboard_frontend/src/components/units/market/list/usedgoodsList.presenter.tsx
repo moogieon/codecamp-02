@@ -77,16 +77,16 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
                         </SellerInfo>
                       </GoddsInfo>
                     </LeftBox>
-                    <RigthBox>
-                      <GoodsPrice>
-                        ₩{" "}
-                        {data.price
-                          .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                        원
-                      </GoodsPrice>
-                    </RigthBox>
                   </InfoBox>
+                  <RigthBox>
+                    <GoodsPrice>
+                      ₩{" "}
+                      {data.price
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                      원
+                    </GoodsPrice>
+                  </RigthBox>
                 </Wrapper_Body>
               ))}
             </InfiniteScroll>

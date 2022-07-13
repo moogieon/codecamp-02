@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 export const RealWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -10,8 +11,8 @@ export const RealWrapper = styled.div`
 export const Wrapper = styled.div`
   width: 100%;
   margin: 0px auto;
-  padding: 50px 10% 0px 10%;
   /* text-align: center; */
+  padding: 0px 10% 0px 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,12 +36,11 @@ export const Body = styled.div`
   width: 100%;
   height: 1008px;
   /* border: 1px solid white; */
+  padding: 0px 10px;
   display: flex;
-  padding-left: 50px;
-  padding-right: 50px;
   flex-direction: column;
   overflow: auto;
-
+  margin-top: 100px;
   ::-webkit-scrollbar {
     width: 20px;
 
@@ -61,12 +61,14 @@ export const Body = styled.div`
   }
 `;
 export const Wrapper_Body = styled.div`
-  border-bottom: 1px solid #bdbdbd;
-  /* width: 1100px; */
-  color: white;
+  width: 100%;
+  position: relative;
+
   display: flex;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 30px;
+  color: white;
   transition-property: width;
   cursor: pointer;
   -webkit-transition: -webkit-transform 0.2s;
@@ -76,78 +78,98 @@ export const Wrapper_Body = styled.div`
   :hover {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+    border: 1px solid #bdbdbd;
+    background-color: black;
   }
   :hover .name {
     color: #fc0;
   }
+  @media ${breakPoints.mobile} {
+    padding: 20px 0px;
+  }
 `;
 export const GoodsImg = styled.img`
-  width: 160px;
+  width: 20%;
   height: 160px;
   background-size: cover;
 `;
 export const GoddsInfo = styled.div`
   height: 160px;
-  padding-top: 8px;
-  padding-left: 40px;
+  width: 100%;
 `;
 
 export const GoodsName = styled.div`
   color: white;
   height: 36px;
+  width: 70%;
   margin-bottom: 4px;
   cursor: pointer;
   font-size: 24px;
   font-weight: 500;
   font-family: ccc;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 3;
 `;
 export const GoodsRemarks = styled.div`
   color: white;
   height: 24px;
+  width: 100%;
   margin-bottom: 8px;
   font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
 `;
 export const GoodsTag = styled.div`
   color: white;
   height: 24px;
+  width: 50%;
   margin-bottom: 15px;
   font-size: 16px;
   color: #bdbdbd;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
 `;
 export const SellerInfo = styled.div`
   /* border: 1px solid blue; */
   color: white;
-  /* width: 125px; */
+  width: 100%;
   height: 24px;
 `;
 export const Seller = styled.div`
   /* border: 1px solid red; */
   color: white;
-  /* width: 65px; */
+  width: 100%;
   height: 20px;
   font-size: 16px;
 `;
 
 export const InfoBox = styled.div`
   height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+  width: 50%;
+  flex: 3;
+  margin-left: 20px;
 `;
 export const RigthBox = styled.div`
   height: 100%;
+  width: 25%;
   padding-right: 10px;
+  flex: 1;
 `;
 export const LeftBox = styled.div`
   height: 100%;
-
+  width: 100%;
   display: flex;
 `;
 export const GoodsPrice = styled.div`
   height: 36px;
-
   margin-top: 62px;
-  font-size: 23px;
+  font-size: 1.25rem;
 
   /* border: 1px solid red; */
   font-family: ccc;
@@ -169,10 +191,10 @@ export const GoWrite = styled.button`
 // --------- side bar -------
 export const ItemLog = styled.div`
   border: 1px solid white;
-
-  width: 196px;
+  width: 200px;
   height: 505px;
   overflow-y: auto;
+  background-color: black;
   ::-webkit-scrollbar {
     width: 20px;
     background-color: #f2f2f2;
@@ -198,6 +220,7 @@ export const ItemLog = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
+  padding: 20px 10px 10px 10px;
 `;
 export const LogoTitle = styled.div`
   font-size: 18px;
@@ -207,14 +230,14 @@ export const LogoTitle = styled.div`
   position: sticky;
 `;
 export const LogoInfo = styled.div`
-  width: 156px;
+  width: 100%;
   /* height: 199px; */
   border: 1px solid #bdbdbd;
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-  padding-left: 10px;
-  padding-bottom: 10px;
+  padding: 0px 10px 10px 10px;
+
   cursor: pointer;
   :hover {
     background-color: grey;
@@ -253,4 +276,8 @@ export const LogoTag = styled.div`
   margin-top: 8px;
   font-size: 12px;
   color: #3f6ee5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 3;
 `;
