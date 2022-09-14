@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import Kakaomap from "../../../commons/map/Map01/map.contanier";
 
 export const Wrapper = styled.div`
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,13 +11,13 @@ export const Wrapper = styled.div`
   min-height: 1129px;
 `;
 export const Body = styled.div`
-  width: 792px;
+  width: 100%;
   /* border: 1px solid black; */
   margin: 0 auto;
   height: auto;
   padding-bottom: 80px;
-  padding-left: 102px;
-  padding-right: 102px;
+  padding-left: 20px;
+  padding-right: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,9 +27,8 @@ export const Body = styled.div`
   color: white;
 `;
 export const Body_Head = styled.div`
-  width: 792px;
+  width: 100%;
   height: 48px;
-  /* border: 1px solid red; */
   display: flex;
   justify-content: space-between;
 `;
@@ -66,13 +66,15 @@ export const LocImg = styled.img`
 `;
 
 export const Line = styled.div`
-  width: 792px;
+  max-width: 1200px;
+  width: 100%;
   border-bottom: 1px solid #bdbdbd;
   padding-top: 20px;
   margin-bottom: 10px;
 `;
 export const GoodsInfoBox = styled.div`
-  width: 792px;
+  max-width: 1200px;
+  width: 100%;
   height: 63px;
   /* border: 1px solid red; */
   display: flex;
@@ -104,31 +106,32 @@ export const HeartCount = styled.div`
 `;
 
 export const Price = styled.div`
-  width: 792px;
+  max-width: 1200px;
+  width: 100%;
   height: 53px;
   font-size: 36px;
   margin-top: 8px; ;
 `;
 export const GoddsImg = styled.img`
-  width: 500px;
-  height: 500px;
-
-  padding-top: 20px;
+  width: 100%;
+  height: 100%;
 `;
 export const GoodsContents = styled.div`
-  width: 792px;
+  max-width: 792px;
+  width: 100%;
   height: 108px;
 
   margin-top: 100px;
 `;
 export const Tag = styled.div`
-  width: 792px;
+  width: 100%;
   height: 24px;
   color: #3f6ee5;
 `;
 
 export const Maps = styled(Kakaomap)`
-  width: 100px;
+  width: 100%;
+  max-width: 100px;
   height: 360px;
   border: 1px solid red;
   margin-top: 80px;
@@ -137,9 +140,12 @@ export const Maps = styled(Kakaomap)`
 export const ButtonBox = styled.div`
   padding-top: 64px;
   display: flex;
+  justify-content: center;
+  width: 100%;
 `;
 export const ListButton = styled.button`
-  width: 179px;
+  max-width: 179px;
+  width: 100%;
   height: 52px;
   background-color: transparent;
   font-family: ccc;
@@ -150,8 +156,8 @@ export const ListButton = styled.button`
   }
 `;
 export const PaymentButton = styled.button`
-  width: 179px;
-  height: 52px;
+  max-width: 179px;
+  width: 100%;
   margin-left: 24px;
   background-color: black;
   font-family: ccc;

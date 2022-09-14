@@ -3,7 +3,8 @@ import styled from "@emotion/styled";
 export const ItemWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: 20px;
+
+  padding: 20px;
   height: 100%;
   border-bottom: 1px solid lightgray;
   margin-bottom: 20px;

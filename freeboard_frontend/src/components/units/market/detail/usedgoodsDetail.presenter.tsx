@@ -41,11 +41,10 @@ export default function UsedgoodsDetailUI(props: any) {
 
   const settings = {
     customPaging: function (i: any) {
-      // console.log("i", props.data?.fetchUseditem.images[i]);
       return (
         <a>
           <img
-            style={{ width: "20px", height: "20px" }}
+            style={{ width: "100px", height: "100px" }}
             src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[i]}`}
           />
         </a>
@@ -93,7 +92,7 @@ export default function UsedgoodsDetailUI(props: any) {
             원
           </Price>
 
-          <div style={{ width: "500px", height: "500px" }}>
+          <div style={{ maxWidth: "700px", maxHeight: "500px" }}>
             <Slider {...settings}>
               {props.data?.fetchUseditem.images?.map((data: string) => (
                 <div key={data}>

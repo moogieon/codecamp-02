@@ -4,7 +4,7 @@ export const BoardCommentWrapper = styled.div`
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding-top: 50px;
+  padding: 50px 20px 0px 20px;
   margin-bottom: 30px;
   border-top: 1px solid #bdbdbd;
 `;
@@ -31,6 +31,7 @@ export const CommentInput = styled.textarea`
   width: 100%;
   height: 108px;
   padding: 20px;
+  font-size: 14px;
   border: none;
   border-bottom: 1px solid gainsboro;
   background-color: black;
