@@ -1,5 +1,6 @@
 import { HeartOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 import Kakaomap from "../../../commons/map/Map01/map.contanier";
 
 export const Wrapper = styled.div`
@@ -187,5 +188,13 @@ export const UpdateButton = styled.button`
   cursor: pointer;
   :hover {
     color: #ffcc01;
+  }
+`;
+export const Imgbox = styled.div`
+  width: 700px;
+  max-height: 300px;
+
+  @media ${breakPoints.mobile} {
+    width: 300px;
   }
 `;

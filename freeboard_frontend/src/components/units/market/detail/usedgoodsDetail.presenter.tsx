@@ -32,6 +32,7 @@ import {
   PaymentButton,
   DeletButton,
   UpdateButton,
+  Imgbox,
 } from "./usedgoodsDetail.styles";
 import { useContext } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
@@ -44,7 +45,7 @@ export default function UsedgoodsDetailUI(props: any) {
       return (
         <a>
           <img
-            style={{ width: "100px", height: "100px" }}
+            style={{ width: "20px", height: "20px" }}
             src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[i]}`}
           />
         </a>
@@ -92,24 +93,28 @@ export default function UsedgoodsDetailUI(props: any) {
             원
           </Price>
 
-          <div style={{ maxWidth: "700px", maxHeight: "500px" }}>
+          <Imgbox>
             <Slider {...settings}>
               {props.data?.fetchUseditem.images?.map((data: string) => (
-                <div key={data}>
+                <Imgbox key={data}>
                   <GoddsImg src={`https://storage.googleapis.com/${data}`} />
-                </div>
+                </Imgbox>
               ))}
             </Slider>
+          </Imgbox>
+          <div style={{ minHeight: "200px", marginTop: "200px" }}>
+            {typeof window !== "undefined" ? (
+              <GoodsContents
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(
+                    props.data?.fetchUseditem.contents
+                  ),
+                }}
+              ></GoodsContents>
+            ) : (
+              <div />
+            )}
           </div>
-          {typeof window !== "undefined" ? (
-            <GoodsContents
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(props.data?.fetchUseditem.contents),
-              }}
-            ></GoodsContents>
-          ) : (
-            <div />
-          )}
           <Tag>{props.data?.fetchUseditem.tags}</Tag>
           <Line />
           <Maps

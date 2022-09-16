@@ -1,0 +1,6 @@
+.slick-dots li {
+  width: auto !important;
+}
+.slick-dots {
+  bottom: -90px !important;
+}

@@ -35,7 +35,7 @@ export const TopBox = styled.div`
 export const BestProductBox = styled.div`
   width: 100%;
   height: 100%;
-  box-shadow: 5px 5px 5px 5px #ffcc01;
+  box-shadow: 5px 5px 5px 5px #363531;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

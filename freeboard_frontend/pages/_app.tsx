@@ -20,10 +20,12 @@ import Layout from "../src/components/commons/layout";
 import { onError } from "@apollo/client/link/error";
 import { getAccessToken } from "../src/commons/libraries/getAccessToken";
 import * as Sentry from "@sentry/nextjs";
+import "../styles/globalstyle.css";
 import Head from "next/head";
 Sentry.init({
   dsn: "https://6a59c03af1674c2e8b8bd092141bce41@o965495.ingest.sentry.io/5916340",
 });
+
 interface IContext {
   accessToken?: any;
   setAccessToken?: Dispatch<SetStateAction<undefined>>;
