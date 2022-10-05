@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { useMutation } from "@apollo/client";
 import {
   BOARD_COMMENT,
@@ -106,8 +106,8 @@ export default function BoardCommentsWrite(props: any) {
   //     alert(error.message);
   //   }
   // }
-  const inputMax = (e) => {
-    setMaxComment(e.target.value.length);
+  const inputMax = (e: KeyboardEvent<HTMLInputElement>) => {
+    setMaxComment(e.currentTarget.value.length);
   };
 
   return (
