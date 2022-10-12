@@ -18,6 +18,6 @@ export const getAccessToken = async (setAccessToken: any) => {
     setAccessToken(newAccessToken);
     return newAccessToken;
   } catch (error) {
-    console.log(error.message);
+    alert(error);
   }
 };
