@@ -49,7 +49,7 @@ export default function UsedgoodsDetail() {
       });
       // console.log(results.data);
     } catch (errors) {
-      alert(errors.message);
+      alert("오류");
     }
   };
   const onClickDelete = async () => {
@@ -80,7 +80,7 @@ export default function UsedgoodsDetail() {
       });
       setActive(true);
     } catch (errors) {
-      alert(errors.message);
+      alert("오류");
     }
   };
   const onClickEdit = () => {

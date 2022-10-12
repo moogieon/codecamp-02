@@ -42,7 +42,7 @@ export default function UsedGoodsComments(props: IUsedGoodsCommentsWriteProps) {
         },
       });
     } catch (errors) {
-      alert(errors.message);
+      alert("오류");
     }
   };
 
