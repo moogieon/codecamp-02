@@ -10,6 +10,8 @@ export const Wraaoer_Body = styled.div`
 export const Wrapper = styled.div`
   height: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   padding-top: 240px;
   opacity: 0.6;

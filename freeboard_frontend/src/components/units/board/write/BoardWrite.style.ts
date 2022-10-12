@@ -12,14 +12,14 @@ export const Wrapper = styled.div`
   align-items: center;
 `;
 export const Body = styled.div`
-  width: 1200px;
+  width: 100%;
   /* height: 1847px; */
   border: 1px solid black;
   margin: 100px;
   padding-top: 80px;
   padding-bottom: 100px;
-  padding-left: 102px;
-  padding-right: 102px;
+  padding-left: 20px;
+  padding-right: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,10 +38,11 @@ export const WriterWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding-top: 40px;
+  gap: 2rem;
 `;
 
 export const Writer = styled.input`
-  width: 486px;
+  width: 100%;
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
@@ -49,7 +50,7 @@ export const Writer = styled.input`
 `;
 
 export const Password = styled.input`
-  width: 486px;
+  width: 100%;
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
@@ -64,10 +65,11 @@ export const Label = styled.div`
 
 export const InputWrapper = styled.div`
   padding-top: 40px;
+  width: 100%;
 `;
 
 export const Subject = styled.input`
-  width: 996px;
+  width: 100%;
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
@@ -75,7 +77,7 @@ export const Subject = styled.input`
 `;
 
 export const Contents = styled.textarea`
-  width: 996px;
+  width: 100%;
   height: 480px;
   padding-left: 16px;
   padding: 14px;
@@ -106,7 +108,7 @@ export const SearchButton = styled.button`
 `;
 
 export const Address = styled.input`
-  width: 996px;
+  width: 100%;
   height: 52px;
   margin-top: 16px;
   padding-left: 16px;
@@ -115,7 +117,7 @@ export const Address = styled.input`
 `;
 
 export const Youtube = styled.input`
-  width: 996px;
+  width: 100%;
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
@@ -123,14 +125,15 @@ export const Youtube = styled.input`
 `;
 
 export const ImageWrapper = styled.div`
-  width: 996px;
+  width: 100%;
   padding-top: 40px;
   background: black;
 `;
 
 export const OptionWrapper = styled.div`
-  width: 996px;
+  width: 100%;
   padding-top: 40px;
+  color: white;
 `;
 
 export const RadioButton = styled.input`

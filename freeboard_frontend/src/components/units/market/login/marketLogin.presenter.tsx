@@ -71,17 +71,18 @@ export default function MarketLoginUI(props: IProps) {
           </Body_Wraaper>
           <div
             style={{
-              width: 300,
+              width: 200,
               height: 20,
-              marginTop: 20,
-              position: "absolute",
-              top: 850,
-              left: 690,
+              margin: "0 auto",
               fontSize: 24,
             }}
           >
-            <div>임시 이메일: 111@111.com</div>
-            <div>임시 PW: 1234</div>
+            <div>
+              테스트 이메일: <div style={{ color: "green" }}>gr@een.com</div>
+            </div>
+            <div>
+              테스트 PW: <div style={{ color: "green" }}>1234</div>
+            </div>
           </div>
         </Wrapper>
       </Wraaoer_Body>

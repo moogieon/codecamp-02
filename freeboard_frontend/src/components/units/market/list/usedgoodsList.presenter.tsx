@@ -41,55 +41,61 @@ export default function UsedGoodsListUI(props: IUsedGoodsList) {
             <BestList />
           </Head>
           <Body>
-            <InfiniteScroll
-              pageStart={0}
-              loadMore={props.onLoadMore}
-              hasMore={props.hasMore}
-              useWindow={false}
-              loader={
-                <div className="loader" key={0}>
-                  Winter is Comming ...
-                </div>
-              }
-            >
-              {props.data?.fetchUseditems.map((data) => (
-                <Wrapper_Body key={data._id} onClick={props.onClickPost(data)}>
-                  <GoodsImg
-                    src={
-                      data.images?.[0]
-                        ? `https://storage.googleapis.com/${data.images[0]}`
-                        : "/market_img/list/imageNotFound.png"
-                    }
-                  ></GoodsImg>
-                  <InfoBox>
-                    <LeftBox>
-                      <GoddsInfo>
-                        <GoodsName className="name">{data.name}</GoodsName>
-                        <GoodsRemarks>{data.remarks}</GoodsRemarks>
-                        <GoodsTag>{data.tags}</GoodsTag>
-                        <SellerInfo>
-                          <Seller>
-                            {data.seller.name.replace(
-                              /\B(?=(\d{5})+(?!\d))/g,
-                              ","
-                            )}
-                          </Seller>
-                        </SellerInfo>
-                      </GoddsInfo>
-                    </LeftBox>
-                  </InfoBox>
-                  <RigthBox>
-                    <GoodsPrice>
-                      ₩{" "}
-                      {data.price
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                      원
-                    </GoodsPrice>
-                  </RigthBox>
-                </Wrapper_Body>
-              ))}
-            </InfiniteScroll>
+            {
+              // @ts-ignore
+              <InfiniteScroll
+                pageStart={0}
+                loadMore={props.onLoadMore}
+                hasMore={props.hasMore}
+                useWindow={false}
+                loader={
+                  <div className="loader" key={0}>
+                    Winter is Comming ...
+                  </div>
+                }
+              >
+                {props.data?.fetchUseditems.map((data) => (
+                  <Wrapper_Body
+                    key={data._id}
+                    onClick={props.onClickPost(data)}
+                  >
+                    <GoodsImg
+                      src={
+                        data.images?.[0]
+                          ? `https://storage.googleapis.com/${data.images[0]}`
+                          : "/market_img/list/imageNotFound.png"
+                      }
+                    ></GoodsImg>
+                    <InfoBox>
+                      <LeftBox>
+                        <GoddsInfo>
+                          <GoodsName className="name">{data.name}</GoodsName>
+                          <GoodsRemarks>{data.remarks}</GoodsRemarks>
+                          <GoodsTag>{data.tags}</GoodsTag>
+                          <SellerInfo>
+                            <Seller>
+                              {data.seller.name.replace(
+                                /\B(?=(\d{5})+(?!\d))/g,
+                                ","
+                              )}
+                            </Seller>
+                          </SellerInfo>
+                        </GoddsInfo>
+                      </LeftBox>
+                    </InfoBox>
+                    <RigthBox>
+                      <GoodsPrice>
+                        ₩{" "}
+                        {data.price
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                        원
+                      </GoodsPrice>
+                    </RigthBox>
+                  </Wrapper_Body>
+                ))}
+              </InfiniteScroll>
+            }
           </Body>
 
           <GoWrite onClick={props.onClikWritePage}>상품 등록</GoWrite>

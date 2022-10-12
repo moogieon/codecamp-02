@@ -94,13 +94,16 @@ export default function UsedgoodsDetailUI(props: any) {
           </Price>
 
           <Imgbox>
-            <Slider {...settings}>
-              {props.data?.fetchUseditem.images?.map((data: string) => (
-                <Imgbox key={data}>
-                  <GoddsImg src={`https://storage.googleapis.com/${data}`} />
-                </Imgbox>
-              ))}
-            </Slider>
+            {
+              // @ts-ignore
+              <Slider {...settings}>
+                {props.data?.fetchUseditem.images?.map((data: string) => (
+                  <Imgbox key={data}>
+                    <GoddsImg src={`https://storage.googleapis.com/${data}`} />
+                  </Imgbox>
+                ))}
+              </Slider>
+            }
           </Imgbox>
           <div style={{ minHeight: "200px", marginTop: "200px" }}>
             {typeof window !== "undefined" ? (

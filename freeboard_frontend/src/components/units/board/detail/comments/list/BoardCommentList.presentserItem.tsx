@@ -66,6 +66,7 @@ export default function BoardCommentListUIItem(
   return (
     <>
       {isOpenDeleteModal && (
+        // @ts-ignore
         <Modal
           visible={isOpenDeleteModal}
           onOk={onClickDelete}

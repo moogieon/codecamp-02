@@ -101,6 +101,7 @@ export default function BoardWriteUI(props: IProps) {
           <ZipcodeWrapper>
             <Zipcode name="zipcode" placeholder="07250" value={props.zipcode} />
             {props.openpost && (
+              // @ts-ignore
               <Modal title="주소 검색" visible={true}>
                 <DaumPostcode
                   onComplete={props.onComplete}

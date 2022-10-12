@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 export const Wrapper = styled.div`
   width: 100%;
@@ -21,8 +20,4 @@ export const List = styled.div`
   text-align: center;
   margin-bottom: 15px;
   font-weight: 700;
-`;
-export const Gallery = styled(ImageGallery)`
-  width: 50%;
-  height: 50%;
 `;

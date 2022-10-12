@@ -46,50 +46,48 @@ export default function LayoutBannerUI() {
   // if (typeof window === "undefined")
 
   return (
-    <>
-      <Coverflow
-        // @ts-ignore
-        width="1200"
-        height="500"
-        infiniteScroll
-        classes={{ background: "rgb(0, 0, 0)" }}
-        className=""
-        displayQuantityOfSide={2}
-        // navigation
-        enableScroll={true}
-        clickable={true}
-        active={0}
-      >
-        <div onClick={() => fn()} onKeyDown={() => fn()} role="menuitem">
-          <img
-            src="/market_img/login/Blondcover.jpg"
-            alt="title or description"
-            style={{
-              display: "block",
-              width: "100%",
-            }}
-          />
-        </div>
+    // @ts-ignore
+    <Coverflow
+      width="1200"
+      height="500"
+      infiniteScroll
+      classes={{ background: "rgb(0, 0, 0)" }}
+      className=""
+      displayQuantityOfSide={2}
+      // navigation
+      enableScroll={true}
+      clickable={true}
+      active={0}
+    >
+      <div onClick={() => fn()} onKeyDown={() => fn()} role="menuitem">
         <img
+          src="/market_img/login/Blondcover.jpg"
+          alt="title or description"
           style={{
             display: "block",
             width: "100%",
           }}
-          src="/market_img/login/orange.jpg"
-          // alt="title or description"
-          data-action="https://www.youtube.com/playlist?list=OLAK5uy_n6EyWhFOckC60cQK8RG64Wt6tIxJmRh-I"
         />
-        <img
-          src="/market_img/login/Ocean2.jpg"
-          // alt="title or description"
-          data-action="http://andyyou.github.io/react-coverflow/"
-        />
-        <img
-          src="/market_img/login/Ocean1.jpeg"
-          // alt="title or description"
-          data-action="http://andyyou.github.io/react-coverflow/"
-        />
-      </Coverflow>
-    </>
+      </div>
+      <img
+        style={{
+          display: "block",
+          width: "100%",
+        }}
+        src="/market_img/login/orange.jpg"
+        // alt="title or description"
+        data-action="https://www.youtube.com/playlist?list=OLAK5uy_n6EyWhFOckC60cQK8RG64Wt6tIxJmRh-I"
+      />
+      <img
+        src="/market_img/login/Ocean2.jpg"
+        // alt="title or description"
+        data-action="http://andyyou.github.io/react-coverflow/"
+      />
+      <img
+        src="/market_img/login/Ocean1.jpeg"
+        // alt="title or description"
+        data-action="http://andyyou.github.io/react-coverflow/"
+      />
+    </Coverflow>
   );
 }
