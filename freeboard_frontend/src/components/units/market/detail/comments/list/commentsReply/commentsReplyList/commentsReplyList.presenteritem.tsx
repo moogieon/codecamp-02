@@ -48,7 +48,7 @@ export default function CommentsReplyListItem(props: any) {
         },
       });
     } catch (error) {
-      alert(error.message);
+      alert("오류");
     }
   };
 

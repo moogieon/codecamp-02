@@ -56,7 +56,7 @@ export default function UsedGoodsCommentsListUIItem(
         ],
       });
     } catch (error) {
-      Modal.error({ content: error.message });
+      Modal.error({ content: "오류" });
     }
   }
   const onClickshowReplyInput = () => {

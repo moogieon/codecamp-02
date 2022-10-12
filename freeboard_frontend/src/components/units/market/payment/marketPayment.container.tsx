@@ -59,7 +59,7 @@ export default function Payment(props: any) {
             // 결제 실패 시 로직,
           }
         } catch (error) {
-          alert(error.message);
+          alert("오류");
         }
       }
     );

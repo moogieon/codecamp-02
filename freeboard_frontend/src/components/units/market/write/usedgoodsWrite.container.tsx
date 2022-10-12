@@ -62,7 +62,7 @@ export default function UsedgoodsWrite() {
       });
     } catch (error) {
       Modal.error({
-        content: error.message,
+        content: "오류",
       });
     }
   };
@@ -97,7 +97,7 @@ export default function UsedgoodsWrite() {
       });
     } catch (error) {
       Modal.error({
-        content: error.message,
+        content: "오류",
       });
     }
   };

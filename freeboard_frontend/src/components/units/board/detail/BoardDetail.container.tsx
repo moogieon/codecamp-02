@@ -43,7 +43,7 @@ export default function BoardDetail() {
       alert("삭제 완료");
       router.push("/boards");
     } catch (error) {
-      alert(error.message);
+      alert("오류");
     }
     console.log(data);
   }

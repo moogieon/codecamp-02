@@ -45,7 +45,7 @@ export default function MarketSingup() {
       });
     } catch (error) {
       Modal.error({
-        content: error.message,
+        content: "오류",
       });
     }
   }

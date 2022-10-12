@@ -12,7 +12,7 @@ export default function Profiel() {
         variables: { password },
       });
     } catch (error) {
-      alert(error.message);
+      alert("오류");
     }
   };
   const onChangePassword = (e: any) => {

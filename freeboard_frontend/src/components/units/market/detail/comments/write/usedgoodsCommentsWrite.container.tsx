@@ -83,7 +83,7 @@ export default function UsedGoodsComments(props: IUsedGoodsCommentsWriteProps) {
       });
       props.setIsEdit(false);
     } catch (error) {
-      alert(error.message);
+      alert("오류");
     }
   };
   return (

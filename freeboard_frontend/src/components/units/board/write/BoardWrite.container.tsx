@@ -115,7 +115,7 @@ export default function BoardWrite(props: IProps) {
         onOk: () => router.push(`detail/${result.data.createBoard._id}`),
       });
     } catch (error) {
-      alert(error.message);
+      alert("오류");
     }
   }
 
@@ -150,7 +150,7 @@ export default function BoardWrite(props: IProps) {
             router.push(`/boards/detail/${result.data.updateBoard._id}`),
         });
       } catch (error) {
-        alert(error.message); // ssssssss
+        alert("오류"); // ssssssss
       }
     }
   }

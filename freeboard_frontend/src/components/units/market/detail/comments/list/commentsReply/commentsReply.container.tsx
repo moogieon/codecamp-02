@@ -67,7 +67,7 @@ export default function CommentsReplay(props: any) {
 
       props.setIsEdit(false);
     } catch (error) {
-      alert(error.message);
+      alert("오류");
     }
   };
   return (
