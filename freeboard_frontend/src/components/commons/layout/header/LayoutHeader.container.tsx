@@ -48,7 +48,7 @@ export default function LayoutHeader() {
         },
       });
     } catch (error) {
-      alert(error.message);
+      alert("오류");
     }
   };
 
