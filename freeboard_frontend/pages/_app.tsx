@@ -7,7 +7,7 @@ import {
 import { Global } from "@emotion/react";
 import "antd/dist/antd.css";
 import { createUploadLink } from "apollo-upload-client";
-import { AppProps } from "next/dist/shared/lib/router/router";
+import { AppProps } from "next/app";
 import {
   Dispatch,
   SetStateAction,
