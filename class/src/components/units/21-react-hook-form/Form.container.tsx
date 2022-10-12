@@ -31,7 +31,7 @@ export default function Form() {
       });
     } catch (error) {
       Modal.error({
-        content: error.message,
+        content:"오류"
       });
     }
   }

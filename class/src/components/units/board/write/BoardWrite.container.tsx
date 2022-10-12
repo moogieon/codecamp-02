@@ -114,7 +114,7 @@ export default function BoardWrite(props: IProps) {
       alert("등록 완료!!");
       router.push(`/detail/${result.data?.createBoard._id}`);
     } catch (error) {
-      alert(error.message);
+      alert("오류");
     }
   }
 
@@ -133,7 +133,7 @@ export default function BoardWrite(props: IProps) {
       alert("등록 완료!!");
       router.push(`/detail/${result.data?.updateBoard._id}`);
     } catch (error) {
-      alert(error.message);
+      alert("오류");
     }
   }
 

@@ -18,6 +18,6 @@ export const getAccessToken = async (setAccessToken) => {
     setAccessToken(newAccessToken);
     return newAccessToken;
   } catch (error) {
-    console.log(error.message);
+    alert("오류");
   }
 };
