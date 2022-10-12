@@ -60,7 +60,7 @@ export default function MarketLogin() {
 
       Modal.info({
         content: "로그인 완료",
-        onOk: () => router.push("/market/"),
+        onOk: () => router.push("/market"),
       });
     } catch (error) {
       Modal.error({

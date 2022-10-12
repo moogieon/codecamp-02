@@ -1,4 +1,4 @@
-import styled from "@emotion/styled/";
+import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`

@@ -10,7 +10,7 @@ import {
 } from "./mypagePoint.style";
 
 import MyPages from "../../../../commons/mypages/mypages01.container";
-import PointTransactions from "./pointTransactions/PointTransactions.contatiner";
+import PointTransactions from "./pointTransactions/pointTransactions.contatiner";
 import MypageSold from "./sold/mypageSold.contatiner";
 import MypageBought from "./bought/mypageBought.contatiner";
 import MypagePointLoading from "./pointLoading/mypagePointLoading.contatiner";

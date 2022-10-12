@@ -155,7 +155,7 @@ export default function BoardWrite(props: IProps) {
     }
   }
   function onClickCancel() {
-    router.push("/boards/");
+    router.push("/boards");
   }
   function onChangeFiles(file: File, index: number) {
     const newFiles = [...files];

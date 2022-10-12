@@ -1,4 +1,4 @@
-import styled from "@emotion/styled/";
+import styled from "@emotion/styled";
 import { Rate } from "antd";
 
 export const Body = styled.div`

@@ -12,7 +12,7 @@ import {
   ColumnBuy,
   ColumnHeaderTitle,
   TextToken,
-} from "./PointTransactions.style";
+} from "./pointTransactions.style";
 import { v4 as uuidv4 } from "uuid";
 
 export default function PointTransactionsUI(props: any) {
