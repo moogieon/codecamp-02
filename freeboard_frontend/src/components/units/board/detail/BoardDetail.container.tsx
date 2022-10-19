@@ -7,23 +7,27 @@ import {
   DISLIKE_BOARD,
 } from "./BoardDetail.queries";
 import BoardDetailUI from "./BoardDetail.presenter";
+import { useEffect } from "react";
 
 export default function BoardDetail() {
   const router = useRouter();
-  console.log(router);
+  useEffect(() => {
+    if (!router.isReady) return;
+    console.log("🙆‍♀️ 콘솔에 쿼리 찍힘!");
+  }, [router.isReady]);
   const [deleteBoard] = useMutation(DELETE_BOARD);
 
   const { data } = useQuery(FETCH_BOARD, {
-    variables: { boardId: router.query._id },
+    variables: { boardId: router?.query?._id },
   });
-  console.log(data);
+
   const [likeBoard] = useMutation(LIKE_BOARD);
   const [dislikeBoard] = useMutation(DISLIKE_BOARD);
   function onClickLike() {
     likeBoard({
-      variables: { boardId: router.query._id },
+      variables: { boardId: router?.query?._id },
       refetchQueries: [
-        { query: FETCH_BOARD, variables: { boardId: router.query._id } },
+        { query: FETCH_BOARD, variables: { boardId: router?.query?._id } },
       ],
     });
   }

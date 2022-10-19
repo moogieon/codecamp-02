@@ -34,7 +34,6 @@ export default function BoardCommentsWrite(props: any) {
       [event.target.name]: event.target.value,
     });
     setComments_Error({ ...comments_error, [event.target.name]: "" });
-    console.log(event.target.name);
   }
   // console.log(data);
   function onChangeStar(value: number) {
@@ -65,8 +64,10 @@ export default function BoardCommentsWrite(props: any) {
           },
         ],
       });
-      setInputs_Comment(INPUT_COMMENT); //! 이게 왜 있는건지 ???
-    } catch (error) {}
+      setInputs_Comment({ writer: "", password: "", contents: "", rating: 0 }); //! 이게 왜 있는건지 ???
+    } catch (error) {
+      alert(error);
+    }
 
     // console.log(data);
 

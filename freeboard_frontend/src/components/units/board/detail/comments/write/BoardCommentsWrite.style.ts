@@ -3,7 +3,9 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   padding: 10px 2.5rem;
   margin-top: 70px;
+  margin-bottom: 70px;
   width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,8 +26,7 @@ export const EditComments = styled.div`
 
 export const Comments_in = styled.div`
   width: 100%;
-  height: 272px;
-
+  height: 100%;
   background-color: black;
 `;
 export const Comments_init_writer = styled.input`

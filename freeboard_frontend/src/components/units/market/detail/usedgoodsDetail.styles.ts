@@ -76,19 +76,25 @@ export const Line = styled.div`
 export const GoodsInfoBox = styled.div`
   max-width: 1200px;
   width: 100%;
-  height: 63px;
+  min-height: 63px;
+  height: 100%;
   /* border: 1px solid red; */
   display: flex;
   justify-content: space-between;
 `;
-export const Info_Left = styled.div``;
+export const Info_Left = styled.div`
+  min-height: 63px;
+  height: 100%;
+`;
 export const Summary = styled.div`
   color: #bdbdbd;
   font-size: 18px;
+  height: 100%;
 `;
 export const Titel = styled.div`
   font-size: 24px;
   color: beige;
+  height: 100%;
 `;
 export const Info_Right = styled.div`
   width: 36px;
@@ -109,7 +115,8 @@ export const HeartCount = styled.div`
 export const Price = styled.div`
   max-width: 1200px;
   width: 100%;
-  height: 53px;
+  height: 100%;
+  min-height: 53px;
   font-size: 36px;
   margin-top: 8px; ;
 `;

@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
 `;
 export const Body = styled.div`
   width: 100%;
+  max-width: 1200px;
   margin: 0px auto;
   border: 1px solid black;
   padding: 80px 1.8rem;
@@ -91,8 +92,8 @@ export const Wrapper_Body = styled.div`
 `;
 
 export const Body_Title = styled.span`
-  max-width: 285px;
-  height: 54px;
+  width: 100%;
+  min-height: 54px;
   font-size: 36px;
   text-align: unset;
 `;
@@ -138,7 +139,6 @@ export const Count_Wrpper = styled.div`
   display: flex;
   grid-gap: 1.8rem;
   gap: 1.8rem;
-  margin-top: 50px;
 `;
 
 export const Foot_Count = styled.div`

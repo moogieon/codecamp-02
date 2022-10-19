@@ -66,7 +66,6 @@ export default function BoardDetailUI(props: IProps) {
             </Head_Wrapper>
             <Icon_Wrapper>
               <Img_2 src="/boards-image/File.png" />
-
               <Tooltip
                 placement="topRight"
                 title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}

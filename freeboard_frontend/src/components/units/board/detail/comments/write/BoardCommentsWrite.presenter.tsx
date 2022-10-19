@@ -49,7 +49,6 @@ export default function BoardCommentsWriteUI(props: IProps) {
             <Rate onChange={props.onChangeStar} />
             <div>이름</div>
             <Warring>{props.comments_error.writer}</Warring>
-
             <Comments_init_writer
               name="writer"
               type="text"

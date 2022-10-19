@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { getDate } from "../../../../../../commons/libraries/utils";
 import BoardCommentWrite from "../write/BoardCommentsWrite.container";
 import {
@@ -27,13 +27,15 @@ export default function BoardCommentListUIItem(
   props: IBoardCommentListUIItemProps
 ) {
   const router = useRouter();
+  useEffect(() => {
+    if (!router.isReady) return;
+    console.log("🙆‍♀️ 콘솔에 쿼리 찍힘!");
+  }, [router.isReady]);
   const [isEdit, setIsEdit] = useState(false);
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
   const [password, setPassword] = useState("");
   const [deleteBoardComment] = useMutation(DELETE_COMMENTS);
-  // function onCKilckUpDate() {
-  //   setIsEdit(true);
-  // }
+
   function onClickOpenDeleteModal() {
     setIsOpenDeleteModal(true);
   }
@@ -80,7 +82,6 @@ export default function BoardCommentListUIItem(
         <Wrapper>
           <Body>
             <Wrapper_Head key={props.data._id}>
-              {" "}
               <Profile_Img src="/boards-image/Profile.png" />
               <CommentList>
                 <Comment_Writer>작성자:{props.data.writer}</Comment_Writer>

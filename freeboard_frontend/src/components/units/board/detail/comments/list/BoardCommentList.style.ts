@@ -7,14 +7,13 @@ export const Body = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  padding-top: 50px;
   width: 100%;
   margin: 0px auto;
-  margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10;
 `;
 export const Profile_Img = styled.img`
   width: 40px;
@@ -41,7 +40,7 @@ export const CommentList = styled.div`
   padding-bottom: 20px;
 `;
 export const Comment_Writer = styled.div`
-  font-size: 16px;
+  font-size: 21px;
   width: 70%;
 `;
 export const Star = styled(Rate)``;
@@ -51,7 +50,7 @@ export const Comment_Date = styled.div`
 `;
 export const Comment_Contents = styled.div`
   font-size: 16px;
-  color: #4f4f4f;
+  color: #fff;
   word-break: break-all;
 `;
 export const Remove = styled.button`

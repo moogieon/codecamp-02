@@ -60,6 +60,7 @@ export default function UsedgoodsDetailUI(props: any) {
   };
   return (
     <>
+      {!props.id || "Loading"}
       <Wrapper>
         <Body>
           <Body_Head>
@@ -92,7 +93,6 @@ export default function UsedgoodsDetailUI(props: any) {
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
             원
           </Price>
-
           <Imgbox>
             {
               // @ts-ignore
@@ -119,15 +119,20 @@ export default function UsedgoodsDetailUI(props: any) {
             )}
           </div>
           <Tag>{props.data?.fetchUseditem.tags}</Tag>
-          <Line />
-          <Maps
-            readOnly
-            lating={{
-              lat: props.data?.fetchUseditem?.useditemAddress?.lat || "",
-              lang: props.data?.fetchUseditem?.useditemAddress?.lng || "",
-            }}
-          ></Maps>
-          <Line />
+          {!props.data?.fetchUseditem?.useditemAddress && (
+            <>
+              <Line />
+              <Maps
+                readOnly
+                lating={{
+                  lat: props.data?.fetchUseditem?.useditemAddress?.lat || "",
+                  lang: props.data?.fetchUseditem?.useditemAddress?.lng || "",
+                }}
+              ></Maps>
+              <Line />
+            </>
+          )}
+
           <ButtonBox>
             <ListButton onClick={props.onClickList}>목록으로</ListButton>
 

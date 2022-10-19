@@ -2,7 +2,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   IQuery,
@@ -19,6 +19,11 @@ import {
 
 export default function UsedgoodsDetail() {
   const router = useRouter();
+  const queryId = router.query.market_id;
+  useEffect(() => {
+    if (!router.isReady) return;
+    console.log(queryId);
+  }, [router.isReady]);
 
   const [createPointTransactionOfBuyingAndSelling] = useMutation(
     CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING
@@ -95,6 +100,7 @@ export default function UsedgoodsDetail() {
       active={active}
       onClickDelete={onClickDelete}
       onClickEdit={onClickEdit}
+      queryId={queryId}
     />
   );
 }
