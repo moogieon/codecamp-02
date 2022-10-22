@@ -5,10 +5,9 @@ export default function LayoutFooterUI() {
     <>
       <div
         style={{
-          backgroundColor: " #171717;",
+          backgroundColor: "#171717;",
           height: "150px",
           fontSize: "11px",
-
           color: "#ffffffd0",
           whiteSpace: "pre-wrap",
           fontFamily: "ruda",

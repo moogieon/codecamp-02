@@ -1,4 +1,5 @@
 import { Tooltip } from "antd";
+import { useRouter } from "next/router";
 import ReactPlayer from "react-player";
 import {
   Wrapper,
@@ -44,6 +45,10 @@ interface IProps {
   onClickDelete: () => void;
 }
 export default function BoardDetailUI(props: IProps) {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       <Wrapper>
