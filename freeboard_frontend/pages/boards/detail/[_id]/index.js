@@ -1,5 +1,6 @@
 import { request } from "graphql-request";
 import { useRouter } from "next/router";
+
 import { Loader } from "semantic-ui-react";
 import BoardDetail from "../../../../src/components/units/board/detail/BoardDetail.container";
 import BoardCommentList from "../../../../src/components/units/board/detail/comments/list/BoardCommentList.container";
@@ -41,6 +42,7 @@ export const getStaticPaths = async () => {
         _id: item._id.toString(),
       },
     })),
+    fallback: false,
   };
 };
 
