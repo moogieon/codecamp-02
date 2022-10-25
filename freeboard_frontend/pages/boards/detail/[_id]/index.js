@@ -1,6 +1,5 @@
 import { request } from "graphql-request";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { Loader } from "semantic-ui-react";
 import BoardDetail from "../../../../src/components/units/board/detail/BoardDetail.container";
 import BoardCommentList from "../../../../src/components/units/board/detail/comments/list/BoardCommentList.container";
@@ -11,11 +10,6 @@ export default function DetailPage({ fetchBoard }) {
   // aaa 라도 [aaa] 를 넣으면  Router.push('/detail/1') 해도 1란 숫자를 aaa로 연다는  뜻
 
   const router = useRouter();
-
-  useEffect(() => {
-    if (!router.isReady) return;
-    console.log("🙆‍♀️ 콘솔에 쿼리 찍힘!");
-  }, [router.isReady]);
 
   if (router.isFallback) {
     return (
@@ -38,8 +32,7 @@ export default function DetailPage({ fetchBoard }) {
 export const getStaticPaths = async () => {
   const data = await request(
     "https://backend08.codebootcamp.co.kr/graphql",
-    FETCH_BOARDS,
-    { variables: { page: 1 } }
+    FETCH_BOARDS
   );
   console.log("list", data);
   return {
@@ -48,7 +41,6 @@ export const getStaticPaths = async () => {
         _id: item._id.toString(),
       },
     })),
-    fallback: true,
   };
 };
 
