@@ -8,7 +8,10 @@ import {
 } from "./BoardDetail.queries";
 import BoardDetailUI from "./BoardDetail.presenter";
 
-export default function BoardDetail() {
+interface Props {
+  fetchBoard: any;
+}
+export default function BoardDetail({ fetchBoard }: Props) {
   const router = useRouter();
 
   const [deleteBoard] = useMutation(DELETE_BOARD);
@@ -65,6 +68,7 @@ export default function BoardDetail() {
       onClickEdit={onClickEdit}
       onClickLike={onClickLike}
       onClickDislike={onClickDislike}
+      fetchBoard={fetchBoard}
       // onClickChange={onClickChange}
     />
   );
