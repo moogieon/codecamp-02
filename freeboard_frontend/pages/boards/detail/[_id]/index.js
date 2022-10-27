@@ -32,7 +32,7 @@ export default function DetailPage({ fetchBoard }) {
 
 export const getStaticPaths = async () => {
   const data = await request(
-    "https://backend08.codebootcamp.co.kr/graphql",
+    "https://backend08.codebootcamp.co.kr/graphql22",
     FETCH_BOARDS
   );
   console.log("list", data);
@@ -48,7 +48,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const data = await request(
-    "https://backend08.codebootcamp.co.kr/graphql",
+    "https://backend08.codebootcamp.co.kr/graphql22",
     FETCH_BOARD,
     { boardId: context.params._id }
   );
