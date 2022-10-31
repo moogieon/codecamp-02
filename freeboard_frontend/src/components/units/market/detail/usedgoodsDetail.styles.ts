@@ -85,6 +85,9 @@ export const GoodsInfoBox = styled.div`
 export const Info_Left = styled.div`
   min-height: 63px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 export const Summary = styled.div`
   color: #bdbdbd;

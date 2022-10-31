@@ -32,6 +32,8 @@ interface IContext {
   setAccessToken?: Dispatch<SetStateAction<undefined>>;
   userInfo?: any;
   setUserInfo?: Dispatch<SetStateAction<{}>>;
+  startPage?: number;
+  setStartPage?: Dispatch<SetStateAction<number>>;
 }
 
 export const GlobalContext = createContext<IContext>({});
@@ -39,11 +41,14 @@ export const GlobalContext = createContext<IContext>({});
 function MyApp({ Component, pageProps }: AppProps) {
   const [accessToken, setAccessToken] = useState();
   const [userInfo, setUserInfo] = useState({});
+  const [startPage, setStartPage] = useState(1);
   const value = {
     accessToken: accessToken,
     setAccessToken: setAccessToken,
     userInfo: userInfo,
     setUserInfo: setUserInfo,
+    setStartPage: setStartPage,
+    startPage: startPage,
   };
   useEffect(() => {
     if (localStorage.getItem("refreshToken")) {

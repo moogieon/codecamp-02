@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { GlobalContext } from "../../../../../pages/_app";
 import BoardListUi from "./BoardList.presenter";
 import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./BoardList.queries";
 
@@ -8,7 +9,7 @@ export default function BoardList() {
   const router = useRouter();
 
   const [keyword, setKeyword] = useState("");
-  const [startPage, setStartPage] = useState(1);
+  const { startPage, setStartPage } = useContext(GlobalContext);
   const { data, refetch } = useQuery(FETCH_BOARDS, {
     variables: { page: startPage },
   });

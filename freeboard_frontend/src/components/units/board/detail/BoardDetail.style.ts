@@ -3,6 +3,7 @@ import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 100%;
+  height: 100%;
   padding: 0px 2.5rem;
 `;
 export const Body = styled.div`
@@ -88,12 +89,14 @@ export const Wrapper_Body = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  height: 100%;
   padding-top: 80px;
 `;
 
-export const Body_Title = styled.span`
+export const Body_Title = styled.div`
   width: 100%;
   min-height: 54px;
+  height: 100%;
   font-size: 36px;
   text-align: unset;
 `;

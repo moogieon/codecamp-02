@@ -16,8 +16,10 @@ import {
   TOGGLE_USED_ITEM_PICK,
   DELETE_USED_ITEM,
 } from "./usedgoodsDetail.queries";
-
-export default function UsedgoodsDetail() {
+interface Props {
+  fetchUseditem: any;
+}
+export default function UsedgoodsDetail({ fetchUseditem }: Props) {
   const router = useRouter();
   const queryId = router.query.market_id;
   useEffect(() => {
@@ -101,6 +103,7 @@ export default function UsedgoodsDetail() {
       onClickDelete={onClickDelete}
       onClickEdit={onClickEdit}
       queryId={queryId}
+      fetchUseditem={fetchUseditem}
     />
   );
 }

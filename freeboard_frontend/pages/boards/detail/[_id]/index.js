@@ -7,10 +7,11 @@ import BoardCommentList from "../../../../src/components/units/board/detail/comm
 import BoardCommentsWrite from "../../../../src/components/units/board/detail/comments/write/BoardCommentsWrite.container";
 import { FETCH_BOARD } from "../../../../src/components/units/board/detail/BoardDetail.queries";
 import { FETCH_BOARDS } from "../../../../src/components/units/board/list/BoardList.queries";
+
 export default function DetailPage({ fetchBoard }) {
   // aaa 라도 [aaa] 를 넣으면  Router.push('/detail/1') 해도 1란 숫자를 aaa로 연다는  뜻
 
-  const router = useRouter();
+  const router = useRouter({});
 
   if (router.isFallback) {
     return (
@@ -21,6 +22,7 @@ export default function DetailPage({ fetchBoard }) {
       </div>
     );
   }
+
   return (
     <>
       <BoardDetail fetchBoard={fetchBoard} />
@@ -35,7 +37,6 @@ export const getStaticPaths = async () => {
     "https://backend08.codebootcamp.co.kr/graphql22",
     FETCH_BOARDS
   );
-  console.log("list", data);
   return {
     paths: data?.fetchBoards.map((item) => ({
       params: {
