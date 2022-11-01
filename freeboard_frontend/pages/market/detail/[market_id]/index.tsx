@@ -1,4 +1,4 @@
-import request from "graphql-request";
+// import request from "graphql-request";
 import withAuth from "../../../../src/components/commons/hocs/withAuth";
 import UsedGoodsCommentsList from "../../../../src/components/units/market/detail/comments/list/usedgoodsCommentsList.container";
 import UsedGoodsComments from "../../../../src/components/units/market/detail/comments/write/usedgoodsCommentsWrite.container";
