@@ -46,7 +46,10 @@ export default function BoardCommentsWriteUI(props: IProps) {
                 <span>댓글</span>
               </>
             )}
-            <Rate onChange={props.onChangeStar} />
+            <Rate
+              onChange={props.onChangeStar}
+              value={props.inputs_comment.rating || props.data?.rating || ""}
+            />
             <div>이름</div>
             <Warring>{props.comments_error.writer}</Warring>
             <Comments_init_writer
@@ -62,6 +65,9 @@ export default function BoardCommentsWriteUI(props: IProps) {
               name="password"
               type="password"
               placeholder="비밀번호"
+              value={
+                props.inputs_comment.password || props.data?.password || ""
+              }
               onChange={props.onChangeInputs}
             ></Comments_init_password>
             <div>내용</div>
@@ -71,7 +77,9 @@ export default function BoardCommentsWriteUI(props: IProps) {
               onInput={props.inputMax}
               type="text"
               maxLength={100}
-              value={props.inputs_comment.contents || props.data?.contents}
+              value={
+                props.inputs_comment.contents || props.data?.contents || ""
+              }
               placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
               onChange={props.onChangeInputs}
             ></Comments_init>

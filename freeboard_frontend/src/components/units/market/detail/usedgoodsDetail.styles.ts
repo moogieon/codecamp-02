@@ -96,6 +96,7 @@ export const Summary = styled.div`
 `;
 export const Titel = styled.div`
   font-size: 24px;
+  line-height: 1.5;
   color: beige;
   height: 100%;
 `;
@@ -158,6 +159,8 @@ export const ListButton = styled.button`
   max-width: 179px;
   width: 100%;
   height: 52px;
+  border: 1px solid white;
+  border-radius: 20px;
   background-color: transparent;
   font-family: ccc;
   color: white;
@@ -172,6 +175,8 @@ export const PaymentButton = styled.button`
   margin-left: 24px;
   background-color: black;
   font-family: ccc;
+  border: 1px solid white;
+  border-radius: 20px;
   color: white;
   cursor: pointer;
   :hover {

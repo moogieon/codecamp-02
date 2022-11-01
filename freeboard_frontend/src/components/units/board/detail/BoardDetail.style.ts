@@ -97,8 +97,12 @@ export const Body_Title = styled.div`
   width: 100%;
   min-height: 54px;
   height: 100%;
+  line-height: 1.5;
   font-size: 36px;
   text-align: unset;
+  @media ${breakPoints.mobile} {
+    font-size: 24px;
+  }
 `;
 
 export const Body_Img = styled.img`

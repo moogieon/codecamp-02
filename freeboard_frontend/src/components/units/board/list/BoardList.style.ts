@@ -116,6 +116,10 @@ export const Column_Title = styled.div`
 `;
 export const Column_Writer = styled.div`
   width: 18%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 3; /* 라인수 */
   @media ${breakPoints.mobile} {
     width: 20%;
   }

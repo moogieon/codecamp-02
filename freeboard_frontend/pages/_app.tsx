@@ -20,7 +20,7 @@ import Layout from "../src/components/commons/layout";
 import { onError } from "@apollo/client/link/error";
 import { getAccessToken } from "../src/commons/libraries/getAccessToken";
 import * as Sentry from "@sentry/nextjs";
-import "../styles/globalstyle.css";
+import "../src/commons/styles/globalstyle.css";
 import "semantic-ui-css/semantic.min.css";
 import Head from "next/head";
 Sentry.init({
@@ -78,7 +78,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
   const uploadLink = createUploadLink({
     // uri: "https://backend06.codebootcamp.co.kr/graphql",
-    uri: "https://backend08.codebootcamp.co.kr/graphql22",
+    uri: "https://backend08.codebootcamp.co.kr/graphql",
     headers: {
       authorization: `Bearer ${accessToken}`,
     },

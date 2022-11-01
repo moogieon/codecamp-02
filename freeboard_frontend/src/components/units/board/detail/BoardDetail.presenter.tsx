@@ -53,23 +53,23 @@ export default function BoardDetailUI(props: IProps) {
             <Head_Wrapper>
               <Header_1>
                 <Img src="/boards-image/Profile.png" />
-                <Writer>{props.fetchBoard.writer}</Writer>
+                <Writer>{props.data?.fetchBoard.writer}</Writer>
               </Header_1>
 
               <Day>
                 Date:
-                {new Date(props.fetchBoard.createdAt).getFullYear()}/
+                {new Date(props.data?.fetchBoard.createdAt).getFullYear()}/
                 {String(
-                  new Date(props.fetchBoard.createdAt).getMonth() + 1
+                  new Date(props.data?.fetchBoard.createdAt).getMonth() + 1
                 ).padStart(2, "0")}
-                /{new Date(props.fetchBoard.createdAt).getDate()}
+                /{new Date(props.data?.fetchBoard.createdAt).getDate()}
               </Day>
             </Head_Wrapper>
             <Icon_Wrapper>
               <Img_2 src="/boards-image/File.png" />
               <Tooltip
                 placement="topRight"
-                title={`${props.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
+                title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
               >
                 <Img_3>
                   <Img_4 src="/boards-image/Loc2.png" />
@@ -79,20 +79,20 @@ export default function BoardDetailUI(props: IProps) {
           </Wrapper_Head>
           <Line></Line>
           <Wrapper_Body>
-            <Body_Title>{props.fetchBoard.title}</Body_Title>
-            {props.fetchBoard.images?.map((data: string) => (
+            <Body_Title>{props.data?.fetchBoard.title}</Body_Title>
+            {props.data?.fetchBoard.images?.map((data: string) => (
               <Body_Img
                 key={data}
                 src={`https://storage.googleapis.com/${data}`}
               />
             ))}
 
-            <Body_Contents>{props.fetchBoard.contents}</Body_Contents>
+            <Body_Contents>{props.data?.fetchBoard.contents}</Body_Contents>
           </Wrapper_Body>
           <Wrapper_Foot>
             <Foot_Ytv>
               <ReactPlayer
-                url={props.fetchBoard.youtubeUrl}
+                url={props.data?.fetchBoard.youtubeUrl}
                 height="100%"
                 width="100%"
                 controls={true}
@@ -103,11 +103,13 @@ export default function BoardDetailUI(props: IProps) {
             <Count_Wrpper>
               <Foot_Btn>
                 <Like onClick={props.onClickLike} />
-                <Like_count>{props.fetchBoard.likeCount}</Like_count>
+                <Like_count>{props.data?.fetchBoard.likeCount}</Like_count>
               </Foot_Btn>
               <Foot_Count>
                 <Dislkie onClick={props.onClickDislike} />
-                <DisLike_count>{props.fetchBoard.dislikeCount}</DisLike_count>
+                <DisLike_count>
+                  {props.data?.fetchBoard.dislikeCount}
+                </DisLike_count>
               </Foot_Count>
             </Count_Wrpper>
           </Wrapper_Foot>

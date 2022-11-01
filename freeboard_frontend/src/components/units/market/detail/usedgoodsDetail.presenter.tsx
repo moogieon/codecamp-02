@@ -46,7 +46,7 @@ export default function UsedgoodsDetailUI(props: any) {
         <a>
           <img
             style={{ width: "20px", height: "20px" }}
-            src={`https://storage.googleapis.com/${props.fetchUseditem.images[i]}`}
+            src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[i]}`}
           />
         </a>
       );
@@ -67,8 +67,8 @@ export default function UsedgoodsDetailUI(props: any) {
             <UserInfoBox>
               <User_Img src="/market_img/detail/profile.png" />
               <UserInfo>
-                <User>{props.fetchUseditem.seller.name}</User>
-                <Date>{getDate(props.fetchUseditem.createdAt)}</Date>
+                <User>{props.data?.fetchUseditem.seller.name}</User>
+                <Date>{getDate(props.data?.fetchUseditem.createdAt)}</Date>
               </UserInfo>
             </UserInfoBox>
             <HeadImgBox>
@@ -79,16 +79,16 @@ export default function UsedgoodsDetailUI(props: any) {
           <Line />
           <GoodsInfoBox>
             <Info_Left>
-              <Summary>{props.fetchUseditem.remarks}</Summary>
-              <Titel>{props.fetchUseditem.name}</Titel>
+              <Summary>{props.data?.fetchUseditem.remarks}</Summary>
+              <Titel>{props.data?.fetchUseditem.name}</Titel>
             </Info_Left>
             <Info_Right>
               <Heart onClick={props.onClickToggle} />
-              <HeartCount>{props.fetchUseditem.pickedCount}</HeartCount>
+              <HeartCount>{props.data?.fetchUseditem.pickedCount}</HeartCount>
             </Info_Right>
           </GoodsInfoBox>
           <Price>
-            {props.fetchUseditem.price
+            {props.data?.fetchUseditem.price
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
             원
@@ -97,7 +97,7 @@ export default function UsedgoodsDetailUI(props: any) {
             {
               // @ts-ignore
               <Slider {...settings}>
-                {props.fetchUseditem.images?.map((data: string) => (
+                {props.data?.fetchUseditem.images?.map((data: string) => (
                   <Imgbox key={data}>
                     <GoddsImg src={`https://storage.googleapis.com/${data}`} />
                   </Imgbox>
@@ -109,22 +109,24 @@ export default function UsedgoodsDetailUI(props: any) {
             {typeof window !== "undefined" ? (
               <GoodsContents
                 dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(props.fetchUseditem.contents),
+                  __html: DOMPurify.sanitize(
+                    props.data?.fetchUseditem.contents
+                  ),
                 }}
               ></GoodsContents>
             ) : (
               <div />
             )}
           </div>
-          <Tag>{props.fetchUseditem.tags}</Tag>
-          {!props.fetchUseditem?.useditemAddress && (
+          <Tag>{props.data?.fetchUseditem.tags}</Tag>
+          {!props.data?.fetchUseditem?.useditemAddress && (
             <>
               <Line />
               <Maps
                 readOnly
                 lating={{
-                  lat: props.fetchUseditem?.useditemAddress?.lat || "",
-                  lang: props.fetchUseditem?.useditemAddress?.lng || "",
+                  lat: props.data?.fetchUseditem?.useditemAddress?.lat || "",
+                  lang: props.data?.fetchUseditem?.useditemAddress?.lng || "",
                 }}
               ></Maps>
               <Line />
@@ -134,7 +136,7 @@ export default function UsedgoodsDetailUI(props: any) {
           <ButtonBox>
             <ListButton onClick={props.onClickList}>목록으로</ListButton>
 
-            {userInfo.name === props.fetchUseditem.seller.name ? (
+            {userInfo.name === props.data?.fetchUseditem.seller.name ? (
               <>
                 <DeletButton onClick={props.onClickDelete}>
                   삭제하기

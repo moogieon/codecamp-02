@@ -1,12 +1,12 @@
-import { request } from "graphql-request";
+// import { request } from "graphql-request";
 import { useRouter } from "next/router";
 
 import { Loader } from "semantic-ui-react";
 import BoardDetail from "../../../../src/components/units/board/detail/BoardDetail.container";
 import BoardCommentList from "../../../../src/components/units/board/detail/comments/list/BoardCommentList.container";
 import BoardCommentsWrite from "../../../../src/components/units/board/detail/comments/write/BoardCommentsWrite.container";
-import { FETCH_BOARD } from "../../../../src/components/units/board/detail/BoardDetail.queries";
-import { FETCH_BOARDS } from "../../../../src/components/units/board/list/BoardList.queries";
+// import { FETCH_BOARD } from "../../../../src/components/units/board/detail/BoardDetail.queries";
+// import { FETCH_BOARDS } from "../../../../src/components/units/board/list/BoardList.queries";
 
 export default function DetailPage({ fetchBoard }) {
   // aaa 라도 [aaa] 를 넣으면  Router.push('/detail/1') 해도 1란 숫자를 aaa로 연다는  뜻
@@ -32,26 +32,27 @@ export default function DetailPage({ fetchBoard }) {
   );
 }
 
-export const getStaticPaths = async () => {
-  const data = await request(
-    "https://backend08.codebootcamp.co.kr/graphql22",
-    FETCH_BOARDS
-  );
-  return {
-    paths: data?.fetchBoards.map((item) => ({
-      params: {
-        _id: item._id.toString(),
-      },
-    })),
-    fallback: false,
-  };
-};
+// export const getStaticPaths = async () => {
+//   const data = await request(
+//     "https://backend08.codebootcamp.co.kr/graphql22",
+//     FETCH_BOARDS
+//   );
 
-export const getStaticProps = async (context) => {
-  const data = await request(
-    "https://backend08.codebootcamp.co.kr/graphql22",
-    FETCH_BOARD,
-    { boardId: context.params._id }
-  );
-  return { props: { fetchBoard: data.fetchBoard } };
-};
+//   return {
+//     paths: data?.fetchBoards.map((item) => ({
+//       params: {
+//         _id: item._id.toString(),
+//       },
+//     })),
+//     fallback: "blocking",
+//   };
+// };
+
+// export const getStaticProps = async (context) => {
+//   const data = await request(
+//     "https://backend08.codebootcamp.co.kr/graphql22",
+//     FETCH_BOARD,
+//     { boardId: context.params._id }
+//   );
+//   return { props: { fetchBoard: data.fetchBoard } };
+// };

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import "react-image-gallery/styles/css/image-gallery.css";
+
 export const Wrapper = styled.div`
   width: 100%;
   height: 10%;

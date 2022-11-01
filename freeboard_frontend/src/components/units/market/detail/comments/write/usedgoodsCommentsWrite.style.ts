@@ -22,14 +22,15 @@ export const CommentUpload = styled.div`
 
 export const CommentUploadBottom = styled.div`
   width: 100%;
-  height: 161px;
   margin-top: 20px;
   border: 1px solid lightgray;
   position: relative;
+  display: flex;
+  flex-direction: column;
 `;
 export const CommentInput = styled.textarea`
   width: 100%;
-  height: 108px;
+  max-height: 100px;
   padding: 20px;
   font-size: 14px;
   border: none;
@@ -41,10 +42,9 @@ export const UploadButton = styled.button`
   height: 52px;
   background-color: black;
   color: #fff;
+  border-left: 1px solid white;
+
   cursor: pointer;
-  position: absolute;
-  bottom: 0;
-  right: 0;
   :hover {
     color: #ffcc01;
   }

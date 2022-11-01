@@ -41,7 +41,6 @@ export default function EditPage() {
   const { data } = useQuery<Pick<IQuery, "fetchUseditem">>(FETCH_USER_ITEM, {
     variables: { useditemId: router.query.market_id },
   });
-  console.log("context", data);
   const value = {
     isEdit: true,
     data,
