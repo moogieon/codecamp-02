@@ -41,7 +41,7 @@ export default function BoardListUi(props: any) {
               key={data._id}
               onClick={props.onClickMoveToBoardDetail(data._id)}
             >
-              <Column_Num>{10 - index}</Column_Num>
+              <Column_Num>{index + 1}</Column_Num>
               <Column_Title id={data._id}>
                 {data.title
                   .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
