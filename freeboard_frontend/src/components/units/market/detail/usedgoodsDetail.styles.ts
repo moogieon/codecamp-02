@@ -206,10 +206,11 @@ export const UpdateButton = styled.button`
   }
 `;
 export const Imgbox = styled.div`
-  width: 450px;
-  height: 450px;
+  width: 550px;
+  height: 550px;
 
   @media ${breakPoints.mobile} {
-    width: 300px;
+    max-width: 300px;
+    max-width: 300px;
   }
 `;
