@@ -106,7 +106,6 @@ export const Body_Title = styled.div`
 `;
 
 export const Body_Img = styled.img`
-  width: 100%;
   max-width: 1200px;
   height: 480px;
   margin: 40px auto 0px auto;

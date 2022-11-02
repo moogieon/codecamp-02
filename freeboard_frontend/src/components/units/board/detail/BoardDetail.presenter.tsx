@@ -55,7 +55,6 @@ export default function BoardDetailUI(props: IProps) {
                 <Img src="/boards-image/Profile.png" />
                 <Writer>{props.data?.fetchBoard.writer}</Writer>
               </Header_1>
-
               <Day>
                 Date:
                 {new Date(props.data?.fetchBoard.createdAt).getFullYear()}/
