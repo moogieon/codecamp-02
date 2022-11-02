@@ -206,8 +206,8 @@ export const UpdateButton = styled.button`
   }
 `;
 export const Imgbox = styled.div`
-  width: 700px;
-  max-height: 300px;
+  width: 450px;
+  height: 450px;
 
   @media ${breakPoints.mobile} {
     width: 300px;
