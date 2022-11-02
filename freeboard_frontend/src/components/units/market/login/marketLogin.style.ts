@@ -13,13 +13,14 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 240px;
+  padding: 10% 10px 0px 10px;
   opacity: 0.6;
   background-color: #000;
 `;
 
 export const Body_Wraaper = styled.div`
-  width: 450px;
+  max-width: 450px;
+  width: 100%;
   height: 510px;
   /* border: 1px solid white; */
   box-shadow: 5px 5px 5px 5px darkgray inset;
@@ -42,7 +43,8 @@ export const Head = styled.div`
 
 export const Body = styled.div`
   margin-top: 10px;
-  width: 384px;
+  width: 100%;
+  max-width: 384px;
   height: 400px;
   /* border: 1px solid white; */
   display: flex;
@@ -141,7 +143,8 @@ export const CheckBox = styled(Checkbox)`
 `;
 export const LoginButton = styled.button`
   margin-left: 10px;
-  width: 390px;
+  max-width: 390px;
+  width: 100%;
   height: 60px;
   font-family: ccc;
   font-size: 27px;
@@ -155,7 +158,8 @@ export const LoginButton = styled.button`
 export const Line = styled.div`
   padding-top: 40px;
   margin-left: 10px;
-  width: 390px;
+  max-width: 390px;
+  width: 100%;
   border-bottom: 2px solid white;
 `;
 export const Error = styled.div`
@@ -163,14 +167,16 @@ export const Error = styled.div`
   font-size: 12px;
 `;
 export const Footer = styled.div`
-  width: 390px;
+  max-width: 390px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   margin-left: 10px;
   justify-content: space-between;
 `;
 export const Singin_Button = styled.button`
-  width: 128px;
+  max-width: 128px;
+  width: 100%;
   margin-top: 20px;
   /* margin-left: 20px; */
   color: white;
@@ -187,7 +193,8 @@ export const Singin_Button = styled.button`
   font-family: ccc;
 `;
 export const PwEmailButton = styled.button`
-  width: 128px;
+  max-width: 128px;
+  width: 100%;
   margin-top: 20px;
   /* margin-left: 20px; */
   color: white;

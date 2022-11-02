@@ -64,6 +64,12 @@ export default function UsedgoodsWriteUI(props: IUsedgoodsWriteUIProps) {
             onSubmit={props.handleSubmit(
               isEdit ? props.onCilckEdit : props.onClickRegist
             )}
+            style={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
           >
             <ProductName>
               <NameTitle>상품명</NameTitle>

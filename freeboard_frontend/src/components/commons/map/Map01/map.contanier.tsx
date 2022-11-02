@@ -6,8 +6,6 @@ declare const window: typeof globalThis & {
 };
 
 export default function Kakaomap(props: any) {
-  console.log(props.lating);
-
   useEffect(() => {
     if (!(props.lating.lat && props.lating.lang)) return;
     const script = document.createElement("script");

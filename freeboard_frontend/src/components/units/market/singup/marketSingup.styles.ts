@@ -11,12 +11,14 @@ export const Wrapper = styled.div`
   justify-content: center;
   padding-top: 240px;
   opacity: 0.6;
-
+  padding-left: 10px;
+  padding-right: 10px;
   background-color: #000;
 `;
 
 export const Body_Wraaper = styled.div`
-  width: 450px;
+  max-width: 450px;
+  width: 100%;
   height: 664px;
   /* border: 1px solid white; */
   box-shadow: 5px 5px 5px 5px darkgray inset;
@@ -42,7 +44,8 @@ export const Body = styled.div`
   margin-top: 10px;
   padding-right: 10px;
   padding-left: 10px;
-  width: 384px;
+  max-width: 384px;
+  width: 100%;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -138,7 +141,8 @@ export const Error = styled.div`
   font-size: 12px;
 `;
 export const Footer = styled.div`
-  width: 390px;
+  max-width: 390px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
