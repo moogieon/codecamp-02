@@ -1,4 +1,4 @@
-import { MouseEvent, useEffect, useState } from "react";
+import { MouseEvent, useState } from "react";
 import Paginations01UI from "./Paginations.presenter";
 export default function Paginations01(props: any) {
   const [activedPage, setActivedPage] = useState(1);
@@ -21,9 +21,7 @@ export default function Paginations01(props: any) {
     setActivedPage(props.startPage + 10);
     props.setStartPage((prev: any) => prev + 10);
   }
-  useEffect(() => {
-    history.pushState({ page: activedPage }, "", `?page=${activedPage}`);
-  }, []);
+
   return (
     <Paginations01UI
       onClickPrevPage={onClickPrevPage}

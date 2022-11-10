@@ -22,6 +22,8 @@ export const Body = styled.div`
 `;
 export const InputBox = styled.div`
   display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 export const Colum = styled.div`
   text-align: center;

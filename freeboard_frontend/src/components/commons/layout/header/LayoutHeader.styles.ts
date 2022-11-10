@@ -34,6 +34,7 @@ export const Right = styled.div`
   letter-spacing: 1px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 `;
 export const Login = styled.div`
   height: 27.523px;
@@ -63,7 +64,6 @@ export const GetCoin = styled.div`
   margin-left: 20px;
   padding-top: 6px;
   padding-bottom: 6px;
-  height: 27.523px;
   font-size: 11px;
   color: dimgrey;
   cursor: pointer;
@@ -87,7 +87,6 @@ export const Point = styled.div`
   margin-left: 20px;
   padding-top: 6px;
   padding-bottom: 6px;
-  height: 27.523px;
   font-size: 11px;
   color: dimgrey;
   cursor: pointer;
@@ -99,7 +98,7 @@ export const LogOut = styled.div`
   margin-left: 20px;
   padding-top: 6px;
   padding-bottom: 6px;
-  height: 27.523px;
+
   font-size: 11px;
   color: dimgrey;
   cursor: pointer;

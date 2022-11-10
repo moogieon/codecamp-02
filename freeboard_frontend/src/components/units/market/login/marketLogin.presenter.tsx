@@ -77,11 +77,11 @@ export default function MarketLoginUI(props: IProps) {
               fontSize: 24,
             }}
           >
-            <div>
-              테스트 이메일: <div style={{ color: "green" }}>gr@een.com</div>
+            <div style={{ margin: "16px auto" }}>
+              Test Email: <div style={{ color: "green" }}>gr@een.com</div>
             </div>
-            <div>
-              테스트 PW: <div style={{ color: "green" }}>1234</div>
+            <div style={{ margin: "16px auto" }}>
+              Test PW: <div style={{ color: "green" }}>1234</div>
             </div>
           </div>
         </Wrapper>
