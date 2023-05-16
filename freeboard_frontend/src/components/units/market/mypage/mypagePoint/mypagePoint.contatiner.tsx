@@ -5,11 +5,12 @@ import MypagePointUI from "./mypagePoint.presenter";
 
 import { FETCH_POINT_OF_BUYING } from "./mypagePoint.queries";
 
-export const POINT_MENU = {
-  sold: false,
-  bought: false,
-  loading: false,
-};
+export const POINT_MENU = [
+  { name: "전체내역", active: true, id: "all" },
+  { name: "충전내역", active: false, id: "Loading" },
+  { name: "구매내역", active: false, id: "Sold" },
+  { name: "판매내역", active: false, id: "Bought" },
+];
 // 안에 값을  true로 바꾸는 법 >??
 export default function MypagePoint() {
   const [keyword, setKeyword] = useState("");
@@ -21,12 +22,17 @@ export default function MypagePoint() {
   }
   const onClickMenu = (type: string) => () => {
     // setPointMenu(newMenu);
-    const newMenu = { ...POINT_MENU };
-    newMenu[type] = true;
-    setPointMenu(newMenu);
-    setTransactions(false);
+    setPointMenu(
+      pointMenu.map((data) =>
+        data.id === type
+          ? { ...data, active: true }
+          : { ...data, active: false }
+      )
+    );
+
     // history.pushState("", "", "/mypage/maket/loading");
   };
+
   const onCilckTransactions = (type: any) => () => {
     setTransactions(true);
     const newMenu = { ...POINT_MENU };

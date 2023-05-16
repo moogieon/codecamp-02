@@ -43,37 +43,41 @@ export default function ISoldUI(props: any) {
               <ColumnHeader>날짜</ColumnHeader>
             </Body_Row>
 
-            {props.data?.fetchUseditemsISold
-              .slice(0)
-              .reverse()
+            {props.data?.fetchUseditemsISold.lenght ? (
+              props.data?.fetchUseditemsISold
+                .slice(0)
+                .reverse()
 
-              // .fill()
-              .map((data: any, index: number) => (
-                <Body_Row key={data._id}>
-                  <Column>{1 + index}</Column>
-                  <ColumnTitle>
-                    {data.name
-                      .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
-                      .split("@#$%")
-                      .map((data: any) => (
-                        <TextToken
-                          key={uuidv4()}
-                          isMatched={props.keyword === data}
-                        >
-                          {data}
-                        </TextToken>
-                      ))}
-                  </ColumnTitle>
-                  <ColumnBuy>{data.buyer?._id ? "판매완료" : ""}</ColumnBuy>
-                  <Column>
-                    {"₩" +
-                      data.price
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                  </Column>
-                  <Column>{getDate(data.createdAt)}</Column>
-                </Body_Row>
-              ))}
+                // .fill()
+                .map((data: any, index: number) => (
+                  <Body_Row key={data._id}>
+                    <Column>{1 + index}</Column>
+                    <ColumnTitle>
+                      {data.name
+                        .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
+                        .split("@#$%")
+                        .map((data: any) => (
+                          <TextToken
+                            key={uuidv4()}
+                            isMatched={props.keyword === data}
+                          >
+                            {data}
+                          </TextToken>
+                        ))}
+                    </ColumnTitle>
+                    <ColumnBuy>{data.buyer?._id ? "판매완료" : ""}</ColumnBuy>
+                    <Column>
+                      {"₩" +
+                        data.price
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                    </Column>
+                    <Column>{getDate(data.createdAt)}</Column>
+                  </Body_Row>
+                ))
+            ) : (
+              <div style={{ padding: 10 }}>등록된 게시물이 없습니다.</div>
+            )}
           </Body>
         </Real_Body>
       </Wrapper>

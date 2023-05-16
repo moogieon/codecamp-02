@@ -1,5 +1,8 @@
 import styled from "@emotion/styled";
 
+interface Iporps {
+  isActive: boolean;
+}
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,7 +29,8 @@ export const ColumnName = styled.div`
   font-size: 24px;
   font-weight: 700;
 `;
-export const BodyColumn1 = styled.div`
+export const Menu = styled.li`
+  list-style: none;
   margin-top: 10px;
   font-size: 18px;
   font-weight: 700;
@@ -35,30 +39,9 @@ export const BodyColumn1 = styled.div`
   :hover {
     color: white;
   }
-  color: #828282;
+  color: ${(props: Iporps) => (props.isActive ? "white" : "#828282")};
 `;
-export const BodyColumn2 = styled.div`
-  margin-top: 10px;
-  font-size: 18px;
-  font-weight: 700;
-  font-family: ccc;
-  cursor: pointer;
-  :hover {
-    color: white;
-  }
-  color: ${(props: any) => (props.isActive ? "white" : "#828282")};
-`;
-export const BodyColumn3 = styled.div`
-  margin-top: 10px;
-  font-size: 18px;
-  font-weight: 700;
-  font-family: ccc;
-  cursor: pointer;
-  :hover {
-    color: white;
-  }
-  color: #828282;
-`;
+
 export const ProfileImg = styled.img`
   width: 80px;
   height: 80px;

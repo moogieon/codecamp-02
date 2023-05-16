@@ -48,7 +48,7 @@ export default function CommentsReplay(props: any) {
       Modal.error({ content: "내용을 작성해 주세요" });
     }
   };
-  console.log(props.data);
+
   const onClickUpdateReply = async () => {
     try {
       await updateUseditemQuestionAnswer({

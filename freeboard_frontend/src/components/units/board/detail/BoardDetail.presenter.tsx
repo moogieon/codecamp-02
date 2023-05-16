@@ -79,9 +79,9 @@ export default function BoardDetailUI(props: IProps) {
           <Line></Line>
           <Wrapper_Body>
             <Body_Title>{props.data?.fetchBoard.title}</Body_Title>
-            {props.data?.fetchBoard.images?.map((data: string) => (
+            {props.data?.fetchBoard.images?.map((data: string, idx: number) => (
               <Body_Img
-                key={data}
+                key={idx}
                 src={`https://storage.googleapis.com/${data}`}
               />
             ))}

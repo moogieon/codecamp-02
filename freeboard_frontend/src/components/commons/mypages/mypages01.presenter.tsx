@@ -6,16 +6,15 @@ import {
   Body,
   Footer,
   Column,
-  BodyColumn1,
-  BodyColumn2,
-  BodyColumn3,
+  Menu,
   ProfileImg,
   ColumnName,
   MypageImg,
 } from "./mypages01.style";
+import { useRouter } from "next/router";
 export default function MyPagesUI(props: any) {
   const { userInfo } = useContext(GlobalContext);
-  console.log("유저", userInfo.name);
+
   return (
     <>
       <Wrapper>
@@ -25,15 +24,50 @@ export default function MyPagesUI(props: any) {
           <ColumnName>{userInfo.name}</ColumnName>
         </Header>
         <Body>
-          <MypageImg src="/market_img/mypage/cart.png" />
-          <BodyColumn1 onClick={props.onClickPost}> POST</BodyColumn1>
-          <MypageImg src="/market_img/mypage/Pig.png" />
-          <BodyColumn2 onClick={props.onClickPoint}> POINT</BodyColumn2>
-          <MypageImg src="/market_img/mypage/miniprofile.png" />
-          <BodyColumn3 onClick={props.onClickProfile}> PROFILE</BodyColumn3>
+          <nav>
+            <ul style={{ padding: 0 }}>
+              <MypageImg src="/market_img/mypage/cart.png" />
+              <MenuItem
+                handleMenuClick={props.handleMenuClick}
+                path="/market/mypage"
+                label="POST"
+              />
+              <MypageImg src="/market_img/mypage/Pig.png" />
+              <MenuItem
+                handleMenuClick={props.handleMenuClick}
+                path="/market/mypage/mypagePoint"
+                label="POINT"
+              />
+              <MypageImg src="/market_img/mypage/miniprofile.png" />
+              <MenuItem
+                handleMenuClick={props.handleMenuClick}
+                path="/market/mypage/profile"
+                label="PROFILE"
+              />
+            </ul>
+          </nav>
         </Body>
         <Footer></Footer>
       </Wrapper>
     </>
   );
 }
+
+const MenuItem = ({
+  handleMenuClick,
+  path,
+  label,
+}: {
+  handleMenuClick: any;
+  path: string;
+  label: string;
+}) => {
+  const router = useRouter();
+  const isActive = router.pathname === path;
+
+  return (
+    <Menu isActive={isActive} onClick={() => handleMenuClick(path)}>
+      {label}
+    </Menu>
+  );
+};

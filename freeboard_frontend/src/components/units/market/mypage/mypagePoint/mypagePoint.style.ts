@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 interface IProps {
-  isMatched: boolean;
+  active: boolean;
 }
 
 export const Wrapper = styled.div`
@@ -80,28 +80,16 @@ export const ColumnHeaderTitle = styled.div`
 export const HereTo = styled.div`
   width: 30%;
   text-align: center;
-  color: dimgrey;
+  color: ${(props: IProps) => (props.active ? "lightgray" : "dimgrey")};
+  border-bottom: ${(props: IProps) =>
+    props.active ? "1px solid yellow" : "none"};
   font-family: Ruda;
   cursor: pointer;
   :hover {
     color: lightgray;
     border-bottom: 1px solid yellow;
   }
+
   /* border-bottom: 1px solid yellow; */
   /* color: lightgray; */
-`;
-export const MoveTo = styled.div`
-  width: 30%;
-  text-align: center;
-  color: ${(props: any) => (props.onClickMenu ? "red" : "dimgrey")};
-  font-family: Ruda;
-  cursor: pointer;
-
-  :hover {
-    color: lightgray;
-    border-bottom: 1px solid yellow;
-  }
-`;
-export const TextToken = styled.span`
-  color: ${(props: IProps) => (props.isMatched ? "red" : "white")};
 `;

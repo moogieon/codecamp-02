@@ -7,7 +7,7 @@ import { FETCH_POINT_OF_LOADING } from "./mypagePointLoading.queries";
 export default function MypagePointLoading() {
   const [keyword, setKeyword] = useState("");
   const { data, refetch } = useQuery(FETCH_POINT_OF_LOADING);
-  console.log("Bought", data);
+
   function onChangeKeyword(value: string) {
     setKeyword(value);
   }

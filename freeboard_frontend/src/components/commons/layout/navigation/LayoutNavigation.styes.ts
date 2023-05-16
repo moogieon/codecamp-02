@@ -4,7 +4,13 @@ import { breakPoints } from "../../../../commons/styles/media";
 export const Wrapper = styled.div`
   background-color: black;
 `;
-
+export const Sitcky = styled.div`
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+`;
 export const StickHeader = styled.div`
   padding-top: 8px;
   height: 8px;
@@ -17,11 +23,6 @@ export const StickHeader = styled.div`
   );
   display: flex;
   justify-content: space-between;
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
 `;
 export const Stick_1 = styled.div`
   background-color: #05f;

@@ -7,7 +7,7 @@ import { FETCH_POINT_TRANSACTIONS } from "./pointTransactions.queries";
 export default function PointTransactions() {
   const [keyword, setKeyword] = useState("");
   const { data, refetch } = useQuery(FETCH_POINT_TRANSACTIONS);
-  console.log("Bought", data);
+
   // const [iActive, setIsActive] = useState(false);
   function onChangeKeyword(value: string) {
     setKeyword(value);

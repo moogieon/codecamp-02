@@ -34,7 +34,7 @@ export const Head = styled.div`
 `;
 export const Body = styled.div`
   width: 100%;
-  height: 1008px;
+  max-height: 1008px;
   /* border: 1px solid white; */
   padding: 0px 10px;
   display: flex;
@@ -214,13 +214,17 @@ export const ItemLog = styled.div`
   }
   position: sticky;
   top: 100px;
-  left: 3000px;
+  right: 10px;
   margin-top: 55px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
   padding: 20px 10px 10px 10px;
+
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
 `;
 export const LogoTitle = styled.div`
   font-size: 18px;

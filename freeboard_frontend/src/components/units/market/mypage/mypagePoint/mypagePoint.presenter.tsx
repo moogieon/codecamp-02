@@ -4,7 +4,6 @@ import {
   Search_Wrapper,
   Real_Body,
   Body,
-  MoveTo,
   Search_Body,
   HereTo,
 } from "./mypagePoint.style";
@@ -20,24 +19,29 @@ export default function MypagePointUI(props: any) {
     <>
       <Wrapper>
         <Mypage>
-          <MyPages setPointMenu={props.setPointMenu} />
+          <MyPages />
         </Mypage>
         <Real_Body>
           <Search_Wrapper>
             <Search_Body>
-              <MoveTo onClick={props.onCilckTransactions("transactions")}>
-                전체내역
-              </MoveTo>
-              <HereTo onClick={props.onClickMenu("loading")}>충전내역</HereTo>
-              <MoveTo onClick={props.onClickMenu("bought")}>구매내역</MoveTo>
-              <MoveTo onClick={props.onClickMenu("sold")}>판매내역</MoveTo>
+              {props.pointMenu?.map((menu: any) => (
+                <>
+                  <HereTo
+                    key={menu.id}
+                    onClick={props.onClickMenu(menu.id)}
+                    active={menu.active}
+                  >
+                    {menu.name}
+                  </HereTo>
+                </>
+              ))}
             </Search_Body>
           </Search_Wrapper>
           <Body>
-            {props.transactions && <PointTransactions />}
-            {props.pointMenu.sold && <MypageSold />}
-            {props.pointMenu.bought && <MypageBought />}
-            {props.pointMenu.loading && <MypagePointLoading />}
+            {props.pointMenu[0]?.active === true && <PointTransactions />}
+            {props.pointMenu[1]?.active === true && <MypagePointLoading />}
+            {props.pointMenu[2]?.active === true && <MypageBought />}
+            {props.pointMenu[3]?.active === true && <MypageSold />}
           </Body>
         </Real_Body>
       </Wrapper>

@@ -78,8 +78,8 @@ export default function BoardListUi(props: any) {
             refetch={props.refetch}
           />
           <Button onClick={props.onClickMoveToBoardNew}>
-            <Penimg src="/boards-image/pen.png" />
             <Write>게시물 작성</Write>
+            <Penimg src="/boards-image/pen.png" />
           </Button>
         </Footer>
       </Wrapper>

@@ -3,23 +3,13 @@ import LayoutNavigationUI from "./LayoutNavigation.presenter";
 
 export default function LayoutNavigation() {
   const router = useRouter();
-  function onclickFreeBoard() {
-    router.push("/boards");
-  }
-  function onclickUsedGoods() {
-    router.push("/market");
-  }
-  function onClickMyPage() {
-    router.push("/market/mypage");
-  }
+  const handleMenuClick = (path: string) => {
+    router.push(path);
+  };
 
   return (
     <>
-      <LayoutNavigationUI
-        onclickFreeBoard={onclickFreeBoard}
-        onclickUsedGoods={onclickUsedGoods}
-        onClickMyPage={onClickMyPage}
-      />
+      <LayoutNavigationUI handleMenuClick={handleMenuClick} />
     </>
   );
 }

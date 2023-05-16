@@ -19,11 +19,13 @@ export const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  grid-gap: 10px;
 `;
 export const InputBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  grid-gap: 10px;
 `;
 export const Colum = styled.div`
   text-align: center;

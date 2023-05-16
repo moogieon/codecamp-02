@@ -9,7 +9,6 @@ export default function ISold() {
   function onChangeKeyword(value: string) {
     setKeyword(value);
   }
-  console.log("Sold", data);
 
   return (
     <ISoldUI

@@ -160,10 +160,11 @@ export const Button = styled.button`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  grid-gap: 5px;
   cursor: pointer;
   border-radius: 15px;
   border: 1px solid whitesmoke;
-  background-color: grey;
+  background-color: white;
   @media ${breakPoints.mobile} {
     position: fixed;
     bottom: 10%;
@@ -181,6 +182,8 @@ export const Penimg = styled.img`
 `;
 
 export const Write = styled.span`
+  color: black;
+  font-weight: 600;
   @media ${breakPoints.mobile} {
     display: none;
   }

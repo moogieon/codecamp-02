@@ -107,7 +107,7 @@ export default function BoardWrite(props: IProps) {
           },
         },
       });
-      console.log(result.data);
+
       Modal.confirm({
         okText: "예",
         cancelText: "안돼요!",
